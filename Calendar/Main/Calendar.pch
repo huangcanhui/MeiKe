@@ -1,0 +1,60 @@
+//
+//  Calendar.pch
+//  Calendar
+//
+//  Created by huangcanhui on 2017/11/6.
+//  Copyright © 2017年 HuangCanHui. All rights reserved.
+//
+
+#ifndef Calendar_pch
+#define Calendar_pch
+
+#import "NSObject+CH.h"
+#import "NSString+CH.h"
+#import "UIDevice+CHResolutions.h"
+
+#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//定义系统版本
+#undef IOS_7_OR_LATER
+#define IOS_7_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
+#undef IOS_8_OR_LATER
+#define IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=8.0 ? YES : NO)
+#undef IOS_9_OR_LATER
+#define IOS_9_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=9.0 ? YES : NO)
+#undef IOS_10_OR_LATER
+#define IOS_10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=10.0 ? YES : NO)
+
+// rgb颜色转换（16进制->10进制）
+#define HexColor(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])
+
+//设置全局主要颜色
+#define GLOBAL_COLOR HexColor(0x00796b)
+#define navigationBarColor HexColor(0x00796b)
+
+//状态栏高度
+#define statusHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define navigationHeight statusHeight + 44
+#define screenWithoutTopbar (kScreenHeight - navigationHeight)
+#define tabbarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) - 49
+
+//等比缩放 --- 根据UI尺寸设计的大小，算出在当前机型上的等比大小
+#define DDRealValue(value) (( kScreenWidth / 320 ) * (value))
+#define DDRealValueBy6s(value) (( kScreenWidth / 375 ) * (value))
+
+#define weakSelf(wself) __typeof(*&self) __weak wself = self
+
+//网络请求的接口
+#ifdef DEBUG    //---- Debug模式下
+#define configUrl   @""
+#else           //---- Release版本
+#define configUrl   @""
+#endif
+
+//各种key值
+#define AMAPKEY @""
+
+#endif /* Calendar_pch */

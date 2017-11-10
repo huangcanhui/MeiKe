@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>subTitle</key>
+		<string></string>
+		<key>icon</key>
+		<string>annotation</string>
+		<key>title</key>
+		<string>所在位置</string>
+	</dict>
+	<dict>
+		<key>subTitle</key>
+		<string></string>
+		<key>icon</key>
+		<string>chakan</string>
+		<key>title</key>
+		<string>谁可以看</string>
+	</dict>
+	<dict>
+		<key>subTitle</key>
+		<string></string>
+		<key>icon</key>
+		<string>biaozhi</string>
+		<key>title</key>
+		<string>提醒谁看</string>
+	</dict>
+</array>
+</plist>
