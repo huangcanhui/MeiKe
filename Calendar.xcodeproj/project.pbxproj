@@ -331,13 +331,37 @@
 			path = "Footprint(足迹)";
 			sourceTree = "<group>";
 		};
-		5B818AFD1FBD767000B2B013 /* PersonalData(资料) */ = {
+		5B818B071FBD91B100B2B013 /* 个人资料 */ = {
+			isa = PBXGroup;
+			children = (
+				5B818B081FBD91B100B2B013 /* Controller */,
+				5B818B091FBD91B100B2B013 /* Model */,
+				5B818B0A1FBD91B100B2B013 /* View */,
+			);
+			path = "个人资料";
+			sourceTree = "<group>";
+		};
+		5B818B081FBD91B100B2B013 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B818AFE1FBD768100B2B013 /* CHPersonalDataViewController.h */,
 				5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */,
 			);
-			path = "PersonalData(资料)";
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B818B091FBD91B100B2B013 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B818B0A1FBD91B100B2B013 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5B8DC63D1FB0109900B7B1FA = {
@@ -585,7 +609,7 @@
 		5BA5DEF71FB160D0003FEE02 /* Personal(我的) */ = {
 			isa = PBXGroup;
 			children = (
-				5B818AFD1FBD767000B2B013 /* PersonalData(资料) */,
+				5B818B071FBD91B100B2B013 /* 个人资料 */,
 				5B818AF61FBD691300B2B013 /* Footprint(足迹) */,
 				5B818AF21FBD68C500B2B013 /* AboutUs(我们) */,
 				5B818AEE1FBD684F00B2B013 /* Custom(客服) */,

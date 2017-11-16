@@ -12,4 +12,5 @@ pod 'Qiniu'
 pod 'AMapLocation'
 pod 'AMapSearch'
 pod 'AMap3DMap'
+pod 'SMSSDK'
 end
