@@ -25,6 +25,22 @@
 		5B6BA08C1FB462730081FEF0 /* CHPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08B1FB462730081FEF0 /* CHPublishView.m */; };
 		5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */; };
 		5B6BA0951FB465140081FEF0 /* MAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0941FB465130081FEF0 /* MAP.m */; };
+		5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AD61FBD575B00B2B013 /* CHUserView.m */; };
+		5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B818AD81FBD577800B2B013 /* CHUserView.xib */; };
+		5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818ADB1FBD57D400B2B013 /* CHPersonalTableViewCell.m */; };
+		5B818ADE1FBD57D400B2B013 /* CHPersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B818ADC1FBD57D400B2B013 /* CHPersonalTableViewCell.xib */; };
+		5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AE01FBD580D00B2B013 /* CHPersonalModel.m */; };
+		5B818AE41FBD581B00B2B013 /* CHPersonalGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AE31FBD581B00B2B013 /* CHPersonalGroup.m */; };
+		5B818AE61FBD5D6F00B2B013 /* CHPersonalList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B818AE51FBD5D6F00B2B013 /* CHPersonalList.plist */; };
+		5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AE81FBD67A500B2B013 /* CHPhotoViewController.m */; };
+		5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AEC1FBD680700B2B013 /* CHGameViewController.m */; };
+		5B818AF11FBD686300B2B013 /* CHCustomServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AF01FBD686300B2B013 /* CHCustomServiceViewController.m */; };
+		5B818AF51FBD68D400B2B013 /* CHAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AF41FBD68D400B2B013 /* CHAboutUsViewController.m */; };
+		5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AF81FBD692E00B2B013 /* CHFootPrintViewController.m */; };
+		5B818AFC1FBD729C00B2B013 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AFB1FBD729C00B2B013 /* UserModel.m */; };
+		5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */; };
+		5B818B031FBD777900B2B013 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B021FBD777900B2B013 /* CHTime.m */; };
+		5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B051FBD77F700B2B013 /* UIViewController+CH.m */; };
 		5B8DC64B1FB0109900B7B1FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC64A1FB0109900B7B1FA /* AppDelegate.m */; };
 		5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8DC64F1FB0109900B7B1FA /* Main.storyboard */; };
 		5B8DC6531FB0109900B7B1FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8DC6521FB0109900B7B1FA /* Assets.xcassets */; };
@@ -32,6 +48,11 @@
 		5B8DC6591FB0109900B7B1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6581FB0109900B7B1FA /* main.m */; };
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
+		5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */; };
+		5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */; };
+		5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */; };
+		5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */; };
+		5BA0E10D1FBC270100F2BFA9 /* CHMobileAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */; };
 		5BA5DEFD1FB160F8003FEE02 /* CHCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */; };
 		5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */; };
 		5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */; };
@@ -113,6 +134,35 @@
 		5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishDetailViewController.m; sourceTree = "<group>"; };
 		5B6BA0931FB465130081FEF0 /* MAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAP.h; sourceTree = "<group>"; };
 		5B6BA0941FB465130081FEF0 /* MAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAP.m; sourceTree = "<group>"; };
+		5B818AD51FBD575B00B2B013 /* CHUserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUserView.h; sourceTree = "<group>"; };
+		5B818AD61FBD575B00B2B013 /* CHUserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUserView.m; sourceTree = "<group>"; };
+		5B818AD81FBD577800B2B013 /* CHUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHUserView.xib; sourceTree = "<group>"; };
+		5B818ADA1FBD57D400B2B013 /* CHPersonalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalTableViewCell.h; sourceTree = "<group>"; };
+		5B818ADB1FBD57D400B2B013 /* CHPersonalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalTableViewCell.m; sourceTree = "<group>"; };
+		5B818ADC1FBD57D400B2B013 /* CHPersonalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHPersonalTableViewCell.xib; sourceTree = "<group>"; };
+		5B818ADF1FBD580D00B2B013 /* CHPersonalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalModel.h; sourceTree = "<group>"; };
+		5B818AE01FBD580D00B2B013 /* CHPersonalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalModel.m; sourceTree = "<group>"; };
+		5B818AE21FBD581B00B2B013 /* CHPersonalGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalGroup.h; sourceTree = "<group>"; };
+		5B818AE31FBD581B00B2B013 /* CHPersonalGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalGroup.m; sourceTree = "<group>"; };
+		5B818AE51FBD5D6F00B2B013 /* CHPersonalList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CHPersonalList.plist; sourceTree = "<group>"; };
+		5B818AE71FBD67A500B2B013 /* CHPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPhotoViewController.h; sourceTree = "<group>"; };
+		5B818AE81FBD67A500B2B013 /* CHPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPhotoViewController.m; sourceTree = "<group>"; };
+		5B818AEB1FBD680700B2B013 /* CHGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGameViewController.h; sourceTree = "<group>"; };
+		5B818AEC1FBD680700B2B013 /* CHGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGameViewController.m; sourceTree = "<group>"; };
+		5B818AEF1FBD686300B2B013 /* CHCustomServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHCustomServiceViewController.h; sourceTree = "<group>"; };
+		5B818AF01FBD686300B2B013 /* CHCustomServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHCustomServiceViewController.m; sourceTree = "<group>"; };
+		5B818AF31FBD68D400B2B013 /* CHAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAboutUsViewController.h; sourceTree = "<group>"; };
+		5B818AF41FBD68D400B2B013 /* CHAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAboutUsViewController.m; sourceTree = "<group>"; };
+		5B818AF71FBD692E00B2B013 /* CHFootPrintViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFootPrintViewController.h; sourceTree = "<group>"; };
+		5B818AF81FBD692E00B2B013 /* CHFootPrintViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFootPrintViewController.m; sourceTree = "<group>"; };
+		5B818AFA1FBD729C00B2B013 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		5B818AFB1FBD729C00B2B013 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		5B818AFE1FBD768100B2B013 /* CHPersonalDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalDataViewController.h; sourceTree = "<group>"; };
+		5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalDataViewController.m; sourceTree = "<group>"; };
+		5B818B011FBD777900B2B013 /* CHTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTime.h; sourceTree = "<group>"; };
+		5B818B021FBD777900B2B013 /* CHTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTime.m; sourceTree = "<group>"; };
+		5B818B041FBD77F700B2B013 /* UIViewController+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CH.h"; sourceTree = "<group>"; };
+		5B818B051FBD77F700B2B013 /* UIViewController+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CH.m"; sourceTree = "<group>"; };
 		5B8DC6461FB0109900B7B1FA /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC6491FB0109900B7B1FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B8DC64A1FB0109900B7B1FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,6 +177,14 @@
 		5B8DC6691FB0109900B7B1FA /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarUITests.m; sourceTree = "<group>"; };
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpViewController.h; sourceTree = "<group>"; };
+		5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpViewController.m; sourceTree = "<group>"; };
+		5BA0E1041FBC1BB700F2BFA9 /* CHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHLoginViewController.h; sourceTree = "<group>"; };
+		5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHLoginViewController.m; sourceTree = "<group>"; };
+		5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHLoginViewController.xib; sourceTree = "<group>"; };
+		5BA0E1091FBC270100F2BFA9 /* CHMobileAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHMobileAuthViewController.h; sourceTree = "<group>"; };
+		5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHMobileAuthViewController.m; sourceTree = "<group>"; };
+		5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHMobileAuthViewController.xib; sourceTree = "<group>"; };
 		5BA5DEFB1FB160F8003FEE02 /* CHCircleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHCircleViewController.h; sourceTree = "<group>"; };
 		5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHCircleViewController.m; sourceTree = "<group>"; };
 		5BA5DEFE1FB1610B003FEE02 /* CHFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendsViewController.h; sourceTree = "<group>"; };
@@ -237,6 +295,51 @@
 			path = CHBadge;
 			sourceTree = "<group>";
 		};
+		5B818AEA1FBD67FD00B2B013 /* Game(游戏) */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AEB1FBD680700B2B013 /* CHGameViewController.h */,
+				5B818AEC1FBD680700B2B013 /* CHGameViewController.m */,
+			);
+			path = "Game(游戏)";
+			sourceTree = "<group>";
+		};
+		5B818AEE1FBD684F00B2B013 /* Custom(客服) */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AEF1FBD686300B2B013 /* CHCustomServiceViewController.h */,
+				5B818AF01FBD686300B2B013 /* CHCustomServiceViewController.m */,
+			);
+			path = "Custom(客服)";
+			sourceTree = "<group>";
+		};
+		5B818AF21FBD68C500B2B013 /* AboutUs(我们) */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AF31FBD68D400B2B013 /* CHAboutUsViewController.h */,
+				5B818AF41FBD68D400B2B013 /* CHAboutUsViewController.m */,
+			);
+			path = "AboutUs(我们)";
+			sourceTree = "<group>";
+		};
+		5B818AF61FBD691300B2B013 /* Footprint(足迹) */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AF71FBD692E00B2B013 /* CHFootPrintViewController.h */,
+				5B818AF81FBD692E00B2B013 /* CHFootPrintViewController.m */,
+			);
+			path = "Footprint(足迹)";
+			sourceTree = "<group>";
+		};
+		5B818AFD1FBD767000B2B013 /* PersonalData(资料) */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AFE1FBD768100B2B013 /* CHPersonalDataViewController.h */,
+				5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */,
+			);
+			path = "PersonalData(资料)";
+			sourceTree = "<group>";
+		};
 		5B8DC63D1FB0109900B7B1FA = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +424,10 @@
 				5BEBA90A1FB04D200099E8EF /* SingletonObject.m */,
 				5B6BA0821FB4499D0081FEF0 /* UIDevice+CHResolutions.h */,
 				5B6BA0831FB4499D0081FEF0 /* UIDevice+CHResolutions.m */,
+				5B818B011FBD777900B2B013 /* CHTime.h */,
+				5B818B021FBD777900B2B013 /* CHTime.m */,
+				5B818B041FBD77F700B2B013 /* UIViewController+CH.h */,
+				5B818B051FBD77F700B2B013 /* UIViewController+CH.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -342,6 +449,8 @@
 				5B6BA0741FB42F580081FEF0 /* CHManager.m */,
 				5B6BA0761FB431C90081FEF0 /* mobile.h */,
 				5B6BA0771FB431C90081FEF0 /* mobile.m */,
+				5B818AFA1FBD729C00B2B013 /* UserModel.h */,
+				5B818AFB1FBD729C00B2B013 /* UserModel.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -352,6 +461,44 @@
 				5B54E6981FB5B9BF00BFFA54 /* STPhotoKit */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		5BA0E0FA1FBC19C000F2BFA9 /* Setup(设置) */ = {
+			isa = PBXGroup;
+			children = (
+				5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */,
+				5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */,
+			);
+			path = "Setup(设置)";
+			sourceTree = "<group>";
+		};
+		5BA0E0FB1FBC19D900F2BFA9 /* Photo(照片) */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AE71FBD67A500B2B013 /* CHPhotoViewController.h */,
+				5B818AE81FBD67A500B2B013 /* CHPhotoViewController.m */,
+			);
+			path = "Photo(照片)";
+			sourceTree = "<group>";
+		};
+		5BA0E0FC1FBC19F900F2BFA9 /* Login(登录) */ = {
+			isa = PBXGroup;
+			children = (
+				5BA0E1041FBC1BB700F2BFA9 /* CHLoginViewController.h */,
+				5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */,
+				5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */,
+				5BA0E1091FBC270100F2BFA9 /* CHMobileAuthViewController.h */,
+				5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */,
+				5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */,
+			);
+			path = "Login(登录)";
+			sourceTree = "<group>";
+		};
+		5BA0E0FD1FBC1A0800F2BFA9 /* Register(注册) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Register(注册)";
 			sourceTree = "<group>";
 		};
 		5BA5DEEF1FB16089003FEE02 /* Circle(朋友圈) */ = {
@@ -438,6 +585,15 @@
 		5BA5DEF71FB160D0003FEE02 /* Personal(我的) */ = {
 			isa = PBXGroup;
 			children = (
+				5B818AFD1FBD767000B2B013 /* PersonalData(资料) */,
+				5B818AF61FBD691300B2B013 /* Footprint(足迹) */,
+				5B818AF21FBD68C500B2B013 /* AboutUs(我们) */,
+				5B818AEE1FBD684F00B2B013 /* Custom(客服) */,
+				5B818AEA1FBD67FD00B2B013 /* Game(游戏) */,
+				5BA0E0FD1FBC1A0800F2BFA9 /* Register(注册) */,
+				5BA0E0FC1FBC19F900F2BFA9 /* Login(登录) */,
+				5BA0E0FB1FBC19D900F2BFA9 /* Photo(照片) */,
+				5BA0E0FA1FBC19C000F2BFA9 /* Setup(设置) */,
 				5BA5DEF81FB160D0003FEE02 /* Controller */,
 				5BA5DEF91FB160D0003FEE02 /* Model */,
 				5BA5DEFA1FB160D0003FEE02 /* View */,
@@ -457,6 +613,11 @@
 		5BA5DEF91FB160D0003FEE02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B818ADF1FBD580D00B2B013 /* CHPersonalModel.h */,
+				5B818AE01FBD580D00B2B013 /* CHPersonalModel.m */,
+				5B818AE21FBD581B00B2B013 /* CHPersonalGroup.h */,
+				5B818AE31FBD581B00B2B013 /* CHPersonalGroup.m */,
+				5B818AE51FBD5D6F00B2B013 /* CHPersonalList.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,6 +625,12 @@
 		5BA5DEFA1FB160D0003FEE02 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B818AD51FBD575B00B2B013 /* CHUserView.h */,
+				5B818AD61FBD575B00B2B013 /* CHUserView.m */,
+				5B818AD81FBD577800B2B013 /* CHUserView.xib */,
+				5B818ADA1FBD57D400B2B013 /* CHPersonalTableViewCell.h */,
+				5B818ADB1FBD57D400B2B013 /* CHPersonalTableViewCell.m */,
+				5B818ADC1FBD57D400B2B013 /* CHPersonalTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,9 +753,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */,
+				5BA0E10D1FBC270100F2BFA9 /* CHMobileAuthViewController.xib in Resources */,
 				5B8DC6561FB0109900B7B1FA /* LaunchScreen.storyboard in Resources */,
 				5B8DC6531FB0109900B7B1FA /* Assets.xcassets in Resources */,
+				5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */,
+				5B818AE61FBD5D6F00B2B013 /* CHPersonalList.plist in Resources */,
 				5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */,
+				5B818ADE1FBD57D400B2B013 /* CHPersonalTableViewCell.xib in Resources */,
 				5B6BA0861FB45E770081FEF0 /* CHPublish.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,32 +843,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B818AE41FBD581B00B2B013 /* CHPersonalGroup.m in Sources */,
 				5B6BA08C1FB462730081FEF0 /* CHPublishView.m in Sources */,
+				5B818AFC1FBD729C00B2B013 /* UserModel.m in Sources */,
+				5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */,
+				5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */,
+				5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */,
 				5B6BA0781FB431C90081FEF0 /* mobile.m in Sources */,
 				5B6BA06F1FB42A2A0081FEF0 /* UITabBar+CHTabBar.m in Sources */,
 				5BA5DF0B1FB18AF7003FEE02 /* CHTabBarViewController.m in Sources */,
 				5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */,
+				5B818B031FBD777900B2B013 /* CHTime.m in Sources */,
+				5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */,
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,
 				5B6BA07E1FB43AFD0081FEF0 /* CHPublishViewController.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,
 				5BEBA9051FB04C270099E8EF /* UIView+CH.m in Sources */,
+				5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */,
 				5B54E6911FB57A0900BFFA54 /* Address.m in Sources */,
 				5B54E6971FB5B9A600BFFA54 /* ImagePickerManager.m in Sources */,
 				5B6BA0841FB4499D0081FEF0 /* UIDevice+CHResolutions.m in Sources */,
+				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,
 				5B8DC6591FB0109900B7B1FA /* main.m in Sources */,
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
+				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
+				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
+				5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */,
+				5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */,
+				5B818AF51FBD68D400B2B013 /* CHAboutUsViewController.m in Sources */,
 				5B6BA0721FB42A700081FEF0 /* UITabBarItem+CHBadge.m in Sources */,
 				5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */,
 				5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */,
+				5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */,
 				5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */,
 				5B8DC64B1FB0109900B7B1FA /* AppDelegate.m in Sources */,
 				5B6BA0811FB43DAC0081FEF0 /* CHNormalButton.m in Sources */,
 				5B6BA0751FB42F580081FEF0 /* CHManager.m in Sources */,
 				5B6BA0891FB460570081FEF0 /* CHPublish.m in Sources */,
 				5BA5DEFD1FB160F8003FEE02 /* CHCircleViewController.m in Sources */,
+				5B818AF11FBD686300B2B013 /* CHCustomServiceViewController.m in Sources */,
 				5BEBA90B1FB04D200099E8EF /* SingletonObject.m in Sources */,
 				5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */,
 				5BEBA8FF1FB04BAB0099E8EF /* UILabel+CH.m in Sources */,

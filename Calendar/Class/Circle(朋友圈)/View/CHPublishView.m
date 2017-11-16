@@ -27,15 +27,22 @@
 
 - (void)initTextView:(CGRect)frame
 {
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, frame.size.width - 10, frame.size.height / 2)];
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(8, 8, frame.size.width - 16, frame.size.height - 16)];
     textView.delegate = self;
+    //外框的样式
+    textView.layer.borderColor = [UIColor blackColor].CGColor;
+    textView.layer.borderWidth = 1;
+    textView.layer.cornerRadius = 5;
     [self addSubview:textView];
 }
 
 #pragma mark UITextView.delegate
 - (void)textViewDidChange:(UITextView *)textView
 {
-    
+    //获取用户写入的文字
+    if (self.getData) {
+        self.getData(textView.text);
+    }
 }
 
 @end

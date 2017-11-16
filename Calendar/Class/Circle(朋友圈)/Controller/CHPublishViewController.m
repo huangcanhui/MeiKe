@@ -30,9 +30,17 @@
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(clickBackCircleVC)];
+    
     [self initTableView];
     
     [self initPublishButton];
+}
+
+//取消按钮的点击事件
+- (void)clickBackCircleVC
+{
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 #pragma mark - 发布正文
@@ -43,9 +51,13 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(220))];
-    view.backgroundColor = [UIColor redColor];
-    self.tableView.tableHeaderView = view;
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(220))];
+//    view.backgroundColor = [UIColor redColor];
+    CHPublishView *publishView = [[CHPublishView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(192))];
+    publishView.getData = ^(NSString *title) {
+        NSLog(@"%@", title);
+    };
+    self.tableView.tableHeaderView = publishView;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     

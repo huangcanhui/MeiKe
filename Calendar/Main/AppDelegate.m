@@ -10,6 +10,7 @@
 
 #import "CHTabBarViewController.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,9 @@
     
     //设置高德key
     [self useMAMapKey];
+    
+    //键盘处理
+    [[self class] setIQKeyBoard];
     
     return YES;
 }
@@ -41,6 +45,16 @@
 - (void)useMAMapKey
 {
     [AMapServices sharedServices].apiKey = AMAPKEY;
+}
+
+#pragma mark - 键盘处理
++ (void)setIQKeyBoard
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES; //控制整个功能都能使用
+    manager.shouldResignOnTouchOutside = YES; //控制点击背景是否收起键盘
+    manager.shouldToolbarUsesTextFieldTintColor = YES;// 控制键盘上的工具条文字颜色是否用户自定义
+    manager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
 }
 
 

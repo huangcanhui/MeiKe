@@ -10,7 +10,7 @@
 
 @interface CHPublishView : UIView
 /**
- * 获取到输入的文字和照片数组
+ * 获取到输入的文字
  */
-@property (nonatomic, copy)void (^getData)(NSString *title, NSArray *array);
+@property (nonatomic, copy)void (^getData)(NSString *title);
 @end

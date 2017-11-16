@@ -37,14 +37,44 @@
 #pragma mark - 导航栏视图
 - (void)initNaviView
 {
+   
+//    //添加发布
+//    CHNaviButton *rightButton = [CHNaviButton buttonwWithFrame:CGRectMake(0, 0, 35, 35) type:UIButtonTypeCustom andFont:12 andTitle:nil andTitleColor:nil imageName:@"add" andBoolLabel:NO andTmepBlock:^(CHNaviButton *button) {
+//        CHPublishViewController *publishVC = [CHPublishViewController new];
+//        CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:publishVC];
+//        [wself presentViewController:naVC animated:NO completion:nil];
+//    }];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 25)];
+    imageView.image = [UIImage imageNamed:@"takePhoto"];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+    //点击发表带有图像的说说
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightNaviButtonTap)];
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:tap];
+    
+    //长按发表说说
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRightNaviButton)];
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:longPress];
+}
+
+- (void)rightNaviButtonTap
+{
     weakSelf(wself);
-    //添加发布
-    CHNaviButton *rightButton = [CHNaviButton buttonwWithFrame:CGRectMake(0, 0, 35, 35) type:UIButtonTypeCustom andFont:12 andTitle:nil andTitleColor:nil imageName:@"add" andBoolLabel:NO andTmepBlock:^(CHNaviButton *button) {
-        CHPublishViewController *publishVC = [CHPublishViewController new];
-        CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:publishVC];
-        [wself presentViewController:naVC animated:NO completion:nil];
-    }];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    CHPublishViewController *pubVC = [CHPublishViewController new];
+    pubVC.style = clickGes; //点击
+    CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:pubVC];
+    [wself presentViewController:naVC animated:NO completion:nil];
+}
+
+- (void)longPressRightNaviButton
+{
+    weakSelf(wself);
+    CHPublishViewController *pubVC = [CHPublishViewController new];
+    pubVC.style = clickLongPress; //点击
+    CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:pubVC];
+    [wself presentViewController:naVC animated:NO completion:nil];
 }
 
 - (void)test

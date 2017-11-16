@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserModel.h"
 
 @interface CHPersonalViewController : UIViewController
+
+@property (nonatomic, strong)UserModel *userModel;
 
 @end
