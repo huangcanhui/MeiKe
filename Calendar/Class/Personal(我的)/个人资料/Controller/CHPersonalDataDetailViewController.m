@@ -28,7 +28,9 @@
     
     switch (_type) {
         case typeWithPicture: //头像
+            self.view.backgroundColor = HexColor(0x000000);
             [self createHeaderPicture];
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"PerData_shenglve"] style:UIBarButtonItemStyleDone target:self action:@selector(submitPicture)];
             break;
         case typeWithText: //文字输入
             [self createTextField];
@@ -42,10 +44,19 @@
     }
 }
 
+
 #pragma mark - 创建头像的视图
 - (void)createHeaderPicture
 {
-    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"LOGO"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:imageView];
+}
+
+- (void)submitPicture
+{
+    NSLog(@"头像上传");
 }
 
 #pragma mark - 创建文字输入
