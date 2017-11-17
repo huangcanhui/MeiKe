@@ -7,11 +7,19 @@
 //
 
 #import "CHPersonalDataViewController.h"
+#import "CHPersonalData.h"
+#import "MJExtension.h"
+
+#import "CHPersonalDataDetailViewController.h"
 
 static NSString *cellID = @"PersonalData";
 @interface CHPersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
-@property (nonatomic, strong)NSArray *data;
+/**
+ * 数据源
+ */
+@property (nonatomic, strong)NSArray *data; //这个用来存放plist文件读取到的数据
+@property (nonatomic, strong)NSMutableArray *arrayM; //这个用来存放获取到的用户数据
 @end
 
 @implementation CHPersonalDataViewController
@@ -20,6 +28,8 @@ static NSString *cellID = @"PersonalData";
     [super viewDidLoad];
     
     self.navigationItem.title = @"个人信息";
+    
+    _arrayM = [NSMutableArray array]; //初始化
     
     [self initUI];
 }
@@ -32,6 +42,7 @@ static NSString *cellID = @"PersonalData";
     tableView.delegate = self;
     tableView.dataSource = self;
     
+    self.tableView = tableView;
     tableView.tableFooterView = [[UIView alloc] init];
     
     [self.view addSubview:tableView];
@@ -57,22 +68,59 @@ static NSString *cellID = @"PersonalData";
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
         cell.selectionStyle = UITableViewCellSelectionStyleNone; //选中的样式
     }
+    cell.textLabel.text = _data[indexPath.row];
+    cell.detailTextLabel.text = _arrayM[indexPath.row];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CHPersonalDataDetailViewController *detailVC = [CHPersonalDataDetailViewController new];
+    switch (indexPath.row) {
+        case 0: //昵称
+        {
+            detailVC.type = typeWithText;
+            detailVC.text = @"修改昵称";
+            detailVC.whenClickSubmitButton = ^(NSString *string) {
+                [_arrayM replaceObjectAtIndex:indexPath.row + 1 withObject:string];
+                [self.tableView reloadData];
+            };
+        }
+            break;
+        case 1:
+            
+            break;
+        case 2:
+        {
+            detailVC.type = typeWithScanCode;
+//            detailVC.num =  //传递用户的ID
+        }
+            break;
+            
+        default:
+            break;
+    }
+    [self.navigationController pushViewController:detailVC animated:NO];
 }
 
 #pragma mark - 懒加载
 - (NSArray *)data
 {
     if (!_data) {
-        
-        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"PersonalData" ofType:@"plist"];
+        NSArray *tempArray = [NSMutableArray arrayWithContentsOfFile:path];
+        _data = [CHPersonalData mj_objectArrayWithKeyValuesArray:tempArray];
     }
     return _data;
+}
+
+- (NSMutableArray *)arrayM
+{
+    if (_arrayM) {
+        //这边进行网络请求
+    }
+    return _arrayM;
 }
 
 @end

@@ -25,6 +25,9 @@
 		5B6BA08C1FB462730081FEF0 /* CHPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08B1FB462730081FEF0 /* CHPublishView.m */; };
 		5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */; };
 		5B6BA0951FB465140081FEF0 /* MAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0941FB465130081FEF0 /* MAP.m */; };
+		5B799C841FBEBABB00903A01 /* PersonalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B799C831FBEBABB00903A01 /* PersonalData.plist */; };
+		5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C861FBEBC0F00903A01 /* CHPersonalData.m */; };
+		5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */; };
 		5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AD61FBD575B00B2B013 /* CHUserView.m */; };
 		5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B818AD81FBD577800B2B013 /* CHUserView.xib */; };
 		5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818ADB1FBD57D400B2B013 /* CHPersonalTableViewCell.m */; };
@@ -134,6 +137,11 @@
 		5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishDetailViewController.m; sourceTree = "<group>"; };
 		5B6BA0931FB465130081FEF0 /* MAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAP.h; sourceTree = "<group>"; };
 		5B6BA0941FB465130081FEF0 /* MAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAP.m; sourceTree = "<group>"; };
+		5B799C831FBEBABB00903A01 /* PersonalData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PersonalData.plist; sourceTree = "<group>"; };
+		5B799C851FBEBC0F00903A01 /* CHPersonalData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalData.h; sourceTree = "<group>"; };
+		5B799C861FBEBC0F00903A01 /* CHPersonalData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalData.m; sourceTree = "<group>"; };
+		5B799C881FBEBDF800903A01 /* CHPersonalDataDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalDataDetailViewController.h; sourceTree = "<group>"; };
+		5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalDataDetailViewController.m; sourceTree = "<group>"; };
 		5B818AD51FBD575B00B2B013 /* CHUserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUserView.h; sourceTree = "<group>"; };
 		5B818AD61FBD575B00B2B013 /* CHUserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUserView.m; sourceTree = "<group>"; };
 		5B818AD81FBD577800B2B013 /* CHUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHUserView.xib; sourceTree = "<group>"; };
@@ -346,6 +354,8 @@
 			children = (
 				5B818AFE1FBD768100B2B013 /* CHPersonalDataViewController.h */,
 				5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */,
+				5B799C881FBEBDF800903A01 /* CHPersonalDataDetailViewController.h */,
+				5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +363,9 @@
 		5B818B091FBD91B100B2B013 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B799C831FBEBABB00903A01 /* PersonalData.plist */,
+				5B799C851FBEBC0F00903A01 /* CHPersonalData.h */,
+				5B799C861FBEBC0F00903A01 /* CHPersonalData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -785,6 +798,7 @@
 				5B818AE61FBD5D6F00B2B013 /* CHPersonalList.plist in Resources */,
 				5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */,
 				5B818ADE1FBD57D400B2B013 /* CHPersonalTableViewCell.xib in Resources */,
+				5B799C841FBEBABB00903A01 /* PersonalData.plist in Resources */,
 				5B6BA0861FB45E770081FEF0 /* CHPublish.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -891,7 +905,9 @@
 				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,
 				5B8DC6591FB0109900B7B1FA /* main.m in Sources */,
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
+				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
+				5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */,
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,

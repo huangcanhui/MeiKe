@@ -12,6 +12,7 @@
 #import "NSObject+CH.h"
 #import "NSString+CH.h"
 #import "UIDevice+CHResolutions.h"
+#import "UIView+CH.h"
 
 #define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
 #define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
