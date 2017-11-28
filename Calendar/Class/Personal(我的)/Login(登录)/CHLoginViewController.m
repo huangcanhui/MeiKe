@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import "CHManager.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "CHWebViewController.h"
 
 @interface CHLoginViewController ()
 {
@@ -33,6 +34,18 @@
  * 验证码按钮
  */
 @property (weak, nonatomic) IBOutlet UIButton *smsButton;
+/**
+ * 勾选用户须知
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *checkProtocol;
+/**
+ * 判断用户是否勾选了用户须知
+ */
+@property (assign, nonatomic)BOOL isCheck;
+/**
+ * 中间键
+ */
+@property (assign, nonatomic)int count;
 
 @end
 
@@ -43,7 +56,11 @@
     
     self.navigationItem.title = @"登录";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(clickBack)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(clickBack)];
+    
+    //初始化
+    self.isCheck = NO; //默认用户未勾选
+    self.count = 0;
     
     [self initUI];
 }
@@ -55,6 +72,24 @@
     
     self.loginButton.layer.cornerRadius = 5;
     self.loginButton.layer.masksToBounds = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(protocolCheckButton:)];
+    self.checkProtocol.userInteractionEnabled = YES;
+    [self.checkProtocol addGestureRecognizer:tap];
+}
+
+- (void)protocolCheckButton:(UITapGestureRecognizer *)tap
+{
+    self.count ++;
+    if (self.count % 2 == 0) { //未选中
+        self.isCheck = NO;
+        self.checkProtocol.image = nil;
+        self.checkProtocol.image = [UIImage imageNamed:@"loginCircle"];
+    } else {
+        self.isCheck = YES;
+        self.checkProtocol.image = [UIImage imageNamed:@"loginCircle_active"];
+    }
+    NSLog(@"%d", self.count);
 }
 
 - (void)clickBack
@@ -109,6 +144,17 @@
 }
 
 /**
+ * 用户须知
+ */
+- (IBAction)companyProtocol:(id)sender {
+    CHWebViewController *webView = [CHWebViewController new];
+    webView.title = @"用户须知";
+#warning 这个地方要更改
+    webView.webString = @"https://www.baidu.com";
+    [self.navigationController pushViewController:webView animated:NO];
+}
+
+/**
  * 登录的点击事件
  */
 - (IBAction)loginButton:(id)sender {
@@ -135,6 +181,12 @@
         [SVProgressHUD showErrorWithStatus:@"用户名为11位的手机号"];
         return NO;
     }
+    
+    if (self.isCheck == NO) {
+        [SVProgressHUD showErrorWithStatus:@"请先阅读用户须知"];
+        return NO;
+    }
+    
     return YES;
 }
 

@@ -53,6 +53,7 @@
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
 		5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D71D1FCD385E0000EEBE /* CHViewController.m */; };
 		5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7231FCD3EF60000EEBE /* CHShareManager.m */; };
+		5B97D7271FCD57F50000EEBE /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7261FCD57F50000EEBE /* CHWebViewController.m */; };
 		5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */; };
 		5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */; };
 		5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */; };
@@ -191,6 +192,8 @@
 		5B97D71D1FCD385E0000EEBE /* CHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHViewController.m; sourceTree = "<group>"; };
 		5B97D7221FCD3EF60000EEBE /* CHShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHShareManager.h; sourceTree = "<group>"; };
 		5B97D7231FCD3EF60000EEBE /* CHShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHShareManager.m; sourceTree = "<group>"; };
+		5B97D7251FCD57F50000EEBE /* CHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
+		5B97D7261FCD57F50000EEBE /* CHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpViewController.h; sourceTree = "<group>"; };
 		5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpViewController.m; sourceTree = "<group>"; };
 		5BA0E1041FBC1BB700F2BFA9 /* CHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHLoginViewController.h; sourceTree = "<group>"; };
@@ -537,6 +540,8 @@
 				5BA0E1091FBC270100F2BFA9 /* CHMobileAuthViewController.h */,
 				5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */,
 				5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */,
+				5B97D7251FCD57F50000EEBE /* CHWebViewController.h */,
+				5B97D7261FCD57F50000EEBE /* CHWebViewController.m */,
 			);
 			path = "Login(登录)";
 			sourceTree = "<group>";
@@ -933,6 +938,7 @@
 				5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */,
 				5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */,
 				5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */,
+				5B97D7271FCD57F50000EEBE /* CHWebViewController.m in Sources */,
 				5B8DC64B1FB0109900B7B1FA /* AppDelegate.m in Sources */,
 				5B6BA0811FB43DAC0081FEF0 /* CHNormalButton.m in Sources */,
 				5B6BA0751FB42F580081FEF0 /* CHManager.m in Sources */,
@@ -1105,6 +1111,7 @@
 			baseConfigurationReference = 1B6231DDB1B6EF13524DBA8F /* Pods-Calendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2JN7QK688A;
 				GCC_PREFIX_HEADER = /Users/hch/Desktop/Calendar/Calendar/Main/Calendar.pch;
@@ -1113,7 +1120,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-------------.Calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1122,6 +1130,7 @@
 			baseConfigurationReference = 2E866BD13457B535A24FA1D6 /* Pods-Calendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2JN7QK688A;
 				GCC_PREFIX_HEADER = /Users/hch/Desktop/Calendar/Calendar/Main/Calendar.pch;
@@ -1130,7 +1139,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-------------.Calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

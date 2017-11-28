@@ -141,6 +141,7 @@ static NSString *cellBundle = @"PERSONAL";
     CHPersonalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellBundle];
     if (!cell) {
         cell = [[CHPersonalTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellBundle];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     CHPersonalGroup *group = self.itemGroups[indexPath.section];
     CHPersonalModel *model = group.activity[indexPath.row];
