@@ -13,4 +13,7 @@ pod 'AMapLocation'
 pod 'AMapSearch'
 pod 'AMap3DMap'
 pod 'SMSSDK'
+pod ‘UMengUShare/UI’
+pod ‘UMengUShare/Social/ReducedWeChat'
+pod ‘UMengUShare/Social/ReducedQQ'
 end

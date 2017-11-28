@@ -51,6 +51,8 @@
 		5B8DC6591FB0109900B7B1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6581FB0109900B7B1FA /* main.m */; };
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
+		5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D71D1FCD385E0000EEBE /* CHViewController.m */; };
+		5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7231FCD3EF60000EEBE /* CHShareManager.m */; };
 		5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */; };
 		5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */; };
 		5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */; };
@@ -185,6 +187,10 @@
 		5B8DC6691FB0109900B7B1FA /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarUITests.m; sourceTree = "<group>"; };
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B97D71C1FCD385E0000EEBE /* CHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHViewController.h; sourceTree = "<group>"; };
+		5B97D71D1FCD385E0000EEBE /* CHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHViewController.m; sourceTree = "<group>"; };
+		5B97D7221FCD3EF60000EEBE /* CHShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHShareManager.h; sourceTree = "<group>"; };
+		5B97D7231FCD3EF60000EEBE /* CHShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHShareManager.m; sourceTree = "<group>"; };
 		5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpViewController.h; sourceTree = "<group>"; };
 		5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpViewController.m; sourceTree = "<group>"; };
 		5BA0E1041FBC1BB700F2BFA9 /* CHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHLoginViewController.h; sourceTree = "<group>"; };
@@ -465,6 +471,10 @@
 				5B818B021FBD777900B2B013 /* CHTime.m */,
 				5B818B041FBD77F700B2B013 /* UIViewController+CH.h */,
 				5B818B051FBD77F700B2B013 /* UIViewController+CH.m */,
+				5B97D71C1FCD385E0000EEBE /* CHViewController.h */,
+				5B97D71D1FCD385E0000EEBE /* CHViewController.m */,
+				5B97D7221FCD3EF60000EEBE /* CHShareManager.h */,
+				5B97D7231FCD3EF60000EEBE /* CHShareManager.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -831,6 +841,8 @@
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -901,9 +913,11 @@
 				5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */,
 				5B54E6911FB57A0900BFFA54 /* Address.m in Sources */,
 				5B54E6971FB5B9A600BFFA54 /* ImagePickerManager.m in Sources */,
+				5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */,
 				5B6BA0841FB4499D0081FEF0 /* UIDevice+CHResolutions.m in Sources */,
 				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,
 				5B8DC6591FB0109900B7B1FA /* main.m in Sources */,
+				5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */,
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,

@@ -58,4 +58,7 @@
 //各种key值
 #define AMAPKEY @""
 
+//客服电话
+#define companyPhone @"0592-5727298"
+
 #endif /* Calendar_pch */
