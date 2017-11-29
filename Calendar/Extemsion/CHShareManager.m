@@ -10,7 +10,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import <UShareUI/UShareUI.h>
 
-#import "SVProgressHUD.h"
+#import "ProgressHUD.h"
 
 @implementation CHShareManager
 
@@ -49,8 +49,8 @@ DEF_SINGLETON(CHShareManager)
             
         default:
         {
-//            [ProgressHUD showError:@"很抱歉，出错了!"];
-            [SVProgressHUD showErrorWithStatus:@"很抱歉，出错了！"];
+            [ProgressHUD showError:@"很抱歉，出错了!"];
+//            [SVProgressHUD showErrorWithStatus:@"很抱歉，出错了！"];
         }
             break;
     }
@@ -58,13 +58,13 @@ DEF_SINGLETON(CHShareManager)
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:viewController completion:^(id result, NSError *error) {
         if (!error) { //发送成功
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [ProgressHUD showSuccess:@"分享成功"];
-                [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                [ProgressHUD showSuccess:@"分享成功"];
+//                [SVProgressHUD showSuccessWithStatus:@"分享成功"];
             });
         } else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [ProgressHUD showError:@"分享失败"];
-                [SVProgressHUD showErrorWithStatus:@"分享失败"];
+                [ProgressHUD showError:@"分享失败"];
+//                [SVProgressHUD showErrorWithStatus:@"分享失败"];
             });
         }
     }];

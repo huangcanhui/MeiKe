@@ -10,7 +10,7 @@
 #import "CHTime.h"
 #import "CHManager.h"
 #import "UIViewController+CH.h"
-#import "SVProgressHUD.h"
+#import "ProgressHUD.h"
 #import "MJExtension.h"
 
 static float expried_time = 21600; //accesstoken的有效时长

@@ -11,6 +11,10 @@
 #import "CHSetUpModel.h"
 #import "CHSetUpGroup.h"
 #import "MJExtension.h"
+#import "CHSaveCache.h"
+#import "ProgressHUD.h"
+
+#import "CHSetUpDetailViewController.h"
 
 static NSString *bundle = @"SETUP";
 @interface CHSetUpViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -22,6 +26,11 @@ static NSString *bundle = @"SETUP";
  * 数据源
  */
 @property (nonatomic, strong)NSArray *dataSource;
+/**
+ * 缓存
+ */
+@property (nonatomic, assign)CGFloat cacheSize;
+@property (nonatomic, copy)NSString *cacheString;
 @end
 
 @implementation CHSetUpViewController
@@ -34,6 +43,9 @@ static NSString *bundle = @"SETUP";
     self.navigationItem.title = @"设置";
     
     [self.view addSubview:self.tableView];
+    
+    self.cacheString = self.cacheSize > 1 ? [NSString stringWithFormat:@"缓存:%.2fM", self.cacheSize] : [NSString stringWithFormat:@"缓存:%.2fK", self.cacheSize * 1024.0];
+
 }
 
 #pragma mark - 懒加载
@@ -78,13 +90,49 @@ static NSString *bundle = @"SETUP";
     CHSetUpGroup *group = self.dataSource[indexPath.section];
     CHSetUpModel *model = group.project[indexPath.row];
     cell.textLabel.text = model.title;
-    cell.detailTextLabel.text = model.subtitle;
+//    cell.detailTextLabel.text = model.subtitle;
+    if ([model.title isEqualToString:@"清理缓存"]) {
+        cell.detailTextLabel.text = self.cacheString;
+        cell.detailTextLabel.textColor = [UIColor redColor];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CHSetUpGroup *group = self.dataSource[indexPath.section];
+    CHSetUpModel *model = group.project[indexPath.row];
+    if ([model.title isEqualToString:@"隐私"]) {
+        
+    } else if ([model.title isEqualToString:@"新消息通知"]) {
+        
+    } else if ([model.title isEqualToString:@"意见反馈"]) {
+        
+    } else if ([model.title isEqualToString:@"帮助中心"]) {
+        
+    } else if ([model.title isEqualToString:@"清理缓存"]) {
+        [self alertWithTitle:@"清除缓存" message:self.cacheString cancelTitle:@"取消" otherTitles:@"清理" block:^{
+            [CHSaveCache cleanCaches:[CHSaveCache getCachePath]];
+            self.cacheString = @"0K";
+            [self.tableView reloadData];
+//            [SVProgressHUD showSuccessWithStatus:@"清理成功"];
+            [ProgressHUD showSuccess:@"清理成功" Interaction:NO];
+        }];
+    } else if ([model.title isEqualToString:@"图片质量"]) {
+        CHSetUpDetailViewController *detailVC = [CHSetUpDetailViewController new];
+        detailVC.mode = setupWithImage;
+        detailVC.naviItemTitle = @"图片质量";
+        [self.navigationController pushViewController:detailVC animated:NO];
+    }
+}
+
+- (CGFloat)cacheSize
+{
+    if (!_cacheSize) {
+        _cacheSize = [CHSaveCache floderSizeAtPath:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject] + [CHSaveCache floderSizeAtPath:NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject] + [CHSaveCache floderSizeAtPath:NSTemporaryDirectory()];
+    }
+    return _cacheSize;
 }
 
 - (NSArray *)dataSource
@@ -96,21 +144,5 @@ static NSString *bundle = @"SETUP";
     }
     return _dataSource;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

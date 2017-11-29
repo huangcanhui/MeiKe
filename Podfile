@@ -16,4 +16,5 @@ pod 'SMSSDK'
 pod ‘UMengUShare/UI’
 pod ‘UMengUShare/Social/ReducedWeChat'
 pod ‘UMengUShare/Social/ReducedQQ'
+pod 'ProgressHUD'
 end

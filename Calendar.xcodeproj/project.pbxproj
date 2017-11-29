@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E19C91FCEAC5C00502C96 /* CHSetUpDetailViewController.m */; };
+		5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */; };
 		5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */; };
 		5B54E6911FB57A0900BFFA54 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E6901FB57A0900BFFA54 /* Address.m */; };
 		5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E6921FB58B0900BFFA54 /* CHAlertViewManager.m */; };
@@ -96,6 +98,10 @@
 /* Begin PBXFileReference section */
 		1B6231DDB1B6EF13524DBA8F /* Pods-Calendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Calendar/Pods-Calendar.debug.xcconfig"; sourceTree = "<group>"; };
 		2E866BD13457B535A24FA1D6 /* Pods-Calendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calendar/Pods-Calendar.release.xcconfig"; sourceTree = "<group>"; };
+		5B2E19C81FCEAC5C00502C96 /* CHSetUpDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpDetailViewController.h; sourceTree = "<group>"; };
+		5B2E19C91FCEAC5C00502C96 /* CHSetUpDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpDetailViewController.m; sourceTree = "<group>"; };
+		5B2E19CB1FCEB24000502C96 /* CHSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSettingModel.h; sourceTree = "<group>"; };
+		5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSettingModel.m; sourceTree = "<group>"; };
 		5B54E68C1FB579F300BFFA54 /* CHMapSupportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHMapSupportViewController.h; sourceTree = "<group>"; };
 		5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHMapSupportViewController.m; sourceTree = "<group>"; };
 		5B54E68F1FB57A0900BFFA54 /* Address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -491,6 +497,8 @@
 				5B97D7231FCD3EF60000EEBE /* CHShareManager.m */,
 				5B953A1C1FCE716800223325 /* CHSaveCache.h */,
 				5B953A1D1FCE716800223325 /* CHSaveCache.m */,
+				5B2E19CB1FCEB24000502C96 /* CHSettingModel.h */,
+				5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -536,6 +544,8 @@
 				5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */,
 				5B953A191FCE6BCA00223325 /* CHSetUpModel.h */,
 				5B953A1A1FCE6BCA00223325 /* CHSetUpModel.m */,
+				5B2E19C81FCEAC5C00502C96 /* CHSetUpDetailViewController.h */,
+				5B2E19C91FCEAC5C00502C96 /* CHSetUpDetailViewController.m */,
 			);
 			path = "Setup(设置)";
 			sourceTree = "<group>";
@@ -864,6 +874,7 @@
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/ProgressHUD/ProgressHUD/ProgressHUD/ProgressHUD.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
@@ -933,6 +944,7 @@
 				5B818B031FBD777900B2B013 /* CHTime.m in Sources */,
 				5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */,
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,
+				5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */,
 				5B6BA07E1FB43AFD0081FEF0 /* CHPublishViewController.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,
@@ -958,6 +970,7 @@
 				5B6BA0721FB42A700081FEF0 /* UITabBarItem+CHBadge.m in Sources */,
 				5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */,
 				5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */,
+				5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */,
 				5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */,
 				5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */,
 				5B97D7271FCD57F50000EEBE /* CHWebViewController.m in Sources */,
@@ -1144,6 +1157,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
@@ -1163,6 +1177,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

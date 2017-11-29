@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHViewController.h"
 
-@interface CHSetUpViewController : UIViewController
+@interface CHSetUpViewController : CHViewController
 
 @end

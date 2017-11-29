@@ -13,7 +13,7 @@
 #import "CHManager.h"
 #import "QiniuSDK.h"
 #import "HappyDNS.h"
-#import "SVProgressHUD.h"
+#import "ProgressHUD.h"
 
 static ImagePickerManager *pickerManager = nil;
 

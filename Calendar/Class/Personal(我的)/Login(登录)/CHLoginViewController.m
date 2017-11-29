@@ -7,7 +7,7 @@
 //
 
 #import "CHLoginViewController.h"
-#import "SVProgressHUD.h"
+#import "ProgressHUD.h"
 #import "CHManager.h"
 #import <SMS_SDK/SMSSDK.h>
 #import "CHWebViewController.h"
@@ -103,7 +103,8 @@
     if ([self.Mobile.text validPhone]) {
         [self getSmsCode:self.Mobile.text];
     } else { //手机号不合法
-        [SVProgressHUD showErrorWithStatus:@"手机号不合法"];
+//        [SVProgressHUD showErrorWithStatus:@"手机号不合法"];
+        [ProgressHUD showError:@"手机号不合法" Interaction:NO];
     }
 }
 
@@ -114,9 +115,11 @@
 {
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:mobile zone:@"86" result:^(NSError *error) {
         if (error) {
-            [SVProgressHUD showErrorWithStatus:@"验证码获取失败"];
+//            [SVProgressHUD showErrorWithStatus:@"验证码获取失败"];
+            [ProgressHUD showError:@"验证码获取失败" Interaction:NO];
         } else {
-            [SVProgressHUD showSuccessWithStatus:@"验证码发送成功，请查收"];
+//            [SVProgressHUD showSuccessWithStatus:@"验证码发送成功，请查收"];
+            [ProgressHUD showSuccess:@"验证码发送成功，请查收" Interaction:NO];
             self.smsButton.enabled = NO; //发送验证码禁止点击
             timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
         }
@@ -173,17 +176,20 @@
 - (BOOL)verityMobile:(NSString *)mobile andCode:(NSString *)code
 {
     if ([NSString isBlank:mobile]) {
-        [SVProgressHUD showErrorWithStatus:@"用户名不能为空"];
+//        [SVProgressHUD showErrorWithStatus:@"用户名不能为空"];
+        [ProgressHUD showError:@"用户名不能为空" Interaction:NO];
         return NO;
     }
     
     if (mobile.length != 11) {
-        [SVProgressHUD showErrorWithStatus:@"用户名为11位的手机号"];
+//        [SVProgressHUD showErrorWithStatus:@"用户名为11位的手机号"];
+        [ProgressHUD showError:@"用户名为11位的手机号" Interaction:NO];
         return NO;
     }
     
     if (self.isCheck == NO) {
-        [SVProgressHUD showErrorWithStatus:@"请先阅读用户须知"];
+//        [SVProgressHUD showErrorWithStatus:@"请先阅读用户须知"];
+        [ProgressHUD showError:@"请先阅读用户须知" Interaction:NO];
         return NO;
     }
     

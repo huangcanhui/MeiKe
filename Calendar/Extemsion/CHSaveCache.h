@@ -9,5 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface CHSaveCache : NSObject
+/**
+ * 获取缓存路径
+ */
++ (NSString *)getCachePath;
 
+/**
+ * 计算目录大小
+ */
++ (CGFloat)floderSizeAtPath:(NSString *)path;
+
+/**
+ * 根据路径删除文件
+ */
++ (void)cleanCaches:(NSString *)path;
 @end

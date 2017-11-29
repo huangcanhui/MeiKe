@@ -7,7 +7,7 @@
 //
 
 #import "CHManager.h"
-#import "SVProgressHUD.h"
+#import "ProgressHUD.h"
 #import "mobile.h"
 
 @interface CHManager ()
@@ -122,7 +122,8 @@
     NSData *data = [[error userInfo][@"com.alamofire.serialization.response.error.string"] dataUsingEncoding:NSUTF8StringEncoding];
     if (data != nil) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        [SVProgressHUD showErrorWithStatus:dict[@"message"]];
+//        [SVProgressHUD showErrorWithStatus:dict[@"message"]];
+        [ProgressHUD showError:dict[@"message"] Interaction:YES];
     }
 }
 
