@@ -1,14 +1,16 @@
 //
-//  CHPersonalModel.h
+//  CHSetUpGroup.h
 //  Calendar
 //
-//  Created by huangcanhui on 2017/11/16.
+//  Created by huangcanhui on 2017/11/29.
 //  Copyright © 2017年 厦门市云梦星辰科技有限公司. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "CHSetUpModel.h"
 
-@interface CHPersonalModel : NSObject
+@interface CHSetUpGroup : NSObject
+
 /**
  * 标题
  */
@@ -18,9 +20,10 @@
  */
 @property (nonatomic, copy)NSString *icon;
 /**
- * 次级标题
+ * 子目录
  */
-@property (nonatomic, copy)NSString *subTitle;
+@property (nonatomic, strong)NSArray <CHSetUpModel *> *project;
 
-- (instancetype)initWithDic:(NSDictionary *)dic;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+
 @end

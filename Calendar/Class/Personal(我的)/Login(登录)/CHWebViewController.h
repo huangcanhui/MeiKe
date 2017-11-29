@@ -3,7 +3,7 @@
 //  Calendar
 //
 //  Created by huangcanhui on 2017/11/28.
-//  Copyright © 2017年 HuangCanHui. All rights reserved.
+//  Copyright © 2017年 厦门市云梦星辰科技有限公司. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,5 +16,5 @@
 /**
  * 页面标题
  */
-@property (nonatomic, copy)NSString *title;
+@property (nonatomic, copy)NSString *content;
 @end

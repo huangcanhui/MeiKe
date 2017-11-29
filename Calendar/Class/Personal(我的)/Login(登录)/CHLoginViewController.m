@@ -3,7 +3,7 @@
 //  Calendar
 //
 //  Created by huangcanhui on 2017/11/15.
-//  Copyright © 2017年 HuangCanHui. All rights reserved.
+//  Copyright © 2017年 厦门市云梦星辰科技有限公司. All rights reserved.
 //
 
 #import "CHLoginViewController.h"
@@ -81,7 +81,7 @@
 - (void)protocolCheckButton:(UITapGestureRecognizer *)tap
 {
     self.count ++;
-    if (self.count % 2 == 0) { //未选中
+    if (self.count % 2 == 0) { //未选中，取余法
         self.isCheck = NO;
         self.checkProtocol.image = nil;
         self.checkProtocol.image = [UIImage imageNamed:@"loginCircle"];

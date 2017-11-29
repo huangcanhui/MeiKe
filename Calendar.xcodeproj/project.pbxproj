@@ -44,6 +44,7 @@
 		5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */; };
 		5B818B031FBD777900B2B013 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B021FBD777900B2B013 /* CHTime.m */; };
 		5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B051FBD77F700B2B013 /* UIViewController+CH.m */; };
+		5B8726331FCE678200835556 /* CHSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B8726321FCE678200835556 /* CHSetup.plist */; };
 		5B8DC64B1FB0109900B7B1FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC64A1FB0109900B7B1FA /* AppDelegate.m */; };
 		5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8DC64F1FB0109900B7B1FA /* Main.storyboard */; };
 		5B8DC6531FB0109900B7B1FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8DC6521FB0109900B7B1FA /* Assets.xcassets */; };
@@ -51,6 +52,9 @@
 		5B8DC6591FB0109900B7B1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6581FB0109900B7B1FA /* main.m */; };
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
+		5B953A181FCE6BBB00223325 /* CHSetUpGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */; };
+		5B953A1B1FCE6BCA00223325 /* CHSetUpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A1A1FCE6BCA00223325 /* CHSetUpModel.m */; };
+		5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A1D1FCE716800223325 /* CHSaveCache.m */; };
 		5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D71D1FCD385E0000EEBE /* CHViewController.m */; };
 		5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7231FCD3EF60000EEBE /* CHShareManager.m */; };
 		5B97D7271FCD57F50000EEBE /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7261FCD57F50000EEBE /* CHWebViewController.m */; };
@@ -174,6 +178,7 @@
 		5B818B021FBD777900B2B013 /* CHTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTime.m; sourceTree = "<group>"; };
 		5B818B041FBD77F700B2B013 /* UIViewController+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CH.h"; sourceTree = "<group>"; };
 		5B818B051FBD77F700B2B013 /* UIViewController+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CH.m"; sourceTree = "<group>"; };
+		5B8726321FCE678200835556 /* CHSetup.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CHSetup.plist; sourceTree = "<group>"; };
 		5B8DC6461FB0109900B7B1FA /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC6491FB0109900B7B1FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B8DC64A1FB0109900B7B1FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -188,6 +193,12 @@
 		5B8DC6691FB0109900B7B1FA /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarUITests.m; sourceTree = "<group>"; };
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B953A161FCE6BBB00223325 /* CHSetUpGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpGroup.h; sourceTree = "<group>"; };
+		5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpGroup.m; sourceTree = "<group>"; };
+		5B953A191FCE6BCA00223325 /* CHSetUpModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpModel.h; sourceTree = "<group>"; };
+		5B953A1A1FCE6BCA00223325 /* CHSetUpModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpModel.m; sourceTree = "<group>"; };
+		5B953A1C1FCE716800223325 /* CHSaveCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSaveCache.h; sourceTree = "<group>"; };
+		5B953A1D1FCE716800223325 /* CHSaveCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSaveCache.m; sourceTree = "<group>"; };
 		5B97D71C1FCD385E0000EEBE /* CHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHViewController.h; sourceTree = "<group>"; };
 		5B97D71D1FCD385E0000EEBE /* CHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHViewController.m; sourceTree = "<group>"; };
 		5B97D7221FCD3EF60000EEBE /* CHShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHShareManager.h; sourceTree = "<group>"; };
@@ -478,6 +489,8 @@
 				5B97D71D1FCD385E0000EEBE /* CHViewController.m */,
 				5B97D7221FCD3EF60000EEBE /* CHShareManager.h */,
 				5B97D7231FCD3EF60000EEBE /* CHShareManager.m */,
+				5B953A1C1FCE716800223325 /* CHSaveCache.h */,
+				5B953A1D1FCE716800223325 /* CHSaveCache.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -518,6 +531,11 @@
 			children = (
 				5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */,
 				5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */,
+				5B8726321FCE678200835556 /* CHSetup.plist */,
+				5B953A161FCE6BBB00223325 /* CHSetUpGroup.h */,
+				5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */,
+				5B953A191FCE6BCA00223325 /* CHSetUpModel.h */,
+				5B953A1A1FCE6BCA00223325 /* CHSetUpModel.m */,
 			);
 			path = "Setup(设置)";
 			sourceTree = "<group>";
@@ -762,7 +780,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = HuangCanHui;
+				ORGANIZATIONNAME = "厦门市云梦星辰科技有限公司";
 				TargetAttributes = {
 					5B8DC6451FB0109900B7B1FA = {
 						CreatedOnToolsVersion = 9.0;
@@ -810,6 +828,7 @@
 				5B8DC6561FB0109900B7B1FA /* LaunchScreen.storyboard in Resources */,
 				5B8DC6531FB0109900B7B1FA /* Assets.xcassets in Resources */,
 				5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */,
+				5B8726331FCE678200835556 /* CHSetup.plist in Resources */,
 				5B818AE61FBD5D6F00B2B013 /* CHPersonalList.plist in Resources */,
 				5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */,
 				5B818ADE1FBD57D400B2B013 /* CHPersonalTableViewCell.xib in Resources */,
@@ -904,10 +923,13 @@
 				5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */,
 				5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */,
 				5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */,
+				5B953A181FCE6BBB00223325 /* CHSetUpGroup.m in Sources */,
 				5B6BA0781FB431C90081FEF0 /* mobile.m in Sources */,
 				5B6BA06F1FB42A2A0081FEF0 /* UITabBar+CHTabBar.m in Sources */,
 				5BA5DF0B1FB18AF7003FEE02 /* CHTabBarViewController.m in Sources */,
+				5B953A1B1FCE6BCA00223325 /* CHSetUpModel.m in Sources */,
 				5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */,
+				5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */,
 				5B818B031FBD777900B2B013 /* CHTime.m in Sources */,
 				5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */,
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,

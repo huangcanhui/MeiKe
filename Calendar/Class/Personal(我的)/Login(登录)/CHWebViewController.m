@@ -3,7 +3,7 @@
 //  Calendar
 //
 //  Created by huangcanhui on 2017/11/28.
-//  Copyright © 2017年 HuangCanHui. All rights reserved.
+//  Copyright © 2017年 厦门市云梦星辰科技有限公司. All rights reserved.
 //
 
 #import "CHWebViewController.h"
@@ -22,7 +22,7 @@
     
     self.view.backgroundColor = HexColor(0xffffff);
     
-    self.navigationItem.title = self.title;
+    self.navigationItem.title = self.content;
     
     [self.view addSubview:self.webView];
 }
