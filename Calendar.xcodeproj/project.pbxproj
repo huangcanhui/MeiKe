@@ -27,6 +27,7 @@
 		5B6BA08C1FB462730081FEF0 /* CHPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08B1FB462730081FEF0 /* CHPublishView.m */; };
 		5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */; };
 		5B6BA0951FB465140081FEF0 /* MAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0941FB465130081FEF0 /* MAP.m */; };
+		5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7627E31FCFE52900EA4160 /* CHBorderButton.m */; };
 		5B799C841FBEBABB00903A01 /* PersonalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B799C831FBEBABB00903A01 /* PersonalData.plist */; };
 		5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C861FBEBC0F00903A01 /* CHPersonalData.m */; };
 		5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */; };
@@ -150,6 +151,8 @@
 		5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishDetailViewController.m; sourceTree = "<group>"; };
 		5B6BA0931FB465130081FEF0 /* MAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAP.h; sourceTree = "<group>"; };
 		5B6BA0941FB465130081FEF0 /* MAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAP.m; sourceTree = "<group>"; };
+		5B7627E21FCFE52900EA4160 /* CHBorderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBorderButton.h; sourceTree = "<group>"; };
+		5B7627E31FCFE52900EA4160 /* CHBorderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHBorderButton.m; sourceTree = "<group>"; };
 		5B799C831FBEBABB00903A01 /* PersonalData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PersonalData.plist; sourceTree = "<group>"; };
 		5B799C851FBEBC0F00903A01 /* CHPersonalData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalData.h; sourceTree = "<group>"; };
 		5B799C861FBEBC0F00903A01 /* CHPersonalData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalData.m; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 				5B953A1D1FCE716800223325 /* CHSaveCache.m */,
 				5B2E19CB1FCEB24000502C96 /* CHSettingModel.h */,
 				5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */,
+				5B7627E21FCFE52900EA4160 /* CHBorderButton.h */,
+				5B7627E31FCFE52900EA4160 /* CHBorderButton.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -960,6 +965,7 @@
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
+				5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */,
 				5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */,
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,

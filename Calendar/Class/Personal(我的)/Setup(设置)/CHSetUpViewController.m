@@ -13,6 +13,7 @@
 #import "MJExtension.h"
 #import "CHSaveCache.h"
 #import "ProgressHUD.h"
+#import "CHSettingModel.h"
 
 #import "CHSetUpDetailViewController.h"
 
@@ -31,6 +32,10 @@ static NSString *bundle = @"SETUP";
  */
 @property (nonatomic, assign)CGFloat cacheSize;
 @property (nonatomic, copy)NSString *cacheString;
+/**
+ * 获取图片模式
+ */
+@property (nonatomic, strong)NSString *imageMode;
 @end
 
 @implementation CHSetUpViewController
@@ -42,10 +47,32 @@ static NSString *bundle = @"SETUP";
     
     self.navigationItem.title = @"设置";
     
-    [self.view addSubview:self.tableView];
+    [self initAttribute];
     
-    self.cacheString = self.cacheSize > 1 ? [NSString stringWithFormat:@"缓存:%.2fM", self.cacheSize] : [NSString stringWithFormat:@"缓存:%.2fK", self.cacheSize * 1024.0];
+    [self.view addSubview:self.tableView];
+}
 
+#pragma mark - 初始化
+- (void)initAttribute
+{
+    //内存
+    self.cacheString = self.cacheSize > 1 ? [NSString stringWithFormat:@"缓存:%.2fM", self.cacheSize] : [NSString stringWithFormat:@"缓存:%.2fK", self.cacheSize * 1024.0];
+    //图片质量
+    CHSettingModel *settingModel = [CHSettingModel defaultInstance];
+    switch (settingModel.imageMode) {
+        case ImageModeAuto:
+            self.imageMode = @"智能模式";
+            break;
+        case ImageModeNormal:
+            self.imageMode = @"普通模式";
+            break;
+        case ImageModeHighQuality:
+            self.imageMode = @"高清模式";
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - 懒加载
@@ -96,6 +123,11 @@ static NSString *bundle = @"SETUP";
         cell.detailTextLabel.textColor = [UIColor redColor];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
     }
+    if ([model.title isEqualToString:@"图片质量"]) {
+        cell.detailTextLabel.text = self.imageMode;
+        cell.detailTextLabel.textColor = [UIColor redColor];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+    }
     return cell;
 }
 
@@ -108,7 +140,10 @@ static NSString *bundle = @"SETUP";
     } else if ([model.title isEqualToString:@"新消息通知"]) {
         
     } else if ([model.title isEqualToString:@"意见反馈"]) {
-        
+        CHSetUpDetailViewController *detailVC = [CHSetUpDetailViewController new];
+        detailVC.mode = setupWithAdvince;
+        detailVC.naviItemTitle = @"意见反馈";
+        [self.navigationController pushViewController:detailVC animated:NO];
     } else if ([model.title isEqualToString:@"帮助中心"]) {
         
     } else if ([model.title isEqualToString:@"清理缓存"]) {
@@ -123,6 +158,10 @@ static NSString *bundle = @"SETUP";
         CHSetUpDetailViewController *detailVC = [CHSetUpDetailViewController new];
         detailVC.mode = setupWithImage;
         detailVC.naviItemTitle = @"图片质量";
+        detailVC.whenClickBack = ^(NSString *imageMode) {
+            self.imageMode = imageMode;
+            [self.tableView reloadData];
+        };
         [self.navigationController pushViewController:detailVC animated:NO];
     }
 }
