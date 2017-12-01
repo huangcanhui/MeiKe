@@ -70,6 +70,8 @@
 		5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */; };
 		5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */; };
 		5BA5DF0B1FB18AF7003FEE02 /* CHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF0A1FB18AF7003FEE02 /* CHTabBarViewController.m */; };
+		5BB554211FD154E000A047D9 /* CHFriend_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */; };
+		5BB554241FD155FC00A047D9 /* CHFriend_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */; };
 		5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA8FA1FB049FC0099E8EF /* CHNavigationViewController.m */; };
 		5BEBA8FF1FB04BAB0099E8EF /* UILabel+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA8FE1FB04BAB0099E8EF /* UILabel+CH.m */; };
 		5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA9011FB04BEA0099E8EF /* NSString+CH.m */; };
@@ -230,6 +232,10 @@
 		5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalViewController.m; sourceTree = "<group>"; };
 		5BA5DF071FB16181003FEE02 /* CHTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTabBarViewController.h; sourceTree = "<group>"; };
 		5BA5DF0A1FB18AF7003FEE02 /* CHTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTabBarViewController.m; sourceTree = "<group>"; };
+		5BB5541F1FD154E000A047D9 /* CHFriend_SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_SearchViewController.h; sourceTree = "<group>"; };
+		5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchViewController.m; sourceTree = "<group>"; };
+		5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_SearchView.h; sourceTree = "<group>"; };
+		5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchView.m; sourceTree = "<group>"; };
 		5BEBA8F91FB049FC0099E8EF /* CHNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNavigationViewController.h; sourceTree = "<group>"; };
 		5BEBA8FA1FB049FC0099E8EF /* CHNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNavigationViewController.m; sourceTree = "<group>"; };
 		5BEBA8FC1FB04A3D0099E8EF /* Calendar.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calendar.pch; sourceTree = "<group>"; };
@@ -649,6 +655,8 @@
 			children = (
 				5BA5DEFE1FB1610B003FEE02 /* CHFriendsViewController.h */,
 				5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */,
+				5BB5541F1FD154E000A047D9 /* CHFriend_SearchViewController.h */,
+				5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -663,6 +671,8 @@
 		5BA5DEF61FB160A7003FEE02 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */,
+				5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -962,10 +972,12 @@
 				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,
 				5B8DC6591FB0109900B7B1FA /* main.m in Sources */,
 				5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */,
+				5BB554241FD155FC00A047D9 /* CHFriend_SearchView.m in Sources */,
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
 				5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */,
+				5BB554211FD154E000A047D9 /* CHFriend_SearchViewController.m in Sources */,
 				5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */,
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
@@ -1159,7 +1171,7 @@
 				INFOPLIST_FILE = Calendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-------------.Calendar";
+				PRODUCT_BUNDLE_IDENTIFIER = ymstarsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1179,7 +1191,7 @@
 				INFOPLIST_FILE = Calendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-------------.Calendar";
+				PRODUCT_BUNDLE_IDENTIFIER = ymstarsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

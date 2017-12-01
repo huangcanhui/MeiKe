@@ -77,13 +77,6 @@ static CGFloat Maigin = 10.0f;
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-//    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
-//    if (kind == UICollectionElementKindSectionHeader) {
-//        UIView *headerView = [[UIView alloc] initWithFrame:view.frame];
-//        headerView.backgroundColor = [UIColor blueColor];
-//        [view addSubview:headerView];
-//    }
-//    return view;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         UICollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerID forIndexPath:indexPath];
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 45)];
@@ -101,10 +94,10 @@ static CGFloat Maigin = 10.0f;
     return cell;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//选中事件
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"点击第%ld组第%ld行", (long)indexPath.section, (long)indexPath.row);
 }
 
 /*
