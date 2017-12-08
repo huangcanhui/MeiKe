@@ -78,6 +78,7 @@
 		5BEBA9051FB04C270099E8EF /* UIView+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA9041FB04C270099E8EF /* UIView+CH.m */; };
 		5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA9071FB04CCE0099E8EF /* NSObject+CH.m */; };
 		5BEBA90B1FB04D200099E8EF /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA90A1FB04D200099E8EF /* SingletonObject.m */; };
+		5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF5CB451FD9315D00A1051A /* CHContact.m */; };
 		E1D400A55B0ACB0666A11EFA /* libPods-Calendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAFD808E3C7D86D03DC3EB4 /* libPods-Calendar.a */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,12 @@
 		5B2E19C91FCEAC5C00502C96 /* CHSetUpDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpDetailViewController.m; sourceTree = "<group>"; };
 		5B2E19CB1FCEB24000502C96 /* CHSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSettingModel.h; sourceTree = "<group>"; };
 		5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSettingModel.m; sourceTree = "<group>"; };
+		5B305D821FDA7E87003A65F2 /* YContactObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YContactObject.h; sourceTree = "<group>"; };
+		5B305D831FDA7E87003A65F2 /* YContactObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YContactObject.m; sourceTree = "<group>"; };
+		5B305D841FDA7E87003A65F2 /* YContactObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YContactObjectManager.h; sourceTree = "<group>"; };
+		5B305D851FDA7E87003A65F2 /* YContactObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YContactObjectManager.m; sourceTree = "<group>"; };
+		5B305D861FDA7E87003A65F2 /* YContactsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YContactsManager.h; sourceTree = "<group>"; };
+		5B305D871FDA7E87003A65F2 /* YContactsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YContactsManager.m; sourceTree = "<group>"; };
 		5B54E68C1FB579F300BFFA54 /* CHMapSupportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHMapSupportViewController.h; sourceTree = "<group>"; };
 		5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHMapSupportViewController.m; sourceTree = "<group>"; };
 		5B54E68F1FB57A0900BFFA54 /* Address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -249,6 +256,8 @@
 		5BEBA9071FB04CCE0099E8EF /* NSObject+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CH.m"; sourceTree = "<group>"; };
 		5BEBA9091FB04D200099E8EF /* SingletonObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
 		5BEBA90A1FB04D200099E8EF /* SingletonObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
+		5BF5CB441FD9315D00A1051A /* CHContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHContact.h; sourceTree = "<group>"; };
+		5BF5CB451FD9315D00A1051A /* CHContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHContact.m; sourceTree = "<group>"; };
 		EBAFD808E3C7D86D03DC3EB4 /* libPods-Calendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Calendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -284,6 +293,19 @@
 				EBAFD808E3C7D86D03DC3EB4 /* libPods-Calendar.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B305D811FDA7E87003A65F2 /* YAddressBookFile */ = {
+			isa = PBXGroup;
+			children = (
+				5B305D821FDA7E87003A65F2 /* YContactObject.h */,
+				5B305D831FDA7E87003A65F2 /* YContactObject.m */,
+				5B305D841FDA7E87003A65F2 /* YContactObjectManager.h */,
+				5B305D851FDA7E87003A65F2 /* YContactObjectManager.m */,
+				5B305D861FDA7E87003A65F2 /* YContactsManager.h */,
+				5B305D871FDA7E87003A65F2 /* YContactsManager.m */,
+			);
+			path = YAddressBookFile;
 			sourceTree = "<group>";
 		};
 		5B54E68B1FB579D600BFFA54 /* MapSupport */ = {
@@ -540,6 +562,7 @@
 		5B8DC67E1FB047CC00B7B1FA /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				5B305D811FDA7E87003A65F2 /* YAddressBookFile */,
 				5B54E6981FB5B9BF00BFFA54 /* STPhotoKit */,
 			);
 			path = Framework;
@@ -664,6 +687,8 @@
 		5BA5DEF51FB160A7003FEE02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5BF5CB441FD9315D00A1051A /* CHContact.h */,
+				5BF5CB451FD9315D00A1051A /* CHContact.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -982,6 +1007,7 @@
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
+				5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */,
 				5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */,
 				5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */,
 				5B818AF51FBD68D400B2B013 /* CHAboutUsViewController.m in Sources */,

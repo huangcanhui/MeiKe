@@ -11,6 +11,7 @@
 #import "CHTabBarViewController.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import <Contacts/Contacts.h>
 
 @interface AppDelegate ()
 

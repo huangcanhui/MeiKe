@@ -45,8 +45,8 @@
 //        [wself presentViewController:naVC animated:NO completion:nil];
 //    }];
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 25)];
-    imageView.image = [UIImage imageNamed:@"takePhoto"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    imageView.image = [UIImage imageNamed:@"takePhotoNew"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
     //点击发表带有图像的说说
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightNaviButtonTap)];

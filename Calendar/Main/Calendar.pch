@@ -56,7 +56,12 @@
 #endif
 
 //各种key值
-#define AMAPKEY @""
+#define AMAPKEY @"c851cff629936e301abd431d87323bb4" //高德地图
+#define WXThirdLoginKEY @"wxf9010cf6471bfd28" //微信第三方登录
+#define UMKEY @"5a2a34258f4a9d40dd00012e" //友盟key
+#define SMSCODEKEY @"" //短信验证码
+#define QINIUKEY @"" //七牛key
+#define JPUSHKEY @"" //极光推送
 
 //客服电话
 #define companyPhone @"0592-5727298"

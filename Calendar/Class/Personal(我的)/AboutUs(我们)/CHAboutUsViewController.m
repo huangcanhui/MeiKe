@@ -52,7 +52,7 @@
     
     [self.view addSubview:self.addressLabel];
     
-    CHNaviButton *rightBtn = [CHNaviButton buttonwWithFrame:CGRectMake(0, 0, 10, 10) type:UIButtonTypeCustom andFont:12 andTitle:nil andTitleColor:nil imageName:@"activity_share" andBoolLabel:NO andTmepBlock:^(CHNaviButton *button) {
+    CHNaviButton *rightBtn = [CHNaviButton buttonwWithFrame:CGRectMake(0, 0, 32, 32) type:UIButtonTypeCustom andFont:12 andTitle:nil andTitleColor:nil imageName:@"activity_share" andBoolLabel:NO andTmepBlock:^(CHNaviButton *button) {
 #warning 这边应该填写App Store的下载地址
         NSString *url = @"";
         [CHShareManager shareToFriendsViewController:self withTitle:@"信格" content:@"交朋友用信格" withUrl:url];
