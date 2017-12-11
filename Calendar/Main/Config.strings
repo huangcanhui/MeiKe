@@ -1,0 +1,21 @@
+/* 
+  Config.strings
+  Calendar
+
+  Created by huangcanhui on 2017/12/8.
+  Copyright © 2017年 厦门市云梦星辰科技有限公司. All rights reserved.
+*/
+
+//这边放置所有的请求接口
+/************************************** 登录功能 *****************************************/
+//获取短信验证码方式进行登录
+"login_SMSCode_Url" = "/oauth/token";
+
+//获取用户的基本信息
+"login_UserInfo_Url" = "/me/info";
+
+//刷新token
+"login_refreshToken_Url" = "/oauth/token";
+
+
+/**************************************** 朋友圈  **************************************************/

@@ -68,6 +68,8 @@ static NSString *cellBundle = @"PERSONAL";
     tableView.separatorColor = [UIColor clearColor];
     //注册cell
     [tableView registerNib:[UINib nibWithNibName:@"CHPersonalTableViewCell" bundle:nil] forCellReuseIdentifier:cellBundle];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginView) name:@"NavigationMessage" object:nil];
     //创建登录
     CHUserView *userView = [CHUserView headerView];
     userView.user = self.userModel.user;
@@ -82,6 +84,11 @@ static NSString *cellBundle = @"PERSONAL";
     tableView.tableHeaderView = _userView;
     
     [self.view addSubview:tableView];
+}
+
+- (void)loginView
+{
+    _userView.user = self.userModel.user;
 }
 
 #pragma mark 登录

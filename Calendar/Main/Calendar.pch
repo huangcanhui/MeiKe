@@ -46,20 +46,22 @@
 #define DDRealValue(value) (( kScreenWidth / 320 ) * (value))
 #define DDRealValueBy6s(value) (( kScreenWidth / 375 ) * (value))
 
+#define CHReadConfig(key) (NSLocalizedStringFromTable(key, @"Config", nil))
+
 #define weakSelf(wself) __typeof(*&self) __weak wself = self
 
 //网络请求的接口
 #ifdef DEBUG    //---- Debug模式下
-#define configUrl   @""
+//#define configUrl   @"https://test.ymstars.com/api/v1"
+#define configUrl   @"https://www.ymstars.com/api/v1"
 #else           //---- Release版本
-#define configUrl   @""
+#define configUrl   @"https://www.ymstars.com/api/v1"
 #endif
 
 //各种key值
 #define AMAPKEY @"c851cff629936e301abd431d87323bb4" //高德地图
 #define WXThirdLoginKEY @"wxf9010cf6471bfd28" //微信第三方登录
 #define UMKEY @"5a2a34258f4a9d40dd00012e" //友盟key
-#define SMSCODEKEY @"" //短信验证码
 #define QINIUKEY @"" //七牛key
 #define JPUSHKEY @"" //极光推送
 

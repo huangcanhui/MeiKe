@@ -14,6 +14,7 @@
 #import "CHSaveCache.h"
 #import "ProgressHUD.h"
 #import "CHSettingModel.h"
+#import "UserModel.h"
 
 #import "CHSetUpDetailViewController.h"
 
@@ -36,6 +37,10 @@ static NSString *bundle = @"SETUP";
  * 获取图片模式
  */
 @property (nonatomic, strong)NSString *imageMode;
+/**
+ * 退出登录
+ */
+@property (nonatomic, strong)UIView *logoutView;
 @end
 
 @implementation CHSetUpViewController
@@ -83,8 +88,12 @@ static NSString *bundle = @"SETUP";
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
-        _tableView.tableFooterView = [[UIView alloc] init];
+    
+        if ([UserModel onLine]) {
+            _tableView.tableFooterView = self.logoutView;
+        } else {
+            _tableView.tableFooterView = [[UIView alloc] init];
+        }
     }
     return _tableView;
 }
@@ -182,6 +191,37 @@ static NSString *bundle = @"SETUP";
         _dataSource = [CHSetUpGroup mj_objectArrayWithKeyValuesArray:tempArray];
     }
     return _dataSource;
+}
+
+- (UIView *)logoutView
+{
+    if (!_logoutView) {
+        _logoutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 45)];
+        _logoutView.backgroundColor = HexColor(0xffffff);
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 45)];
+        label.text = @"退出登录";
+        label.textColor = GLOBAL_COLOR;
+        label.textAlignment = NSTextAlignmentCenter;
+        [_logoutView addSubview:label];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logOut)];
+        _logoutView.userInteractionEnabled = YES;
+        [_logoutView addGestureRecognizer:tap];
+    }
+    return _logoutView;
+}
+
+- (void)logOut
+{
+    [[UserModel defaultInstance] logout];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - 注销通知
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

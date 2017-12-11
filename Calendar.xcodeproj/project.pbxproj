@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E19C91FCEAC5C00502C96 /* CHSetUpDetailViewController.m */; };
 		5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */; };
+		5B305D891FDA8808003A65F2 /* Config.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B305D881FDA8808003A65F2 /* Config.strings */; };
+		5B305D8C1FDA9383003A65F2 /* CHNetString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B305D8B1FDA9383003A65F2 /* CHNetString.m */; };
 		5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */; };
 		5B54E6911FB57A0900BFFA54 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E6901FB57A0900BFFA54 /* Address.m */; };
 		5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E6921FB58B0900BFFA54 /* CHAlertViewManager.m */; };
@@ -55,6 +57,7 @@
 		5B8DC6591FB0109900B7B1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6581FB0109900B7B1FA /* main.m */; };
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
+		5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B912A6C1FDE837600404933 /* FriendCircleObject.m */; };
 		5B953A181FCE6BBB00223325 /* CHSetUpGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */; };
 		5B953A1B1FCE6BCA00223325 /* CHSetUpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A1A1FCE6BCA00223325 /* CHSetUpModel.m */; };
 		5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A1D1FCE716800223325 /* CHSaveCache.m */; };
@@ -112,6 +115,9 @@
 		5B305D851FDA7E87003A65F2 /* YContactObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YContactObjectManager.m; sourceTree = "<group>"; };
 		5B305D861FDA7E87003A65F2 /* YContactsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YContactsManager.h; sourceTree = "<group>"; };
 		5B305D871FDA7E87003A65F2 /* YContactsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YContactsManager.m; sourceTree = "<group>"; };
+		5B305D881FDA8808003A65F2 /* Config.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Config.strings; sourceTree = "<group>"; };
+		5B305D8A1FDA9383003A65F2 /* CHNetString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNetString.h; sourceTree = "<group>"; };
+		5B305D8B1FDA9383003A65F2 /* CHNetString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNetString.m; sourceTree = "<group>"; };
 		5B54E68C1FB579F300BFFA54 /* CHMapSupportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHMapSupportViewController.h; sourceTree = "<group>"; };
 		5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHMapSupportViewController.m; sourceTree = "<group>"; };
 		5B54E68F1FB57A0900BFFA54 /* Address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -211,6 +217,8 @@
 		5B8DC6691FB0109900B7B1FA /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarUITests.m; sourceTree = "<group>"; };
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B912A6B1FDE837600404933 /* FriendCircleObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCircleObject.h; sourceTree = "<group>"; };
+		5B912A6C1FDE837600404933 /* FriendCircleObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCircleObject.m; sourceTree = "<group>"; };
 		5B953A161FCE6BBB00223325 /* CHSetUpGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpGroup.h; sourceTree = "<group>"; };
 		5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpGroup.m; sourceTree = "<group>"; };
 		5B953A191FCE6BCA00223325 /* CHSetUpModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpModel.h; sourceTree = "<group>"; };
@@ -532,6 +540,8 @@
 				5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */,
 				5B7627E21FCFE52900EA4160 /* CHBorderButton.h */,
 				5B7627E31FCFE52900EA4160 /* CHBorderButton.m */,
+				5B305D8A1FDA9383003A65F2 /* CHNetString.h */,
+				5B305D8B1FDA9383003A65F2 /* CHNetString.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -555,6 +565,7 @@
 				5B6BA0771FB431C90081FEF0 /* mobile.m */,
 				5B818AFA1FBD729C00B2B013 /* UserModel.h */,
 				5B818AFB1FBD729C00B2B013 /* UserModel.m */,
+				5B305D881FDA8808003A65F2 /* Config.strings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -646,6 +657,8 @@
 				5B6BA0881FB460570081FEF0 /* CHPublish.m */,
 				5B6BA0931FB465130081FEF0 /* MAP.h */,
 				5B6BA0941FB465130081FEF0 /* MAP.m */,
+				5B912A6B1FDE837600404933 /* FriendCircleObject.h */,
+				5B912A6C1FDE837600404933 /* FriendCircleObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -877,6 +890,7 @@
 				5BA0E10D1FBC270100F2BFA9 /* CHMobileAuthViewController.xib in Resources */,
 				5B8DC6561FB0109900B7B1FA /* LaunchScreen.storyboard in Resources */,
 				5B8DC6531FB0109900B7B1FA /* Assets.xcassets in Resources */,
+				5B305D891FDA8808003A65F2 /* Config.strings in Resources */,
 				5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */,
 				5B8726331FCE678200835556 /* CHSetup.plist in Resources */,
 				5B818AE61FBD5D6F00B2B013 /* CHPersonalList.plist in Resources */,
@@ -986,6 +1000,7 @@
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,
 				5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */,
 				5B6BA07E1FB43AFD0081FEF0 /* CHPublishViewController.m in Sources */,
+				5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,
 				5BEBA9051FB04C270099E8EF /* UIView+CH.m in Sources */,
@@ -997,6 +1012,7 @@
 				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,
 				5B8DC6591FB0109900B7B1FA /* main.m in Sources */,
 				5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */,
+				5B305D8C1FDA9383003A65F2 /* CHNetString.m in Sources */,
 				5BB554241FD155FC00A047D9 /* CHFriend_SearchView.m in Sources */,
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,

@@ -11,6 +11,10 @@
 #import "CHManager.h"
 #import <SMS_SDK/SMSSDK.h>
 #import "CHWebViewController.h"
+#import "CHManager.h"
+#import "mobile.h"
+#import "CHTime.h"
+#import "MJExtension.h"
 
 @interface CHLoginViewController ()
 {
@@ -61,6 +65,7 @@
     //初始化
     self.isCheck = NO; //默认用户未勾选
     self.count = 0;
+    timeLeft = 60;
     
     [self initUI];
 }
@@ -89,7 +94,6 @@
         self.isCheck = YES;
         self.checkProtocol.image = [UIImage imageNamed:@"loginCircle_active"];
     }
-    NSLog(@"%d", self.count);
 }
 
 - (void)clickBack
@@ -130,7 +134,7 @@
 {
     timeLeft -= 1;
     if (timeLeft <= 0) {
-        timeLeft = 0;
+        timeLeft = 60;
         [self unlockCodeBtn];
     } else {
         [self.smsButton setTitle:[NSString stringWithFormat:@"%ld秒后重发", timeLeft] forState:UIControlStateDisabled];
@@ -210,7 +214,32 @@
 
 - (void)loginWithUrlInMobile:(NSString *)mobile andCode:(NSString *)code
 {
+    NSString *url = CHReadConfig(@"login_SMSCode_Url");
+    NSDictionary *parmas = @{
+                             @"client_id":@"1",
+                             @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
+                             @"mobile":mobile,
+                             @"code":code,
+                             @"grant_type":@"mobile_verify",
+                             @"zone":@"86"
+                             };
+    [[CHManager manager] requestWithMethod:POST WithPath:url WithParams:parmas WithSuccessBlock:^(NSDictionary *responseObject) {
+        User *user = [User mj_objectWithKeyValues:responseObject];
+        [user writeUserDefaultWithKey:@"UserModel.user"];
+        [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
+        [self dismissViewControllerAnimated:YES completion:^{
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
+        }];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
     
+}
+
+#pragma mark - 注销通知
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

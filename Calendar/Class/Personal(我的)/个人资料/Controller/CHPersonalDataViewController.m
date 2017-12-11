@@ -20,6 +20,7 @@ static NSString *cellID = @"PersonalData";
  */
 @property (nonatomic, strong)NSArray *data; //这个用来存放plist文件读取到的数据
 @property (nonatomic, strong)NSMutableArray *arrayM; //这个用来存放获取到的用户数据
+
 @end
 
 @implementation CHPersonalDataViewController
@@ -68,8 +69,9 @@ static NSString *cellID = @"PersonalData";
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
         cell.selectionStyle = UITableViewCellSelectionStyleNone; //选中的样式
     }
-    cell.textLabel.text = _data[indexPath.row];
-    cell.detailTextLabel.text = _arrayM[indexPath.row];
+    CHPersonalData *data = _data[indexPath.row];
+    cell.textLabel.text = data.title;
+//    cell.detailTextLabel.text = _arrayM[indexPath.row];
     
     return cell;
 }
@@ -115,12 +117,14 @@ static NSString *cellID = @"PersonalData";
     return _data;
 }
 
-- (NSMutableArray *)arrayM
-{
-    if (_arrayM) {
-        //这边进行网络请求
-    }
-    return _arrayM;
-}
+
+
+//- (NSMutableArray *)arrayM
+//{
+//    if (_arrayM) {
+//        //这边进行网络请求
+//    }
+//    return _arrayM;
+//}
 
 @end

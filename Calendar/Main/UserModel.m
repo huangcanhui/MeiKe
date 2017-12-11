@@ -91,13 +91,12 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
         self.user = [User readUserDefaultWithKey:@"UserModel.user"];
         NSDictionary *dict = @{
                                @"client_id":@"2",
-                               @"client_secret":@"lFa35AmzcnRb2aab7xS2xNRaFbSJKniXs7n2SJug",
+                               @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
                                @"grant_type":@"refresh_token",
                                @"refresh_token":self.user.refresh_token
                                };
-        [self.user removeUserDefaultWithKey:@"UserModel.user"]; //先移除掉旧的token
-        NSString *refreshUrl = NSLocalizedStringFromTable(@"Personal_refresh_token_Url", @"PersonalURL", nil);
-        [[CHManager manager] requestWithMethod:POST WithPath:refreshUrl WithParams:dict WithSuccessBlock:^(NSDictionary *dic) {
+        NSString *path = CHReadConfig(@"login_refreshToken_Url");
+        [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:dict WithSuccessBlock:^(NSDictionary *dic) {
             User *user = [User mj_objectWithKeyValues:dic];
             //存储
             self.user = user;
@@ -110,18 +109,18 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
 
 - (void)info
 {
-//    [self calculateTime]; //先要判断token是否已经过期
-//    NSString *path = NSLocalizedStringFromTable(@"Personal_User_info_Url", @"PersonalURL", nil);
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *dic) {
-//            UserInfo *info = [UserInfo mj_objectWithKeyValues:dic[@"data"]];
-//            //存储
-//            self.userInfo = info;
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:nil];
-//        } WithFailurBlock:^(NSError *error) {
-//            [self info]; //如果失败的话，就再次去获取用户信息
-//        }];
-//    });
+    [self calculateTime]; //先要判断token是否已经过期
+    NSString *path = CHReadConfig(@"login_UserInfo_Url");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+            UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject];
+            //存储
+            self.userInfo = info;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:nil];
+        } WithFailurBlock:^(NSError *error) {
+            [self info];
+        }];
+    });
 }
 
 @end

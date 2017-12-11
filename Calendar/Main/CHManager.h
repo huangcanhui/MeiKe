@@ -9,7 +9,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 //请求成功回调block
-typedef void (^requestSuccessBlock)(NSDictionary *dic);
+typedef void (^requestSuccessBlock)(NSDictionary *responseObject);
 
 //请求失败回调block
 typedef void (^requestFailureBlock)(NSError *error);

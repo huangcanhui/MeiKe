@@ -72,8 +72,6 @@
                 success(responseObject);
             } failure:^(NSURLSessionTask *operation, NSError *error) {
                 [self togetherDealWithErrorCodeError:error];
-                
-                
                 //                [ProgressHUD showError:dict[@"message"]];
             }];
         }

@@ -28,28 +28,23 @@
  * 用户的基本信息
  */
 @interface UserInfo : NSObject
-@property (nonatomic, copy)NSString *weixin_union_id;//微信id
-@property (nonatomic, copy)NSString *qq;//QQ号码
-@property (nonatomic, copy)NSString *weixin; //微信号码
-@property (nonatomic, strong)NSNumber *add_by;//用户ID，由某个人添加
-@property (nonatomic, copy)NSString *updated_at;//更新时间
-@property (nonatomic, copy)NSString *name;//用户名
-@property (nonatomic, strong)NSNumber *is_black; //是否被拉黑
-@property (nonatomic, strong)NSNumber *is_first_password; //是否修改过密码
 @property (nonatomic, strong)NSNumber *id;
-@property (nonatomic, copy)NSString *card_number; //身份证号码
-@property (nonatomic, copy)NSString *email; //邮箱
-@property (nonatomic, strong)NSNumber *gender;//性别
+@property (nonatomic, strong)NSNumber *ref_user_id;
+@property (nonatomic, strong)NSNumber *ref_org_id;
+@property (nonatomic, strong)NSArray *roles;
 @property (nonatomic, copy)NSString *mobile; //手机号码
-@property (nonatomic, copy)NSString *avatar; //头像
-@property (nonatomic, strong)NSNumber *has_remark; //是否已备注
-@property (nonatomic, copy)NSString *weixin_open_id;
-@property (nonatomic, assign)BOOL is_verify;//是否已实名
-@property (nonatomic, copy)NSString *nick_name; //昵称
-@property (nonatomic, strong)NSNumber *is_verity_pending;
 @property (nonatomic, copy)NSString *created_at;//创建时间
+@property (nonatomic, copy)NSString *province; //省
+@property (nonatomic, copy)NSString *city; //市
+@property (nonatomic, copy)NSString *county; //区
+@property (nonatomic, copy)NSString *nation;
+@property (nonatomic, copy)NSString *avatar; //头像
 @property (nonatomic, copy)NSString *remark;//备注
-@property (nonatomic, copy)NSString *real_name; //真实姓名
-@property (nonatomic, copy)NSString *card_image;//身份证照片
+@property (nonatomic, copy)NSString *updated_at;//更新时间
+@property (nonatomic, copy)NSString *nickname; //昵称
+@property (nonatomic, copy)NSString *email; //邮箱
+@property (nonatomic, copy)NSString *name;//用户名
+@property (nonatomic, strong)NSNumber *gender;//性别
+
 @end
 
