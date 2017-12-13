@@ -14,6 +14,8 @@
  */
 @property (nonatomic, copy)NSString *tagString;
 
+@property(nonatomic,assign) CGFloat x;
+@property(nonatomic,assign) CGFloat y;
 /*------ view的四个方位快速获取的方法 -----*/
 @property (nonatomic, assign)CGFloat CH_height;
 @property (nonatomic, assign)CGFloat CH_width;

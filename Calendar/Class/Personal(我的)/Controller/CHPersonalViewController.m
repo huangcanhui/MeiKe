@@ -161,7 +161,7 @@ static NSString *cellBundle = @"PERSONAL";
 {
     CHPersonalGroup *group = self.itemGroups[indexPath.section];
     CHPersonalModel *model = group.activity[indexPath.row];
-    if ([model.title isEqualToString:@"我的足迹"]) {
+    if ([model.title isEqualToString:@"我的时光轴"]) {
         CHFootPrintViewController *footVC = [CHFootPrintViewController new];
         [self.navigationController pushViewController:footVC animated:NO];
     } else if ([model.title isEqualToString:@"我的相册"]) {

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 厦门市云梦星辰科技有限公司. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
+#import "AFHTTPSessionManager.h"
 
 //请求成功回调block
 typedef void (^requestSuccessBlock)(NSDictionary *responseObject);

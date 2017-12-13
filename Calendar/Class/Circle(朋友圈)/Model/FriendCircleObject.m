@@ -7,8 +7,40 @@
 //
 
 #import "FriendCircleObject.h"
+#import <UIKit/UIKit.h>
+
+extern const CGFloat contentLabelFontSize;
+extern CGFloat maxContentLabelHeight;
 
 @implementation FriendCircleObject
+
+@synthesize content = _content;
+
+- (void)setContent:(NSString *)content
+{
+    _content = content;
+}
+
+- (NSString *)content
+{
+    CGFloat contentW = kScreenWidth - 70;
+    CGRect textRect = [_content boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:contentLabelFontSize]} context:nil];
+    if (textRect.size.height > maxContentLabelHeight) {
+        _shouldShowMoreButton = YES;
+    } else {
+        _shouldShowMoreButton = NO;
+    }
+    return _content;
+}
+
+- (void)setIsOpening:(BOOL)isOpening
+{
+    if (!_shouldShowMoreButton) {
+        _isOpening = NO;
+    } else {
+        _isOpening = isOpening;
+    }
+}
 
 @end
 
@@ -20,5 +52,15 @@
 
 #pragma mark - PublisherObject
 @implementation PublisherObject
+
+@end
+
+#pragma mark - LikerObject
+@implementation LikerObject
+
+@end
+
+#pragma mark - commentObject
+@implementation commentObject
 
 @end

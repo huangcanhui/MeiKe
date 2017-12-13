@@ -10,7 +10,7 @@
 
 #import "CHTabBarViewController.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
-#import <IQKeyboardManager/IQKeyboardManager.h>
+#import "IQKeyBoardManager/IQKeyboardManager.h"
 #import <Contacts/Contacts.h>
 
 @interface AppDelegate ()

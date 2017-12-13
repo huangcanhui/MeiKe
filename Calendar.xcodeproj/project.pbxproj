@@ -11,6 +11,9 @@
 		5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E19CC1FCEB24000502C96 /* CHSettingModel.m */; };
 		5B305D891FDA8808003A65F2 /* Config.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B305D881FDA8808003A65F2 /* Config.strings */; };
 		5B305D8C1FDA9383003A65F2 /* CHNetString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B305D8B1FDA9383003A65F2 /* CHNetString.m */; };
+		5B49FE031FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49FE021FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m */; };
+		5B49FE071FDFC21D001EEC29 /* CHFriendCellCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49FE061FDFC21D001EEC29 /* CHFriendCellCommentView.m */; };
+		5B49FE0A1FDFC28A001EEC29 /* CHFriendPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49FE091FDFC28A001EEC29 /* CHFriendPhotoContainerView.m */; };
 		5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */; };
 		5B54E6911FB57A0900BFFA54 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E6901FB57A0900BFFA54 /* Address.m */; };
 		5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54E6921FB58B0900BFFA54 /* CHAlertViewManager.m */; };
@@ -75,6 +78,11 @@
 		5BA5DF0B1FB18AF7003FEE02 /* CHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF0A1FB18AF7003FEE02 /* CHTabBarViewController.m */; };
 		5BB554211FD154E000A047D9 /* CHFriend_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */; };
 		5BB554241FD155FC00A047D9 /* CHFriend_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */; };
+		5BE5EE7E1FE10ED600F8410A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5EE781FE10C6100F8410A /* SDBrowserImageView.m */; };
+		5BE5EE7F1FE10ED900F8410A /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5EE7A1FE10C6100F8410A /* SDPhotoBrowser.m */; };
+		5BE5EE801FE10EDC00F8410A /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5EE7D1FE10C6100F8410A /* SDWaitingView.m */; };
+		5BE9D3D71FE125F500A93037 /* CHSilderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9D3D61FE125F500A93037 /* CHSilderView.m */; };
+		5BE9D3DD1FE1372400A93037 /* CHTimeSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9D3DC1FE1372400A93037 /* CHTimeSliderView.m */; };
 		5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA8FA1FB049FC0099E8EF /* CHNavigationViewController.m */; };
 		5BEBA8FF1FB04BAB0099E8EF /* UILabel+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA8FE1FB04BAB0099E8EF /* UILabel+CH.m */; };
 		5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA9011FB04BEA0099E8EF /* NSString+CH.m */; };
@@ -118,6 +126,12 @@
 		5B305D881FDA8808003A65F2 /* Config.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Config.strings; sourceTree = "<group>"; };
 		5B305D8A1FDA9383003A65F2 /* CHNetString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNetString.h; sourceTree = "<group>"; };
 		5B305D8B1FDA9383003A65F2 /* CHNetString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNetString.m; sourceTree = "<group>"; };
+		5B49FE011FDFB34B001EEC29 /* CHFriendCircleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendCircleTableViewCell.h; sourceTree = "<group>"; };
+		5B49FE021FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriendCircleTableViewCell.m; sourceTree = "<group>"; };
+		5B49FE051FDFC21D001EEC29 /* CHFriendCellCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendCellCommentView.h; sourceTree = "<group>"; };
+		5B49FE061FDFC21D001EEC29 /* CHFriendCellCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriendCellCommentView.m; sourceTree = "<group>"; };
+		5B49FE081FDFC28A001EEC29 /* CHFriendPhotoContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendPhotoContainerView.h; sourceTree = "<group>"; };
+		5B49FE091FDFC28A001EEC29 /* CHFriendPhotoContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriendPhotoContainerView.m; sourceTree = "<group>"; };
 		5B54E68C1FB579F300BFFA54 /* CHMapSupportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHMapSupportViewController.h; sourceTree = "<group>"; };
 		5B54E68D1FB579F300BFFA54 /* CHMapSupportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHMapSupportViewController.m; sourceTree = "<group>"; };
 		5B54E68F1FB57A0900BFFA54 /* Address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -251,6 +265,21 @@
 		5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchViewController.m; sourceTree = "<group>"; };
 		5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_SearchView.h; sourceTree = "<group>"; };
 		5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchView.m; sourceTree = "<group>"; };
+		5BE5EE531FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		5BE5EE541FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		5BE5EE551FE10A2E00F8410A /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		5BE5EE561FE10A2E00F8410A /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		5BE5EE771FE10C6100F8410A /* SDBrowserImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		5BE5EE781FE10C6100F8410A /* SDBrowserImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		5BE5EE791FE10C6100F8410A /* SDPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		5BE5EE7A1FE10C6100F8410A /* SDPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		5BE5EE7B1FE10C6100F8410A /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		5BE5EE7C1FE10C6100F8410A /* SDWaitingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		5BE5EE7D1FE10C6100F8410A /* SDWaitingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		5BE9D3D51FE125F500A93037 /* CHSilderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSilderView.h; sourceTree = "<group>"; };
+		5BE9D3D61FE125F500A93037 /* CHSilderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSilderView.m; sourceTree = "<group>"; };
+		5BE9D3DB1FE1372400A93037 /* CHTimeSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTimeSliderView.h; sourceTree = "<group>"; };
+		5BE9D3DC1FE1372400A93037 /* CHTimeSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTimeSliderView.m; sourceTree = "<group>"; };
 		5BEBA8F91FB049FC0099E8EF /* CHNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNavigationViewController.h; sourceTree = "<group>"; };
 		5BEBA8FA1FB049FC0099E8EF /* CHNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNavigationViewController.m; sourceTree = "<group>"; };
 		5BEBA8FC1FB04A3D0099E8EF /* Calendar.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calendar.pch; sourceTree = "<group>"; };
@@ -314,6 +343,19 @@
 				5B305D871FDA7E87003A65F2 /* YContactsManager.m */,
 			);
 			path = YAddressBookFile;
+			sourceTree = "<group>";
+		};
+		5B49FE041FDFB91F001EEC29 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5B49FE011FDFB34B001EEC29 /* CHFriendCircleTableViewCell.h */,
+				5B49FE021FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m */,
+				5B49FE051FDFC21D001EEC29 /* CHFriendCellCommentView.h */,
+				5B49FE061FDFC21D001EEC29 /* CHFriendCellCommentView.m */,
+				5B49FE081FDFC28A001EEC29 /* CHFriendPhotoContainerView.h */,
+				5B49FE091FDFC28A001EEC29 /* CHFriendPhotoContainerView.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5B54E68B1FB579D600BFFA54 /* MapSupport */ = {
@@ -398,8 +440,9 @@
 		5B818AF61FBD691300B2B013 /* Footprint(足迹) */ = {
 			isa = PBXGroup;
 			children = (
-				5B818AF71FBD692E00B2B013 /* CHFootPrintViewController.h */,
-				5B818AF81FBD692E00B2B013 /* CHFootPrintViewController.m */,
+				5BE9D3D31FE125B500A93037 /* Controller */,
+				5BE9D3D41FE125B500A93037 /* Model */,
+				5BE9D3D21FE125B500A93037 /* View */,
 			);
 			path = "Footprint(足迹)";
 			sourceTree = "<group>";
@@ -573,6 +616,8 @@
 		5B8DC67E1FB047CC00B7B1FA /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				5BE5EE761FE10C6100F8410A /* SDPhotoBrowser */,
+				5BE5EE521FE10A2E00F8410A /* SDAutoLayout */,
 				5B305D811FDA7E87003A65F2 /* YAddressBookFile */,
 				5B54E6981FB5B9BF00BFFA54 /* STPhotoKit */,
 			);
@@ -666,6 +711,7 @@
 		5BA5DEF21FB16089003FEE02 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B49FE041FDFB91F001EEC29 /* Cell */,
 				5B6BA0791FB4392C0081FEF0 /* CHNaviButton.h */,
 				5B6BA07A1FB4392C0081FEF0 /* CHNaviButton.m */,
 				5B6BA07F1FB43DAC0081FEF0 /* CHNormalButton.h */,
@@ -766,6 +812,58 @@
 				5B818ADC1FBD57D400B2B013 /* CHPersonalTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5BE5EE521FE10A2E00F8410A /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5BE5EE531FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.h */,
+				5BE5EE541FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.m */,
+				5BE5EE551FE10A2E00F8410A /* UIView+SDAutoLayout.h */,
+				5BE5EE561FE10A2E00F8410A /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
+			sourceTree = "<group>";
+		};
+		5BE5EE761FE10C6100F8410A /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				5BE5EE771FE10C6100F8410A /* SDBrowserImageView.h */,
+				5BE5EE781FE10C6100F8410A /* SDBrowserImageView.m */,
+				5BE5EE791FE10C6100F8410A /* SDPhotoBrowser.h */,
+				5BE5EE7A1FE10C6100F8410A /* SDPhotoBrowser.m */,
+				5BE5EE7B1FE10C6100F8410A /* SDPhotoBrowserConfig.h */,
+				5BE5EE7C1FE10C6100F8410A /* SDWaitingView.h */,
+				5BE5EE7D1FE10C6100F8410A /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		5BE9D3D21FE125B500A93037 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BE9D3D51FE125F500A93037 /* CHSilderView.h */,
+				5BE9D3D61FE125F500A93037 /* CHSilderView.m */,
+				5BE9D3DB1FE1372400A93037 /* CHTimeSliderView.h */,
+				5BE9D3DC1FE1372400A93037 /* CHTimeSliderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BE9D3D31FE125B500A93037 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B818AF71FBD692E00B2B013 /* CHFootPrintViewController.h */,
+				5B818AF81FBD692E00B2B013 /* CHFootPrintViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5BE9D3D41FE125B500A93037 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D29CB29F1A44C0A604AD45B3 /* Pods */ = {
@@ -928,6 +1026,10 @@
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.plist",
+				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_ExpressionImage.plist",
+				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle",
+				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle/gifexpression.bundle",
 				"${PODS_ROOT}/ProgressHUD/ProgressHUD/ProgressHUD/ProgressHUD.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
@@ -993,6 +1095,7 @@
 				5B6BA06F1FB42A2A0081FEF0 /* UITabBar+CHTabBar.m in Sources */,
 				5BA5DF0B1FB18AF7003FEE02 /* CHTabBarViewController.m in Sources */,
 				5B953A1B1FCE6BCA00223325 /* CHSetUpModel.m in Sources */,
+				5BE5EE801FE10EDC00F8410A /* SDWaitingView.m in Sources */,
 				5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */,
 				5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */,
 				5B818B031FBD777900B2B013 /* CHTime.m in Sources */,
@@ -1008,24 +1111,30 @@
 				5B54E6911FB57A0900BFFA54 /* Address.m in Sources */,
 				5B54E6971FB5B9A600BFFA54 /* ImagePickerManager.m in Sources */,
 				5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */,
+				5B49FE031FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m in Sources */,
+				5B49FE071FDFC21D001EEC29 /* CHFriendCellCommentView.m in Sources */,
 				5B6BA0841FB4499D0081FEF0 /* UIDevice+CHResolutions.m in Sources */,
 				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,
 				5B8DC6591FB0109900B7B1FA /* main.m in Sources */,
 				5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */,
 				5B305D8C1FDA9383003A65F2 /* CHNetString.m in Sources */,
 				5BB554241FD155FC00A047D9 /* CHFriend_SearchView.m in Sources */,
+				5B49FE0A1FDFC28A001EEC29 /* CHFriendPhotoContainerView.m in Sources */,
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
 				5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */,
+				5BE5EE7E1FE10ED600F8410A /* SDBrowserImageView.m in Sources */,
 				5BB554211FD154E000A047D9 /* CHFriend_SearchViewController.m in Sources */,
 				5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */,
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
+				5BE9D3D71FE125F500A93037 /* CHSilderView.m in Sources */,
 				5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */,
 				5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */,
 				5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */,
+				5BE5EE7F1FE10ED900F8410A /* SDPhotoBrowser.m in Sources */,
 				5B818AF51FBD68D400B2B013 /* CHAboutUsViewController.m in Sources */,
 				5B6BA0721FB42A700081FEF0 /* UITabBarItem+CHBadge.m in Sources */,
 				5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */,
@@ -1038,6 +1147,7 @@
 				5B6BA0811FB43DAC0081FEF0 /* CHNormalButton.m in Sources */,
 				5B6BA0751FB42F580081FEF0 /* CHManager.m in Sources */,
 				5B6BA0891FB460570081FEF0 /* CHPublish.m in Sources */,
+				5BE9D3DD1FE1372400A93037 /* CHTimeSliderView.m in Sources */,
 				5BA5DEFD1FB160F8003FEE02 /* CHCircleViewController.m in Sources */,
 				5B818AF11FBD686300B2B013 /* CHCustomServiceViewController.m in Sources */,
 				5BEBA90B1FB04D200099E8EF /* SingletonObject.m in Sources */,
@@ -1213,6 +1323,24 @@
 				INFOPLIST_FILE = Calendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/HappyDNS\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManager\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/ProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Qiniu\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD\"",
+					"\"${PODS_ROOT}/JCore\"",
+					"\"${PODS_ROOT}/JPush\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDKPlugin\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ymstarsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1233,6 +1361,24 @@
 				INFOPLIST_FILE = Calendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/HappyDNS\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManager\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/ProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Qiniu\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD\"",
+					"\"${PODS_ROOT}/JCore\"",
+					"\"${PODS_ROOT}/JPush\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDKPlugin\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ymstarsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

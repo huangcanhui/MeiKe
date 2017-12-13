@@ -14,8 +14,12 @@
 #import "CHNavigationViewController.h"
 #import "FriendCircleObject.h"
 #import "MJRefresh.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+#import "FriendCircleObject.h"
+
 //视图
 #import "CHPublishViewController.h"
+#import "CHFriendCircleTableViewCell.h"
 
 static NSString *bundleID = @"friendCircle";
 @interface CHCircleViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -173,6 +177,9 @@ static NSString *bundleID = @"friendCircle";
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
+        //注册cell
+        [_tableView registerClass:[CHFriendCircleTableViewCell class] forCellReuseIdentifier:bundleID];
+        
         //添加刷新控件
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             
@@ -191,21 +198,41 @@ static NSString *bundleID = @"friendCircle";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.tableArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    /*********************  cell自适应高度 *************************************/
+    id model = self.tableArray[indexPath.row];
+    return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[CHFriendCircleTableViewCell class] contentViewWidth:[self cellContentViewWith]];
+}
+
+- (CGFloat)cellContentViewWith
+{
+    CGFloat width = kScreenWidth;
+    if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8 ) {
+        width = kScreenHeight;
+    }
+    return width;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bundleID];
+    CHFriendCircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bundleID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:bundleID];
+        cell = [[CHFriendCircleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:bundleID];
     }
-    cell.textLabel.text = @"123456";
+    cell.indexPath = indexPath;
+    weakSelf(wself);
+    if (!cell.moreButtonClickBlock) {
+        [cell setMoreButtonClickBlock:^(NSIndexPath *indexPath) {
+            FriendCircleObject *model = wself.tableArray[indexPath.row];
+            model.isOpening = !model.isOpening;
+            [wself.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+    }
+    cell.object = self.tableArray[indexPath.row];
     return cell;
 }
 
