@@ -8,13 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class CHTimeSliderView;
-
-@protocol CHTimeSliderViewDelegate <NSObject>
-@optional
-- (void)sliderValueChanging:(CHTimeSliderView *)slider;
-@end
-
 @interface CHTimeSliderView : UIView
 /**
  * 背景文字
@@ -26,10 +19,13 @@
 @property (nonatomic, assign)CGFloat minValue;
 @property (nonatomic, assign)CGFloat maxValue;
 /**
- * 代理
+ * 获取日期的block
  */
-@property (nonatomic, weak)id <CHTimeSliderViewDelegate>delegate;
-
+@property (nonatomic, copy)void (^sliderValueChange)(NSString *value);
+/**
+ * 监听手势结束
+ */
+@property (nonatomic, copy)void (^gesRecognizerEnd)();
 /**
  * 设置滑动条的颜色
  * @param backColor 背景颜色

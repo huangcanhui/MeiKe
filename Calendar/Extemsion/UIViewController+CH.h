@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (CH)
-
+//登录
+- (void)showLogin;
 @end

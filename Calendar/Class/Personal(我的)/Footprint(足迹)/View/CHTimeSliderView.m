@@ -98,19 +98,28 @@
     self.sliderView = pan.view;
     if (self.sliderView.CH_height >= 0 && self.sliderView.CH_height <= self.CH_height) {
         self.sliderView.CH_height = original.y;
-        self.sliderView.y = self.CH_height - original.y;
         if (original.y >= self.CH_height ) {
-            self.sliderView.y = self.CH_height;
             original.y = self.CH_height;
         }
         if (original.y <= 0) {
-            self.sliderView.y = 0;
             original.y = 0;
         }
-        self.sliderView.frame = CGRectMake(0, 0, self.CH_width, self.CH_height - self.sliderView.y);
+        self.sliderView.frame = CGRectMake(0, 0, self.CH_width, original.y);
         self.sliderView.backgroundColor = [UIColor orangeColor];
     }
-    NSLog(@"%f", original.y);
+    CGFloat value = (self.maxValue - self.minValue) / self.CH_height;
+    if (self.sliderValueChange) {
+        if (original.y == 0) {
+            self.sliderValueChange([NSString stringWithFormat:@"%f", self.maxValue]);
+        } else {
+            self.sliderValueChange([NSString stringWithFormat:@"%f", self.maxValue - original.y * value]);
+        }
+    }
+    if (pan.state == UIGestureRecognizerStateEnded) {
+        if (self.gesRecognizerEnd) {
+            self.gesRecognizerEnd();
+        }
+    }
 }
 
 - (void)setColorForBackView:(UIColor *)backColor sliderColor:(UIColor *)sliderColor textColor:(UIColor *)textColor borderColor:(UIColor *)borderColor
@@ -120,10 +129,5 @@
     self.label.textColor = textColor;
     [self.layer setBorderColor:borderColor.CGColor];
 }
-
-//- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//
-//}
 
 @end

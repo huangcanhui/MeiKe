@@ -7,14 +7,20 @@
 //
 
 #import "CHFootPrintViewController.h"
-#import "CHSilderView.h"
 #import "CHTimeSliderView.h"
+#import "CHTime.h"
+#import "CHTimeShowView.h"
 
-@interface CHFootPrintViewController ()<CHSliderViewDelgate>
+@interface CHFootPrintViewController ()
 /**
  * 时光轴
  */
 @property (nonatomic, strong)CHTimeSliderView *slider;
+/**
+ * 时间展示
+ */
+@property (nonatomic, strong)CHTimeShowView *timeView;
+
 @end
 
 @implementation CHFootPrintViewController
@@ -33,26 +39,36 @@
 #pragma mark - 创建时间轴
 - (void)initSliderView
 {
-//    self.slider = [[CHSilderView alloc] initWithFrame:CGRectMake(20, 20, kScreenWidth - 40, 20)];
-//    self.slider.text = @"我的时光轴";
-//    self.slider.isVertical = YES;
-//    self.slider.thumbHidden = YES;
-//    self.slider.thumbBack = NO;
-//    self.slider.delegate = self;
-//    [self.view addSubview:self.slider];
     self.slider = [[CHTimeSliderView alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 10, 25, kScreenHeight - navigationHeight - tabbarHeight - 20)];
     [self.slider setColorForBackView:[UIColor darkGrayColor] sliderColor:[UIColor orangeColor] textColor:[UIColor whiteColor] borderColor:[UIColor blackColor]];
-    self.slider.minValue = 0;
-    self.slider.minValue = 1;
+    self.slider.minValue = [@"1293267537" floatValue];
+    self.slider.maxValue = [[CHTime getNowTimeTimestamp2] floatValue];
     self.slider.text = @"长按滑动我的时光轴";
+    weakSelf(wself);
+    self.slider.sliderValueChange = ^(NSString *value) {
+        [wself.view addSubview:wself.timeView];
+        wself.timeView.text = [CHTime getDateWithSecond:value];
+    };
+    self.slider.gesRecognizerEnd = ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [wself.timeView removeFromSuperview];
+        });
+    };
     [self.view addSubview:self.slider];
-    
-    
 }
 
--(void)sliderValueChanging:(CHSilderView *)slider
+#pragma mark - 懒加载
+- (CHTimeShowView *)timeView
 {
-    NSLog(@"%f", slider.value);
+    if (!_timeView) {
+        _timeView = [[CHTimeShowView alloc] initWithFrame:CGRectMake(kScreenWidth / 4, kScreenHeight / 4, kScreenWidth / 2, kScreenWidth / 2)];
+    }
+    return _timeView;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//    NSLog(@"滑动结束了");
 }
 
 - (void)didReceiveMemoryWarning {

@@ -25,8 +25,6 @@
     
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     
-    NSLog(@"currentTimeString =  %@",currentTimeString);
-    
     return currentTimeString;
 }
 
@@ -65,6 +63,15 @@
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
     
     return timeSp;
+}
+
++ (NSString *)getDateWithSecond:(NSString *)second
+{
+    int x = [[second substringToIndex:10] intValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:x];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+    return [dateFormatter stringFromDate:date];
 }
 
 @end

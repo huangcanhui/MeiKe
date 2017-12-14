@@ -14,6 +14,7 @@
 #import "MJExtension.h"
 #import "UserModel.h"
 
+#import "UIViewController+CH.h"
 #import "CHPersonalTableViewCell.h"
 #import "CHFootPrintViewController.h"
 #import "CHPhotoViewController.h"
@@ -162,8 +163,12 @@ static NSString *cellBundle = @"PERSONAL";
     CHPersonalGroup *group = self.itemGroups[indexPath.section];
     CHPersonalModel *model = group.activity[indexPath.row];
     if ([model.title isEqualToString:@"我的时光轴"]) {
-        CHFootPrintViewController *footVC = [CHFootPrintViewController new];
-        [self.navigationController pushViewController:footVC animated:NO];
+        if ([UserModel onLine]) {
+            CHFootPrintViewController *footVC = [CHFootPrintViewController new];
+            [self.navigationController pushViewController:footVC animated:NO];
+        } else {
+            [self showLogin];
+        }
     } else if ([model.title isEqualToString:@"我的相册"]) {
         CHPhotoViewController *photoVC = [CHPhotoViewController new];
         [self.navigationController pushViewController:photoVC animated:NO];

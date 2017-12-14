@@ -16,10 +16,15 @@
 /**
  * 获取时间戳(以秒为单位)
  */
-+(NSString *)getNowTimeTimestamp2;
++ (NSString *)getNowTimeTimestamp2;
 /**
  * 获取时间戳(以毫秒为单位)
  */
-+(NSString *)getNowTimeTimestamp3;
++ (NSString *)getNowTimeTimestamp3;
+
+/**
+ * 将秒换成日期（以秒为单位）
+ */
++ (NSString *)getDateWithSecond:(NSString *)second;
 
 @end
