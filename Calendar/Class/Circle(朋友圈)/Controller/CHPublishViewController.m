@@ -17,8 +17,18 @@
 #import "CHMapSupportViewController.h"
 
 @interface CHPublishViewController ()<UITableViewDelegate, UITableViewDataSource>
+/**
+ * UITableView
+ */
 @property (nonatomic, strong)UITableView *tableView;
+/**
+ * 数据源
+ */
 @property (nonatomic, strong)NSArray *data;
+/**
+ * 图文发布
+ */
+@property (nonatomic, strong)CHPublishView *publishView;
 @end
 
 @implementation CHPublishViewController
@@ -51,18 +61,29 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(220))];
-//    view.backgroundColor = [UIColor redColor];
-    CHPublishView *publishView = [[CHPublishView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(192))];
-    publishView.getData = ^(NSString *title) {
-        NSLog(@"%@", title);
-    };
-    self.tableView.tableHeaderView = publishView;
+    if (self.style == clickGes) { //点击发布图文信息
+//         self.publishView.style = viewWithTextAndPhoto;
+//        self.publishView = [[CHPublishView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(220))];
+        self.publishView = [[CHPublishView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(220)) andStyle:viewWithTextAndPhoto];
+        self.publishView.getData = ^(NSString *title) {
+            NSLog(@"%@", title);
+        };
+        self.publishView.getPhotos = ^(NSArray *array) {
+            NSLog(@"%@", array);
+        };
+    } else { //长按发布图文
+//        self.publishView.style = viewWithOnlytext;
+//        self.publishView = [[CHPublishView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(168))];
+        self.publishView = [[CHPublishView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, DDRealValueBy6s(168)) andStyle:viewWithOnlytext];
+        self.publishView.getData = ^(NSString *title) {
+            NSLog(@"%@", title);
+        };
+    }
+    self.tableView.tableHeaderView = self.publishView;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self.view addSubview:self.tableView];
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

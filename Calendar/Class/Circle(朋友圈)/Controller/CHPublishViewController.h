@@ -11,7 +11,7 @@
  * 这是一个点击方式的枚举
  */
 typedef enum {
-     clickLongPress = 0,
+    clickLongPress = 0,
     clickGes,
 }GesStyle;
 
