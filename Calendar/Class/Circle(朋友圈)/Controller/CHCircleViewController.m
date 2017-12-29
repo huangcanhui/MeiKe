@@ -18,8 +18,8 @@
 #import "FriendCircleObject.h"
 
 //视图
-#import "CHPublishViewController.h"
 #import "CHFriendCircleTableViewCell.h"
+#import "CHPublish_Photo_ContentViewController.h"
 
 static NSString *bundleID = @"friendCircle";
 @interface CHCircleViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -72,8 +72,8 @@ static NSString *bundleID = @"friendCircle";
 - (void)rightNaviButtonTap
 {
     weakSelf(wself);
-    CHPublishViewController *pubVC = [CHPublishViewController new];
-    pubVC.style = clickGes; //点击
+    CHPublish_Photo_ContentViewController *pubVC = [[CHPublish_Photo_ContentViewController alloc] init];
+    pubVC.type = typeWithPhotoAndContent; //点击
     CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:pubVC];
     [wself presentViewController:naVC animated:NO completion:nil];
 }
@@ -81,8 +81,8 @@ static NSString *bundleID = @"friendCircle";
 - (void)longPressRightNaviButton
 {
     weakSelf(wself);
-    CHPublishViewController *pubVC = [CHPublishViewController new];
-    pubVC.style = clickLongPress; //点击
+    CHPublish_Photo_ContentViewController *pubVC = [[CHPublish_Photo_ContentViewController alloc] init];;
+    pubVC.type = typeWithContent; //点击
     CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:pubVC];
     [wself presentViewController:naVC animated:NO completion:nil];
 }

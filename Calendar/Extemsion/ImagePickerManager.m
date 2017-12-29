@@ -15,6 +15,8 @@
 #import "HappyDNS.h"
 #import "ProgressHUD.h"
 
+#import "WPhotoViewController.h"
+
 static ImagePickerManager *pickerManager = nil;
 
 @implementation ImagePickerManager
@@ -31,19 +33,36 @@ static ImagePickerManager *pickerManager = nil;
 
 - (void)showActionSheetInSuperViewController:(UIViewController *)superViewController delegate:(id<ImagePickerManagerDelegate>)delegate
 {
+    weakSelf(wself);
     pickerManager.uploadImageDelegate = delegate;
     
-    self.superViewController = superViewController;
+    wself.superViewController = superViewController;
     
-    [CHAlertViewManager actionSheettWithTitle:@"图片上传" message:@"" actionNumber:3 actionTitles:@[@"相机", @"图库", @"取消"] actionHandler:^(UIAlertAction *action, NSUInteger index) {
-        if (index == 0) { //相机
-            [self imagePickeWithPhoto];
-        } else if (index == 1) { //图库
-            [self imagePickerWithLibrary];
-        } else {
-            
-        }
-    }];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"图片上传" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    
+    
+//    [CHAlertViewManager actionSheettWithTitle:@"图片上传" message:@"" actionNumber:3 actionTitles:@[@"拍照", @"从相册选择", @"取消"] actionHandler:^(UIAlertAction *action, NSUInteger index) {
+//        if (index == 0) { //相机
+//            [wself imagePickeWithPhoto];
+//        } else if (index == 1) { //图库
+//            [wself imagePickerWithLibrary];
+//        } else {
+//
+//        }
+//    }];
 }
 
 #pragma mark 从相机获取
@@ -56,7 +75,7 @@ static ImagePickerManager *pickerManager = nil;
     [picker.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HexColor(0xffffff)}];
     if ([picker isAvailableCamera] && [picker isSupportTakingPhotos]) {
         [picker setDelegate:self];
-        [_superViewController presentViewController:picker animated:YES completion:nil];
+         [_superViewController presentViewController:picker animated:YES completion:nil];
     } else {
         NSLog(@"%s %@", __FUNCTION__, @"相机权限受限");
     }
@@ -65,15 +84,23 @@ static ImagePickerManager *pickerManager = nil;
 #pragma mark  从图库中
 - (void)imagePickerWithLibrary
 {
-    UIImagePickerController *picker = [UIImagePickerController imagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    picker.navigationBar.translucent = NO;
-    picker.navigationBar.barTintColor = GLOBAL_COLOR;
-    picker.allowsEditing = YES;
-    [picker.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HexColor(0xffffff)}];
-    if ([picker isAvailablePhotoLibrary]) {
-        [picker setDelegate:self];
-        [_superViewController presentViewController:picker animated:YES completion:nil];
-    }
+//    UIImagePickerController *picker = [UIImagePickerController imagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+//    picker.navigationBar.translucent = NO;
+//    picker.navigationBar.barTintColor = GLOBAL_COLOR;
+//    picker.allowsEditing = YES;
+//    [picker.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HexColor(0xffffff)}];
+//    if ([picker isAvailablePhotoLibrary]) {
+//        [picker setDelegate:self];
+//        [_superViewController presentViewController:picker animated:YES completion:nil];
+//    }
+    
+    WPhotoViewController *wphotoVC = [[WPhotoViewController alloc] init];;
+    wphotoVC.selectPhotoOfMax = 9; //可以选择的最大张数
+    [wphotoVC setSelectPhotosBack:^(NSMutableArray *photosArr) {
+        NSLog(@"%@", photosArr);
+    }];
+    [_superViewController presentViewController:wphotoVC animated:YES completion:nil];
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info

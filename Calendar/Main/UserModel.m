@@ -118,7 +118,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
             self.userInfo = info;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:nil];
         } WithFailurBlock:^(NSError *error) {
-            [self info];
+            
         }];
     });
 }

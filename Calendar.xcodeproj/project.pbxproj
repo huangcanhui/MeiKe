@@ -25,18 +25,22 @@
 		5B6BA0751FB42F580081FEF0 /* CHManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0741FB42F580081FEF0 /* CHManager.m */; };
 		5B6BA0781FB431C90081FEF0 /* mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0771FB431C90081FEF0 /* mobile.m */; };
 		5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA07A1FB4392C0081FEF0 /* CHNaviButton.m */; };
-		5B6BA07E1FB43AFD0081FEF0 /* CHPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA07D1FB43AFD0081FEF0 /* CHPublishViewController.m */; };
 		5B6BA0811FB43DAC0081FEF0 /* CHNormalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0801FB43DAC0081FEF0 /* CHNormalButton.m */; };
 		5B6BA0841FB4499D0081FEF0 /* UIDevice+CHResolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0831FB4499D0081FEF0 /* UIDevice+CHResolutions.m */; };
 		5B6BA0861FB45E770081FEF0 /* CHPublish.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B6BA0851FB45E770081FEF0 /* CHPublish.plist */; };
 		5B6BA0891FB460570081FEF0 /* CHPublish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0881FB460570081FEF0 /* CHPublish.m */; };
-		5B6BA08C1FB462730081FEF0 /* CHPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08B1FB462730081FEF0 /* CHPublishView.m */; };
 		5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */; };
 		5B6BA0951FB465140081FEF0 /* MAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0941FB465130081FEF0 /* MAP.m */; };
 		5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7627E31FCFE52900EA4160 /* CHBorderButton.m */; };
 		5B799C841FBEBABB00903A01 /* PersonalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B799C831FBEBABB00903A01 /* PersonalData.plist */; };
 		5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C861FBEBC0F00903A01 /* CHPersonalData.m */; };
 		5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */; };
+		5B7FF7EB1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF7EA1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m */; };
+		5B7FF7FF1FF4F099005F592E /* myPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF7F11FF4EF87005F592E /* myPhotoCell.m */; };
+		5B7FF8001FF4F099005F592E /* NavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF7F31FF4EF87005F592E /* NavView.m */; };
+		5B7FF8011FF4F099005F592E /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF7F51FF4EF87005F592E /* UIImage+fixOrientation.m */; };
+		5B7FF8021FF4F099005F592E /* WPFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF7F71FF4EF87005F592E /* WPFunctionView.m */; };
+		5B7FF8031FF4F099005F592E /* WPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF7FD1FF4EF87005F592E /* WPhotoViewController.m */; };
 		5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AD61FBD575B00B2B013 /* CHUserView.m */; };
 		5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B818AD81FBD577800B2B013 /* CHUserView.xib */; };
 		5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818ADB1FBD57D400B2B013 /* CHPersonalTableViewCell.m */; };
@@ -62,8 +66,6 @@
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
 		5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B912A6C1FDE837600404933 /* FriendCircleObject.m */; };
-		5B93E1071FF0D01A00DE00E2 /* CHImagePublishBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E1061FF0D01A00DE00E2 /* CHImagePublishBaseViewController.m */; };
-		5B93E10A1FF0D35B00DE00E2 /* CHImagePickerSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E1091FF0D35B00DE00E2 /* CHImagePickerSheet.m */; };
 		5B93E11C1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E11A1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m */; };
 		5B93E11D1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B93E11B1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib */; };
 		5B93E1281FF0F63100DE00E2 /* JJMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E1201FF0EA4B00DE00E2 /* JJMainScrollView.m */; };
@@ -89,7 +91,6 @@
 		5B93E1461FF0F6A200DE00E2 /* SDBaseProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E13F1FF0F68D00DE00E2 /* SDBaseProgressView.m */; };
 		5B93E1471FF0F6A200DE00E2 /* SDLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E1411FF0F68D00DE00E2 /* SDLoopProgressView.m */; };
 		5B93E1481FF0F8CC00DE00E2 /* SDDemoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E1451FF0F68D00DE00E2 /* SDDemoItemView.m */; };
-		5B93E14B1FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E14A1FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.m */; };
 		5B953A181FCE6BBB00223325 /* CHSetUpGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */; };
 		5B953A1B1FCE6BCA00223325 /* CHSetUpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A1A1FCE6BCA00223325 /* CHSetUpModel.m */; };
 		5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B953A1D1FCE716800223325 /* CHSaveCache.m */; };
@@ -101,6 +102,8 @@
 		5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */; };
 		5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */; };
 		5BA0E10D1FBC270100F2BFA9 /* CHMobileAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */; };
+		5BA2256F1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2256E1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m */; };
+		5BA225721FF63F4500893024 /* QNUploadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA225711FF63F4500893024 /* QNUploadData.m */; };
 		5BA5DEFD1FB160F8003FEE02 /* CHCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */; };
 		5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */; };
 		5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */; };
@@ -195,8 +198,6 @@
 		5B6BA0771FB431C90081FEF0 /* mobile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobile.m; sourceTree = "<group>"; };
 		5B6BA0791FB4392C0081FEF0 /* CHNaviButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNaviButton.h; sourceTree = "<group>"; };
 		5B6BA07A1FB4392C0081FEF0 /* CHNaviButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNaviButton.m; sourceTree = "<group>"; };
-		5B6BA07C1FB43AFD0081FEF0 /* CHPublishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPublishViewController.h; sourceTree = "<group>"; };
-		5B6BA07D1FB43AFD0081FEF0 /* CHPublishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishViewController.m; sourceTree = "<group>"; };
 		5B6BA07F1FB43DAC0081FEF0 /* CHNormalButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNormalButton.h; sourceTree = "<group>"; };
 		5B6BA0801FB43DAC0081FEF0 /* CHNormalButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNormalButton.m; sourceTree = "<group>"; };
 		5B6BA0821FB4499D0081FEF0 /* UIDevice+CHResolutions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+CHResolutions.h"; sourceTree = "<group>"; };
@@ -204,8 +205,6 @@
 		5B6BA0851FB45E770081FEF0 /* CHPublish.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CHPublish.plist; sourceTree = "<group>"; };
 		5B6BA0871FB460570081FEF0 /* CHPublish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPublish.h; sourceTree = "<group>"; };
 		5B6BA0881FB460570081FEF0 /* CHPublish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublish.m; sourceTree = "<group>"; };
-		5B6BA08A1FB462730081FEF0 /* CHPublishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPublishView.h; sourceTree = "<group>"; };
-		5B6BA08B1FB462730081FEF0 /* CHPublishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishView.m; sourceTree = "<group>"; };
 		5B6BA08D1FB464700081FEF0 /* CHPublishDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPublishDetailViewController.h; sourceTree = "<group>"; };
 		5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishDetailViewController.m; sourceTree = "<group>"; };
 		5B6BA0931FB465130081FEF0 /* MAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAP.h; sourceTree = "<group>"; };
@@ -217,6 +216,22 @@
 		5B799C861FBEBC0F00903A01 /* CHPersonalData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalData.m; sourceTree = "<group>"; };
 		5B799C881FBEBDF800903A01 /* CHPersonalDataDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalDataDetailViewController.h; sourceTree = "<group>"; };
 		5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalDataDetailViewController.m; sourceTree = "<group>"; };
+		5B7FF7E91FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPublish_Photo_ContentViewController.h; sourceTree = "<group>"; };
+		5B7FF7EA1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublish_Photo_ContentViewController.m; sourceTree = "<group>"; };
+		5B7FF7F01FF4EF87005F592E /* myPhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myPhotoCell.h; sourceTree = "<group>"; };
+		5B7FF7F11FF4EF87005F592E /* myPhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myPhotoCell.m; sourceTree = "<group>"; };
+		5B7FF7F21FF4EF87005F592E /* NavView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavView.h; sourceTree = "<group>"; };
+		5B7FF7F31FF4EF87005F592E /* NavView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavView.m; sourceTree = "<group>"; };
+		5B7FF7F41FF4EF87005F592E /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		5B7FF7F51FF4EF87005F592E /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		5B7FF7F61FF4EF87005F592E /* WPFunctionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPFunctionView.h; sourceTree = "<group>"; };
+		5B7FF7F71FF4EF87005F592E /* WPFunctionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPFunctionView.m; sourceTree = "<group>"; };
+		5B7FF7F91FF4EF87005F592E /* wphoto_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wphoto_back@2x.png"; sourceTree = "<group>"; };
+		5B7FF7FA1FF4EF87005F592E /* wphoto_select_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wphoto_select_no@2x.png"; sourceTree = "<group>"; };
+		5B7FF7FB1FF4EF87005F592E /* wphoto_select_yes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wphoto_select_yes@2x.png"; sourceTree = "<group>"; };
+		5B7FF7FC1FF4EF87005F592E /* WPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPhotoViewController.h; sourceTree = "<group>"; };
+		5B7FF7FD1FF4EF87005F592E /* WPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPhotoViewController.m; sourceTree = "<group>"; };
+		5B7FF7FE1FF4EF87005F592E /* WPMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPMacros.h; sourceTree = "<group>"; };
 		5B818AD51FBD575B00B2B013 /* CHUserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUserView.h; sourceTree = "<group>"; };
 		5B818AD61FBD575B00B2B013 /* CHUserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUserView.m; sourceTree = "<group>"; };
 		5B818AD81FBD577800B2B013 /* CHUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHUserView.xib; sourceTree = "<group>"; };
@@ -263,10 +278,6 @@
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B912A6B1FDE837600404933 /* FriendCircleObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCircleObject.h; sourceTree = "<group>"; };
 		5B912A6C1FDE837600404933 /* FriendCircleObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCircleObject.m; sourceTree = "<group>"; };
-		5B93E1051FF0D01A00DE00E2 /* CHImagePublishBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHImagePublishBaseViewController.h; sourceTree = "<group>"; };
-		5B93E1061FF0D01A00DE00E2 /* CHImagePublishBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHImagePublishBaseViewController.m; sourceTree = "<group>"; };
-		5B93E1081FF0D35B00DE00E2 /* CHImagePickerSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHImagePickerSheet.h; sourceTree = "<group>"; };
-		5B93E1091FF0D35B00DE00E2 /* CHImagePickerSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHImagePickerSheet.m; sourceTree = "<group>"; };
 		5B93E10C1FF0D91B00DE00E2 /* ImagePickerDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerDefine.h; sourceTree = "<group>"; };
 		5B93E10D1FF0D91B00DE00E2 /* MGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGroupCell.h; sourceTree = "<group>"; };
 		5B93E10E1FF0D91B00DE00E2 /* MGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGroupCell.m; sourceTree = "<group>"; };
@@ -299,8 +310,6 @@
 		5B93E1421FF0F68D00DE00E2 /* SDProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDProgressView.h; sourceTree = "<group>"; };
 		5B93E1441FF0F68D00DE00E2 /* SDDemoItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDDemoItemView.h; sourceTree = "<group>"; };
 		5B93E1451FF0F68D00DE00E2 /* SDDemoItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDDemoItemView.m; sourceTree = "<group>"; };
-		5B93E1491FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPublishPhotoAndTexViewController.h; sourceTree = "<group>"; };
-		5B93E14A1FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPublishPhotoAndTexViewController.m; sourceTree = "<group>"; };
 		5B953A161FCE6BBB00223325 /* CHSetUpGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpGroup.h; sourceTree = "<group>"; };
 		5B953A171FCE6BBB00223325 /* CHSetUpGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpGroup.m; sourceTree = "<group>"; };
 		5B953A191FCE6BCA00223325 /* CHSetUpModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpModel.h; sourceTree = "<group>"; };
@@ -321,6 +330,10 @@
 		5BA0E1091FBC270100F2BFA9 /* CHMobileAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHMobileAuthViewController.h; sourceTree = "<group>"; };
 		5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHMobileAuthViewController.m; sourceTree = "<group>"; };
 		5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHMobileAuthViewController.xib; sourceTree = "<group>"; };
+		5BA2256D1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CH_ImageAndContent_SectionHeader.h; sourceTree = "<group>"; };
+		5BA2256E1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CH_ImageAndContent_SectionHeader.m; sourceTree = "<group>"; };
+		5BA225701FF63F4500893024 /* QNUploadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNUploadData.h; sourceTree = "<group>"; };
+		5BA225711FF63F4500893024 /* QNUploadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNUploadData.m; sourceTree = "<group>"; };
 		5BA5DEFB1FB160F8003FEE02 /* CHCircleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHCircleViewController.h; sourceTree = "<group>"; };
 		5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHCircleViewController.m; sourceTree = "<group>"; };
 		5BA5DEFE1FB1610B003FEE02 /* CHFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendsViewController.h; sourceTree = "<group>"; };
@@ -476,6 +489,35 @@
 			path = CHBadge;
 			sourceTree = "<group>";
 		};
+		5B7FF7EF1FF4EF87005F592E /* WPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				5B7FF7F01FF4EF87005F592E /* myPhotoCell.h */,
+				5B7FF7F11FF4EF87005F592E /* myPhotoCell.m */,
+				5B7FF7F21FF4EF87005F592E /* NavView.h */,
+				5B7FF7F31FF4EF87005F592E /* NavView.m */,
+				5B7FF7F41FF4EF87005F592E /* UIImage+fixOrientation.h */,
+				5B7FF7F51FF4EF87005F592E /* UIImage+fixOrientation.m */,
+				5B7FF7F61FF4EF87005F592E /* WPFunctionView.h */,
+				5B7FF7F71FF4EF87005F592E /* WPFunctionView.m */,
+				5B7FF7F81FF4EF87005F592E /* WPhotoImage */,
+				5B7FF7FC1FF4EF87005F592E /* WPhotoViewController.h */,
+				5B7FF7FD1FF4EF87005F592E /* WPhotoViewController.m */,
+				5B7FF7FE1FF4EF87005F592E /* WPMacros.h */,
+			);
+			path = WPhoto;
+			sourceTree = "<group>";
+		};
+		5B7FF7F81FF4EF87005F592E /* WPhotoImage */ = {
+			isa = PBXGroup;
+			children = (
+				5B7FF7F91FF4EF87005F592E /* wphoto_back@2x.png */,
+				5B7FF7FA1FF4EF87005F592E /* wphoto_select_no@2x.png */,
+				5B7FF7FB1FF4EF87005F592E /* wphoto_select_yes@2x.png */,
+			);
+			path = WPhotoImage;
+			sourceTree = "<group>";
+		};
 		5B818AEA1FBD67FD00B2B013 /* Game(游戏) */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,7 +659,7 @@
 		5B8DC67C1FB0479D00B7B1FA /* Extemsion */ = {
 			isa = PBXGroup;
 			children = (
-				5B93E1041FF0CFFB00DE00E2 /* ImageManager */,
+				5B7FF7EF1FF4EF87005F592E /* WPhoto */,
 				5B54E68B1FB579D600BFFA54 /* MapSupport */,
 				5B6BA0691FB429950081FEF0 /* CHBadge */,
 				5B54E6951FB5B9A600BFFA54 /* ImagePickerManager.h */,
@@ -652,6 +694,8 @@
 				5B7627E31FCFE52900EA4160 /* CHBorderButton.m */,
 				5B305D8A1FDA9383003A65F2 /* CHNetString.h */,
 				5B305D8B1FDA9383003A65F2 /* CHNetString.m */,
+				5BA225701FF63F4500893024 /* QNUploadData.h */,
+				5BA225711FF63F4500893024 /* QNUploadData.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -692,20 +736,6 @@
 				5B54E6981FB5B9BF00BFFA54 /* STPhotoKit */,
 			);
 			path = Framework;
-			sourceTree = "<group>";
-		};
-		5B93E1041FF0CFFB00DE00E2 /* ImageManager */ = {
-			isa = PBXGroup;
-			children = (
-				5B93E1051FF0D01A00DE00E2 /* CHImagePublishBaseViewController.h */,
-				5B93E1061FF0D01A00DE00E2 /* CHImagePublishBaseViewController.m */,
-				5B93E1081FF0D35B00DE00E2 /* CHImagePickerSheet.h */,
-				5B93E1091FF0D35B00DE00E2 /* CHImagePickerSheet.m */,
-				5B93E1191FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.h */,
-				5B93E11A1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m */,
-				5B93E11B1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib */,
-			);
-			path = ImageManager;
 			sourceTree = "<group>";
 		};
 		5B93E10B1FF0D91B00DE00E2 /* MImgpicker */ = {
@@ -836,10 +866,10 @@
 			children = (
 				5BA5DEFB1FB160F8003FEE02 /* CHCircleViewController.h */,
 				5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */,
-				5B6BA07C1FB43AFD0081FEF0 /* CHPublishViewController.h */,
-				5B6BA07D1FB43AFD0081FEF0 /* CHPublishViewController.m */,
 				5B6BA08D1FB464700081FEF0 /* CHPublishDetailViewController.h */,
 				5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */,
+				5B7FF7E91FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.h */,
+				5B7FF7EA1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -866,10 +896,11 @@
 				5B6BA07A1FB4392C0081FEF0 /* CHNaviButton.m */,
 				5B6BA07F1FB43DAC0081FEF0 /* CHNormalButton.h */,
 				5B6BA0801FB43DAC0081FEF0 /* CHNormalButton.m */,
-				5B6BA08A1FB462730081FEF0 /* CHPublishView.h */,
-				5B6BA08B1FB462730081FEF0 /* CHPublishView.m */,
-				5B93E1491FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.h */,
-				5B93E14A1FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.m */,
+				5B93E1191FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.h */,
+				5B93E11A1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m */,
+				5B93E11B1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib */,
+				5BA2256D1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.h */,
+				5BA2256E1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1237,12 +1268,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7FF7FF1FF4F099005F592E /* myPhotoCell.m in Sources */,
+				5B7FF8001FF4F099005F592E /* NavView.m in Sources */,
+				5B7FF8011FF4F099005F592E /* UIImage+fixOrientation.m in Sources */,
+				5B7FF8021FF4F099005F592E /* WPFunctionView.m in Sources */,
+				5B7FF8031FF4F099005F592E /* WPhotoViewController.m in Sources */,
 				5B93E1481FF0F8CC00DE00E2 /* SDDemoItemView.m in Sources */,
 				5B93E1461FF0F6A200DE00E2 /* SDBaseProgressView.m in Sources */,
 				5B93E1471FF0F6A200DE00E2 /* SDLoopProgressView.m in Sources */,
 				5B93E1281FF0F63100DE00E2 /* JJMainScrollView.m in Sources */,
 				5B93E1291FF0F63100DE00E2 /* JJOneScrollView.m in Sources */,
 				5B93E12A1FF0F63100DE00E2 /* JJPhoto.m in Sources */,
+				5BA2256F1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m in Sources */,
 				5B93E12B1FF0F63100DE00E2 /* JJPhotoManeger.m in Sources */,
 				5B93E12C1FF0F63100DE00E2 /* MGroupCell.m in Sources */,
 				5B93E12D1FF0F63100DE00E2 /* MImaCell.m in Sources */,
@@ -1258,11 +1295,10 @@
 				5B93E1371FF0F63100DE00E2 /* STUI.m in Sources */,
 				5B93E1381FF0F63100DE00E2 /* UIImage+ST.m in Sources */,
 				5B93E1391FF0F63100DE00E2 /* UIView+ST.m in Sources */,
+				5BA225721FF63F4500893024 /* QNUploadData.m in Sources */,
 				5B93E13A1FF0F63100DE00E2 /* STPhotoKitController.m in Sources */,
 				5B93E13B1FF0F63100DE00E2 /* UIImagePickerController+ST.m in Sources */,
 				5B818AE41FBD581B00B2B013 /* CHPersonalGroup.m in Sources */,
-				5B6BA08C1FB462730081FEF0 /* CHPublishView.m in Sources */,
-				5B93E1071FF0D01A00DE00E2 /* CHImagePublishBaseViewController.m in Sources */,
 				5B818AFC1FBD729C00B2B013 /* UserModel.m in Sources */,
 				5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */,
 				5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */,
@@ -1280,7 +1316,6 @@
 				5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */,
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,
 				5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */,
-				5B6BA07E1FB43AFD0081FEF0 /* CHPublishViewController.m in Sources */,
 				5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,
@@ -1302,6 +1337,7 @@
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
 				5B93E11C1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m in Sources */,
+				5B7FF7EB1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m in Sources */,
 				5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */,
 				5BE5EE7E1FE10ED600F8410A /* SDBrowserImageView.m in Sources */,
 				5BB554211FD154E000A047D9 /* CHFriend_SearchViewController.m in Sources */,
@@ -1315,13 +1351,11 @@
 				5BE5EE7F1FE10ED900F8410A /* SDPhotoBrowser.m in Sources */,
 				5B818AF51FBD68D400B2B013 /* CHAboutUsViewController.m in Sources */,
 				5B6BA0721FB42A700081FEF0 /* UITabBarItem+CHBadge.m in Sources */,
-				5B93E14B1FF0FC4500DE00E2 /* CHPublishPhotoAndTexViewController.m in Sources */,
 				5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */,
 				5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */,
 				5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */,
 				5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */,
 				5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */,
-				5B93E10A1FF0D35B00DE00E2 /* CHImagePickerSheet.m in Sources */,
 				5B97D7271FCD57F50000EEBE /* CHWebViewController.m in Sources */,
 				5B8DC64B1FB0109900B7B1FA /* AppDelegate.m in Sources */,
 				5B6BA0811FB43DAC0081FEF0 /* CHNormalButton.m in Sources */,

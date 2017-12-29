@@ -51,7 +51,13 @@
             [alertC addAction:action];
         }
     }
-    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertC animated:YES completion:nil];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       //在另外一个线程中处理这些操作，然后通知主线程更新界面。
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertC animated:YES completion:nil];
+        });
+    });
+    
 }
 
 
