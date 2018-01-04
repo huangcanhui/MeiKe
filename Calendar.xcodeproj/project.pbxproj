@@ -57,6 +57,9 @@
 		5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */; };
 		5B818B031FBD777900B2B013 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B021FBD777900B2B013 /* CHTime.m */; };
 		5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B051FBD77F700B2B013 /* UIViewController+CH.m */; };
+		5B84DD061FFB5BCA00A7015F /* ImageCutDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */; };
+		5B84DD091FFB737700A7015F /* FriendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD081FFB737700A7015F /* FriendListModel.m */; };
+		5B84DD0C1FFB7A8400A7015F /* CHAdd_CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */; };
 		5B8726331FCE678200835556 /* CHSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B8726321FCE678200835556 /* CHSetup.plist */; };
 		5B8DC64B1FB0109900B7B1FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC64A1FB0109900B7B1FA /* AppDelegate.m */; };
 		5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8DC64F1FB0109900B7B1FA /* Main.storyboard */; };
@@ -65,6 +68,13 @@
 		5B8DC6591FB0109900B7B1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6581FB0109900B7B1FA /* main.m */; };
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
+		5B9017671FFCC21F006440AB /* LQPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017661FFCC21F006440AB /* LQPopUpView.m */; };
+		5B90176A1FFCD1BA006440AB /* CH_Publish_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017681FFCD1BA006440AB /* CH_Publish_View.m */; };
+		5B90176D1FFCD393006440AB /* CHImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B90176B1FFCD392006440AB /* CHImageButton.m */; };
+		5B9017701FFCD6B2006440AB /* CHScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B90176F1FFCD6B2006440AB /* CHScanCodeViewController.m */; };
+		5B9017731FFCD6CA006440AB /* IndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017721FFCD6CA006440AB /* IndexView.m */; };
+		5B9017751FFCDB0C006440AB /* Friend_Company.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9017741FFCDB0C006440AB /* Friend_Company.plist */; };
+		5B90177B1FFCE42E006440AB /* FirendListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B90177A1FFCE42E006440AB /* FirendListObject.m */; };
 		5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B912A6C1FDE837600404933 /* FriendCircleObject.m */; };
 		5B93E11C1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E11A1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m */; };
 		5B93E11D1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B93E11B1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib */; };
@@ -261,6 +271,12 @@
 		5B818B021FBD777900B2B013 /* CHTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTime.m; sourceTree = "<group>"; };
 		5B818B041FBD77F700B2B013 /* UIViewController+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CH.h"; sourceTree = "<group>"; };
 		5B818B051FBD77F700B2B013 /* UIViewController+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CH.m"; sourceTree = "<group>"; };
+		5B84DD041FFB5BCA00A7015F /* ImageCutDownManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCutDownManager.h; sourceTree = "<group>"; };
+		5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCutDownManager.m; sourceTree = "<group>"; };
+		5B84DD071FFB737700A7015F /* FriendListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListModel.h; sourceTree = "<group>"; };
+		5B84DD081FFB737700A7015F /* FriendListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListModel.m; sourceTree = "<group>"; };
+		5B84DD0A1FFB7A8400A7015F /* CHAdd_CommunityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAdd_CommunityViewController.h; sourceTree = "<group>"; };
+		5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAdd_CommunityViewController.m; sourceTree = "<group>"; };
 		5B8726321FCE678200835556 /* CHSetup.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CHSetup.plist; sourceTree = "<group>"; };
 		5B8DC6461FB0109900B7B1FA /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC6491FB0109900B7B1FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -276,6 +292,19 @@
 		5B8DC6691FB0109900B7B1FA /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarUITests.m; sourceTree = "<group>"; };
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B9017651FFCC21F006440AB /* LQPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQPopUpView.h; sourceTree = "<group>"; };
+		5B9017661FFCC21F006440AB /* LQPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQPopUpView.m; sourceTree = "<group>"; };
+		5B9017681FFCD1BA006440AB /* CH_Publish_View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CH_Publish_View.m; sourceTree = "<group>"; };
+		5B9017691FFCD1BA006440AB /* CH_Publish_View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CH_Publish_View.h; sourceTree = "<group>"; };
+		5B90176B1FFCD392006440AB /* CHImageButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHImageButton.m; sourceTree = "<group>"; };
+		5B90176C1FFCD393006440AB /* CHImageButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHImageButton.h; sourceTree = "<group>"; };
+		5B90176E1FFCD6B1006440AB /* CHScanCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHScanCodeViewController.h; sourceTree = "<group>"; };
+		5B90176F1FFCD6B2006440AB /* CHScanCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHScanCodeViewController.m; sourceTree = "<group>"; };
+		5B9017711FFCD6CA006440AB /* IndexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexView.h; sourceTree = "<group>"; };
+		5B9017721FFCD6CA006440AB /* IndexView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexView.m; sourceTree = "<group>"; };
+		5B9017741FFCDB0C006440AB /* Friend_Company.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Friend_Company.plist; sourceTree = "<group>"; };
+		5B9017791FFCE42E006440AB /* FirendListObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirendListObject.h; sourceTree = "<group>"; };
+		5B90177A1FFCE42E006440AB /* FirendListObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirendListObject.m; sourceTree = "<group>"; };
 		5B912A6B1FDE837600404933 /* FriendCircleObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCircleObject.h; sourceTree = "<group>"; };
 		5B912A6C1FDE837600404933 /* FriendCircleObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCircleObject.m; sourceTree = "<group>"; };
 		5B93E10C1FF0D91B00DE00E2 /* ImagePickerDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerDefine.h; sourceTree = "<group>"; };
@@ -662,6 +691,8 @@
 				5B7FF7EF1FF4EF87005F592E /* WPhoto */,
 				5B54E68B1FB579D600BFFA54 /* MapSupport */,
 				5B6BA0691FB429950081FEF0 /* CHBadge */,
+				5B9017651FFCC21F006440AB /* LQPopUpView.h */,
+				5B9017661FFCC21F006440AB /* LQPopUpView.m */,
 				5B54E6951FB5B9A600BFFA54 /* ImagePickerManager.h */,
 				5B54E6961FB5B9A600BFFA54 /* ImagePickerManager.m */,
 				5B54E6931FB58B0900BFFA54 /* CHAlertViewManager.h */,
@@ -696,6 +727,8 @@
 				5B305D8B1FDA9383003A65F2 /* CHNetString.m */,
 				5BA225701FF63F4500893024 /* QNUploadData.h */,
 				5BA225711FF63F4500893024 /* QNUploadData.m */,
+				5B84DD041FFB5BCA00A7015F /* ImageCutDownManager.h */,
+				5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -884,6 +917,8 @@
 				5B6BA0941FB465130081FEF0 /* MAP.m */,
 				5B912A6B1FDE837600404933 /* FriendCircleObject.h */,
 				5B912A6C1FDE837600404933 /* FriendCircleObject.m */,
+				5B84DD071FFB737700A7015F /* FriendListModel.h */,
+				5B84DD081FFB737700A7015F /* FriendListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -922,6 +957,10 @@
 				5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */,
 				5BB5541F1FD154E000A047D9 /* CHFriend_SearchViewController.h */,
 				5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */,
+				5B84DD0A1FFB7A8400A7015F /* CHAdd_CommunityViewController.h */,
+				5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */,
+				5B90176E1FFCD6B1006440AB /* CHScanCodeViewController.h */,
+				5B90176F1FFCD6B2006440AB /* CHScanCodeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -931,6 +970,9 @@
 			children = (
 				5BF5CB441FD9315D00A1051A /* CHContact.h */,
 				5BF5CB451FD9315D00A1051A /* CHContact.m */,
+				5B9017741FFCDB0C006440AB /* Friend_Company.plist */,
+				5B9017791FFCE42E006440AB /* FirendListObject.h */,
+				5B90177A1FFCE42E006440AB /* FirendListObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -938,6 +980,12 @@
 		5BA5DEF61FB160A7003FEE02 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B9017711FFCD6CA006440AB /* IndexView.h */,
+				5B9017721FFCD6CA006440AB /* IndexView.m */,
+				5B90176C1FFCD393006440AB /* CHImageButton.h */,
+				5B90176B1FFCD392006440AB /* CHImageButton.m */,
+				5B9017691FFCD1BA006440AB /* CH_Publish_View.h */,
+				5B9017681FFCD1BA006440AB /* CH_Publish_View.m */,
 				5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */,
 				5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */,
 			);
@@ -1179,6 +1227,7 @@
 				5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */,
 				5B818ADE1FBD57D400B2B013 /* CHPersonalTableViewCell.xib in Resources */,
 				5B799C841FBEBABB00903A01 /* PersonalData.plist in Resources */,
+				5B9017751FFCDB0C006440AB /* Friend_Company.plist in Resources */,
 				5B6BA0861FB45E770081FEF0 /* CHPublish.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1283,6 +1332,7 @@
 				5B93E12B1FF0F63100DE00E2 /* JJPhotoManeger.m in Sources */,
 				5B93E12C1FF0F63100DE00E2 /* MGroupCell.m in Sources */,
 				5B93E12D1FF0F63100DE00E2 /* MImaCell.m in Sources */,
+				5B90176A1FFCD1BA006440AB /* CH_Publish_View.m in Sources */,
 				5B93E12E1FF0F63100DE00E2 /* MImaLibTool.m in Sources */,
 				5B93E12F1FF0F63100DE00E2 /* MShowAllGroup.m in Sources */,
 				5B93E1301FF0F63100DE00E2 /* MShowGroupAllSet.m in Sources */,
@@ -1298,8 +1348,10 @@
 				5BA225721FF63F4500893024 /* QNUploadData.m in Sources */,
 				5B93E13A1FF0F63100DE00E2 /* STPhotoKitController.m in Sources */,
 				5B93E13B1FF0F63100DE00E2 /* UIImagePickerController+ST.m in Sources */,
+				5B84DD061FFB5BCA00A7015F /* ImageCutDownManager.m in Sources */,
 				5B818AE41FBD581B00B2B013 /* CHPersonalGroup.m in Sources */,
 				5B818AFC1FBD729C00B2B013 /* UserModel.m in Sources */,
+				5B84DD0C1FFB7A8400A7015F /* CHAdd_CommunityViewController.m in Sources */,
 				5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */,
 				5B818ADD1FBD57D400B2B013 /* CHPersonalTableViewCell.m in Sources */,
 				5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */,
@@ -1314,16 +1366,19 @@
 				5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */,
 				5B818B031FBD777900B2B013 /* CHTime.m in Sources */,
 				5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */,
+				5B9017731FFCD6CA006440AB /* IndexView.m in Sources */,
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,
 				5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */,
 				5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,
 				5BEBA9051FB04C270099E8EF /* UIView+CH.m in Sources */,
+				5B9017671FFCC21F006440AB /* LQPopUpView.m in Sources */,
 				5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */,
 				5B54E6911FB57A0900BFFA54 /* Address.m in Sources */,
 				5B54E6971FB5B9A600BFFA54 /* ImagePickerManager.m in Sources */,
 				5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */,
+				5B84DD091FFB737700A7015F /* FriendListModel.m in Sources */,
 				5B49FE031FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m in Sources */,
 				5B49FE071FDFC21D001EEC29 /* CHFriendCellCommentView.m in Sources */,
 				5B6BA0841FB4499D0081FEF0 /* UIDevice+CHResolutions.m in Sources */,
@@ -1344,13 +1399,16 @@
 				5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */,
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
+				5B9017701FFCD6B2006440AB /* CHScanCodeViewController.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
 				5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */,
 				5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */,
 				5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */,
 				5BE5EE7F1FE10ED900F8410A /* SDPhotoBrowser.m in Sources */,
+				5B90177B1FFCE42E006440AB /* FirendListObject.m in Sources */,
 				5B818AF51FBD68D400B2B013 /* CHAboutUsViewController.m in Sources */,
 				5B6BA0721FB42A700081FEF0 /* UITabBarItem+CHBadge.m in Sources */,
+				5B90176D1FFCD393006440AB /* CHImageButton.m in Sources */,
 				5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */,
 				5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */,
 				5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */,

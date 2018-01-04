@@ -11,24 +11,24 @@
 #import <QiniuSDK.h>
 #import "ProgressHUD.h"
 #import "HappyDNS.h"
+#import "ImageCutDownManager.h"
 
 @implementation QNUploadData
 
-+ (BOOL)uploadDataFile:(NSArray *)array
++ (NSArray *)uploadDataFile:(NSArray *)array
 {
     //获取七牛上传的token
+    NSMutableArray *arrayM = [NSMutableArray array];
     NSString *url = CHReadConfig(@"qn_uploadToken_Url");
     [[CHManager manager] requestWithMethod:GET WithPath:url WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
         NSString *token = responseObject[@"uptoken"];
         for (int i = 0; i < array.count; i++) {
             //给图片创建一个唯一的名称
-            NSString *string = [NSString stringWithFormat:@"图片上传中！\n第%d/%lu张", i + 1, (unsigned long)array.count];
-            [ProgressHUD show:string Interaction:NO];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             formatter.dateFormat = @"yyyyMMddHHmmssSS";
             NSString *str = [formatter stringFromDate:[NSDate date]];
             NSString *fileName = [NSString stringWithFormat:@"%@", str];
-            NSData *data = UIImagePNGRepresentation(array[i][@"image"]);
+            NSData *data = [ImageCutDownManager zipNSDataWithImage:array[i][@"image"]];
             //配置上传实例
             QNConfiguration *config = [QNConfiguration build:^(QNConfigurationBuilder *builder) {
                 NSMutableArray *arrayM = [NSMutableArray array];
@@ -37,19 +37,16 @@
                 builder.zone = [[QNAutoZone alloc] initWithDns:dns];
             }];
             QNUploadManager *upmanager = [[QNUploadManager alloc] initWithConfiguration:config];
-//            QNUploadManager *upmanager = [[QNUploadManager alloc] init];
             [upmanager putData:data key:fileName token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-                NSLog(@"%@", resp[@"key"]);
-                if (i == array.count - 1 && resp[@"key"] != nil) {
-                    [ProgressHUD showSuccess:@"图片上传成功"];
-                }
+                [ProgressHUD show:@"上传中,请稍后..." Interaction:NO];
+                [arrayM addObject:resp[@"key"]];
             } option:nil];
         }
     } WithFailurBlock:^(NSError *error) {
         
     }];
     
-    return YES;
+    return [arrayM copy];
 }
 
 @end

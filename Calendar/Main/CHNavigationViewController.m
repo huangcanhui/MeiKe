@@ -26,7 +26,7 @@
         UINavigationBar *bar = self.navigationBar;
         bar.barTintColor = GLOBAL_COLOR; //设置导航栏背景颜色
         [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        bar.tintColor = [UIColor redColor]; //设置导航栏view的颜色
+        bar.tintColor = [UIColor whiteColor]; //设置导航栏view的颜色
         bar.translucent = NO; //设置为不透明
         [bar setShadowImage:[UIImage new]];
         [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], //设置title颜色

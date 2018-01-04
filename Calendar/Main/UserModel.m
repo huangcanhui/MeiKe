@@ -90,7 +90,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
     if ([oldTime floatValue] + expried_time <= [time floatValue]) { //当前时间大于登录时间，即access_token过期
         self.user = [User readUserDefaultWithKey:@"UserModel.user"];
         NSDictionary *dict = @{
-                               @"client_id":@"2",
+                               @"client_id":@"1",
                                @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
                                @"grant_type":@"refresh_token",
                                @"refresh_token":self.user.refresh_token
@@ -104,6 +104,9 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
         } WithFailurBlock:^(NSError *error) {
             
         }];
+    } else {
+        [ProgressHUD showError:@"登录已过期，请重新登录"];
+        
     }
 }
 

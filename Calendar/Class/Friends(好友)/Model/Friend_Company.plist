@@ -3,20 +3,22 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>subTitle</key>
-		<string></string>
-		<key>icon</key>
-		<string>annotation</string>
 		<key>title</key>
-		<string>所在位置</string>
+		<string>新的朋友</string>
+		<key>icon</key>
+		<string>friend_addFriend</string>
 	</dict>
 	<dict>
-		<key>subTitle</key>
-		<string></string>
-		<key>icon</key>
-		<string>chakan</string>
 		<key>title</key>
-		<string>发布圈子</string>
+		<string>添加圈子</string>
+		<key>icon</key>
+		<string>friend_community</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>会员商家</string>
+		<key>icon</key>
+		<string>friend_VIP</string>
 	</dict>
 </array>
 </plist>

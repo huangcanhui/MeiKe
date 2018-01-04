@@ -10,4 +10,6 @@
 
 @interface CHPublishDetailViewController : UIViewController
 
+@property (nonatomic, assign)void (^getData)(BOOL isPrivate, NSNumber *numberID);
+
 @end

@@ -33,7 +33,7 @@
             [alertC addAction:action];
         }
     }
-    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertC animated:YES completion:nil];
+//    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertC animated:YES completion:nil];
 }
 
 

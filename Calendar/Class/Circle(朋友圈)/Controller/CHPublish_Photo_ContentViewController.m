@@ -20,6 +20,7 @@
 #import "CHMapSupportViewController.h"
 #import "CHImageManagerCollectionViewCell.h"
 #import "WPhotoViewController.h"
+#import "CHPublishDetailViewController.h"
 
 static NSString *const bundleID = @"CollectionView";
 
@@ -60,10 +61,7 @@ static NSString *const bundleID = @"CollectionView";
  * 图片大小
  */
 @property (nonatomic, assign)CGFloat itemW;
-///**
-// * 图片数组
-// */
-//@property (nonatomic, strong)NSArray *imageArray;
+
 
 @end
 
@@ -182,8 +180,14 @@ static NSString *const bundleID = @"CollectionView";
             
         };
         [self.navigationController pushViewController:mapVC animated:NO];
+    } else if (indexPath.section == 1) { //谁可以看
+        CHPublishDetailViewController *detailVC = [CHPublishDetailViewController new];
+        detailVC.getData = ^(BOOL isPrivate, NSNumber *numberID) {
+            
+        };
+        [self.navigationController pushViewController:detailVC animated:NO];
     } else {
-        NSLog(@"其余的");
+         NSLog(@"其余的");
     }
 }
 
@@ -308,7 +312,6 @@ static NSString *const bundleID = @"CollectionView";
 {
     CH_ImageAndContent_SectionHeader *view = (CH_ImageAndContent_SectionHeader *)tap.view;
     NSInteger index = view.tag;
-    NSLog(@"%ld", index);
     switch (index) {
         case 2:
         {
@@ -321,7 +324,11 @@ static NSString *const bundleID = @"CollectionView";
             break;
         case 3:
         {
-            
+            CHPublishDetailViewController *detailVC = [CHPublishDetailViewController new];
+            detailVC.getData = ^(BOOL isPrivate, NSNumber *numberID) {
+                
+            };
+            [self.navigationController pushViewController:detailVC animated:NO];
         }
             break;
         case 4:
@@ -480,7 +487,7 @@ static NSString *const bundleID = @"CollectionView";
 - (void)createPublishButton
 {
     CHNormalButton *button = [CHNormalButton title:@"发布" titleColor:HexColor(0xffffff) font:16 aligment:NSTextAlignmentCenter backgroundcolor:GLOBAL_COLOR andBlock:^(CHNormalButton *button) {
-        [QNUploadData uploadDataFile:[_selectArrayM copy]];
+        NSArray *array = [QNUploadData uploadDataFile:[_selectArrayM copy]]; //图片数组
     }];
     [self.view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {

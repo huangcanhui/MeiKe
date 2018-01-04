@@ -12,6 +12,6 @@
 /**
  * 判断上传成功还是失败
  */
-+ (BOOL)uploadDataFile:(NSArray *)array;
++ (NSArray *)uploadDataFile:(NSArray *)array;
 
 @end
