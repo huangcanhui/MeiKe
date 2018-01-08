@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/Setup(&#x8bbe;&#x7f6e;)/CHSetUpViewController.m"
-            timestampString = "534681016.447263"
+            timestampString = "537085872.9977649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Main/CHManager.m"
-            timestampString = "534420989.802715"
+            timestampString = "536743107.012285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -89,70 +89,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Friends(&#x597d;&#x53cb;)/Controller/CHAdd_CommunityViewController.m"
-            timestampString = "536667233.010418"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-data"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[CHAdd_CommunityViewController data]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Friends(%E5%A5%BD%E5%8F%8B)/Controller/CHAdd_CommunityViewController.m"
-                  timestampString = "536577428.119019"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "156">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[CHAdd_CommunityViewController data]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Friends(%E5%A5%BD%E5%8F%8B)/Controller/CHAdd_CommunityViewController.m"
-                  timestampString = "536577428.120298"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "176">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Friends(&#x597d;&#x53cb;)/Controller/CHAdd_CommunityViewController.m"
-            timestampString = "536667233.010536"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "-data"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/Login(&#x767b;&#x5f55;)/CHLoginViewController.m"
             timestampString = "536661814.402761"
             startingColumnNumber = "9223372036854775807"
@@ -166,49 +102,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Main/CHManager.m"
+            timestampString = "536743107.01259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-initWithBaseURL:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/View/CHUserView.m"
+            timestampString = "536743280.010453"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-getUserInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Class/Friends(&#x597d;&#x53cb;)/Model/CHAddFriendModel.m"
+            timestampString = "536755062.304479"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "+mj_objectClassInArray"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Friends(&#x597d;&#x53cb;)/Controller/CHFriendsViewController.m"
-            timestampString = "536667233.010647"
+            timestampString = "537094990.427357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-friendArray"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-sortByFirstChar:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[CHFriendsViewController friendArray]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Friends(%E5%A5%BD%E5%8F%8B)/Controller/CHFriendsViewController.m"
-                  timestampString = "536740664.692511"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[CHFriendsViewController friendArray]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Friends(%E5%A5%BD%E5%8F%8B)/Controller/CHFriendsViewController.m"
-                  timestampString = "536740664.694171"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "132">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

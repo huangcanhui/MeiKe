@@ -88,25 +88,28 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
     NSString *oldTime = [NSString readUserDefaultWithKey:@"currentTime"];
     if ([oldTime isBlank] == YES) return;
     if ([oldTime floatValue] + expried_time <= [time floatValue]) { //当前时间大于登录时间，即access_token过期
-        self.user = [User readUserDefaultWithKey:@"UserModel.user"];
-        NSDictionary *dict = @{
-                               @"client_id":@"1",
-                               @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
-                               @"grant_type":@"refresh_token",
-                               @"refresh_token":self.user.refresh_token
-                               };
-        NSString *path = CHReadConfig(@"login_refreshToken_Url");
-        [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:dict WithSuccessBlock:^(NSDictionary *dic) {
-            User *user = [User mj_objectWithKeyValues:dic];
-            //存储
-            self.user = user;
-            [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
-        } WithFailurBlock:^(NSError *error) {
-            
-        }];
-    } else {
-        [ProgressHUD showError:@"登录已过期，请重新登录"];
-        
+        if ([oldTime floatValue] + refresh_time < [time floatValue]) { //当前时间大于登录时间,即refresh_token过期
+            self.user = [User readUserDefaultWithKey:@"UserModel.user"];
+            NSDictionary *dict = @{
+                                   @"client_id":@"1",
+                                   @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
+                                   @"grant_type":@"refresh_token",
+                                   @"refresh_token":self.user.refresh_token
+                                   };
+            NSString *path = CHReadConfig(@"login_refreshToken_Url");
+            [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:dict WithSuccessBlock:^(NSDictionary *dic) {
+                User *user = [User mj_objectWithKeyValues:dic];
+                //存储
+                self.user = user;
+                [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
+            } WithFailurBlock:^(NSError *error) {
+                
+            }];
+        } else {
+            [ProgressHUD showError:@"您的登录已过期，请重新登录"];
+            [self logout]; //退出登录
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
+        }
     }
 }
 

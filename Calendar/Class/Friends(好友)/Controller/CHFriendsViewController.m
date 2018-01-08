@@ -7,9 +7,12 @@
 //
 
 #import "CHFriendsViewController.h"
+
 #import "CHFriend_SearchViewController.h"
 #import "CHNavigationViewController.h"
 #import "CHScanCodeViewController.h"
+#import "CHAdd_FriendViewController.h"
+#import "CHAdd_CommunityViewController.h"
 
 #import "CHFriend_SearchView.h"
 #import "ProgressHUD.h"
@@ -18,6 +21,10 @@
 #import "MJExtension.h"
 #import "CHPersonalData.h"
 #import "CHManager.h"
+#import "FirendListObject.h"
+#import "FriendListGroup.h"
+#import "UIImageView+WebCache.h"
+#import "CHNetString.h"
 
 #import <Contacts/Contacts.h>
 #import <AddressBook/AddressBookDefines.h>
@@ -32,9 +39,10 @@ static NSString *bundleID = @"FRIENDS";
 /**
  * 数据源
  */
-@property (nonatomic, strong)NSMutableArray *charArrayM; //右侧的索引数据
+//@property (nonatomic, strong)NSMutableArray *charArrayM; //右侧的索引数据
 @property (nonatomic, strong)NSArray *array; //添加朋友...
 @property (nonatomic, strong)NSArray *friendArray; // 好友列表
+@property (nonatomic, strong)NSArray <FriendListGroup *> *friends;
 /**
  * 搜索框
  */
@@ -78,7 +86,10 @@ static NSString *bundleID = @"FRIENDS";
         _publishView.whenButtonClick = ^(NSInteger tag) {
             switch (tag) {
                 case 0:
-                    NSLog(@"添加朋友");
+                {
+                    CHAdd_FriendViewController *friendVC = [CHAdd_FriendViewController new];
+                    [wself.navigationController pushViewController:friendVC animated:NO];
+                }
                     break;
                 case 1:
                 {
@@ -129,21 +140,26 @@ static NSString *bundleID = @"FRIENDS";
             }
         }];
     }
+    
+    NSString *path = CHReadConfig(@"friend_List_Url");
+    [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+        [self sortByFirstChar:responseObject[@"data"]];
+        [self.tableView reloadData];
+    } WithFailurBlock:^(NSError *error) {
+
+    }];
 }
 
 #pragma mark - 懒加载
-- (NSMutableArray *)charArrayM
-{
-    if (!_charArrayM) {
-        self.charArrayM = [NSMutableArray array];
-        [self.charArrayM addObject:[NSString stringWithFormat:@"*"]];
-        for (char c = 'A'; c <= 'Z'; c++) {
-            [self.charArrayM addObject:[NSString stringWithFormat:@"%c", c]];
-        }
-        [self.charArrayM addObject:[NSString stringWithFormat:@"#"]];
-    }
-    return _charArrayM;
-}
+//- (NSMutableArray *)charArrayM
+//{
+//    if (!_charArrayM) {
+//        [_charArrayM addObject:[NSString stringWithFormat:@"*"]];
+//        [_charArrayM addObject:self.friends];
+//        [_charArrayM addObject:[NSString stringWithFormat:@"#"]];
+//    }
+//    return _charArrayM;
+//}
 
 - (NSArray *)array
 {
@@ -155,19 +171,52 @@ static NSString *bundleID = @"FRIENDS";
     return _array;
 }
 
-- (NSArray *)friendArray
+//- (NSArray *)friendArray
+//{
+//    if (!_friendArray) {
+//        NSString *path = CHReadConfig(@"friend_List_Url");
+//        [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+//            [self sortByFirstChar:responseObject[@"data"]];
+//        } WithFailurBlock:^(NSError *error) {
+//
+//        }];
+//    }
+//    return _friendArray;
+//}
+
+#pragma mark - 本地分类成组
+- (void)sortByFirstChar:(NSArray *)array
 {
-    if (!_friendArray) {
-        NSString *path = CHReadConfig(@"friend_List_Url");
-        [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
-            for (NSDictionary *dict in responseObject[@"data"]) {
-                
-            }
-        } WithFailurBlock:^(NSError *error) {
-            
-        }];
+    NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+    for (int i = 0; i < array.count; i++) {
+        FirendListObject *obj = [FirendListObject mj_objectWithKeyValues:array[i]];
+        if (!obj.first_letter) {
+            obj.first_letter = @"#";
+        }
+        NSMutableArray *arrayM = dictM[obj.first_letter];
+        if (!arrayM) {
+            arrayM = [NSMutableArray array];
+            dictM[obj.first_letter] = arrayM;
+        }
+        [arrayM addObject:obj];
     }
-    return _friendArray;
+    NSMutableArray *groups = [NSMutableArray array];
+    for (int i = 0; i < dictM.allKeys.count; i++) {
+        NSString *firstChar = dictM.allKeys[i];
+        FriendListGroup *group = [FriendListGroup new];
+        group.title = firstChar;
+        group.list = dictM[firstChar];
+        [groups addObject:group];
+    }
+    self.friends = [self sortArray:groups];
+}
+
+#pragma mark - 重新排序
+- (NSArray *)sortArray:(NSArray *)data
+{
+    return [data sortedArrayUsingComparator:^NSComparisonResult(FriendListGroup *obj1, FriendListGroup *obj2) {
+        return [obj1.title compare:obj2.title options:NSCaseInsensitiveSearch]; //不区分大小写
+    }];
 }
 
 - (CHFriend_SearchView *)searchView
@@ -199,7 +248,7 @@ static NSString *bundleID = @"FRIENDS";
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, navigationHeight, 0);
         _tableView.backgroundColor = HexColor(0xffffff);
         _tableView.tableFooterView = [[UIView alloc] init];
-        _tableView.tableHeaderView = self.searchView;
+//        _tableView.tableHeaderView = self.searchView;
     }
     return _tableView;
 }
@@ -209,18 +258,19 @@ static NSString *bundleID = @"FRIENDS";
     if (section == 0) {
         return self.array.count;
     } else {
-        return self.friendArray.count;
+        FriendListGroup *group = self.friends[section - 1];
+        return group.list.count;
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.charArrayM.count;
+    return self.friends.count + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 65;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -229,14 +279,16 @@ static NSString *bundleID = @"FRIENDS";
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:bundleID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.imageView.image = [UIImage imageNamed:@"friends_UserImage"];
     }
     if (indexPath.section == 0) {
         CHPersonalData *data = self.array[indexPath.row];
         cell.textLabel.text = data.title;
         cell.imageView.image = [UIImage imageNamed:data.icon];
     } else {
-        cell.textLabel.text = @"哈哈";
+        FriendListGroup *group = self.friends[indexPath.section - 1];
+        FirendListObject *obj = group.list[indexPath.row];
+        cell.textLabel.text = obj.nickname;
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:obj.avatar]] placeholderImage:[UIImage imageNamed:@"friends_UserImage"]];
     }
    
     
@@ -246,21 +298,21 @@ static NSString *bundleID = @"FRIENDS";
 //右侧的索引数据
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    return self.charArrayM;
+    return [self.friends valueForKeyPath:@"title"];
 }
 
-//跳转到指定的组
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-    NSInteger count = 0;
-    for (NSString *character in self.charArrayM) {
-        if ([character isEqualToString:title]) {
-            return count;
-        }
-        count++;
-    }
-    return 0;
-}
+////跳转到指定的组
+//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+//{
+//    NSInteger count = 0;
+//    for (NSString *character in self.friends) {
+//        if ([character isEqualToString:title]) {
+//            return count;
+//        }
+//        count++;
+//    }
+//    return 0;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -281,13 +333,38 @@ static NSString *bundleID = @"FRIENDS";
     if (section == 0) {
         return nil ;
     } else {
-        return self.charArrayM[section];
+        FriendListGroup *group = self.friends[section - 1];
+        return group.title;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0: //新朋友
+            {
+                CHAdd_FriendViewController *friendVC = [CHAdd_FriendViewController new];
+                [self.navigationController pushViewController:friendVC animated:NO];
+            }
+                break;
+            case 1: //添加圈子
+            {
+                CHAdd_CommunityViewController *communityVC = [CHAdd_CommunityViewController new];
+                [self.navigationController pushViewController:communityVC animated:NO];
+            }
+                break;
+            case 2://会员商家
+                
+                break;
+                
+                
+            default:
+                break;
+        }
+    } else {
+        
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

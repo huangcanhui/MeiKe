@@ -25,6 +25,18 @@
 //获取我的好友列表
 "friend_List_Url" = "/friend/list";
 
+//未处理的好友请求列表
+"friend_unDispose_Url" = "/friend/requests";
+
+//接受好友请求
+"friend_acceptRequest_Url" = "/friend/accept";
+
+//拒绝好友请求
+"friend_refuseReqquest_Url" = "/friend/deny";
+
+//发送好友请求
+"friend_sendRequest_Url" = "/friend/send";
+
 
 /********************************************** 工具类 *********************************************/
 //获取七牛上传token

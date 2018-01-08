@@ -107,6 +107,10 @@
 		5B97D71E1FCD385E0000EEBE /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D71D1FCD385E0000EEBE /* CHViewController.m */; };
 		5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7231FCD3EF60000EEBE /* CHShareManager.m */; };
 		5B97D7271FCD57F50000EEBE /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B97D7261FCD57F50000EEBE /* CHWebViewController.m */; };
+		5B999B301FFE0F4500E56087 /* CHAdd_FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B999B2F1FFE0F4500E56087 /* CHAdd_FriendViewController.m */; };
+		5B999B341FFE177100E56087 /* CHAddFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B999B321FFE177100E56087 /* CHAddFriendTableViewCell.m */; };
+		5B999B351FFE177100E56087 /* CHAddFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B999B331FFE177100E56087 /* CHAddFriendTableViewCell.xib */; };
+		5B999B381FFE260900E56087 /* CHAddFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B999B371FFE260900E56087 /* CHAddFriendModel.m */; };
 		5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */; };
 		5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */; };
 		5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */; };
@@ -118,6 +122,8 @@
 		5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */; };
 		5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */; };
 		5BA5DF0B1FB18AF7003FEE02 /* CHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF0A1FB18AF7003FEE02 /* CHTabBarViewController.m */; };
+		5BAD0ABE20034F2500D63D97 /* FriendListGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD0ABD20034F2500D63D97 /* FriendListGroup.m */; };
+		5BAD0AC120036AE600D63D97 /* CHSearch_friendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD0AC020036AE600D63D97 /* CHSearch_friendViewController.m */; };
 		5BB554211FD154E000A047D9 /* CHFriend_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */; };
 		5BB554241FD155FC00A047D9 /* CHFriend_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */; };
 		5BE5EE7E1FE10ED600F8410A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5EE781FE10C6100F8410A /* SDBrowserImageView.m */; };
@@ -351,6 +357,13 @@
 		5B97D7231FCD3EF60000EEBE /* CHShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHShareManager.m; sourceTree = "<group>"; };
 		5B97D7251FCD57F50000EEBE /* CHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		5B97D7261FCD57F50000EEBE /* CHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
+		5B999B2E1FFE0F4500E56087 /* CHAdd_FriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAdd_FriendViewController.h; sourceTree = "<group>"; };
+		5B999B2F1FFE0F4500E56087 /* CHAdd_FriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAdd_FriendViewController.m; sourceTree = "<group>"; };
+		5B999B311FFE177100E56087 /* CHAddFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAddFriendTableViewCell.h; sourceTree = "<group>"; };
+		5B999B321FFE177100E56087 /* CHAddFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAddFriendTableViewCell.m; sourceTree = "<group>"; };
+		5B999B331FFE177100E56087 /* CHAddFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHAddFriendTableViewCell.xib; sourceTree = "<group>"; };
+		5B999B361FFE260900E56087 /* CHAddFriendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAddFriendModel.h; sourceTree = "<group>"; };
+		5B999B371FFE260900E56087 /* CHAddFriendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAddFriendModel.m; sourceTree = "<group>"; };
 		5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpViewController.h; sourceTree = "<group>"; };
 		5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpViewController.m; sourceTree = "<group>"; };
 		5BA0E1041FBC1BB700F2BFA9 /* CHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHLoginViewController.h; sourceTree = "<group>"; };
@@ -371,6 +384,10 @@
 		5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalViewController.m; sourceTree = "<group>"; };
 		5BA5DF071FB16181003FEE02 /* CHTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTabBarViewController.h; sourceTree = "<group>"; };
 		5BA5DF0A1FB18AF7003FEE02 /* CHTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTabBarViewController.m; sourceTree = "<group>"; };
+		5BAD0ABC20034F2500D63D97 /* FriendListGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListGroup.h; sourceTree = "<group>"; };
+		5BAD0ABD20034F2500D63D97 /* FriendListGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListGroup.m; sourceTree = "<group>"; };
+		5BAD0ABF20036AE600D63D97 /* CHSearch_friendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSearch_friendViewController.h; sourceTree = "<group>"; };
+		5BAD0AC020036AE600D63D97 /* CHSearch_friendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSearch_friendViewController.m; sourceTree = "<group>"; };
 		5BB5541F1FD154E000A047D9 /* CHFriend_SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_SearchViewController.h; sourceTree = "<group>"; };
 		5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchViewController.m; sourceTree = "<group>"; };
 		5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_SearchView.h; sourceTree = "<group>"; };
@@ -961,6 +978,10 @@
 				5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */,
 				5B90176E1FFCD6B1006440AB /* CHScanCodeViewController.h */,
 				5B90176F1FFCD6B2006440AB /* CHScanCodeViewController.m */,
+				5B999B2E1FFE0F4500E56087 /* CHAdd_FriendViewController.h */,
+				5B999B2F1FFE0F4500E56087 /* CHAdd_FriendViewController.m */,
+				5BAD0ABF20036AE600D63D97 /* CHSearch_friendViewController.h */,
+				5BAD0AC020036AE600D63D97 /* CHSearch_friendViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -973,6 +994,10 @@
 				5B9017741FFCDB0C006440AB /* Friend_Company.plist */,
 				5B9017791FFCE42E006440AB /* FirendListObject.h */,
 				5B90177A1FFCE42E006440AB /* FirendListObject.m */,
+				5BAD0ABC20034F2500D63D97 /* FriendListGroup.h */,
+				5BAD0ABD20034F2500D63D97 /* FriendListGroup.m */,
+				5B999B361FFE260900E56087 /* CHAddFriendModel.h */,
+				5B999B371FFE260900E56087 /* CHAddFriendModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -988,6 +1013,9 @@
 				5B9017681FFCD1BA006440AB /* CH_Publish_View.m */,
 				5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */,
 				5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */,
+				5B999B311FFE177100E56087 /* CHAddFriendTableViewCell.h */,
+				5B999B321FFE177100E56087 /* CHAddFriendTableViewCell.m */,
+				5B999B331FFE177100E56087 /* CHAddFriendTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1222,6 +1250,7 @@
 				5B305D891FDA8808003A65F2 /* Config.strings in Resources */,
 				5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */,
 				5B8726331FCE678200835556 /* CHSetup.plist in Resources */,
+				5B999B351FFE177100E56087 /* CHAddFriendTableViewCell.xib in Resources */,
 				5B818AE61FBD5D6F00B2B013 /* CHPersonalList.plist in Resources */,
 				5B93E11D1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib in Resources */,
 				5B8DC6511FB0109900B7B1FA /* Main.storyboard in Resources */,
@@ -1317,6 +1346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B999B301FFE0F4500E56087 /* CHAdd_FriendViewController.m in Sources */,
 				5B7FF7FF1FF4F099005F592E /* myPhotoCell.m in Sources */,
 				5B7FF8001FF4F099005F592E /* NavView.m in Sources */,
 				5B7FF8011FF4F099005F592E /* UIImage+fixOrientation.m in Sources */,
@@ -1324,6 +1354,7 @@
 				5B7FF8031FF4F099005F592E /* WPhotoViewController.m in Sources */,
 				5B93E1481FF0F8CC00DE00E2 /* SDDemoItemView.m in Sources */,
 				5B93E1461FF0F6A200DE00E2 /* SDBaseProgressView.m in Sources */,
+				5BAD0AC120036AE600D63D97 /* CHSearch_friendViewController.m in Sources */,
 				5B93E1471FF0F6A200DE00E2 /* SDLoopProgressView.m in Sources */,
 				5B93E1281FF0F63100DE00E2 /* JJMainScrollView.m in Sources */,
 				5B93E1291FF0F63100DE00E2 /* JJOneScrollView.m in Sources */,
@@ -1338,6 +1369,7 @@
 				5B93E1301FF0F63100DE00E2 /* MShowGroupAllSet.m in Sources */,
 				5B93E1311FF0F63100DE00E2 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				5B93E1321FF0F63100DE00E2 /* UIView+SDAutoLayout.m in Sources */,
+				5B999B341FFE177100E56087 /* CHAddFriendTableViewCell.m in Sources */,
 				5B93E1331FF0F63100DE00E2 /* YContactObject.m in Sources */,
 				5B93E1341FF0F63100DE00E2 /* YContactObjectManager.m in Sources */,
 				5B93E1351FF0F63100DE00E2 /* YContactsManager.m in Sources */,
@@ -1376,10 +1408,12 @@
 				5B9017671FFCC21F006440AB /* LQPopUpView.m in Sources */,
 				5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */,
 				5B54E6911FB57A0900BFFA54 /* Address.m in Sources */,
+				5BAD0ABE20034F2500D63D97 /* FriendListGroup.m in Sources */,
 				5B54E6971FB5B9A600BFFA54 /* ImagePickerManager.m in Sources */,
 				5B97D7241FCD3EF60000EEBE /* CHShareManager.m in Sources */,
 				5B84DD091FFB737700A7015F /* FriendListModel.m in Sources */,
 				5B49FE031FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m in Sources */,
+				5B999B381FFE260900E56087 /* CHAddFriendModel.m in Sources */,
 				5B49FE071FDFC21D001EEC29 /* CHFriendCellCommentView.m in Sources */,
 				5B6BA0841FB4499D0081FEF0 /* UIDevice+CHResolutions.m in Sources */,
 				5B818AF91FBD692E00B2B013 /* CHFootPrintViewController.m in Sources */,

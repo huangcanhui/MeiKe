@@ -53,4 +53,8 @@
  *
  */
 @property (nonatomic, copy)NSString *remark;
+/**
+ * 首字母
+ */
+@property (nonatomic, copy)NSString *first_letter;
 @end
