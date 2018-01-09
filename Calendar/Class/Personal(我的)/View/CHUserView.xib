@@ -38,7 +38,7 @@
                 <outlet property="headIcon" destination="vYy-uN-PUF" id="zoN-2q-ob2"/>
                 <outlet property="headName" destination="f4j-JK-Hrh" id="ZEC-Fl-UCi"/>
             </connections>
-            <point key="canvasLocation" x="-14.5" y="25"/>
+            <point key="canvasLocation" x="121" y="15"/>
         </view>
     </objects>
     <resources>

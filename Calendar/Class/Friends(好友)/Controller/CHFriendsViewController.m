@@ -13,6 +13,8 @@
 #import "CHScanCodeViewController.h"
 #import "CHAdd_FriendViewController.h"
 #import "CHAdd_CommunityViewController.h"
+#import "CHFriend_DetailViewController.h"
+#import "CHFriendListTableViewCell.h"
 
 #import "CHFriend_SearchView.h"
 #import "ProgressHUD.h"
@@ -39,9 +41,7 @@ static NSString *bundleID = @"FRIENDS";
 /**
  * 数据源
  */
-//@property (nonatomic, strong)NSMutableArray *charArrayM; //右侧的索引数据
 @property (nonatomic, strong)NSArray *array; //添加朋友...
-@property (nonatomic, strong)NSArray *friendArray; // 好友列表
 @property (nonatomic, strong)NSArray <FriendListGroup *> *friends;
 /**
  * 搜索框
@@ -151,16 +151,6 @@ static NSString *bundleID = @"FRIENDS";
 }
 
 #pragma mark - 懒加载
-//- (NSMutableArray *)charArrayM
-//{
-//    if (!_charArrayM) {
-//        [_charArrayM addObject:[NSString stringWithFormat:@"*"]];
-//        [_charArrayM addObject:self.friends];
-//        [_charArrayM addObject:[NSString stringWithFormat:@"#"]];
-//    }
-//    return _charArrayM;
-//}
-
 - (NSArray *)array
 {
     if (!_array) {
@@ -170,19 +160,6 @@ static NSString *bundleID = @"FRIENDS";
     }
     return _array;
 }
-
-//- (NSArray *)friendArray
-//{
-//    if (!_friendArray) {
-//        NSString *path = CHReadConfig(@"friend_List_Url");
-//        [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
-//            [self sortByFirstChar:responseObject[@"data"]];
-//        } WithFailurBlock:^(NSError *error) {
-//
-//        }];
-//    }
-//    return _friendArray;
-//}
 
 #pragma mark - 本地分类成组
 - (void)sortByFirstChar:(NSArray *)array
@@ -248,6 +225,7 @@ static NSString *bundleID = @"FRIENDS";
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, navigationHeight, 0);
         _tableView.backgroundColor = HexColor(0xffffff);
         _tableView.tableFooterView = [[UIView alloc] init];
+        [_tableView registerNib:[UINib nibWithNibName:@"CHFriendListTableViewCell" bundle:nil] forCellReuseIdentifier:bundleID];
 //        _tableView.tableHeaderView = self.searchView;
     }
     return _tableView;
@@ -270,28 +248,24 @@ static NSString *bundleID = @"FRIENDS";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 65;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bundleID];
+    CHFriendListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bundleID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:bundleID];
+        cell = [[CHFriendListTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:bundleID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     if (indexPath.section == 0) {
         CHPersonalData *data = self.array[indexPath.row];
-        cell.textLabel.text = data.title;
-        cell.imageView.image = [UIImage imageNamed:data.icon];
+        cell.model = data;
     } else {
         FriendListGroup *group = self.friends[indexPath.section - 1];
         FirendListObject *obj = group.list[indexPath.row];
-        cell.textLabel.text = obj.nickname;
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:obj.avatar]] placeholderImage:[UIImage imageNamed:@"friends_UserImage"]];
+        cell.object = obj;
     }
-   
-    
     return cell;
 }
 
@@ -363,7 +337,14 @@ static NSString *bundleID = @"FRIENDS";
                 break;
         }
     } else {
-        
+        FriendListGroup *group = self.friends[indexPath.section - 1];
+        FirendListObject *object = group.list[indexPath.row];
+        CHFriend_DetailViewController *detailVC = [CHFriend_DetailViewController new];
+        detailVC.object = object;
+        detailVC.whenViewDisAppear = ^{
+            [self initAttribute];
+        };
+        [self.navigationController pushViewController:detailVC animated:NO];
     }
 }
 
@@ -378,20 +359,5 @@ static NSString *bundleID = @"FRIENDS";
     _count = 0;
     [_publishView removeFromSuperview];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

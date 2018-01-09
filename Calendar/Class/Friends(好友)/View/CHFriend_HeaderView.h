@@ -1,5 +1,5 @@
 //
-//  CHSearch_friendViewController.h
+//  CHFriend_HeaderView.h
 //  Calendar
 //
 //  Created by huangcanhui on 2018/1/8.
@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirendListObject.h"
 
-@interface CHSearch_friendViewController : UIViewController
+@interface CHFriend_HeaderView : UIView
+
++ (instancetype)headerView;
+
+@property (nonatomic, strong)FirendListObject *obj;
 
 @end

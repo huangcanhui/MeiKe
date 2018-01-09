@@ -73,6 +73,12 @@
             } failure:^(NSURLSessionTask *operation, NSError *error) {
                 [self togetherDealWithErrorCodeError:error];
                 //                [ProgressHUD showError:dict[@"message"]];
+//                NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.response;
+//                NSInteger statusCode = response.statusCode;
+//                NSString *path = [[NSBundle mainBundle] pathForResource:@"ERROECODE.plist" ofType:nil];
+//                NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+//                NSString *status = [NSString stringWithFormat:@"%ld", (long)statusCode];
+//                [ProgressHUD showError:status];
             }];
         }
             break;

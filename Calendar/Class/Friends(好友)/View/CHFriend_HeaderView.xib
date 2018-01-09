@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CHFriend_HeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Personal_BackHead" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-nw-VJa">
+                    <rect key="frame" x="8" y="5" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="YQL-hM-zRZ"/>
+                        <constraint firstAttribute="height" constant="70" id="nY9-fr-4vp"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄灿辉" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgS-hb-45O">
+                    <rect key="frame" x="86" y="5" width="238" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="2pq-uk-uET"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="圈子号:sdfhjsdhfjksdh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-jp-egy">
+                    <rect key="frame" x="86" y="34" width="238" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="XP6-k2-44d"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称:558833566" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW0-Rw-9UI">
+                    <rect key="frame" x="86" y="59" width="238" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Ffm-pP-wOB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="V8M-jp-egy" firstAttribute="leading" secondItem="8VG-nw-VJa" secondAttribute="trailing" constant="8" id="CNn-hO-n1a"/>
+                <constraint firstItem="8VG-nw-VJa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="KKp-Av-z4o"/>
+                <constraint firstItem="JW0-Rw-9UI" firstAttribute="leading" secondItem="8VG-nw-VJa" secondAttribute="trailing" constant="8" id="MZp-Jh-qk9"/>
+                <constraint firstItem="JW0-Rw-9UI" firstAttribute="top" secondItem="V8M-jp-egy" secondAttribute="bottom" constant="7" id="QeC-bn-lRw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sgS-hb-45O" secondAttribute="trailing" constant="51" id="SLz-J9-WXx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JW0-Rw-9UI" secondAttribute="trailing" constant="51" id="V3E-aP-9hC"/>
+                <constraint firstItem="sgS-hb-45O" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Xn7-31-iex"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V8M-jp-egy" secondAttribute="trailing" constant="51" id="axe-G5-SnY"/>
+                <constraint firstItem="V8M-jp-egy" firstAttribute="top" secondItem="sgS-hb-45O" secondAttribute="bottom" constant="8" id="hLS-4I-O95"/>
+                <constraint firstItem="8VG-nw-VJa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="ovz-OM-shd"/>
+                <constraint firstItem="sgS-hb-45O" firstAttribute="leading" secondItem="8VG-nw-VJa" secondAttribute="trailing" constant="8" id="u6y-4n-3FL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="avatar" destination="8VG-nw-VJa" id="05o-eB-8C2"/>
+                <outlet property="name" destination="V8M-jp-egy" id="Il5-6p-FpR"/>
+                <outlet property="nickName" destination="JW0-Rw-9UI" id="0jY-SY-cjn"/>
+                <outlet property="remark" destination="sgS-hb-45O" id="grB-vN-WXk"/>
+            </connections>
+            <point key="canvasLocation" x="352" y="61"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Personal_BackHead" width="60" height="60"/>
+    </resources>
+</document>

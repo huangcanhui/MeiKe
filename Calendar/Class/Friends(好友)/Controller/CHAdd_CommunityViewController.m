@@ -148,7 +148,7 @@
             }];
         }];
         
-        [popView showInView:self.view preferredStyle:LQPopUpViewStyleAlert];
+        [weakPopUpView showInView:self.view preferredStyle:LQPopUpViewStyleAlert];
     }];
     
     //删除

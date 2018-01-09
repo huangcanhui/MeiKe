@@ -15,7 +15,7 @@
 #import "ProgressHUD.h"
 
 #import "CHAddFriendTableViewCell.h"
-#import "CHSearch_friendViewController.h"
+#import "CHFriend_SearchViewController.h"
 
 @interface CHAdd_FriendViewController ()<UITableViewDelegate, UITableViewDataSource>
 /**
@@ -162,7 +162,7 @@
 #pragma mark - 发送好友请求
 - (void)clickAddButton
 {
-    CHSearch_friendViewController *searchVC = [CHSearch_friendViewController new];
+    CHFriend_SearchViewController *searchVC = [CHFriend_SearchViewController new];
     [self.navigationController pushViewController:searchVC animated:NO];
 }
 

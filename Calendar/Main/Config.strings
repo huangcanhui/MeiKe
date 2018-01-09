@@ -37,6 +37,12 @@
 //发送好友请求
 "friend_sendRequest_Url" = "/friend/send";
 
+//拉黑好友
+"friend_blackFriend_Url" = "/friend/in_black";
+
+//删除好友
+"friend_delete_Url" = "/friend/delete";
+
 
 /********************************************** 工具类 *********************************************/
 //获取七牛上传token
