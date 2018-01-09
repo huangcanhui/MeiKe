@@ -16,6 +16,8 @@
 #import "MJRefresh.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "FriendCircleObject.h"
+#import "UserModel.h"
+#import "UIViewController+CH.h"
 
 //视图
 #import "CHFriendCircleTableViewCell.h"
@@ -39,6 +41,13 @@ static NSString *bundleID = @"friendCircle";
 @end
 
 @implementation CHCircleViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (![UserModel onLine]) {
+        [self showLogin];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

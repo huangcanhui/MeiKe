@@ -13,6 +13,7 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 
 #import "CHAlertViewManager.h"
+#import "Address.h"
 
 @interface CHMapSupportViewController ()<CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource,MAMapViewDelegate, AMapSearchDelegate>
 /**
@@ -48,15 +49,21 @@
     
     [self initMapView];
     
-//    [self initTableView];
+    [self.view addSubview:self.tableView];
+    
+    [self createCenterAnnotation];
 }
 
 #pragma mark - 视图的创建
 - (void)initMapView
 {
-    MAMapView *mapView = [[MAMapView alloc] init];
+    MAMapView *mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     [AMapServices sharedServices].enableHTTPS = YES;
     mapView.delegate = self;
+    [self.view addSubview:mapView];
+    ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
+    mapView.showsUserLocation = YES;
+    mapView.userTrackingMode = MAUserTrackingModeFollow;
     
     AMapSearchAPI *searchAPI = [[AMapSearchAPI alloc] init];
     searchAPI.delegate = self;
@@ -75,6 +82,14 @@
     [self.searchAPI AMapPOIAroundSearch:request];
 }
 
+#pragma mark - 创建一个屏幕中心的大头针
+- (void)createCenterAnnotation
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth / 2 - 20, kScreenHeight / 2 - 40 - 25, 40, 40)];
+    imageView.image = [UIImage imageNamed:@"Annotation_Red"];
+    [self.view addSubview:imageView];
+}
+
 #pragma mark AMapSearchAPI.delegate
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
@@ -89,7 +104,7 @@
             [arrayM addObject:address];
         }];
         self.data = [arrayM copy];
-        [self.view addSubview:self.tableView];
+        [self.tableView reloadData];
     }
 }
 
@@ -97,9 +112,10 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, screenWithoutTopbar) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kScreenHeight / 2, kScreenWidth, kScreenHeight / 2 - statusHeight - 44) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.bounces = NO;
         _tableView.tableFooterView = [[UIView alloc] init];
     }
     return _tableView;
@@ -112,15 +128,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 35;
+    return 45;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"附近搜索结果";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ID"];
     }
+    Address *address = self.data[indexPath.row];
+    cell.textLabel.text = address.name;
+    cell.detailTextLabel.text = address.address;
     return cell;
 }
 

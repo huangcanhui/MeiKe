@@ -27,6 +27,8 @@
 #import "FriendListGroup.h"
 #import "UIImageView+WebCache.h"
 #import "CHNetString.h"
+#import "UserModel.h"
+#import "UIViewController+CH.h"
 
 #import <Contacts/Contacts.h>
 #import <AddressBook/AddressBookDefines.h>
@@ -58,6 +60,15 @@ static NSString *bundleID = @"FRIENDS";
 @end
 
 @implementation CHFriendsViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (![UserModel onLine]) {
+        [self showLogin];
+    } else {
+        [self.tableView reloadData];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

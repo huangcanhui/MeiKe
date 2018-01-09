@@ -48,6 +48,13 @@
 
 @implementation CHPublishDetailViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.data = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -81,7 +88,7 @@
         [_privateView addSubview:label];
         
         UISwitch *oneSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(kScreenWidth - 8 - 80, 8, 0, 0)];
-        oneSwitch.on = YES; //默认开启
+        oneSwitch.on = NO; //默认关闭
         [oneSwitch addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
         [_privateView addSubview:oneSwitch];
     }
@@ -92,10 +99,10 @@
 {
     if (sender.on) { //开启
         self.isPrivate = YES;
-        [self.view addSubview:self.tableView];
+         [self.tableView removeFromSuperview];
     } else { //关闭
         self.isPrivate = NO;
-        [self.tableView removeFromSuperview];
+        [self.view addSubview:self.tableView];
     }
 }
 
@@ -120,19 +127,18 @@
         _addFriendView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 45)];
         
         UIButton *button = [[UIButton alloc] initWithFrame:_addFriendView.bounds];
-#warning 这是测试的时候，把这段代码注释了
-//        if (self.data.count == 0) {
-//            [button setTitle:@"您还没有圈子，点我赶紧添加一个吧!" forState:UIControlStateNormal];
-//            [button setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
-//            [button addTarget:self action:@selector(addNewFriendList) forControlEvents:UIControlEventTouchUpInside];
-//        } else {
-//            [button setTitle:@"我拥有的圈子" forState:UIControlStateNormal];
-//            [button setTitleColor:HexColor(0x000000) forState:UIControlStateNormal];
-//            button.titleLabel.textAlignment = NSTextAlignmentLeft;
-//        }
-        [button setTitle:@"您还没有圈子，点我赶紧添加一个吧!" forState:UIControlStateNormal];
-        [button setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(addNewFriendList) forControlEvents:UIControlEventTouchUpInside];
+        if (self.data.count == 0) {
+            [button setTitle:@"您还没有圈子，点我赶紧添加一个吧!" forState:UIControlStateNormal];
+            [button setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(addNewFriendList) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            [button setTitle:@"我拥有的圈子" forState:UIControlStateNormal];
+            [button setTitleColor:HexColor(0x000000) forState:UIControlStateNormal];
+            button.titleLabel.textAlignment = NSTextAlignmentLeft;
+        }
+//        [button setTitle:@"您还没有圈子，点我赶紧添加一个吧!" forState:UIControlStateNormal];
+//        [button setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
+//        [button addTarget:self action:@selector(addNewFriendList) forControlEvents:UIControlEventTouchUpInside];
         [_addFriendView addSubview:button];
     }
     return _addFriendView;
@@ -161,8 +167,9 @@
     }
     FriendListModel *list = self.data[indexPath.row];
     cell.textLabel.text = list.name;
-    if (indexPath.row == self.indexPath.row) {
+    if (indexPath.row == self.indexPath.row) { //默认选中
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.numberID = list.id;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }

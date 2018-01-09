@@ -175,7 +175,7 @@
 //
 //}
 
-#pragma mark - 发布按钮
+#pragma mark - 创建按钮
 - (void)createCommunityButton
 {
     CHNormalButton *button = [CHNormalButton title:@"创建" titleColor:HexColor(0xffffff) font:16 aligment:NSTextAlignmentCenter backgroundcolor:GLOBAL_COLOR andBlock:^(CHNormalButton *button) {
@@ -185,6 +185,8 @@
                                  };
         [[CHManager manager] requestWithMethod:POST WithPath:url WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
             [ProgressHUD showSuccess:@"圈子创建成功!"];
+            self.data = nil;
+            self.textField.text = @"";
             [self.tableView reloadData];
         } WithFailurBlock:^(NSError *error) {
             
