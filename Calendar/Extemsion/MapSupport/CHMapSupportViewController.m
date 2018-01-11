@@ -32,6 +32,15 @@
  * 地图搜索API
  */
 @property (nonatomic, strong)AMapSearchAPI *searchAPI;
+/**
+ * MAMapView
+ */
+@property (nonatomic, strong)MAMapView *mapView;
+/**
+ * 选中的数据
+ */
+@property (nonatomic, assign)NSIndexPath *indexPath;
+
 @end
 
 @implementation CHMapSupportViewController
@@ -57,13 +66,13 @@
 #pragma mark - 视图的创建
 - (void)initMapView
 {
-    MAMapView *mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
+    _mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     [AMapServices sharedServices].enableHTTPS = YES;
-    mapView.delegate = self;
-    [self.view addSubview:mapView];
+    _mapView.delegate = self;
+    [self.view addSubview:_mapView];
     ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
-    mapView.showsUserLocation = YES;
-    mapView.userTrackingMode = MAUserTrackingModeFollow;
+    _mapView.showsUserLocation = YES;
+    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     
     AMapSearchAPI *searchAPI = [[AMapSearchAPI alloc] init];
     searchAPI.delegate = self;
@@ -88,6 +97,22 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth / 2 - 20, kScreenHeight / 2 - 40 - 25, 40, 40)];
     imageView.image = [UIImage imageNamed:@"Annotation_Red"];
     [self.view addSubview:imageView];
+    
+    //创建定位用户当前位置
+    UIImageView *userImageView = [[UIImageView alloc] initWithFrame:CGRectMake(8, self.tableView.CH_top - 40, 32, 32)];
+    userImageView.image = [UIImage imageNamed:@"annotation_Self"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickUserAnnotation)];
+    userImageView.userInteractionEnabled = YES;
+    [userImageView addGestureRecognizer:tap];
+    [self.view addSubview:userImageView];
+}
+
+#pragma mark 定位用户当前位置
+- (void)clickUserAnnotation
+{
+    if (_mapView.userTrackingMode != MAUserTrackingModeFollow) {
+        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+    }
 }
 
 #pragma mark AMapSearchAPI.delegate
@@ -97,7 +122,7 @@
         NSMutableArray *arrayM = [NSMutableArray array];
         [response.pois enumerateObjectsUsingBlock:^(AMapPOI * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             Address *address = [[Address alloc] init];
-            address.address = [NSString stringWithFormat:@"%@%@%@%@", obj.province, obj.city, obj.district, obj.address];
+            address.address = [NSString stringWithFormat:@"%@%@%@", obj.city, obj.district, obj.address];
             address.name = obj.name;
             address.lat = [NSString stringWithFormat:@"%f", obj.location.latitude];
             address.lng = [NSString stringWithFormat:@"%f", obj.location.longitude];
@@ -112,7 +137,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kScreenHeight / 2, kScreenWidth, kScreenHeight / 2 - statusHeight - 44) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kScreenHeight / 2, kScreenWidth, kScreenHeight / 2 - statusHeight - 44) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.bounces = NO;
@@ -123,7 +148,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    if (section == 0) {
+        return 1;
+    } else {
+         return self.data.count;
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,12 +167,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"附近搜索结果";
+    return @" ";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,16 +180,33 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ID"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    Address *address = self.data[indexPath.row];
-    cell.textLabel.text = address.name;
-    cell.detailTextLabel.text = address.address;
+    if (indexPath.section == self.indexPath.section) {
+        if (indexPath.row == self.indexPath.row) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    if (indexPath.section == 1) {
+        Address *address = self.data[indexPath.row];
+        cell.textLabel.text = address.name;
+        cell.detailTextLabel.text = address.address;
+    } else {
+        cell.textLabel.text = @"不显示位置";
+        cell.detailTextLabel.text = @"";
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.indexPath = indexPath;
     
+    [self.tableView reloadData];
 }
 
 #pragma mark - 初始化数据
@@ -197,7 +248,17 @@
 #pragma mark - 导航栏右按钮的点击事件
 - (void)clickRightNavigationButton
 {
-    NSLog(@"完成");
+    if (self.indexPath.section == 0) {
+        if (self.whenAddressGet) {
+            self.whenAddressGet(nil);
+        }
+    } else {
+        Address *address = self.data[self.indexPath.row];
+        if (self.whenAddressGet) {
+            self.whenAddressGet(address);
+        }
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

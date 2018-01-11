@@ -16,6 +16,9 @@
 #import "CH_ImageAndContent_SectionHeader.h"
 #import "UIImagePickerController+ST.h"
 #import "QNUploadData.h"
+#import "Address.h"
+#import "FriendListModel.h"
+#import "CHManager.h"
 
 #import "CHMapSupportViewController.h"
 #import "CHImageManagerCollectionViewCell.h"
@@ -61,8 +64,22 @@ static NSString *const bundleID = @"CollectionView";
  * 图片大小
  */
 @property (nonatomic, assign)CGFloat itemW;
-
-
+/**
+ * 获取用户选择的地理位置
+ */
+@property (nonatomic, strong)Address *address;
+/**
+ * 获取用户发布的圈子
+ */
+@property (nonatomic, strong)FriendListModel *list;
+/**
+ * 获取用户是否隐私发布
+ */
+@property (nonatomic, assign)BOOL is_private;
+/**
+ * 获取用户上传的图片
+ */
+@property (nonatomic, strong)NSArray *imageArray;
 @end
 
 @implementation CHPublish_Photo_ContentViewController
@@ -161,6 +178,7 @@ static NSString *const bundleID = @"CollectionView";
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Publish"];
         cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
     }
@@ -177,20 +195,37 @@ static NSString *const bundleID = @"CollectionView";
     if (indexPath.section == 0) { //我的位置
         CHMapSupportViewController *mapVC = [CHMapSupportViewController new];
         mapVC.whenAddressGet = ^(Address *address) {
-            
+            CHPublish *publish = self.data[0];
+            if (address != nil) {
+                publish.title = address.name;
+            } else {
+                publish.title = @"所在位置";
+            }
+            self.address = address; //获取用户选择的位置
+            [self.tableView reloadData];
         };
         [self.navigationController pushViewController:mapVC animated:NO];
     } else if (indexPath.section == 1) { //谁可以看
         CHPublishDetailViewController *detailVC = [CHPublishDetailViewController new];
-        detailVC.getData = ^(BOOL isPrivate, NSNumber *numberID) {
-            
-        };
+        detailVC.getCommunityData = ^(FriendListModel *model, BOOL isPrivate) {
+            CHPublish *publish = self.data[1];
+            if (isPrivate == NO) {
+                publish.title = model.name;
+                self.is_private = NO;
+            } else {
+                publish.title = [NSString stringWithFormat:@"%@ 隐私", model.name];
+                self.is_private = YES;
+            }
+            self.list = model;
+            [self.tableView reloadData];
+        } ;
         [self.navigationController pushViewController:detailVC animated:NO];
     } else {
          NSLog(@"其余的");
     }
 }
 
+/***************************************** 发表图文说说 **********************************************************/
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {
@@ -317,7 +352,14 @@ static NSString *const bundleID = @"CollectionView";
         {
             CHMapSupportViewController *mapVC = [CHMapSupportViewController new];
             mapVC.whenAddressGet = ^(Address *address) {
-                
+                CHPublish *publish = self.data[0];
+                if (address != nil) {
+                    publish.title = address.name;
+                } else {
+                    publish.title = @"所在位置";
+                }
+                self.address = address; //获取用户选择的位置
+                [self.collectionView reloadData];
             };
             [self.navigationController pushViewController:mapVC animated:NO];
         }
@@ -325,8 +367,17 @@ static NSString *const bundleID = @"CollectionView";
         case 3:
         {
             CHPublishDetailViewController *detailVC = [CHPublishDetailViewController new];
-            detailVC.getData = ^(BOOL isPrivate, NSNumber *numberID) {
-                
+            detailVC.getCommunityData = ^(FriendListModel *model, BOOL isPrivate) {
+                CHPublish *publish = self.data[1];
+                if (isPrivate == NO) {
+                    publish.title = model.name;
+                    self.is_private = NO;
+                } else {
+                    publish.title = [NSString stringWithFormat:@"%@ 隐私", model.name];
+                    self.is_private = YES;
+                }
+                self.list = model;
+                [self.collectionView reloadData];
             };
             [self.navigationController pushViewController:detailVC animated:NO];
         }
@@ -487,7 +538,18 @@ static NSString *const bundleID = @"CollectionView";
 - (void)createPublishButton
 {
     CHNormalButton *button = [CHNormalButton title:@"发布" titleColor:HexColor(0xffffff) font:16 aligment:NSTextAlignmentCenter backgroundcolor:GLOBAL_COLOR andBlock:^(CHNormalButton *button) {
-        NSArray *array = [QNUploadData uploadDataFile:[_selectArrayM copy]]; //图片数组
+        if (self.type == typeWithContent) {
+            NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:@[] isPrivate:self.is_private andAddress:self.address andCommunity:self.list];
+            [[CHManager manager] requestWithMethod:POST WithPath:CHReadConfig(@"community_publish_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+                [ProgressHUD showSuccess:@"分享记录发布成功"];
+                [self dismissViewControllerAnimated:NO completion:nil];
+            } WithFailurBlock:^(NSError *error) {
+                
+            }];
+        } else {
+            [QNUploadData uploadDataFile:[_selectArrayM copy]]; //图片数组
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getImageArray:) name:@"SuccessImageArrayUp" object:nil];
+        }
     }];
     [self.view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -495,6 +557,20 @@ static NSString *const bundleID = @"CollectionView";
         make.left.mas_equalTo(0);
         make.top.mas_equalTo(screenWithoutTopbar - 45 - tabbarHeight);
     }];
+}
+
+- (void)getImageArray:(NSNotification *)notification
+{
+    NSArray *array = notification.userInfo[@"imageArray"];
+    NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:array isPrivate:self.is_private andAddress:self.address andCommunity:self.list];
+    if (params != nil) { //字典不为空就可以进行网络请求
+        [[CHManager manager] requestWithMethod:POST WithPath:CHReadConfig(@"community_publish_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+            [ProgressHUD showSuccess:@"分享记录发布成功"];
+            [self dismissViewControllerAnimated:NO completion:nil];
+        } WithFailurBlock:^(NSError *error) {
+            
+        }];
+    }
 }
 
 #pragma mark - 返回按钮的点击事件
@@ -511,5 +587,82 @@ static NSString *const bundleID = @"CollectionView";
     
 }
 
-
+#pragma mark - 判断是否符合上传条件
+- (NSDictionary *)checkType:(publishType)type andContent:(NSString *)content andImageArray:(NSArray *)imageArray isPrivate:(BOOL)isprivate andAddress:(Address *)address andCommunity:(FriendListModel *)model
+{
+    NSDictionary *params;
+    if ([content isEqualToString:self.placeString]) {
+        content = @"";
+    }
+    if (model == nil) {
+        [ProgressHUD showError:@"请选择您想发布的圈子"];
+        return nil;
+    }
+    switch (type) {
+        case typeWithContent:
+        {
+            if ([content isEqualToString:self.placeString] || [content isEqualToString:@""]) { //判断是否写入了文字
+                [ProgressHUD showError:@"发布内容不能为空"];
+                break ;
+            } else {
+                if (address == nil) {
+                    params = @{
+                               @"community_id":model.id,
+                               @"type_code":@10,
+                               @"content":content,
+                               @"is_private":[NSNumber numberWithBool:isprivate],
+                               };
+                } else {
+                    params = @{
+                               @"community_id":model.id,
+                               @"type_code":@10,
+                               @"content":content,
+                               @"is_private":[NSNumber numberWithBool:isprivate],
+                               @"lat":address.lat,
+                               @"lng":address.lng,
+                               @"address":address.address
+                               };
+                }
+            }
+        }
+            break;
+        case typeWithPhotoAndContent:
+        {
+            if (imageArray.count == 0) {
+                [ProgressHUD showError:@"图片不能为空"];
+                break;
+            } else {
+                if (address == nil) {
+                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
+                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    params = @{
+                               @"community_id":model.id,
+                               @"type_code":@20,
+                               @"content":content,
+                               @"is_private":[NSNumber numberWithBool:isprivate],
+                               @"photos":jsonString
+                               };
+                } else {
+                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
+                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    params = @{
+                               @"community_id":model.id,
+                               @"type_code":@20,
+                               @"content":content,
+                               @"is_private":[NSNumber numberWithBool:isprivate],
+                               @"photos":jsonString,
+                               @"lat":address.lat,
+                               @"lng":address.lng,
+                               @"address":address.address
+                               };
+                }
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return params;
+}
 @end

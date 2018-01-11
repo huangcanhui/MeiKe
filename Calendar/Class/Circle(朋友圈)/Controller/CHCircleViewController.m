@@ -18,6 +18,9 @@
 #import "FriendCircleObject.h"
 #import "UserModel.h"
 #import "UIViewController+CH.h"
+#import "CHManager.h"
+#import "FriendListModel.h"
+#import "MJExtension.h"
 
 //视图
 #import "CHFriendCircleTableViewCell.h"
@@ -38,6 +41,14 @@ static NSString *bundleID = @"friendCircle";
  * UITableView
  */
 @property (nonatomic, strong)UITableView *tableView;
+/**
+ * 页码
+ */
+@property (nonatomic, assign)int page;
+/**
+ * 记录选中的圈子ID
+ */
+@property (nonatomic, strong)NSNumber *communityID;
 @end
 
 @implementation CHCircleViewController
@@ -56,7 +67,11 @@ static NSString *bundleID = @"friendCircle";
     
     self.navigationItem.title = @"朋友圈";
     
+    _page = 1;
+    
     [self initNaviView];
+    
+    [self requestData];
     
     [self.view addSubview:self.naviScrollView];
 }
@@ -116,13 +131,20 @@ static NSString *bundleID = @"friendCircle";
     return _naviScrollView;
 }
 
-- (NSArray *)naviArrayM
+#pragma mark - 网络数据请求
+- (void)requestData
 {
-    //这边应该是一个网络请求
-    if (!_naviArrayM) {
-        _naviArrayM = @[@"兄弟", @"闺蜜", @"工作", @"公司", @"推荐"];
-    }
-    return _naviArrayM;
+    [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_List_Url") WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+        NSMutableArray *arrayM = [NSMutableArray array];
+        for (NSDictionary *dict in responseObject[@"data"]) {
+            FriendListModel *obj = [FriendListModel mj_objectWithKeyValues:dict];
+            [arrayM addObject:obj];
+        }
+        _naviArrayM = [arrayM copy];
+        [self addNaviButton];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)addNaviButton
@@ -134,8 +156,9 @@ static NSString *bundleID = @"friendCircle";
         buttonW = (kScreenWidth - 1) / 2;
     }
     for (int i = 0; i < self.naviArrayM.count; i++) {
+        FriendListModel *list = self.naviArrayM[i];
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake((buttonW + 1) * i, 0, buttonW, 44)];
-        [btn setTitle:self.naviArrayM[i] forState:UIControlStateNormal];
+        [btn setTitle:list.name forState:UIControlStateNormal];
         [btn setTitleColor:HexColor(0x000000) forState:UIControlStateNormal];
         btn.backgroundColor = HexColor(0xffffff);
         btn.tag = 100 + i;
@@ -143,6 +166,7 @@ static NSString *bundleID = @"friendCircle";
 //            [btn setTitleColor:HexColor(0xffffff) forState:UIControlStateNormal];
 //            btn.backgroundColor = GLOBAL_COLOR;
             [btn setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
+            self.communityID = list.id;
             [self getNaviMenuWithTag:btn.tag];
         }
         [btn addTarget:self action:@selector(clickMenuBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -172,8 +196,28 @@ static NSString *bundleID = @"friendCircle";
 
 - (void)getNaviMenuWithTag:(NSUInteger)tag
 {
-    [self.view addSubview:self.tableView];
-    [self.tableView reloadData];
+    FriendListModel *list = self.naviArrayM[tag - 100];
+    self.communityID = list.id;
+    [self requestDataWithPage:self.page andCommunityID:list.id];
+//    [self.tableView reloadData];
+}
+
+#pragma mark - 朋友圈的内容请求
+- (void)requestDataWithPage:(int)page andCommunityID:(NSNumber *)communityID
+{
+    NSDictionary *params = @{
+                             @"page":[NSString stringWithFormat:@"%d", page],
+                             @"page_size":@"15",
+                             @"community":communityID
+                             };
+    [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_notes_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+        for (NSDictionary *dict in responseObject[@"data"]) {
+            NSLog(@"%@", dict);
+        }
+        [self.tableView reloadData];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - 朋友圈的内容
@@ -191,12 +235,14 @@ static NSString *bundleID = @"friendCircle";
         
         //添加刷新控件
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            
+            _page = 1;
+            [self requestDataWithPage:_page andCommunityID:self.communityID];//网络请求
             [_tableView.mj_header endRefreshing];
         }];
         //上拉加载
         _tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingBlock:^{
-            
+            _page ++;
+            [self requestDataWithPage:_page andCommunityID:self.communityID]; //网络请求
             [_tableView.mj_footer endRefreshing];
         }];
         

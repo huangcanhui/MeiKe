@@ -15,7 +15,7 @@
 
 @implementation QNUploadData
 
-+ (NSArray *)uploadDataFile:(NSArray *)array
++ (void)uploadDataFile:(NSArray *)array
 {
     //获取七牛上传的token
     NSMutableArray *arrayM = [NSMutableArray array];
@@ -27,7 +27,7 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             formatter.dateFormat = @"yyyyMMddHHmmssSS";
             NSString *str = [formatter stringFromDate:[NSDate date]];
-            NSString *fileName = [NSString stringWithFormat:@"%@", str];
+            NSString *fileName = [NSString stringWithFormat:@"%@%d", str, i];
             NSData *data = [ImageCutDownManager zipNSDataWithImage:array[i][@"image"]];
             //配置上传实例
             QNConfiguration *config = [QNConfiguration build:^(QNConfigurationBuilder *builder) {
@@ -40,13 +40,18 @@
             [upmanager putData:data key:fileName token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
                 [ProgressHUD show:@"上传中,请稍后..." Interaction:NO];
                 [arrayM addObject:resp[@"key"]];
+                if (i == array.count - 1) {
+                    [ProgressHUD dismiss];
+                    NSDictionary *params = @{
+                                             @"imageArray":arrayM
+                                             };
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"SuccessImageArrayUp" object:nil userInfo:params];
+                }
             } option:nil];
         }
     } WithFailurBlock:^(NSError *error) {
         
     }];
-    
-    return [arrayM copy];
 }
 
 @end

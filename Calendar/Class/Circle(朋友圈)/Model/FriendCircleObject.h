@@ -34,10 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong)NSArray *picArray;
 /**
- * 菜单对象
- */
-@property (nonatomic, strong)NSArray <NaviMenuObject *> *menu;
-/**
  * 发布者对象
  */
 @property (nonatomic, strong)NSArray <PublisherObject *> *publisher;
@@ -49,31 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
  * 评论对象
  */
 @property (nonatomic, strong)NSArray <commentObject *> *comment;
-
-@end
-
-
-
-/**
- * 朋友圈菜单
- */
-@interface NaviMenuObject : NSObject
-/**
- * 圈子名称
- */
-@property (nonatomic, copy)NSString *circleName;
-/**
- * 是否未读消息
- */
-@property (nonatomic, assign)BOOL isUnread;
-/**
- * 未读的消息数量
- */
-@property (nonatomic, strong)NSNumber *unreadCount;
-/**
- * 圈子id
- */
-@property (nonatomic, strong)NSNumber *id;
 
 @end
 
@@ -137,6 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 评论者的ID
  */
 @property (nonatomic, strong)NSNumber *secondUserID;
+
 @end
 
 

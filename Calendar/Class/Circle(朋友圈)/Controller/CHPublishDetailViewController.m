@@ -66,12 +66,9 @@
     
     [self.view addSubview:self.privateView];
     
-    self.isPrivate = YES; //初始化
+    self.isPrivate = NO; //初始化
     
-    if (self.isPrivate == YES) {
-        [self.view addSubview:self.tableView];
-    }
-
+    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - 懒加载
@@ -99,10 +96,8 @@
 {
     if (sender.on) { //开启
         self.isPrivate = YES;
-         [self.tableView removeFromSuperview];
     } else { //关闭
         self.isPrivate = NO;
-        [self.view addSubview:self.tableView];
     }
 }
 
@@ -180,24 +175,17 @@
 {
     self.indexPath = indexPath;
     
-    FriendListModel *list = self.data[indexPath.row];
-    self.numberID = list.id;
-    
     [self.tableView reloadData];
 }
 
 #pragma mark - 保存按钮的点击事件
 - (void)saveData
 {
-    //先判断是否选择了圈子
-    if (self.numberID == nil && self.isPrivate == YES) { //未选择发布的圈子
-        [ProgressHUD showError:@"您还未选择发布的圈子"];
-    } else {
-        if (self.getData) {
-            self.getData(self.isPrivate, self.numberID);
-        }
-        [self.navigationController popViewControllerAnimated:YES];
+    FriendListModel *model = self.data[self.indexPath.row];
+    if (self.getCommunityData) {
+        self.getCommunityData(model, self.isPrivate);
     }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 添加圈子

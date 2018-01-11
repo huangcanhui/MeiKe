@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendListModel.h"
 
 @interface CHPublishDetailViewController : UIViewController
 
-@property (nonatomic, assign)void (^getData)(BOOL isPrivate, NSNumber *numberID);
+@property (nonatomic, copy)void (^getCommunityData)(FriendListModel *model, BOOL isPrivate);
 
 @end
