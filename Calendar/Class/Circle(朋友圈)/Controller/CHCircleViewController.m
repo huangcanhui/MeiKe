@@ -208,7 +208,8 @@ static NSString *bundleID = @"friendCircle";
     NSDictionary *params = @{
                              @"page":[NSString stringWithFormat:@"%d", page],
                              @"page_size":@"15",
-                             @"community":communityID
+                             @"community":communityID,
+                             @"include":@"publisher"
                              };
     [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_notes_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
         for (NSDictionary *dict in responseObject[@"data"]) {

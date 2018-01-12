@@ -16,7 +16,7 @@
 /**
  * 当登录按钮被点击时
  */
-@property (nonatomic, copy)void (^whenLoginBtnClick)();
+@property (nonatomic, copy)void (^whenLoginBtnClick)(void);
 
 + (instancetype)headerView;
 

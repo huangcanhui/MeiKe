@@ -665,4 +665,9 @@ static NSString *const bundleID = @"CollectionView";
     }
     return params;
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

@@ -12,6 +12,10 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import "IQKeyBoardManager/IQKeyboardManager.h"
 #import <Contacts/Contacts.h>
+//开启友盟分享以及分析、登录功能
+#import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>
+#import <UMSocialCore/UMSocialCore.h>
 
 @interface AppDelegate ()
 
@@ -29,6 +33,9 @@
     
     //键盘处理
     [[self class] setIQKeyBoard];
+    
+    //开启友盟统计
+    [self startUMMobClick];
     
     return YES;
 }
@@ -56,6 +63,20 @@
     manager.shouldResignOnTouchOutside = YES; //控制点击背景是否收起键盘
     manager.shouldToolbarUsesTextFieldTintColor = YES;// 控制键盘上的工具条文字颜色是否用户自定义
     manager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
+}
+
+#pragma mark - 开启友盟统计
+- (void)startUMMobClick
+{
+    //配置友盟产品并进行统一的初始化
+    [UMConfigure initWithAppkey:UMKEY channel:@"App Store"];
+#ifdef DEBUG
+    [UMConfigure setLogEnabled:YES]; //在测试模式下开启友盟日志显示
+#else
+    
+#endif
+    //开启友盟统计
+    [MobClick setScenarioType:E_UM_NORMAL];
 }
 
 
