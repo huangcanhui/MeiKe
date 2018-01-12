@@ -68,5 +68,7 @@
 
 //客服电话
 #define companyPhone @"0592-5727298"
+//与服务器端约束的字符串切割方式
+#define stringBreak @"_&&_"
 
 #endif /* Calendar_pch */

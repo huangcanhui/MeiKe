@@ -18,4 +18,7 @@ pod ‘UMengUShare/Social/ReducedWeChat'
 pod ‘UMengUShare/Social/ReducedQQ'
 pod 'ProgressHUD'
 pod 'MLEmojiLabel'
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCAnalytics'
 end

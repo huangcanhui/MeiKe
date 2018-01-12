@@ -633,24 +633,24 @@ static NSString *const bundleID = @"CollectionView";
                 break;
             } else {
                 if (address == nil) {
-                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
-                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
+//                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     params = @{
                                @"community_id":model.id,
                                @"type_code":@20,
                                @"content":content,
                                @"is_private":[NSNumber numberWithBool:isprivate],
-                               @"photos":jsonString
+                               @"photos":imageArray
                                };
                 } else {
-                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
-                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
+//                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     params = @{
                                @"community_id":model.id,
                                @"type_code":@20,
                                @"content":content,
                                @"is_private":[NSNumber numberWithBool:isprivate],
-                               @"photos":jsonString,
+                               @"photos":imageArray,
                                @"lat":address.lat,
                                @"lng":address.lng,
                                @"address":address.address

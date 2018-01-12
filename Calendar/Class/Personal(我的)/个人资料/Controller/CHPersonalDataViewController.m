@@ -117,14 +117,4 @@ static NSString *cellID = @"PersonalData";
     return _data;
 }
 
-
-
-//- (NSMutableArray *)arrayM
-//{
-//    if (_arrayM) {
-//        //这边进行网络请求
-//    }
-//    return _arrayM;
-//}
-
 @end

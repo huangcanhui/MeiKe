@@ -46,9 +46,9 @@ extern CGFloat maxContentLabelHeight;
 
 
 #pragma mark - NaviMenuObject
-@implementation NaviMenuObject
-
-@end
+////@implementation NaviMenuObject
+//
+//@end
 
 #pragma mark - PublisherObject
 @implementation PublisherObject

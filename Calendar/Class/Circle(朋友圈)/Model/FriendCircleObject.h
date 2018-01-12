@@ -9,7 +9,7 @@
 //这个是朋友圈的所有数据模型
 #import <Foundation/Foundation.h>
 
-@class NaviMenuObject;
+//@class NaviMenuObject;
 @class PublisherObject;
 @class LikerObject;
 @class commentObject;

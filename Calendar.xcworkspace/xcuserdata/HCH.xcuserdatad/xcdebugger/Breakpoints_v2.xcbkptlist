@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Main/CHManager.m"
-            timestampString = "537363170.261739"
+            timestampString = "537369659.481251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -102,49 +102,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHPublish_Photo_ContentViewController.m"
-            timestampString = "537359649.227558"
+            timestampString = "537369659.481488"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "-getImageArray:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CHPublish_Photo_ContentViewController getImageArray:]"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Circle(%E6%9C%8B%E5%8F%8B%E5%9C%88)/Controller/CHPublish_Photo_ContentViewController.m"
-                  timestampString = "537363170.284157"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "567"
-                  endingLineNumber = "567"
-                  offsetFromSymbolStart = "472">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__55-[CHPublish_Photo_ContentViewController getImageArray:]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Circle(%E6%9C%8B%E5%8F%8B%E5%9C%88)/Controller/CHPublish_Photo_ContentViewController.m"
-                  timestampString = "537363170.285542"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "567"
-                  endingLineNumber = "567"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,124 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHPublish_Photo_ContentViewController.m"
-            timestampString = "537359649.227779"
+            timestampString = "537369659.481531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "635"
             endingLineNumber = "635"
             landmarkName = "-checkType:andContent:andImageArray:isPrivate:andAddress:andCommunity:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHCircleViewController.m"
-            timestampString = "537363170.26187"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-requestDataWithPage:andCommunityID:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CHCircleViewController requestDataWithPage:andCommunityID:]"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Circle(%E6%9C%8B%E5%8F%8B%E5%9C%88)/Controller/CHCircleViewController.m"
-                  timestampString = "537363170.2881"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "213"
-                  endingLineNumber = "213"
-                  offsetFromSymbolStart = "304">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__61-[CHCircleViewController requestDataWithPage:andCommunityID:]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Circle(%E6%9C%8B%E5%8F%8B%E5%9C%88)/Controller/CHCircleViewController.m"
-                  timestampString = "537363170.289165"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "214"
-                  endingLineNumber = "214"
-                  offsetFromSymbolStart = "112">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHCircleViewController.m"
-            timestampString = "537363178.250109"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-requestDataWithPage:andCommunityID:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__61-[CHCircleViewController requestDataWithPage:andCommunityID:]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Circle(%E6%9C%8B%E5%8F%8B%E5%9C%88)/Controller/CHCircleViewController.m"
-                  timestampString = "537363178.25618"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "214"
-                  endingLineNumber = "214"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__61-[CHCircleViewController requestDataWithPage:andCommunityID:]_block_invoke"
-                  moduleName = "Calendar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hch/Desktop/Calendar/Calendar/Class/Circle(%E6%9C%8B%E5%8F%8B%E5%9C%88)/Controller/CHCircleViewController.m"
-                  timestampString = "537363178.257504"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "214"
-                  endingLineNumber = "214"
-                  offsetFromSymbolStart = "132">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHCircleViewController.m"
-            timestampString = "537363263.778146"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "-requestDataWithPage:andCommunityID:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
