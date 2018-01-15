@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/&#x4e2a;&#x4eba;&#x8d44;&#x6599;/Controller/CHPersonalDataViewController.m"
-            timestampString = "537443473.383232"
+            timestampString = "537443627.115989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128">
+            startingLineNumber = "121"
+            endingLineNumber = "121">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,7 +56,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/Login(&#x767b;&#x5f55;)/CHLoginViewController.m"
-            timestampString = "537273678.2534651"
+            timestampString = "537698712.015101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "227"
@@ -104,7 +104,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHPublish_Photo_ContentViewController.m"
-            timestampString = "537443473.383568"
+            timestampString = "537698712.015216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "568"
@@ -120,7 +120,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/Controller/CHPublish_Photo_ContentViewController.m"
-            timestampString = "537443473.383608"
+            timestampString = "537698712.015445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "635"
@@ -136,7 +136,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Extemsion/QNUploadData.m"
-            timestampString = "537443473.383644"
+            timestampString = "537443627.116364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"

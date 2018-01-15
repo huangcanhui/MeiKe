@@ -73,7 +73,6 @@ static NSString *bundleID = @"friendCircle";
     
     [self requestData];
     
-    [self.view addSubview:self.naviScrollView];
 }
 
 #pragma mark - 导航栏视图
@@ -141,7 +140,7 @@ static NSString *bundleID = @"friendCircle";
             [arrayM addObject:obj];
         }
         _naviArrayM = [arrayM copy];
-        [self addNaviButton];
+        [self.view addSubview:self.naviScrollView];
     } WithFailurBlock:^(NSError *error) {
         
     }];

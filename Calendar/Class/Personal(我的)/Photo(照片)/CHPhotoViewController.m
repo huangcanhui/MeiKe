@@ -8,6 +8,8 @@
 
 #import "CHPhotoViewController.h"
 
+#import "CHUpdataPhotoViewController.h"
+
 @interface CHPhotoViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 /**
  * UICollectionView
@@ -26,9 +28,18 @@ static CGFloat Maigin = 10.0f;
     
     self.view.backgroundColor = HexColor(0xffffff);
     
-    self.navigationItem.title = @"我的照片";
+    self.navigationItem.title = @"我的云照片";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonPushNewVC)];
     
     [self.view addSubview:self.collectionView];
+}
+
+#pragma mark - 添加上传页面
+- (void)rightBarButtonPushNewVC
+{
+    CHUpdataPhotoViewController *photoVC = [CHUpdataPhotoViewController new];
+    [self.navigationController pushViewController:photoVC animated:NO];
 }
 
 - (UICollectionView *)collectionView

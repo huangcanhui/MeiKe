@@ -169,7 +169,7 @@ static NSString *cellBundle = @"PERSONAL";
         } else {
             [self showLogin];
         }
-    } else if ([model.title isEqualToString:@"我的相册"]) {
+    } else if ([model.title isEqualToString:@"我的云相册"]) {
         CHPhotoViewController *photoVC = [CHPhotoViewController new];
         [self.navigationController pushViewController:photoVC animated:NO];
     } else if ([model.title isEqualToString:@"小游戏"]) {

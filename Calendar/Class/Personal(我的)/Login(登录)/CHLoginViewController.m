@@ -60,7 +60,7 @@
     
     self.navigationItem.title = @"登录";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(clickBack)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(clickBack)];
     
     //初始化
     self.isCheck = NO; //默认用户未勾选

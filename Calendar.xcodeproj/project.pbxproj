@@ -115,6 +115,7 @@
 		5B999B341FFE177100E56087 /* CHAddFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B999B321FFE177100E56087 /* CHAddFriendTableViewCell.m */; };
 		5B999B351FFE177100E56087 /* CHAddFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B999B331FFE177100E56087 /* CHAddFriendTableViewCell.xib */; };
 		5B999B381FFE260900E56087 /* CHAddFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B999B371FFE260900E56087 /* CHAddFriendModel.m */; };
+		5B9E767A200C8E8700DF60D1 /* CHUpdataPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7679200C8E8700DF60D1 /* CHUpdataPhotoViewController.m */; };
 		5BA0E1001FBC1A3A00F2BFA9 /* CHSetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */; };
 		5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E1051FBC1BB700F2BFA9 /* CHLoginViewController.m */; };
 		5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E1061FBC1BB700F2BFA9 /* CHLoginViewController.xib */; };
@@ -377,6 +378,8 @@
 		5B999B331FFE177100E56087 /* CHAddFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHAddFriendTableViewCell.xib; sourceTree = "<group>"; };
 		5B999B361FFE260900E56087 /* CHAddFriendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAddFriendModel.h; sourceTree = "<group>"; };
 		5B999B371FFE260900E56087 /* CHAddFriendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAddFriendModel.m; sourceTree = "<group>"; };
+		5B9E7678200C8E8700DF60D1 /* CHUpdataPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUpdataPhotoViewController.h; sourceTree = "<group>"; };
+		5B9E7679200C8E8700DF60D1 /* CHUpdataPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUpdataPhotoViewController.m; sourceTree = "<group>"; };
 		5BA0E0FE1FBC1A3A00F2BFA9 /* CHSetUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSetUpViewController.h; sourceTree = "<group>"; };
 		5BA0E0FF1FBC1A3A00F2BFA9 /* CHSetUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSetUpViewController.m; sourceTree = "<group>"; };
 		5BA0E1041FBC1BB700F2BFA9 /* CHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHLoginViewController.h; sourceTree = "<group>"; };
@@ -893,6 +896,8 @@
 			children = (
 				5B818AE71FBD67A500B2B013 /* CHPhotoViewController.h */,
 				5B818AE81FBD67A500B2B013 /* CHPhotoViewController.m */,
+				5B9E7678200C8E8700DF60D1 /* CHUpdataPhotoViewController.h */,
+				5B9E7679200C8E8700DF60D1 /* CHUpdataPhotoViewController.m */,
 			);
 			path = "Photo(照片)";
 			sourceTree = "<group>";
@@ -1489,6 +1494,7 @@
 				5BA5DEFD1FB160F8003FEE02 /* CHCircleViewController.m in Sources */,
 				5B818AF11FBD686300B2B013 /* CHCustomServiceViewController.m in Sources */,
 				5BEBA90B1FB04D200099E8EF /* SingletonObject.m in Sources */,
+				5B9E767A200C8E8700DF60D1 /* CHUpdataPhotoViewController.m in Sources */,
 				5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */,
 				5BEBA8FF1FB04BAB0099E8EF /* UILabel+CH.m in Sources */,
 			);
