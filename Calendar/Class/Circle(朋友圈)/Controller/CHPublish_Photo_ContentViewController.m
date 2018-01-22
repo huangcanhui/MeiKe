@@ -15,7 +15,7 @@
 #import "ProgressHUD.h"
 #import "CH_ImageAndContent_SectionHeader.h"
 #import "UIImagePickerController+ST.h"
-#import "QNUploadData.h"
+#import "CHQiniuUploadTool.h"
 #import "Address.h"
 #import "FriendListModel.h"
 #import "CHManager.h"
@@ -77,9 +77,14 @@ static NSString *const bundleID = @"CollectionView";
  */
 @property (nonatomic, assign)BOOL is_private;
 /**
+ * 获取用户图片是否上传成功
+ */
+@property (nonatomic, assign)BOOL isSuccess;
+/**
  * 获取用户上传的图片
  */
 @property (nonatomic, strong)NSArray *imageArray;
+
 @end
 
 @implementation CHPublish_Photo_ContentViewController
@@ -113,9 +118,11 @@ static NSString *const bundleID = @"CollectionView";
     
     _itemW = (kScreenWidth - 64) / 4;
     
-//    _imageArray = [NSArray array];
+    _imageArray = [NSArray array];
     
     _selectArrayM = [NSMutableArray array];
+    
+    _isSuccess = NO;
 }
 
 #pragma mark - 懒加载
@@ -538,20 +545,28 @@ static NSString *const bundleID = @"CollectionView";
 - (void)createPublishButton
 {
     CHNormalButton *button = [CHNormalButton title:@"发布" titleColor:HexColor(0xffffff) font:16 aligment:NSTextAlignmentCenter backgroundcolor:GLOBAL_COLOR andBlock:^(CHNormalButton *button) {
-        if (self.type == typeWithContent) {
-            NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:@[] isPrivate:self.is_private andAddress:self.address andCommunity:self.list];
-            [[CHManager manager] requestWithMethod:POST WithPath:CHReadConfig(@"community_publish_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
-                [ProgressHUD showSuccess:@"分享记录发布成功"];
-                [self dismissViewControllerAnimated:NO completion:nil];
-            } WithFailurBlock:^(NSError *error) {
-                
-            }];
+        if (self.list != nil) { //是否选择了发布的圈子
+            if (_isSuccess == NO && self.type == typeWithPhotoAndContent) { //图片是否上传
+                [ProgressHUD show:@"图片上传中，请稍后..." Interaction:YES];
+                [CHQiniuUploadTool uploadImages:[_selectArrayM copy] progress:^(CGFloat progress) {
+                    NSLog(@"qi niu -- %f", progress); //上传进度
+                } success:^(NSArray *imageArray) {
+                    _imageArray = imageArray;
+                    _isSuccess = YES;
+                    [self getDataToServerNet];
+                } failure:^{
+                    _isSuccess = NO;
+                    [ProgressHUD showError:@"图片上传失败，请重新上传"];
+                }];
+            } else {
+                [self getDataToServerNet];
+            }
         } else {
-            [QNUploadData uploadDataFile:[_selectArrayM copy]]; //图片数组
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getImageArray:) name:@"SuccessImageArrayUp" object:nil];
+            [ProgressHUD showError:@"请选择您想发布的圈子"];
         }
     }];
     [self.view addSubview:button];
+        
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, 45));
         make.left.mas_equalTo(0);
@@ -559,19 +574,17 @@ static NSString *const bundleID = @"CollectionView";
     }];
 }
 
-- (void)getImageArray:(NSNotification *)notification
+- (void)getDataToServerNet
 {
-    NSArray *array = notification.userInfo[@"imageArray"];
-    NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:array isPrivate:self.is_private andAddress:self.address andCommunity:self.list];
-    if (params != nil) { //字典不为空就可以进行网络请求
-        [[CHManager manager] requestWithMethod:POST WithPath:CHReadConfig(@"community_publish_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
-            [ProgressHUD showSuccess:@"分享记录发布成功"];
-            [self dismissViewControllerAnimated:NO completion:nil];
-        } WithFailurBlock:^(NSError *error) {
-            
-        }];
-    }
+    NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:_imageArray isPrivate:self.is_private andAddress:self.address andCommunity:self.list];
+    [[CHManager manager] requestWithMethod:POST WithPath:CHReadConfig(@"community_publish_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+        [ProgressHUD showSuccess:@"分享记录发布成功"];
+        [self dismissViewControllerAnimated:NO completion:nil];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
 }
+
 
 #pragma mark - 返回按钮的点击事件
 - (void)clickBackCircleVC
@@ -594,10 +607,7 @@ static NSString *const bundleID = @"CollectionView";
     if ([content isEqualToString:self.placeString]) {
         content = @"";
     }
-    if (model == nil) {
-        [ProgressHUD showError:@"请选择您想发布的圈子"];
-        return nil;
-    }
+
     switch (type) {
         case typeWithContent:
         {
@@ -633,8 +643,6 @@ static NSString *const bundleID = @"CollectionView";
                 break;
             } else {
                 if (address == nil) {
-//                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
-//                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     params = @{
                                @"community_id":model.id,
                                @"type_code":@20,
@@ -643,8 +651,6 @@ static NSString *const bundleID = @"CollectionView";
                                @"photos":imageArray
                                };
                 } else {
-//                    NSData *data = [NSJSONSerialization dataWithJSONObject:imageArray options:NSJSONWritingPrettyPrinted error:nil];
-//                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     params = @{
                                @"community_id":model.id,
                                @"type_code":@20,
@@ -664,10 +670,5 @@ static NSString *const bundleID = @"CollectionView";
             break;
     }
     return params;
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
