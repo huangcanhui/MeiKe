@@ -67,9 +67,9 @@
 
 - (void)setCommentItemArray:(NSArray *)commentItemArray
 {
-    self.commentItemArray = commentItemArray;
+    _commentItemArray = commentItemArray;
     
-    long originalLabelCount = self.commentLabelsArray.count;
+    long originalLabelCount = _commentItemArray.count;
     long needsToAddCount = commentItemArray.count > originalLabelCount ? (commentItemArray.count - originalLabelCount) : 0;
     for (int i = 0; i < needsToAddCount; i++) {
         MLEmojiLabel *label = [MLEmojiLabel new];
@@ -84,7 +84,7 @@
     }
     for (int i = 0; i < commentItemArray.count; i++) {
         commentObject *obj = commentItemArray[i];
-        MLEmojiLabel *label = self.commentLabelsArray[i];
+        MLEmojiLabel *label = _commentItemArray[i];
         label.attributedText = [self generateAttributedStringWithCommentItemModel:obj];
     }
 }

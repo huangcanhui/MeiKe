@@ -88,7 +88,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
     NSString *oldTime = [NSString readUserDefaultWithKey:@"currentTime"];
     if ([oldTime isBlank] == YES) return;
     if ([oldTime floatValue] + expried_time <= [time floatValue]) { //当前时间大于登录时间，即access_token过期
-        if ([oldTime floatValue] + refresh_time < [time floatValue]) { //当前时间大于登录时间,即refresh_token过期
+        if ([oldTime floatValue] + refresh_time > [time floatValue]) { //当前时间大于登录时间,即refresh_token过期
             self.user = [User readUserDefaultWithKey:@"UserModel.user"];
             NSDictionary *dict = @{
                                    @"client_id":@"1",

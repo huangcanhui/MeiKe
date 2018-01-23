@@ -72,7 +72,6 @@ static NSString *bundleID = @"friendCircle";
     [self initNaviView];
     
     [self requestData];
-    
 }
 
 #pragma mark - 导航栏视图
@@ -141,6 +140,7 @@ static NSString *bundleID = @"friendCircle";
         }
         _naviArrayM = [arrayM copy];
         [self.view addSubview:self.naviScrollView];
+        [self.view addSubview:self.tableView];
     } WithFailurBlock:^(NSError *error) {
         
     }];
@@ -162,8 +162,6 @@ static NSString *bundleID = @"friendCircle";
         btn.backgroundColor = HexColor(0xffffff);
         btn.tag = 100 + i;
         if (btn.tag == 100) { //默认选中
-//            [btn setTitleColor:HexColor(0xffffff) forState:UIControlStateNormal];
-//            btn.backgroundColor = GLOBAL_COLOR;
             [btn setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
             self.communityID = list.id;
             [self getNaviMenuWithTag:btn.tag];
@@ -180,13 +178,9 @@ static NSString *bundleID = @"friendCircle";
         if ([view isKindOfClass:[UIButton class]]) {
             if (view.tag == btn.tag) {
                 ((UIButton *)view).selected = YES;
-//                ((UIButton *)view).backgroundColor = GLOBAL_COLOR;
-//                [((UIButton *)view) setTitleColor:HexColor(0xffffff) forState:UIControlStateNormal];
                 [((UIButton *)view) setTitleColor:GLOBAL_COLOR forState:UIControlStateNormal];
             } else {
                 ((UIButton *)view).selected = NO;
-//                ((UIButton *)view).backgroundColor = HexColor(0xffffff);
-//                [((UIButton *)view) setTitleColor:HexColor(0x000000) forState:UIControlStateNormal];
                 [((UIButton *)view) setTitleColor:HexColor(0x000000) forState:UIControlStateNormal];
             }
         }
@@ -198,7 +192,6 @@ static NSString *bundleID = @"friendCircle";
     FriendListModel *list = self.naviArrayM[tag - 100];
     self.communityID = list.id;
     [self requestDataWithPage:self.page andCommunityID:list.id];
-//    [self.tableView reloadData];
 }
 
 #pragma mark - 朋友圈的内容请求
@@ -211,9 +204,12 @@ static NSString *bundleID = @"friendCircle";
                              @"include":@"publisher"
                              };
     [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_notes_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+        NSMutableArray *arrayM = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"data"]) {
-            NSLog(@"%@", dict);
+            FriendCircleObject *obj = [FriendCircleObject mj_objectWithKeyValues:dict];
+            [arrayM addObject:obj];
         }
+        self.tableArray = [arrayM copy];
         [self.tableView reloadData];
     } WithFailurBlock:^(NSError *error) {
         
@@ -260,12 +256,13 @@ static NSString *bundleID = @"friendCircle";
 {
     /*********************  cell自适应高度 *************************************/
     id model = self.tableArray[indexPath.row];
-    return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[CHFriendCircleTableViewCell class] contentViewWidth:[self cellContentViewWith]];
+    return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"object" cellClass:[CHFriendCircleTableViewCell class] contentViewWidth:[self cellContentViewWith]];
 }
 
 - (CGFloat)cellContentViewWith
 {
     CGFloat width = kScreenWidth;
+    //适配iOS7
     if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8 ) {
         width = kScreenHeight;
     }
@@ -289,46 +286,6 @@ static NSString *bundleID = @"friendCircle";
     }
     cell.object = self.tableArray[indexPath.row];
     return cell;
-}
-
-- (void)test
-{
-    weakSelf(wself);
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"还是打飞机熬枯受淡尽快发货时间都会放假阿斯加德化速度回复家还是大家看法哈借款收到回复家含税单价发哈时间的话房价为何就可恢复就是";
-    label.numberOfLines = 0;
-    label.backgroundColor = [UIColor redColor];
-    [wself.view addSubview:label];
-    
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 20, 100));
-        make.center.equalTo(wself.view);
-    }];
-    
-    UIView *view1 = [[UIView alloc] init];
-    view1.backgroundColor = [UIColor yellowColor];
-    [wself.view addSubview:view1];
-    
-    UIView *view2 = [[UIView alloc] init];
-    view2.backgroundColor = [UIColor blackColor];
-    [wself.view addSubview:view2];
-    
-    [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake((kScreenWidth - 30) / 2, 120));
-//        make.left.and.top.mas_equalTo(10);
-        make.left.mas_equalTo(10);
-        make.top.mas_equalTo(20);
-    }];
-    
-    [view2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.and.top.equalTo(view1);
-        make.right.mas_equalTo(-10);
-    }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

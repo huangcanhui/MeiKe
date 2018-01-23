@@ -11,6 +11,8 @@
 #import "CHFriendCellCommentView.h"
 #import "CHFriendPhotoContainerView.h"
 #import "UIView+SDAutoLayout.h"
+#import "CHNetString.h"
+#import "UIImageView+WebCache.h"
 
 const CGFloat contentLabelFontSize = 15;
 CGFloat maxContentLabelHeight = 0; //根据具体的font而定
@@ -89,8 +91,7 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     self.moreButton.titleLabel.font = [UIFont systemFontOfSize:14];
     
     self.operationButton = [UIButton new];
-    [self.operationButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    self.operationButton.backgroundColor = [UIColor redColor];
+    [self.operationButton setImage:[UIImage imageNamed:@"Circle_Comment"] forState:UIControlStateNormal];
     [self.operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
     self.commentView = [CHFriendCellCommentView new];
@@ -129,7 +130,57 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
 #pragma mark - 传值
 - (void)setObject:(FriendCircleObject *)object
 {
+    _object = object;
+    _commentView.frame = CGRectZero;
+    [_commentView setupWithLikeItemsArray:object.liker commentItemsArray:object.comment];
     
+    _shouldOpenContentLabel = NO;
+    
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:object.publisher.avatar]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
+    _nameLabel.text = object.publisher.nickname;
+    //防止单行文本label在重用时宽度计算不准的问题
+    [_nameLabel sizeToFit];
+    _contentLabel.text = object.content;
+    
+    _friendContainerView.picPathStringArray = object.photos;
+    
+    if (object.shouldShowMoreButton) { //如果文字超过60
+        _moreButton.sd_layout.heightIs(20);
+        _moreButton.hidden = NO;
+        
+        if (object.isOpening) { //如果需要展开
+            _contentLabel.sd_layout.maxHeightIs(MAXFLOAT);
+            [_moreButton setTitle:@"收起" forState:UIControlStateNormal];
+        } else {
+            _contentLabel.sd_layout.maxHeightIs(maxContentLabelHeight);
+            [_moreButton setTitle:@"全文" forState:UIControlStateNormal];
+        }
+    } else {
+        _moreButton.sd_layout.heightIs(0);
+        _moreButton.hidden = YES;
+    }
+    
+    CGFloat picContainerTopMargin = 0;
+    if (object.photos.count) {
+        picContainerTopMargin = 10;
+    }
+    
+    _friendContainerView.sd_layout.topSpaceToView(_moreButton, picContainerTopMargin);
+    UIView *bottomView;
+    
+    if (!object.comment.count && !object.liker.count) {
+        _commentView.fixedWith = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedWidth的控件将不再在自动布局过程中调整宽度）
+        _commentView.fixedHeight = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedHeight的控件将不再在自动布局过程中调整宽度
+        bottomView = _timeLabel;
+    } else {
+        _commentView.fixedHeight = nil; //取消固定宽度约束
+        _commentView.fixedWith = nil; //取消固定高度的约束
+        _commentView.sd_layout.topSpaceToView(_timeLabel, 10);
+        bottomView = _commentView;
+    }
+    [self setupAutoHeightWithBottomView:bottomView bottomMargin:15];
+    
+    _timeLabel.text = @"1分钟前";
 }
 
 

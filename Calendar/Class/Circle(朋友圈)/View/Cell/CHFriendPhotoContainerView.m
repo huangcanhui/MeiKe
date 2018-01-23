@@ -10,6 +10,8 @@
 
 #import "UIView+SDAutoLayout.h"
 #import "SDPhotoBrowser.h"
+#import "UIImageView+WebCache.h"
+#import "CHNetString.h"
 
 @interface CHFriendPhotoContainerView ()<SDPhotoBrowserDelegate>
 
@@ -71,38 +73,39 @@
 
 - (void)setPicPathStringArray:(NSArray *)picPathStringArray
 {
-    self.picPathStringArray = picPathStringArray;
+    _picPathStringArray = picPathStringArray;
     
-    for (long i = self.picPathStringArray.count; i < self.imageViewsArray.count; i++) {
+    for (long i = _picPathStringArray.count; i < self.imageViewsArray.count; i++) {
         UIImageView *imageView = [self.imageViewsArray objectAtIndex:i];
         imageView.hidden = YES;
     }
     
-    if (self.picPathStringArray.count == 0) {
+    if (_picPathStringArray.count == 0) {
         self.height = 0;
         self.fixedHeight = @(0);
         return ;
     }
     
-    CGFloat itemW = [self itemWidthForPicPathArray:self.picPathStringArray];
+    CGFloat itemW = [self itemWidthForPicPathArray:_picPathStringArray];
     CGFloat itemH = 0;
-    if (self.picPathStringArray.count == 1) {
-        UIImage *image = [UIImage imageNamed:self.picPathStringArray.firstObject];
+    if (_picPathStringArray.count == 1) {
+        UIImage *image = [UIImage imageNamed:_picPathStringArray.firstObject];
         if (image.size.width) {
             itemH = image.size.height / image.size.width * itemW;
         }
     } else {
         itemH = itemW;
     }
-    long perRowItemCount = [self perRowItemCountForPicPathArray:self.picPathStringArray];
+    long perRowItemCount = [self perRowItemCountForPicPathArray:_picPathStringArray];
     CGFloat margin = 5;
     
-    [self.picPathStringArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_picPathStringArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         long columnIndex = idx % perRowItemCount;
         long rowIndex = idx / perRowItemCount;
         UIImageView *imageView = [self.imageViewsArray objectAtIndex:idx];
         imageView.hidden = NO;
-        imageView.image = [UIImage imageNamed:obj];
+//        imageView.image = [UIImage imageNamed:obj];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:obj]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
     }];
     

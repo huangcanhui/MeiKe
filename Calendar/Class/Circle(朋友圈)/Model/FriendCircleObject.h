@@ -32,11 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 发布的图片数量
  */
-@property (nonatomic, strong)NSArray *picArray;
+@property (nonatomic, strong)NSArray *photos;
 /**
  * 发布者对象
  */
-@property (nonatomic, strong)NSArray <PublisherObject *> *publisher;
+@property (nonatomic, strong)PublisherObject *publisher;
 /**
  * 点赞对象
  */
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 昵称
  */
-@property (nonatomic, copy)NSString *remark;
+@property (nonatomic, copy)NSString *nickname;
 /**
  * 头像
  */
