@@ -73,6 +73,7 @@
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
 		5B8E46132018833600B1FD51 /* CHIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8E46122018833600B1FD51 /* CHIndexViewController.m */; };
+		5B8E4616201886C400B1FD51 /* CHPersonalMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8E4615201886C400B1FD51 /* CHPersonalMessage.m */; };
 		5B9017671FFCC21F006440AB /* LQPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017661FFCC21F006440AB /* LQPopUpView.m */; };
 		5B90176A1FFCD1BA006440AB /* CH_Publish_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017681FFCD1BA006440AB /* CH_Publish_View.m */; };
 		5B90176D1FFCD393006440AB /* CHImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B90176B1FFCD392006440AB /* CHImageButton.m */; };
@@ -307,6 +308,8 @@
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B8E46112018833600B1FD51 /* CHIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHIndexViewController.h; sourceTree = "<group>"; };
 		5B8E46122018833600B1FD51 /* CHIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHIndexViewController.m; sourceTree = "<group>"; };
+		5B8E4614201886C400B1FD51 /* CHPersonalMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalMessage.h; sourceTree = "<group>"; };
+		5B8E4615201886C400B1FD51 /* CHPersonalMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalMessage.m; sourceTree = "<group>"; };
 		5B9017651FFCC21F006440AB /* LQPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQPopUpView.h; sourceTree = "<group>"; };
 		5B9017661FFCC21F006440AB /* LQPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQPopUpView.m; sourceTree = "<group>"; };
 		5B9017681FFCD1BA006440AB /* CH_Publish_View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CH_Publish_View.m; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				5B799C831FBEBABB00903A01 /* PersonalData.plist */,
 				5B799C851FBEBC0F00903A01 /* CHPersonalData.h */,
 				5B799C861FBEBC0F00903A01 /* CHPersonalData.m */,
+				5B8E4614201886C400B1FD51 /* CHPersonalMessage.h */,
+				5B8E4615201886C400B1FD51 /* CHPersonalMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1402,6 +1407,7 @@
 				5B6BA06C1FB429C10081FEF0 /* UIView+CHBadge.m in Sources */,
 				5B2E19CA1FCEAC5C00502C96 /* CHSetUpDetailViewController.m in Sources */,
 				5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */,
+				5B8E4616201886C400B1FD51 /* CHPersonalMessage.m in Sources */,
 				5B8CE1662004C37000B20427 /* CHFriendListTableViewCell.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,

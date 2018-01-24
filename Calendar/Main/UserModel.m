@@ -67,7 +67,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
 - (void)setUserInfo:(UserInfo *)userInfo
 {
     _userInfo = userInfo;
-    if (_userInfo) {
+    if (!_userInfo) {
         [self saveCache];
     }
 }
@@ -107,7 +107,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
             }];
         } else {
             [ProgressHUD showError:@"您的登录已过期，请重新登录"];
-            [self logout]; //退出登录
+            [self kickout]; //退出登录
             [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
         }
     }
@@ -119,12 +119,12 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
     NSString *path = CHReadConfig(@"login_UserInfo_Url");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
-            UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject];
+            UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject[@"data"]];
             //存储
             self.userInfo = info;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:nil];
         } WithFailurBlock:^(NSError *error) {
-            
+            [ProgressHUD showError:@"用户信息获取失败"];
         }];
     });
 }

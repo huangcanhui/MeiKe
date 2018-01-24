@@ -4,6 +4,12 @@
 <array>
 	<dict>
 		<key>title</key>
+		<string>头像</string>
+		<key>icon</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>昵称</string>
 		<key>icon</key>
 		<string></string>

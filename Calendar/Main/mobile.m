@@ -22,8 +22,7 @@
 @implementation UserInfo
 @synthesize id = _id;
 @synthesize ref_user_id = _ref_user_id;
-@synthesize ref_org_id = _ref_org_id;
-@synthesize roles = _roles;
+@synthesize reg_org_id = _ref_org_id;
 @synthesize updated_at = _updated_at;
 @synthesize name = _name;
 @synthesize email = _email;
@@ -37,5 +36,9 @@
 @synthesize county = _county;
 @synthesize nation = _nation;
 @synthesize nickname = _nickname;
-
+@synthesize sex = _sex;
+@synthesize notifyCount = _notifyCount;
+@synthesize members_count = _members_count;
+@synthesize remark_info = _remark_info;
+@synthesize black_info = _black_info;
 @end

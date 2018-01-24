@@ -7,8 +7,13 @@
 //
 
 #import "CHPersonalDataViewController.h"
+
 #import "CHPersonalData.h"
 #import "MJExtension.h"
+#import "CHManager.h"
+#import "CHPersonalMessage.h"
+#import "UIImageView+WebCache.h"
+#import "CHNetString.h"
 
 #import "CHPersonalDataDetailViewController.h"
 
@@ -32,13 +37,13 @@ static NSString *cellID = @"PersonalData";
     
     _arrayM = [NSMutableArray array]; //初始化
     
-    [self initUI];
+    [self requestData];
 }
 
 #pragma mark - 创建视图
 - (void)initUI
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -56,7 +61,11 @@ static NSString *cellID = @"PersonalData";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    if (indexPath.row == 0) {
+        return 88;
+    } else {
+        return 44;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,8 +80,21 @@ static NSString *cellID = @"PersonalData";
     }
     CHPersonalData *data = _data[indexPath.row];
     cell.textLabel.text = data.title;
-//    cell.detailTextLabel.text = _arrayM[indexPath.row];
-    
+  
+    if (indexPath.row == 0 || indexPath.row == 3) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        if (indexPath.row == 0) {
+            imageView.frame = CGRectMake(kScreenWidth - 100, 10, 60, 60);
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:_arrayM[indexPath.row]]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
+        } else {
+            imageView.frame = CGRectMake(kScreenWidth - 60, 10, 25, 25);
+            imageView.image = [UIImage imageNamed:@"Personal_Scancode"];
+        }
+        [cell.contentView addSubview:imageView];
+    } else {
+       cell.detailTextLabel.text = _arrayM[indexPath.row];
+    }
+
     return cell;
 }
 
@@ -82,8 +104,9 @@ static NSString *cellID = @"PersonalData";
     switch (indexPath.row) {
         case 0: //昵称
         {
-            detailVC.type = typeWithText;
-            detailVC.text = @"修改昵称";
+            detailVC.type = typeWithPicture;
+            detailVC.text = @"个人头像";
+            detailVC.data = _arrayM[indexPath.row];
             detailVC.whenClickSubmitButton = ^(NSString *string) {
                 [_arrayM replaceObjectAtIndex:indexPath.row + 1 withObject:string];
                 [self.tableView reloadData];
@@ -115,6 +138,20 @@ static NSString *cellID = @"PersonalData";
         _data = [CHPersonalData mj_objectArrayWithKeyValuesArray:tempArray];
     }
     return _data;
+}
+
+- (void)requestData
+{
+    [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"login_UserInfo_Url") WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+        [_arrayM addObject:responseObject[@"data"][@"avatar"]];
+        [_arrayM addObject:responseObject[@"data"][@"nickname"]];
+        [_arrayM addObject:responseObject[@"data"][@"mobile"]];
+        [_arrayM addObject:@"lala"];
+        [_arrayM addObject:responseObject[@"data"][@"remark"]];
+        [self initUI];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
 }
 
 @end

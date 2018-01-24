@@ -9,6 +9,7 @@
 #import "CHPersonalDataDetailViewController.h"
 #import "UIImageView+WebCache.h"
 #import "CHNormalButton.h"
+#import "CHNetString.h"
 
 #import "Masonry.h"
 
@@ -49,14 +50,14 @@
 - (void)createHeaderPicture
 {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"LOGO"]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:self.data]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:imageView];
 }
 
 - (void)submitPicture
 {
-    NSLog(@"头像上传");
+    NSLog(@"上传图片");
 }
 
 #pragma mark - 创建文字输入

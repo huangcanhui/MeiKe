@@ -25,20 +25,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/&#x4e2a;&#x4eba;&#x8d44;&#x6599;/Controller/CHPersonalDataViewController.m"
-            timestampString = "537443627.115989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/View/CH_ImageAndContent_SectionHeader.m"
             timestampString = "536237422.342896"
             startingColumnNumber = "9223372036854775807"
@@ -46,22 +32,6 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "-initUI"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/Login(&#x767b;&#x5f55;)/CHLoginViewController.m"
-            timestampString = "537698712.015101"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "-loginWithUrlInMobile:andCode:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,6 +96,54 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "+uploadImages:progress:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Main/UserModel.m"
+            timestampString = "538485031.494653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-info"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/View/CHUserView.m"
+            timestampString = "538485031.494843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-setUser:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/Controller/CHPersonalViewController.m"
+            timestampString = "538485006.723868"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-initUI"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

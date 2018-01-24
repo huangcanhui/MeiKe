@@ -35,5 +35,9 @@ typedef enum {
  * 标题
  */
 @property (nonatomic, copy)NSString *text;
+/**
+ * 传到该页面的参数
+ */
+@property (nonatomic, copy)NSString *data;
 
 @end
