@@ -33,6 +33,7 @@ static NSString *bundleID = @"friendCircle";
  */
 @property (nonatomic, strong)NSArray *naviArrayM;
 @property (nonatomic, strong)NSArray *tableArray; //朋友圈的数据
+@property (nonatomic, strong)NSMutableArray *arrayM; //中间键
 /**
  * UIScrollView
  */
@@ -66,6 +67,8 @@ static NSString *bundleID = @"friendCircle";
     self.view.backgroundColor = HexColor(0xffffff);
     
     self.navigationItem.title = @"朋友圈";
+    
+    _arrayM = [NSMutableArray array];
     
     _page = 1;
     
@@ -191,6 +194,7 @@ static NSString *bundleID = @"friendCircle";
 {
     FriendListModel *list = self.naviArrayM[tag - 100];
     self.communityID = list.id;
+    [_arrayM removeAllObjects];
     [self requestDataWithPage:self.page andCommunityID:list.id];
 }
 
@@ -204,12 +208,11 @@ static NSString *bundleID = @"friendCircle";
                              @"include":@"publisher"
                              };
     [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_notes_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
-        NSMutableArray *arrayM = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"data"]) {
             FriendCircleObject *obj = [FriendCircleObject mj_objectWithKeyValues:dict];
-            [arrayM addObject:obj];
+            [_arrayM addObject:obj];
         }
-        self.tableArray = [arrayM copy];
+        self.tableArray = [_arrayM copy];
         [self.tableView reloadData];
     } WithFailurBlock:^(NSError *error) {
         
@@ -226,12 +229,15 @@ static NSString *bundleID = @"friendCircle";
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
+        _tableView.showsVerticalScrollIndicator = NO;
+        
         //注册cell
         [_tableView registerClass:[CHFriendCircleTableViewCell class] forCellReuseIdentifier:bundleID];
         
         //添加刷新控件
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             _page = 1;
+            [_arrayM removeAllObjects]; //移除数据
             [self requestDataWithPage:_page andCommunityID:self.communityID];//网络请求
             [_tableView.mj_header endRefreshing];
         }];

@@ -34,7 +34,7 @@
 
 //设置全局主要颜色
 #define GLOBAL_COLOR HexColor(0x00796b)
-#define navigationBarColor HexColor(0x00796b)
+#define navigationBarColor HexColor(0x1296db)
 
 //状态栏高度
 #define statusHeight [[UIApplication sharedApplication] statusBarFrame].size.height

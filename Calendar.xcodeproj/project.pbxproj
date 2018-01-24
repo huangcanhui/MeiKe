@@ -72,6 +72,7 @@
 		5B8DC6591FB0109900B7B1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6581FB0109900B7B1FA /* main.m */; };
 		5B8DC6631FB0109900B7B1FA /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC6621FB0109900B7B1FA /* CalendarTests.m */; };
 		5B8DC66E1FB0109900B7B1FA /* CalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */; };
+		5B8E46132018833600B1FD51 /* CHIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8E46122018833600B1FD51 /* CHIndexViewController.m */; };
 		5B9017671FFCC21F006440AB /* LQPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017661FFCC21F006440AB /* LQPopUpView.m */; };
 		5B90176A1FFCD1BA006440AB /* CH_Publish_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9017681FFCD1BA006440AB /* CH_Publish_View.m */; };
 		5B90176D1FFCD393006440AB /* CHImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B90176B1FFCD392006440AB /* CHImageButton.m */; };
@@ -304,6 +305,8 @@
 		5B8DC6691FB0109900B7B1FA /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8DC66D1FB0109900B7B1FA /* CalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarUITests.m; sourceTree = "<group>"; };
 		5B8DC66F1FB0109900B7B1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B8E46112018833600B1FD51 /* CHIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHIndexViewController.h; sourceTree = "<group>"; };
+		5B8E46122018833600B1FD51 /* CHIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHIndexViewController.m; sourceTree = "<group>"; };
 		5B9017651FFCC21F006440AB /* LQPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQPopUpView.h; sourceTree = "<group>"; };
 		5B9017661FFCC21F006440AB /* LQPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQPopUpView.m; sourceTree = "<group>"; };
 		5B9017681FFCD1BA006440AB /* CH_Publish_View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CH_Publish_View.m; sourceTree = "<group>"; };
@@ -686,6 +689,7 @@
 		5B8DC67B1FB0478B00B7B1FA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				5B8E460D2018831E00B1FD51 /* Index(首页) */,
 				5BA5DEEF1FB16089003FEE02 /* Circle(朋友圈) */,
 				5BA5DEF31FB160A7003FEE02 /* Friends(好友) */,
 				5BA5DEF71FB160D0003FEE02 /* Personal(我的) */,
@@ -775,6 +779,39 @@
 				5B54E6981FB5B9BF00BFFA54 /* STPhotoKit */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		5B8E460D2018831E00B1FD51 /* Index(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				5B8E460E2018831E00B1FD51 /* Controller */,
+				5B8E460F2018831E00B1FD51 /* Model */,
+				5B8E46102018831E00B1FD51 /* View */,
+			);
+			path = "Index(首页)";
+			sourceTree = "<group>";
+		};
+		5B8E460E2018831E00B1FD51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B8E46112018833600B1FD51 /* CHIndexViewController.h */,
+				5B8E46122018833600B1FD51 /* CHIndexViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B8E460F2018831E00B1FD51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B8E46102018831E00B1FD51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5B93E13C1FF0F68D00DE00E2 /* SDProgressView */ = {
@@ -1397,6 +1434,7 @@
 				5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */,
 				5B818AE11FBD580D00B2B013 /* CHPersonalModel.m in Sources */,
 				5BEBA9021FB04BEA0099E8EF /* NSString+CH.m in Sources */,
+				5B8E46132018833600B1FD51 /* CHIndexViewController.m in Sources */,
 				5B9017701FFCD6B2006440AB /* CHScanCodeViewController.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
 				5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */,

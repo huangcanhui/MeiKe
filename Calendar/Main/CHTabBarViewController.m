@@ -9,6 +9,7 @@
 #import "CHTabBarViewController.h"
 
 #import "CHNavigationViewController.h"
+#import "CHIndexViewController.h"
 #import "CHCircleViewController.h"
 #import "CHFriendsViewController.h"
 #import "CHPersonalViewController.h"
@@ -29,6 +30,11 @@
 
 - (void)initTabbarItem
 {
+    //首页
+    CHIndexViewController *indexVC = [CHIndexViewController new];
+    [self controller:indexVC title:@"首页" image:@"Index" selectImage:@"Index_select"];
+    CHNavigationViewController *indexNaVC = [[CHNavigationViewController alloc] initWithRootViewController:indexVC];
+    
     //朋友圈
     CHCircleViewController *circleVC = [CHCircleViewController new];
     [self controller:circleVC title:@"朋友圈" image:@"Circle" selectImage:@"Circle_select"];
@@ -48,9 +54,9 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:navigationBarColor, UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     //小红点显示
-    self.viewControllers = @[circleNaVC, friendNaVC, personalNaVC];
-    [self.tabBar.items[0] showBadge];
+    self.viewControllers = @[indexNaVC, friendNaVC, circleNaVC, personalNaVC];
     [self.tabBar.items[1] showBadge];
+    [self.tabBar.items[2] showBadge];
     
 }
 
