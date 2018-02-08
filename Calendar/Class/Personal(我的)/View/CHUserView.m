@@ -66,13 +66,13 @@
 - (void)blankData
 {
     [[UserModel defaultInstance] info];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserInfo) name:@"GETUSERINFO" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserInfo:) name:@"GETUSERINFO" object:nil];
 }
 
-- (void)getUserInfo
+- (void)getUserInfo:(NSNotification *)notification
 {
-    
-    UserInfo *userInfo = [UserInfo readUserDefaultWithKey:@"UserModel.info"];
+    NSDictionary *dictionary = [notification object];
+    UserInfo *userInfo = dictionary[@"UserInfo"];
     if (![userInfo.avatar isEqual:@""]) {
         [self.headIcon sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:userInfo.avatar]] placeholderImage:[UIImage imageNamed:@"Personal_BackHead"]];
     }

@@ -35,6 +35,8 @@ static NSString *cellID = @"PersonalData";
     
     self.navigationItem.title = @"个人信息";
     
+    self.view.backgroundColor = HexColor(0xffffff);
+    
     _arrayM = [NSMutableArray array]; //初始化
     
     [self requestData];

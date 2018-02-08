@@ -93,7 +93,7 @@ static NSString *bundleID = @"FRIENDS";
     NSArray *array = @[@"添加朋友", @"扫一扫", @"我的二维码"];
      weakSelf(wself);
     if (_count % 2 == 0) {
-        _publishView = [CH_Publish_View setPublishViewFrame:CGRectMake(kScreenWidth - width - 8, 8, width, array.count * 50) andBackground:HexColor(0xffffff) andTitleArray:array andImageArray:nil andTitleColor:HexColor(0xffffff) andTitleFont:13 andTitleBackground:HexColor(0x000000)];
+        _publishView = [CH_Publish_View setPublishViewFrame:CGRectMake(kScreenWidth - width - 8, 8, width, array.count * 55) andBackground:HexColor(0xffffff) andTitleArray:array andImageArray:nil andTitleColor:HexColor(0xffffff) andTitleFont:13 andTitleBackground:HexColor(0x000000)];
         _publishView.whenButtonClick = ^(NSInteger tag) {
             switch (tag) {
                 case 0:

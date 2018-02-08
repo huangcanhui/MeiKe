@@ -155,7 +155,7 @@
  */
 - (IBAction)companyProtocol:(id)sender {
     CHWebViewController *webView = [CHWebViewController new];
-    webView.title = @"用户须知";
+    webView.content = @"用户须知";
 #warning 这个地方要更改
     webView.webString = @"https://www.baidu.com";
     [self.navigationController pushViewController:webView animated:NO];

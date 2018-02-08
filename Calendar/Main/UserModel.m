@@ -122,7 +122,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
             UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject[@"data"]];
             //存储
             self.userInfo = info;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:@{@"UserInfo":info}];
         } WithFailurBlock:^(NSError *error) {
             [ProgressHUD showError:@"用户信息获取失败"];
         }];
