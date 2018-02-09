@@ -1,0 +1,15 @@
+//
+//  CHNavigationBar.h
+//  Calendar
+//
+//  Created by huangcanhui on 2018/2/9.
+//  Copyright © 2018年 厦门市云梦星辰科技有限公司. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CHNavigationBar : UINavigationBar
+
+@property (nonatomic, strong)UINavigationItem *navigationItem;
+
+@end

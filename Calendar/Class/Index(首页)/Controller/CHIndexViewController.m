@@ -9,11 +9,12 @@
 #import "CHIndexViewController.h"
 
 #import "CH_Publish_View.h"
+#import "CHNavigationBar.h"
 
 #import "CHAdd_FriendViewController.h"
 #import "CHScanCodeViewController.h"
 
-@interface CHIndexViewController ()
+@interface CHIndexViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 /**
  * 计数器
  */
@@ -22,10 +23,20 @@
  * 导航栏右上角视图
  */
 @property (nonatomic, strong)CH_Publish_View *publishView;
+/**
+ * 导航栏
+ */
+@property (nonatomic, strong)CHNavigationBar *navigationBar;
 
 @end
 
 @implementation CHIndexViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,7 +47,148 @@
     
     [self initAttribute];
     
+    [self createCollectionView];
+    
+    [self addNavigationBar];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(clickRightNavigationItemEvent)];
+}
+
+#pragma mark - UICollectionView
+- (void)createCollectionView
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    collectionView.contentInset = UIEdgeInsetsMake(0, 0, tabbarHeight, 0);
+    
+    [self.view addSubview:collectionView];
+}
+
+#pragma mark UICollectionView.delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSInteger count = 0;
+    switch (section) {
+            case 0:
+        {
+            break;
+        }
+            case 1:
+        {
+            count = 2;
+        }
+ 
+    }
+    return count;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if (kind == UICollectionElementKindSectionHeader) {
+        switch (indexPath.section) {
+            case 0:
+            {
+                
+            }
+            case 1:
+            {
+                
+            }
+        }
+    }
+    return nil;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+        {
+            break;
+        }
+        case 1:
+        {
+            
+        }
+    }
+    return nil;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+        {
+            return CGSizeMake(kScreenWidth, DDRealValue(184));
+        }
+        case 1:
+        {
+            return CGSizeMake(kScreenWidth, 44);
+        }
+    }
+    return CGSizeZero;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+        {
+            break;
+        }
+       case 1:
+        {
+            return CGSizeMake(100, 100);
+        }
+    }
+    return CGSizeZero;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 8;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - UIScrollView的代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat y = scrollView.contentOffset.y;
+    CGFloat h = DDRealValue(184) - navigationHeight;
+    
+    if (y < 0) {
+        self.navigationBar.hidden = YES;
+        return;
+    }
+    
+    self.navigationBar.hidden = NO;
+    if (y <= h && y >= 0) {
+        self.navigationBar.backgroundColor = [GLOBAL_COLOR colorWithAlphaComponent:(y / h)];
+        return;
+    } else {
+        self.navigationBar.backgroundColor = GLOBAL_COLOR;
+    }
+}
+
+#pragma mark - 增加假的导航条
+- (void)addNavigationBar
+{
+    CHNavigationBar *navigationBar = [[CHNavigationBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, navigationHeight)];
+    self.navigationBar = navigationBar;
+    [self.view addSubview:navigationBar];
 }
 
 #pragma mark - 初始化
@@ -89,6 +241,7 @@
     [super viewWillDisappear:animated];
     _count = 0;
     [_publishView removeFromSuperview];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
