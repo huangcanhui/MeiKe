@@ -13,6 +13,7 @@
 #import "CHCircleViewController.h"
 #import "CHFriendsViewController.h"
 #import "CHPersonalViewController.h"
+#import "CHHomeViewController.h"
 
 #import "UITabBarItem+CHBadge.h"
 
@@ -30,6 +31,12 @@
 
 - (void)initTabbarItem
 {
+    //机构列表
+    CHHomeViewController *homeVC = [CHHomeViewController new];
+    [self controller:homeVC title:@"机构" image:@"Origan" selectImage:@"Origan_select"];
+    CHNavigationViewController *homeNaVC = [[CHNavigationViewController alloc] initWithRootViewController:homeVC];
+    
+    
     //首页
     CHIndexViewController *indexVC = [CHIndexViewController new];
     [self controller:indexVC title:@"首页" image:@"Index" selectImage:@"Index_select"];
@@ -40,10 +47,10 @@
     [self controller:circleVC title:@"朋友圈" image:@"Circle" selectImage:@"Circle_select"];
     CHNavigationViewController *circleNaVC = [[CHNavigationViewController alloc] initWithRootViewController:circleVC];
     
-    //好友
-    CHFriendsViewController *friendVC = [CHFriendsViewController new];
-    [self controller:friendVC title:@"好友" image:@"Friend" selectImage:@"Friends_select"];
-    CHNavigationViewController *friendNaVC = [[CHNavigationViewController alloc] initWithRootViewController:friendVC];
+//    //好友
+//    CHFriendsViewController *friendVC = [CHFriendsViewController new];
+//    [self controller:friendVC title:@"好友" image:@"Friend" selectImage:@"Friends_select"];
+//    CHNavigationViewController *friendNaVC = [[CHNavigationViewController alloc] initWithRootViewController:friendVC];
     
     //个人中心
     CHPersonalViewController *personalVC = [CHPersonalViewController new];
@@ -54,7 +61,7 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:navigationBarColor, UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     //小红点显示
-    self.viewControllers = @[indexNaVC, friendNaVC, circleNaVC, personalNaVC];
+    self.viewControllers = @[homeNaVC, indexNaVC, circleNaVC, personalNaVC];
     [self.tabBar.items[1] showBadge];
     [self.tabBar.items[2] showBadge];
     
@@ -68,20 +75,5 @@
 //    CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:viewController];
 //    [self addChildViewController:naVC];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
