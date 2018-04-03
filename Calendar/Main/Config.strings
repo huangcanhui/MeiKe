@@ -9,13 +9,16 @@
 //这边放置所有的请求接口
 /************************************** 登录功能 *****************************************/
 //获取短信验证码方式进行登录
-"login_SMSCode_Url" = "/oauth/token";
+"login_SMSCode_Url" = "/v1/oauth/token";
 
 //获取用户的基本信息
-"login_UserInfo_Url" = "/me/info";
+"login_UserInfo_Url" = "/v1/social/current-user";
 
 //刷新token
-"login_refreshToken_Url" = "/oauth/token";
+"login_refreshToken_Url" = "/v1/oauth/token";
+
+//获取融云服务器的token
+"rongCloud_token_Url" = "/v1/social/im/token";
 
 
 /**************************************** 朋友圈  **************************************************/

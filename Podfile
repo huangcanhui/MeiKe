@@ -21,4 +21,7 @@ pod 'MLEmojiLabel'
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
 pod 'UMCAnalytics'
+pod 'RongCloudIM/IMLib'
+pod 'RongCloudIM/IMKit'
+
 end

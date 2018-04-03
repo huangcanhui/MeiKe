@@ -36,6 +36,9 @@ PODS:
   - Qiniu (7.1.8):
     - AFNetworking (~> 3)
     - HappyDNS (~> 0.3)
+  - RongCloudIM/IMKit (2.8.26):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.8.26)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
@@ -70,6 +73,8 @@ DEPENDENCIES:
   - MLEmojiLabel
   - ProgressHUD
   - Qiniu
+  - RongCloudIM/IMKit
+  - RongCloudIM/IMLib
   - SDWebImage
   - SMSSDK
   - SVProgressHUD
@@ -97,6 +102,7 @@ SPEC CHECKSUMS:
   MOBFoundation: d5e27c4638d911d3c7501aa5df458955d4814359
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   Qiniu: 2f1b9d13904b6a7608a66a2d02c5b7b24575622a
+  RongCloudIM: 895b1f6079b231846c04487699ca85c0b881cc68
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SMSSDK: a811c8ea6e89393097037b7cf6493248a40e50f0
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
@@ -106,6 +112,6 @@ SPEC CHECKSUMS:
   UMCSecurityPlugins: 158ab2d5b15bb16ee62d94027cf92a5c14231002
   UMengUShare: fdbbf86353976727af26a66e9a84314ecb59c816
 
-PODFILE CHECKSUM: edb676bddacc761dc9b102928d34223b91b92296
+PODFILE CHECKSUM: 7f7d05f073e5484935467aebf8ce5190774b664b
 
 COCOAPODS: 1.3.1

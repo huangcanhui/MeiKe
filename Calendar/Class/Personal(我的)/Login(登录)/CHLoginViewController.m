@@ -204,6 +204,7 @@
  * 微信的登录方式
  */
 - (IBAction)loginWithWeChat:(id)sender {
+    [self loginWithUrlInMobile:@"" andCode:@""];
 }
 
 /**
@@ -215,16 +216,23 @@
 - (void)loginWithUrlInMobile:(NSString *)mobile andCode:(NSString *)code
 {
     NSString *url = CHReadConfig(@"login_SMSCode_Url");
+//    NSDictionary *parmas = @{
+//                             @"client_id":@"1",
+//                             @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
+//                             @"mobile":mobile,
+//                             @"code":code,
+//                             @"grant_type":@"mobile_verify",
+//                             @"zone":@"86"
+//                             };
     NSDictionary *parmas = @{
-                             @"client_id":@"1",
-                             @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
-                             @"mobile":mobile,
-                             @"code":code,
-                             @"grant_type":@"mobile_verify",
-                             @"zone":@"86"
+                             @"client_id":@"3",
+                             @"client_secret":@"lynDaABD02gMPAD5jZWNTeSmG6jay3VoXzqklFOy",
+                             @"username":@"ymstars",
+                             @"password":@"secret",
+                             @"grant_type":@"password",
                              };
     [[CHManager manager] requestWithMethod:POST WithPath:url WithParams:parmas WithSuccessBlock:^(NSDictionary *responseObject) {
-        User *user = [User mj_objectWithKeyValues:responseObject];
+        User *user = [User mj_objectWithKeyValues:responseObject[@"data"]];
         [user writeUserDefaultWithKey:@"UserModel.user"];
         [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
         [self dismissViewControllerAnimated:YES completion:^{

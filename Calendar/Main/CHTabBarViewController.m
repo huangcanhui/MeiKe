@@ -13,7 +13,8 @@
 #import "CHCircleViewController.h"
 #import "CHFriendsViewController.h"
 #import "CHPersonalViewController.h"
-#import "CHHomeViewController.h"
+//#import "CHHomeViewController.h"
+#import "IMListViewController.h"
 
 #import "UITabBarItem+CHBadge.h"
 
@@ -32,25 +33,24 @@
 - (void)initTabbarItem
 {
     //机构列表
-    CHHomeViewController *homeVC = [CHHomeViewController new];
-    [self controller:homeVC title:@"机构" image:@"Origan" selectImage:@"Origan_select"];
+    IMListViewController *homeVC = [IMListViewController new];
+    [self controller:homeVC title:@"会话" image:@"Origan" selectImage:@"Origan_select"];
     CHNavigationViewController *homeNaVC = [[CHNavigationViewController alloc] initWithRootViewController:homeVC];
     
+    //好友
+    CHFriendsViewController *friendVC = [CHFriendsViewController new];
+    [self controller:friendVC title:@"好友" image:@"Friend" selectImage:@"Friends_select"];
+    CHNavigationViewController *friendNaVC = [[CHNavigationViewController alloc] initWithRootViewController:friendVC];
     
-    //首页
-    CHIndexViewController *indexVC = [CHIndexViewController new];
-    [self controller:indexVC title:@"首页" image:@"Index" selectImage:@"Index_select"];
-    CHNavigationViewController *indexNaVC = [[CHNavigationViewController alloc] initWithRootViewController:indexVC];
+//    //首页
+//    CHIndexViewController *indexVC = [CHIndexViewController new];
+//    [self controller:indexVC title:@"首页" image:@"Index" selectImage:@"Index_select"];
+//    CHNavigationViewController *indexNaVC = [[CHNavigationViewController alloc] initWithRootViewController:indexVC];
     
     //朋友圈
     CHCircleViewController *circleVC = [CHCircleViewController new];
     [self controller:circleVC title:@"朋友圈" image:@"Circle" selectImage:@"Circle_select"];
     CHNavigationViewController *circleNaVC = [[CHNavigationViewController alloc] initWithRootViewController:circleVC];
-    
-//    //好友
-//    CHFriendsViewController *friendVC = [CHFriendsViewController new];
-//    [self controller:friendVC title:@"好友" image:@"Friend" selectImage:@"Friends_select"];
-//    CHNavigationViewController *friendNaVC = [[CHNavigationViewController alloc] initWithRootViewController:friendVC];
     
     //个人中心
     CHPersonalViewController *personalVC = [CHPersonalViewController new];
@@ -61,7 +61,7 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:navigationBarColor, UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     //小红点显示
-    self.viewControllers = @[homeNaVC, indexNaVC, circleNaVC, personalNaVC];
+    self.viewControllers = @[homeNaVC, friendNaVC, circleNaVC, personalNaVC];
     [self.tabBar.items[1] showBadge];
     [self.tabBar.items[2] showBadge];
     

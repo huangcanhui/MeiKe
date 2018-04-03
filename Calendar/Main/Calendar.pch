@@ -53,9 +53,11 @@
 //网络请求的接口
 #ifdef DEBUG    //---- Debug模式下
 //#define configUrl   @"https://test.ymstars.com/api/v1"
-#define configUrl   @"https://www.ymstars.com/api/v1"
+#define configUrl   @"https://www.ymstars.com/api"
+#define RongCloudKey @"82hegw5u8yy2x"
 #else           //---- Release版本
 #define configUrl   @"https://www.ymstars.com/api/v1"
+#define RongCloudKey @""
 #endif
 
 //各种key值
@@ -65,6 +67,7 @@
 #define UMKEY @"5a2a34258f4a9d40dd00012e" //友盟key
 #define QINIUKEY @"" //七牛key
 #define JPUSHKEY @"" //极光推送
+
 
 //客服电话
 #define companyPhone @"0592-5727298"

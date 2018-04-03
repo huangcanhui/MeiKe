@@ -58,6 +58,8 @@
 		5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818AFF1FBD768100B2B013 /* CHPersonalDataViewController.m */; };
 		5B818B031FBD777900B2B013 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B021FBD777900B2B013 /* CHTime.m */; };
 		5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B051FBD77F700B2B013 /* UIViewController+CH.m */; };
+		5B828F1820736E41008A0CB5 /* CHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B828F1720736E41008A0CB5 /* CHUtils.m */; };
+		5B828F1B20738673008A0CB5 /* IMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B828F1A20738673008A0CB5 /* IMListViewController.m */; };
 		5B84DD061FFB5BCA00A7015F /* ImageCutDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */; };
 		5B84DD091FFB737700A7015F /* FriendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD081FFB737700A7015F /* FriendListModel.m */; };
 		5B84DD0C1FFB7A8400A7015F /* CHAdd_CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */; };
@@ -285,6 +287,10 @@
 		5B818B021FBD777900B2B013 /* CHTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTime.m; sourceTree = "<group>"; };
 		5B818B041FBD77F700B2B013 /* UIViewController+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CH.h"; sourceTree = "<group>"; };
 		5B818B051FBD77F700B2B013 /* UIViewController+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CH.m"; sourceTree = "<group>"; };
+		5B828F1620736E41008A0CB5 /* CHUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUtils.h; sourceTree = "<group>"; };
+		5B828F1720736E41008A0CB5 /* CHUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUtils.m; sourceTree = "<group>"; };
+		5B828F1920738673008A0CB5 /* IMListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMListViewController.h; sourceTree = "<group>"; };
+		5B828F1A20738673008A0CB5 /* IMListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMListViewController.m; sourceTree = "<group>"; };
 		5B84DD041FFB5BCA00A7015F /* ImageCutDownManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCutDownManager.h; sourceTree = "<group>"; };
 		5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCutDownManager.m; sourceTree = "<group>"; };
 		5B84DD071FFB737700A7015F /* FriendListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListModel.h; sourceTree = "<group>"; };
@@ -669,6 +675,8 @@
 				5B896A78204F8C1E00E1551B /* CHHomeViewController.m */,
 				5B896A7A204F947100E1551B /* CHHomeDetailViewController.h */,
 				5B896A7B204F947100E1551B /* CHHomeDetailViewController.m */,
+				5B828F1920738673008A0CB5 /* IMListViewController.h */,
+				5B828F1A20738673008A0CB5 /* IMListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -799,6 +807,8 @@
 				5B305D8B1FDA9383003A65F2 /* CHNetString.m */,
 				5B84DD041FFB5BCA00A7015F /* ImageCutDownManager.h */,
 				5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */,
+				5B828F1620736E41008A0CB5 /* CHUtils.h */,
+				5B828F1720736E41008A0CB5 /* CHUtils.m */,
 			);
 			path = Extemsion;
 			sourceTree = "<group>";
@@ -1360,6 +1370,11 @@
 				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle",
 				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle/gifexpression.bundle",
 				"${PODS_ROOT}/ProgressHUD/ProgressHUD/ProgressHUD/ProgressHUD.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
@@ -1445,6 +1460,7 @@
 				5B84DD061FFB5BCA00A7015F /* ImageCutDownManager.m in Sources */,
 				5B896A81204F9D8600E1551B /* OriganizationModel.m in Sources */,
 				5BAD0AC420036CC000D63D97 /* CHFriend_DetailViewController.m in Sources */,
+				5B828F1820736E41008A0CB5 /* CHUtils.m in Sources */,
 				5B818AE41FBD581B00B2B013 /* CHPersonalGroup.m in Sources */,
 				5B818AFC1FBD729C00B2B013 /* UserModel.m in Sources */,
 				5B84DD0C1FFB7A8400A7015F /* CHAdd_CommunityViewController.m in Sources */,
@@ -1512,6 +1528,7 @@
 				5B6BA0721FB42A700081FEF0 /* UITabBarItem+CHBadge.m in Sources */,
 				5B90176D1FFCD393006440AB /* CHImageButton.m in Sources */,
 				5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */,
+				5B828F1B20738673008A0CB5 /* IMListViewController.m in Sources */,
 				5B54E68E1FB579F300BFFA54 /* CHMapSupportViewController.m in Sources */,
 				5B2E19CD1FCEB24000502C96 /* CHSettingModel.m in Sources */,
 				5BA0E1071FBC1BB700F2BFA9 /* CHLoginViewController.m in Sources */,

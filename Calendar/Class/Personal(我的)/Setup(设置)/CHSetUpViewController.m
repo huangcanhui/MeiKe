@@ -17,6 +17,7 @@
 #import "UserModel.h"
 
 #import "CHSetUpDetailViewController.h"
+#import "UIViewController+CH.h"
 
 static NSString *bundle = @"SETUP";
 @interface CHSetUpViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -215,7 +216,11 @@ static NSString *bundle = @"SETUP";
 {
     [[UserModel defaultInstance] logout];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
-    [self.navigationController popViewControllerAnimated:YES];
+    [ProgressHUD showSuccess:@"注销成功" Interaction:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    //退出后要让其再进行登录
+    [self showLogin];
+    [self ch_navigateBackTabbarItem:0];
 }
 
 #pragma mark - 注销通知

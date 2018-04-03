@@ -16,9 +16,15 @@
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
 #import <UMSocialCore/UMSocialCore.h>
+//介入通云通讯功能
+#import <RongIMKit/RongIMKit.h>
+#import "UserModel.h"
+#import "UIViewController+CH.h"
+#import "CHManager.h"
+
 
 @interface AppDelegate ()
-
+@property(nonatomic, strong)User *user;
 @end
 
 @implementation AppDelegate
@@ -26,7 +32,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //设置主屏幕
-    [self initMainScreen];
+    [self settingRootVCAndNeedLogin:YES];
     
     //设置高德key
     [self useMAMapKey];
@@ -37,22 +43,46 @@
     //开启友盟统计
     [self startUMMobClick];
     
+    //注册通知
+    [self addNotification];
+    
+//    //连接融云通讯
+//    [self connectRongCloudSDK];
+    
     return YES;
 }
 
 #pragma mark - 设置主屏幕
-- (void)initMainScreen
+- (void)settingRootVCAndNeedLogin:(BOOL)needLogin
 {
     CHTabBarViewController *tab = [CHTabBarViewController new];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
+    //开启同步线程
+    dispatch_queue_t queue = dispatch_queue_create("", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(queue, ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (needLogin && ![UserModel onLine]) {//如果需要登录且登录态为空时，调用
+                [[UIApplication sharedApplication].keyWindow.rootViewController showLogin];
+            }
+        });
+    });
+    dispatch_sync(queue, ^{
+        [self connectRongCloudSDK];
+    });
 }
 
 #pragma mark - 设置高德key
 - (void)useMAMapKey
 {
     [AMapServices sharedServices].apiKey = AMAPKEY;
+}
+
+#pragma mark - 注册中心
+- (void)addNotification
+{
+
 }
 
 #pragma mark - 键盘处理
@@ -77,6 +107,27 @@
 #endif
     //开启友盟统计
     [MobClick setScenarioType:E_UM_NORMAL];
+}
+
+#pragma mark -开启融云
+- (void)connectRongCloudSDK
+{
+    NSString *tokenUrl = CHReadConfig(@"rongCloud_token_Url");
+    [[CHManager manager] requestWithMethod:GET WithPath:tokenUrl WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+        //注册appkey
+        [[RCIM sharedRCIM] initWithAppKey:RongCloudKey];
+        //连接融云服务器
+        [[RCIM sharedRCIM] connectWithToken:responseObject[@"data"][@"token"] success:^(NSString *userId) {
+            NSLog(@"登录成功,当前登录的用户ID为:%@", userId);
+        } error:^(RCConnectErrorCode status) {
+            NSLog(@"登录失败，错误码为:%ld", (long)status);
+        } tokenIncorrect:^{
+            NSLog(@"token错误");
+        }];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
+
 }
 
 
