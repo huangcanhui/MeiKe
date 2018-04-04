@@ -18,7 +18,6 @@
 
 #import "CHFriend_SearchView.h"
 #import "ProgressHUD.h"
-#import "CHContact.h"
 #import "CH_Publish_View.h"
 #import "MJExtension.h"
 #import "CHPersonalData.h"
