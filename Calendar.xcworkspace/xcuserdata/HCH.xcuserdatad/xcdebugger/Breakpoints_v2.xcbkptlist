@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/Setup(&#x8bbe;&#x7f6e;)/CHSetUpViewController.m"
-            timestampString = "544442605.05114"
+            timestampString = "544443058.59934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -96,6 +96,38 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "+uploadImages:progress:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/View/CHUserView.m"
+            timestampString = "544514961.126202"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-blankData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calendar/Class/Personal(&#x6211;&#x7684;)/View/CHUserView.m"
+            timestampString = "544514961.126251"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-setUser:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

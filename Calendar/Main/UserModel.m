@@ -91,8 +91,8 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
         if ([oldTime floatValue] + refresh_time > [time floatValue]) { //当前时间大于登录时间,即refresh_token过期
             self.user = [User readUserDefaultWithKey:@"UserModel.user"];
             NSDictionary *dict = @{
-                                   @"client_id":@"1",
-                                   @"client_secret":@"Km4QFEIMIBtzdIASiR0MN7cnrJsa2eaQUkbStdDW",
+                                   @"client_id":@"3",
+                                   @"client_secret":@"lynDaABD02gMPAD5jZWNTeSmG6jay3VoXzqklFOy",
                                    @"grant_type":@"refresh_token",
                                    @"refresh_token":self.user.refresh_token
                                    };
@@ -122,11 +122,14 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
             UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject[@"data"]];
             //存储
             self.userInfo = info;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:@{@"UserInfo":info}];
+            [self saveCache];
+            
         } WithFailurBlock:^(NSError *error) {
             [ProgressHUD showError:@"用户信息获取失败"];
         }];
     });
+     self.userInfo = [UserInfo readUserDefaultWithKey:@"UserModel.info"];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:@{@"UserInfo":self.userInfo}];
 }
 
 @end

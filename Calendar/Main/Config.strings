@@ -21,7 +21,7 @@
 "rongCloud_token_Url" = "/v1/social/im/token";
 
 
-/**************************************** 朋友圈  **************************************************/
+/**************************************** 朋友圈/好友  **************************************************/
 //获取我的圈子列表
 "community_List_Url" = "/communities";
 
@@ -32,7 +32,7 @@
 "community_notes_Url" = "/my_receive_notes";
 
 //获取我的好友列表
-"friend_List_Url" = "/friend/list";
+"friend_List_Url" = "/v1/social/friends/list";
 
 //未处理的好友请求列表
 "friend_unDispose_Url" = "/friend/requests";

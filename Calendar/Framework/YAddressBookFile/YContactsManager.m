@@ -98,7 +98,7 @@ void addressBookChangeCallBack(ABAddressBookRef addressBook, CFDictionaryRef inf
 
 #pragma mark - 请求通讯录
 //请求通讯录
--(void)requestContactsComplete:(void (^)(NSArray<YContactObject *> * _Nonnull))completeBlock
+-(void)	requestContactsComplete:(void (^)(NSArray<YContactObject *> * _Nonnull))completeBlock
 {
     self.contactsDidObtainBlockHandle = completeBlock;
     [self checkAuthorizationStatus];
@@ -111,30 +111,30 @@ void addressBookChangeCallBack(ABAddressBookRef addressBook, CFDictionaryRef inf
  */
 - (void)checkAuthorizationStatus
 {
-    switch (ABAddressBookGetAuthorizationStatus())
-    {
-            //存在权限
-        case kABAuthorizationStatusAuthorized:
-            //获取通讯录
-            [self obtainContacts:self.addressBook];
-            break;
-            
-            //权限未知
-        case kABAuthorizationStatusNotDetermined:
-            //请求权限
-            [self requestAuthorizationStatus];
-            break;
-            
-            //如果没有权限
-        case kABAuthorizationStatusDenied:
-        case kABAuthorizationStatusRestricted://需要提示
-            //弹窗提醒
-            [self showAlertController];
-        
-            break;
-        default:
-            break;
-    }
+//    switch (ABAddressBookGetAuthorizationStatus())
+//    {
+//            //存在权限
+//        case kABAuthorizationStatusAuthorized:
+//            //获取通讯录
+//            [self obtainContacts:self.addressBook];
+//            break;
+//
+//            //权限未知
+//        case kABAuthorizationStatusNotDetermined:
+//            //请求权限
+//            [self requestAuthorizationStatus];
+//            break;
+//
+//            //如果没有权限
+//        case kABAuthorizationStatusDenied:
+//        case kABAuthorizationStatusRestricted://需要提示
+//            //弹窗提醒
+//            [self showAlertController];
+//
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 

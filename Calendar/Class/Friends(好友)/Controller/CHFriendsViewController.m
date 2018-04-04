@@ -128,29 +128,29 @@ static NSString *bundleID = @"FRIENDS";
 #pragma mark - 用户授权
 - (void)initAttribute
 {
-    if ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts] == CNAuthorizationStatusNotDetermined) { //判断用户是否授权
-        CNContactStore *store = [[CNContactStore alloc] init];
-        [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            if (granted) { //授权成功
-                //获取联系人仓库
-                NSArray *keys = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey];
-                //根据请求key，获取请求对象
-                CNContactFetchRequest *request = [[CNContactFetchRequest alloc] initWithKeysToFetch:keys];
-                //发送请求
-                [store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-                    NSString *nameString = [NSString stringWithFormat:@"%@%@", contact.familyName, contact.givenName];
-                    NSArray *phoneNumbers = contact.phoneNumbers;
-                    for (CNLabeledValue *labelValue in phoneNumbers) {
-                        CNPhoneNumber *number = labelValue.value;
-                        NSLog(@"phone:%@", number.stringValue);
-                    }
-                    NSLog(@"%@", nameString);
-                }];
-            } else {
-                [ProgressHUD showError:@"授权失败\n如果需要开启，请在设置-信格-通讯录中开启" Interaction:NO];
-            }
-        }];
-    }
+//    if ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts] == CNAuthorizationStatusNotDetermined) { //判断用户是否授权
+//        CNContactStore *store = [[CNContactStore alloc] init];
+//        [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//            if (granted) { //授权成功
+//                //获取联系人仓库
+//                NSArray *keys = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey];
+//                //根据请求key，获取请求对象
+//                CNContactFetchRequest *request = [[CNContactFetchRequest alloc] initWithKeysToFetch:keys];
+//                //发送请求
+//                [store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+//                    NSString *nameString = [NSString stringWithFormat:@"%@%@", contact.familyName, contact.givenName];
+//                    NSArray *phoneNumbers = contact.phoneNumbers;
+//                    for (CNLabeledValue *labelValue in phoneNumbers) {
+//                        CNPhoneNumber *number = labelValue.value;
+//                        NSLog(@"phone:%@", number.stringValue);
+//                    }
+//                    NSLog(@"%@", nameString);
+//                }];
+//            } else {
+//                [ProgressHUD showError:@"授权失败\n如果需要开启，请在设置-信格-通讯录中开启" Interaction:NO];
+//            }
+//        }];
+//    }
     
     NSString *path = CHReadConfig(@"friend_List_Url");
     [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {

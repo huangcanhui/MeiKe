@@ -60,6 +60,9 @@
 		5B818B061FBD77F700B2B013 /* UIViewController+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B818B051FBD77F700B2B013 /* UIViewController+CH.m */; };
 		5B828F1820736E41008A0CB5 /* CHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B828F1720736E41008A0CB5 /* CHUtils.m */; };
 		5B828F1B20738673008A0CB5 /* IMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B828F1A20738673008A0CB5 /* IMListViewController.m */; };
+		5B8428502074B1A50084AD4D /* PPAddressBookHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84284A2074AF200084AD4D /* PPAddressBookHandle.m */; };
+		5B8428512074B1A50084AD4D /* PPGetAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84284C2074AF200084AD4D /* PPGetAddressBook.m */; };
+		5B8428522074B1A50084AD4D /* PPPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84284E2074AF200084AD4D /* PPPersonModel.m */; };
 		5B84DD061FFB5BCA00A7015F /* ImageCutDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */; };
 		5B84DD091FFB737700A7015F /* FriendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD081FFB737700A7015F /* FriendListModel.m */; };
 		5B84DD0C1FFB7A8400A7015F /* CHAdd_CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */; };
@@ -144,7 +147,6 @@
 		5BEBA9051FB04C270099E8EF /* UIView+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA9041FB04C270099E8EF /* UIView+CH.m */; };
 		5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA9071FB04CCE0099E8EF /* NSObject+CH.m */; };
 		5BEBA90B1FB04D200099E8EF /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBA90A1FB04D200099E8EF /* SingletonObject.m */; };
-		5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF5CB451FD9315D00A1051A /* CHContact.m */; };
 		E1D400A55B0ACB0666A11EFA /* libPods-Calendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAFD808E3C7D86D03DC3EB4 /* libPods-Calendar.a */; };
 /* End PBXBuildFile section */
 
@@ -291,6 +293,13 @@
 		5B828F1720736E41008A0CB5 /* CHUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUtils.m; sourceTree = "<group>"; };
 		5B828F1920738673008A0CB5 /* IMListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMListViewController.h; sourceTree = "<group>"; };
 		5B828F1A20738673008A0CB5 /* IMListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMListViewController.m; sourceTree = "<group>"; };
+		5B8428492074AF200084AD4D /* PPAddressBookHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAddressBookHandle.h; sourceTree = "<group>"; };
+		5B84284A2074AF200084AD4D /* PPAddressBookHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPAddressBookHandle.m; sourceTree = "<group>"; };
+		5B84284B2074AF200084AD4D /* PPGetAddressBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPGetAddressBook.h; sourceTree = "<group>"; };
+		5B84284C2074AF200084AD4D /* PPGetAddressBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPGetAddressBook.m; sourceTree = "<group>"; };
+		5B84284D2074AF200084AD4D /* PPPersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPPersonModel.h; sourceTree = "<group>"; };
+		5B84284E2074AF200084AD4D /* PPPersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPPersonModel.m; sourceTree = "<group>"; };
+		5B84284F2074AF200084AD4D /* PPSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPSingleton.h; sourceTree = "<group>"; };
 		5B84DD041FFB5BCA00A7015F /* ImageCutDownManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCutDownManager.h; sourceTree = "<group>"; };
 		5B84DD051FFB5BCA00A7015F /* ImageCutDownManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCutDownManager.m; sourceTree = "<group>"; };
 		5B84DD071FFB737700A7015F /* FriendListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListModel.h; sourceTree = "<group>"; };
@@ -435,8 +444,6 @@
 		5BEBA9071FB04CCE0099E8EF /* NSObject+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CH.m"; sourceTree = "<group>"; };
 		5BEBA9091FB04D200099E8EF /* SingletonObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
 		5BEBA90A1FB04D200099E8EF /* SingletonObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
-		5BF5CB441FD9315D00A1051A /* CHContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHContact.h; sourceTree = "<group>"; };
-		5BF5CB451FD9315D00A1051A /* CHContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHContact.m; sourceTree = "<group>"; };
 		EBAFD808E3C7D86D03DC3EB4 /* libPods-Calendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Calendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -656,6 +663,20 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5B8428482074AF200084AD4D /* PPGetAddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				5B8428492074AF200084AD4D /* PPAddressBookHandle.h */,
+				5B84284A2074AF200084AD4D /* PPAddressBookHandle.m */,
+				5B84284B2074AF200084AD4D /* PPGetAddressBook.h */,
+				5B84284C2074AF200084AD4D /* PPGetAddressBook.m */,
+				5B84284D2074AF200084AD4D /* PPPersonModel.h */,
+				5B84284E2074AF200084AD4D /* PPPersonModel.m */,
+				5B84284F2074AF200084AD4D /* PPSingleton.h */,
+			);
+			path = PPGetAddressBook;
 			sourceTree = "<group>";
 		};
 		5B896A73204F8C0200E1551B /* Home(机构) */ = {
@@ -1057,8 +1078,7 @@
 		5BA5DEF51FB160A7003FEE02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5BF5CB441FD9315D00A1051A /* CHContact.h */,
-				5BF5CB451FD9315D00A1051A /* CHContact.m */,
+				5B8428482074AF200084AD4D /* PPGetAddressBook */,
 				5B9017741FFCDB0C006440AB /* Friend_Company.plist */,
 				5B9017791FFCE42E006440AB /* FirendListObject.h */,
 				5B90177A1FFCE42E006440AB /* FirendListObject.m */,
@@ -1428,6 +1448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8428502074B1A50084AD4D /* PPAddressBookHandle.m in Sources */,
+				5B8428512074B1A50084AD4D /* PPGetAddressBook.m in Sources */,
+				5B8428522074B1A50084AD4D /* PPPersonModel.m in Sources */,
 				5B999B301FFE0F4500E56087 /* CHAdd_FriendViewController.m in Sources */,
 				5B7FF7FF1FF4F099005F592E /* myPhotoCell.m in Sources */,
 				5B7FF8001FF4F099005F592E /* NavView.m in Sources */,
@@ -1519,7 +1542,6 @@
 				5B8E46132018833600B1FD51 /* CHIndexViewController.m in Sources */,
 				5B9017701FFCD6B2006440AB /* CHScanCodeViewController.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
-				5BF5CB461FD9315D00A1051A /* CHContact.m in Sources */,
 				5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */,
 				5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */,
 				5BE5EE7F1FE10ED900F8410A /* SDPhotoBrowser.m in Sources */,
