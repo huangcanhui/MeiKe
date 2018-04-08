@@ -32,7 +32,7 @@
 {
     if (![self.targetId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
         NSLog(@"%@ %@", self.targetId, [RCIM sharedRCIM].currentUserInfo.userId);
-        [[RCIM sharedRCIM].userInfoDataSource getUserInfoWithUserId:[RCIM sharedRCIM].currentUserInfo.userId completion:^(RCUserInfo *userInfo) {
+        [[RCIM sharedRCIM].userInfoDataSource getUserInfoWithUserId:@"1" completion:^(RCUserInfo *userInfo) {
             NSLog(@"%@", userInfo);
         }];
     }

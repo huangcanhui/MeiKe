@@ -30,7 +30,7 @@
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 45)];
         
-        _searchBar.placeholder = @"搜索";
+        _searchBar.placeholder = @"请输入手机号或者用户名进行查找";
         _searchBar.delegate = self;
         _searchBar.showsCancelButton = YES;
         //将英文的cancle转变成中文“取消”

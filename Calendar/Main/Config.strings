@@ -43,6 +43,8 @@
 //拒绝好友请求
 "friend_refuseReqquest_Url" = "v1/social/friend-applies";
 
+//查找好友
+
 //发送好友请求
 "friend_sendRequest_Url" = "/friend/send";
 
