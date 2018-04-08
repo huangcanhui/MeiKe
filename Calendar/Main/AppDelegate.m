@@ -23,7 +23,7 @@
 #import "CHManager.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<RCIMReceiveMessageDelegate>
 @property(nonatomic, strong)User *user;
 @end
 
@@ -122,6 +122,8 @@
         [RCIM sharedRCIM].enableTypingStatus = YES;
         //开启消息撤回功能
         [RCIM sharedRCIM].enableMessageRecall = YES;
+        //设置接收消息的代理
+        [RCIM sharedRCIM].receiveMessageDelegate = self;
         //连接融云服务器
         [[RCIM sharedRCIM] connectWithToken:responseObject[@"data"][@"token"] success:^(NSString *userId) {
             NSLog(@"登录成功,当前登录的用户ID为:%@", userId);

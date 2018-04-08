@@ -35,13 +35,13 @@
 "friend_List_Url" = "/v1/social/friends/list";
 
 //未处理的好友请求列表
-"friend_unDispose_Url" = "/friend/requests";
+"friend_unDispose_Url" = "/v1/social/friend-applies";
 
 //接受好友请求
-"friend_acceptRequest_Url" = "/friend/accept";
+"friend_acceptRequest_Url" = "/v1/social/friend-applies";
 
 //拒绝好友请求
-"friend_refuseReqquest_Url" = "/friend/deny";
+"friend_refuseReqquest_Url" = "v1/social/friend-applies";
 
 //发送好友请求
 "friend_sendRequest_Url" = "/friend/send";

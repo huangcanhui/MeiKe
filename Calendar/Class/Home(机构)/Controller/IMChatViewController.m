@@ -24,6 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self updateUserInfo];
+}
+
+#pragma mark - 更新用户的信息
+- (void)updateUserInfo
+{
+    if (![self.targetId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
+        NSLog(@"%@ %@", self.targetId, [RCIM sharedRCIM].currentUserInfo.userId);
+        [[RCIM sharedRCIM].userInfoDataSource getUserInfoWithUserId:[RCIM sharedRCIM].currentUserInfo.userId completion:^(RCUserInfo *userInfo) {
+            NSLog(@"%@", userInfo);
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

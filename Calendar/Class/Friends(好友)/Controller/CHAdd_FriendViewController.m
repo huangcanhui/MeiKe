@@ -16,6 +16,7 @@
 
 #import "CHAddFriendTableViewCell.h"
 #import "CHFriend_SearchViewController.h"
+#import "CHNavigationViewController.h"
 
 @interface CHAdd_FriendViewController ()<UITableViewDelegate, UITableViewDataSource>
 /**
@@ -127,7 +128,7 @@
 - (void)acceptButtonClick:(UIButton *)btn
 {
     CHAddFriendModel *model = _source[btn.tag];
-    NSString *path = [NSString stringWithFormat:@"%@/%@", CHReadConfig(@"friend_acceptRequest_Url"), model.sender_id];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/accept", CHReadConfig(@"friend_acceptRequest_Url"), model.sender_id];
     [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject[@"success"]) { // 添加成功
             [ProgressHUD showSuccess:@"好友添加成功"];
@@ -145,7 +146,7 @@
 - (void)refuseButtonClick:(UIButton *)btn
 {
     CHAddFriendModel *model = _source[btn.tag];
-    NSString *path = [NSString stringWithFormat:@"%@/%@", CHReadConfig(@"friend_refuseReqquest_Url"), model.sender_id];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/deny", CHReadConfig(@"friend_refuseReqquest_Url"), model.sender_id];
     [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject[@"success"]) { // 添加成功
             [ProgressHUD showSuccess:@"拒绝好友添加"];
@@ -163,7 +164,10 @@
 - (void)clickAddButton
 {
     CHFriend_SearchViewController *searchVC = [CHFriend_SearchViewController new];
-    [self.navigationController pushViewController:searchVC animated:NO];
+    CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:searchVC];
+    [self presentViewController:naVC animated:NO completion:^{
+        
+    }];
 }
 
 #pragma mark - 网络请求

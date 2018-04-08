@@ -697,6 +697,7 @@
 		5B896A73204F8C0200E1551B /* Home(机构) */ = {
 			isa = PBXGroup;
 			children = (
+				5BAD319D207A2AC60095C78D /* IMUtilities */,
 				5B896A74204F8C0200E1551B /* Controller */,
 				5B896A75204F8C0200E1551B /* Model */,
 				5B896A76204F8C0200E1551B /* View */,
@@ -1190,6 +1191,13 @@
 				5B818ADC1FBD57D400B2B013 /* CHPersonalTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5BAD319D207A2AC60095C78D /* IMUtilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IMUtilities;
 			sourceTree = "<group>";
 		};
 		5BE5EE521FE10A2E00F8410A /* SDAutoLayout */ = {

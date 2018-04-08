@@ -11,11 +11,25 @@
 #import "CHBarButtonItem.h"
 #import "KxMenu.h"
 
+#import "CHFriend_SearchViewController.h"
+#import "CHScanCodeViewController.h"
+#import "CHNavigationViewController.h"
+
 @interface IMListViewController ()<RCIMUserInfoDataSource>
 
 @end
 
 @implementation IMListViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        //设置需要显示那些类型的会话
+        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,8 +38,6 @@
     
     CHBarButtonItem *rightButton = [[CHBarButtonItem alloc] initContainImage:[UIImage imageNamed:@"add"] imageViewFrame:CGRectMake(0, 0, 25, 25) buttonTitle:nil titleColor:nil titleFrame:CGRectZero buttonFrame:CGRectMake(0, 0, 25, 25) target:self action:@selector(showMenu:)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    [self settingIMSDKViewlist];
 }
 
 #pragma mark - 右上角按钮的点击事件
@@ -54,12 +66,17 @@
 #pragma mark 右上角弹出层的点击事件
 - (void)pushAddFriend:(id)sender
 {
-    NSLog(@"添加");
+    CHFriend_SearchViewController *searchVC = [CHFriend_SearchViewController new];
+    CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:searchVC];
+    [self presentViewController:naVC animated:NO completion:^{
+        
+    }];
 }
 
 - (void)pushScanCode:(id)sender
 {
-    NSLog(@"扫一扫");
+    CHScanCodeViewController *scanVC = [CHScanCodeViewController new];
+    [self.navigationController pushViewController:scanVC animated:NO];
 }
 
 - (void)pushMyselfCode:(id)sender
@@ -67,26 +84,11 @@
     NSLog(@"我的二维码");
 }
 
-#pragma mark - 设置融云会话列表
-- (void)settingIMSDKViewlist
-{
-    //设置需要显示那些类型的会话
-    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
-}
-
-- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion
-{
-    
-}
-
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath
 {
     IMChatViewController *imVC = [[IMChatViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:model.targetId];
     imVC.title = model.targetId;
     [self.navigationController pushViewController:imVC animated:YES];
-//    RCConversationViewController *chat = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:model.targetId];
-//    chat.title = model.targetId;
-//    [self.navigationController pushViewController:chat animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
