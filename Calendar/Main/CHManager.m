@@ -118,8 +118,8 @@
 
 - (void)togetherDealWithErrorCodeError:(NSError *)error
 {
-    //    NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.response;
-    //    NSInteger statusCode = response.statusCode;
+//        NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.response;
+//        NSInteger statusCode = response.statusCode;
     //    NSString *path = [[NSBundle mainBundle] pathForResource:@"ERROECODE.plist" ofType:nil];
     //    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
     //    NSString *status = [NSString stringWithFormat:@"%ld", (long)statusCode];

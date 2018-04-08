@@ -14,10 +14,12 @@
 
 #import "CHFriend_AddMemoViewController.h"
 #import "CHNavigationViewController.h"
+#import "RCConversationViewController.h"
 
 @interface CHFriend_DetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)CHFriend_HeaderView *headerView;
+@property (nonatomic, strong)UIButton *chatButton;
 /**
  * 数据源
  */
@@ -91,6 +93,20 @@
     return _headerView;
 }
 
+- (UIButton *)chatButton
+{
+    if (!_chatButton) {
+        _chatButton = [[UIButton alloc] initWithFrame:CGRectMake(16, kScreenHeight / 2 + 50, kScreenWidth - 32, 45)];
+        _chatButton.backgroundColor = GLOBAL_COLOR;
+        _chatButton.layer.masksToBounds = YES;
+        _chatButton.layer.cornerRadius = 5;
+        [_chatButton setTitle:@"发送消息" forState:UIControlStateNormal];
+        [_chatButton setTitleColor:HexColor(0xffffff) forState:UIControlStateNormal];
+        [_chatButton addTarget:self action:@selector(chatWithOtherPerple) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _chatButton;
+}
+
 - (UITableView *)tableView
 {
     if (!_tableView) {
@@ -101,7 +117,9 @@
         _headerView = headerView;
         
         _tableView.tableHeaderView = _headerView;
-        _tableView.tableFooterView = [[UIView alloc] init];
+
+        [_tableView addSubview:self.chatButton];
+        _tableView.tableFooterView = [[UIView alloc] init];;
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -179,6 +197,15 @@
             
         }];
     }
+}
+
+- (void)chatWithOtherPerple
+{
+//    NSString *targetId = [NSString stringWithFormat:@"%@", self.object.id];
+    RCConversationViewController *chat = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:self.object.nickname];
+    chat.title = self.object.nickname;
+    [self.navigationController pushViewController:chat animated:NO];
+    
 }
 
 

@@ -28,6 +28,7 @@
 #define IOS_9_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=9.0 ? YES : NO)
 #undef IOS_10_OR_LATER
 #define IOS_10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=10.0 ? YES : NO)
+#define IOS_FSystenVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
 
 // rgb颜色转换（16进制->10进制）
 #define HexColor(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])
@@ -54,7 +55,7 @@
 #ifdef DEBUG    //---- Debug模式下
 //#define configUrl   @"https://test.ymstars.com/api/v1"
 #define configUrl   @"https://www.ymstars.com/api"
-#define RongCloudKey @"82hegw5u8yy2x"
+#define RongCloudKey @"8luwapkv8jjil"
 #else           //---- Release版本
 #define configUrl   @"https://www.ymstars.com/api/v1"
 #define RongCloudKey @""

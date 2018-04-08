@@ -204,13 +204,14 @@
  * 微信的登录方式
  */
 - (IBAction)loginWithWeChat:(id)sender {
-    [self loginWithUrlInMobile:@"" andCode:@""];
+    [self loginWithUrlInMobile:@"ymstars" andCode:@"111111"];
 }
 
 /**
  * qq的登录方式
  */
 - (IBAction)loginWithQQ:(id)sender {
+   [self loginWithUrlInMobile:@"hch" andCode:@"111111"];
 }
 
 - (void)loginWithUrlInMobile:(NSString *)mobile andCode:(NSString *)code
@@ -227,8 +228,8 @@
     NSDictionary *parmas = @{
                              @"client_id":@"3",
                              @"client_secret":@"lynDaABD02gMPAD5jZWNTeSmG6jay3VoXzqklFOy",
-                             @"username":@"ymstars",
-                             @"password":@"secret",
+                             @"username":mobile,
+                             @"password":code,
                              @"grant_type":@"password",
                              };
     [[CHManager manager] requestWithMethod:POST WithPath:url WithParams:parmas WithSuccessBlock:^(NSDictionary *responseObject) {

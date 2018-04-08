@@ -14,7 +14,9 @@
 #import "MJExtension.h"
 
 static float expried_time = 21600; //accesstoken的有效时长
+//static float expried_time = 10;
 static float refresh_time = 604800; //refresh_token 的有效时长（以秒为单位, 7天） 7 * 24 * 3600
+//static float refresh_time = 150;
 
 @implementation UserModel
 
@@ -77,7 +79,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
     NSString *time = [CHTime getNowTimeTimestamp2];
     NSString *oldTime = [NSString readUserDefaultWithKey:@"currentTime"];
     if ([oldTime floatValue] + refresh_time > [time floatValue]) { //当前时间小于refresh_token的有效时长
-        return YES;
+       return YES;
     }
     return NO;
 }
@@ -103,7 +105,7 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
                 self.user = user;
                 [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
             } WithFailurBlock:^(NSError *error) {
-                
+
             }];
         } else {
             [ProgressHUD showError:@"您的登录已过期，请重新登录"];
@@ -117,19 +119,15 @@ static float refresh_time = 604800; //refresh_token 的有效时长（以秒为�
 {
     [self calculateTime]; //先要判断token是否已经过期
     NSString *path = CHReadConfig(@"login_UserInfo_Url");
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
-            UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject[@"data"]];
-            //存储
-            self.userInfo = info;
-            [self saveCache];
-            
-        } WithFailurBlock:^(NSError *error) {
-            [ProgressHUD showError:@"用户信息获取失败"];
-        }];
-    });
-     self.userInfo = [UserInfo readUserDefaultWithKey:@"UserModel.info"];
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:@{@"UserInfo":self.userInfo}];
+    [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
+        UserInfo *info = [UserInfo mj_objectWithKeyValues:responseObject[@"data"]];
+        //存储
+        self.userInfo = info;
+        [self saveCache];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"GETUSERINFO" object:@{@"UserInfo":self.userInfo}];
+    } WithFailurBlock:^(NSError *error) {
+        [ProgressHUD showError:@"用户信息获取失败"];
+    }];
 }
 
 @end

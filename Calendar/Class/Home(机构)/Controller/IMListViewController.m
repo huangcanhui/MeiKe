@@ -7,8 +7,11 @@
 //
 
 #import "IMListViewController.h"
+#import "IMChatViewController.h"
+#import "CHBarButtonItem.h"
+#import "KxMenu.h"
 
-@interface IMListViewController ()
+@interface IMListViewController ()<RCIMUserInfoDataSource>
 
 @end
 
@@ -19,23 +22,71 @@
     
     self.navigationItem.title = @"会话列表";
     
-    [self initLabel];
+    CHBarButtonItem *rightButton = [[CHBarButtonItem alloc] initContainImage:[UIImage imageNamed:@"add"] imageViewFrame:CGRectMake(0, 0, 25, 25) buttonTitle:nil titleColor:nil titleFrame:CGRectZero buttonFrame:CGRectMake(0, 0, 25, 25) target:self action:@selector(showMenu:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
     [self settingIMSDKViewlist];
 }
 
-#pragma mark - 其余的列表
-- (void)initLabel
+#pragma mark - 右上角按钮的点击事件
+- (void)showMenu:(UIButton *)sender
 {
+   NSArray *memuItems = @[
+                          [KxMenuItem menuItem:@"添加好友" image:[UIImage imageNamed:@"Home_AddFriend"] target:self action:@selector(pushAddFriend:)],
+                          [KxMenuItem menuItem:@"扫一扫" image:[UIImage imageNamed:@"Home_ScanCode"] target:self action:@selector(pushScanCode:)],
+                          [KxMenuItem menuItem:@"我的二维码" image:[UIImage imageNamed:@"Home_MyselfCode"] target:self action:@selector(pushMyselfCode:)]
+                          ];
+    
+//    UIBarButtonItem *rightbarButton = self.tabBarController.navigationItem.rightBarButtonItems[0];
+    UIBarButtonItem *rightbarButton = self.navigationItem.rightBarButtonItem;
+    
+    CGRect targetFrame = rightbarButton.customView.frame;
+    CGFloat offset = [UIApplication sharedApplication].statusBarFrame.size.height > 20 ? 54 : 15;
+    targetFrame.origin.y = targetFrame.origin.y + offset;
+    if (IOS_FSystenVersion >= 11.0) {
+        targetFrame.origin.x = self.view.bounds.size.width - targetFrame.size.width - 17;
+    }
+    [KxMenu setTintColor:HexColor(0x000000)];
+    [KxMenu setTitleFont:[UIFont systemFontOfSize:17]];
+    [KxMenu showMenuInView:self.navigationController.navigationBar.superview fromRect:targetFrame menuItems:memuItems];
+}
+
+#pragma mark 右上角弹出层的点击事件
+- (void)pushAddFriend:(id)sender
+{
+    NSLog(@"添加");
+}
+
+- (void)pushScanCode:(id)sender
+{
+    NSLog(@"扫一扫");
+}
+
+- (void)pushMyselfCode:(id)sender
+{
+    NSLog(@"我的二维码");
 }
 
 #pragma mark - 设置融云会话列表
 - (void)settingIMSDKViewlist
 {
     //设置需要显示那些类型的会话
-    [self setDisplayConversationTypes:@[@(ConversationType_SYSTEM), @(ConversationType_PRIVATE), @(ConversationType_APPSERVICE)]];
-    //设置需要将那些类型的会话在会话列表中聚合
-    [self setCollectionConversationType:@[@(ConversationType_APPSERVICE)]];
+    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
+}
+
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion
+{
+    
+}
+
+- (void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath
+{
+    IMChatViewController *imVC = [[IMChatViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:model.targetId];
+    imVC.title = model.targetId;
+    [self.navigationController pushViewController:imVC animated:YES];
+//    RCConversationViewController *chat = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:model.targetId];
+//    chat.title = model.targetId;
+//    [self.navigationController pushViewController:chat animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

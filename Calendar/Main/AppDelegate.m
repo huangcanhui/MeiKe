@@ -62,14 +62,12 @@
     //开启同步线程
     dispatch_queue_t queue = dispatch_queue_create("", DISPATCH_QUEUE_SERIAL);
     dispatch_sync(queue, ^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (needLogin && ![UserModel onLine]) {//如果需要登录且登录态为空时，调用
-                [[UIApplication sharedApplication].keyWindow.rootViewController showLogin];
-            }
-        });
+        if (needLogin && ![UserModel onLine]) {//如果需要登录且登录态为空时，调用
+            [[UIApplication sharedApplication].keyWindow.rootViewController showLogin];
+        }
     });
     dispatch_sync(queue, ^{
-        [self connectRongCloudSDK];
+         [self connectRongCloudSDK];
     });
 }
 
@@ -92,7 +90,7 @@
     manager.enable = YES; //控制整个功能都能使用
     manager.shouldResignOnTouchOutside = YES; //控制点击背景是否收起键盘
     manager.shouldToolbarUsesTextFieldTintColor = YES;// 控制键盘上的工具条文字颜色是否用户自定义
-    manager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
+    manager.enableAutoToolbar = NO; // 控制是否显示键盘上的工具条
 }
 
 #pragma mark - 开启友盟统计
@@ -116,6 +114,14 @@
     [[CHManager manager] requestWithMethod:GET WithPath:tokenUrl WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
         //注册appkey
         [[RCIM sharedRCIM] initWithAppKey:RongCloudKey];
+        //这是会话列表头像和会话页面头像
+        [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(46, 46);
+        //开启用户信息持久化
+        [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
+        //开启输入状态监听
+        [RCIM sharedRCIM].enableTypingStatus = YES;
+        //开启消息撤回功能
+        [RCIM sharedRCIM].enableMessageRecall = YES;
         //连接融云服务器
         [[RCIM sharedRCIM] connectWithToken:responseObject[@"data"][@"token"] success:^(NSString *userId) {
             NSLog(@"登录成功,当前登录的用户ID为:%@", userId);
