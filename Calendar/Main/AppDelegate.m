@@ -21,6 +21,9 @@
 #import "UserModel.h"
 #import "UIViewController+CH.h"
 #import "CHManager.h"
+#import "MJExtension.h"
+#import "CHTime.h"
+#import "RCDRCIMDataSource.h"
 
 
 @interface AppDelegate ()<RCIMReceiveMessageDelegate>
@@ -80,8 +83,29 @@
 #pragma mark - 注册中心
 - (void)addNotification
 {
-
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acceptNewToken) name:@"access_token_fail" object:nil];
 }
+
+////重新请求用户的token
+//- (void)acceptNewToken
+//{
+//    self.user = [User readUserDefaultWithKey:@"UserModel.user"];
+//    NSDictionary *dict = @{
+//                           @"client_id":@"3",
+//                           @"client_secret":@"lynDaABD02gMPAD5jZWNTeSmG6jay3VoXzqklFOy",
+//                           @"grant_type":@"refresh_token",
+//                           @"refresh_token":self.user.refresh_token
+//                           };
+//    NSString *path = CHReadConfig(@"login_refreshToken_Url");
+//    [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:dict WithSuccessBlock:^(NSDictionary *dic) {
+//        User *user = [User mj_objectWithKeyValues:dic];
+//        //存储
+//        self.user = user;
+//        [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
+//    } WithFailurBlock:^(NSError *error) {
+//
+//    }];
+//}
 
 #pragma mark - 键盘处理
 + (void)setIQKeyBoard
@@ -124,6 +148,7 @@
         [RCIM sharedRCIM].enableMessageRecall = YES;
         //设置接收消息的代理
         [RCIM sharedRCIM].receiveMessageDelegate = self;
+        [RCIM sharedRCIM].userInfoDataSource = RCDDataSource;
         //连接融云服务器
         [[RCIM sharedRCIM] connectWithToken:responseObject[@"data"][@"token"] success:^(NSString *userId) {
             NSLog(@"登录成功,当前登录的用户ID为:%@", userId);

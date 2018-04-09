@@ -87,7 +87,7 @@
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath
 {
     IMChatViewController *imVC = [[IMChatViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:model.targetId];
-    imVC.title = model.targetId;
+    imVC.title = model.conversationTitle;
     [self.navigationController pushViewController:imVC animated:YES];
 }
 

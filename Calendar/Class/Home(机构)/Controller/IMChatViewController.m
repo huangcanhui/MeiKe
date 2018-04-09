@@ -23,20 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self updateUserInfo];
 }
 
-#pragma mark - 更新用户的信息
-- (void)updateUserInfo
-{
-    if (![self.targetId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
-        NSLog(@"%@ %@", self.targetId, [RCIM sharedRCIM].currentUserInfo.userId);
-        [[RCIM sharedRCIM].userInfoDataSource getUserInfoWithUserId:@"1" completion:^(RCUserInfo *userInfo) {
-            NSLog(@"%@", userInfo);
-        }];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

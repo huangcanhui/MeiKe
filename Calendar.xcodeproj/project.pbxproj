@@ -68,6 +68,15 @@
 		5B84DD0C1FFB7A8400A7015F /* CHAdd_CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84DD0B1FFB7A8400A7015F /* CHAdd_CommunityViewController.m */; };
 		5B86F5F7202D844900F6D196 /* CHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B86F5F6202D844900F6D196 /* CHNavigationBar.m */; };
 		5B8726331FCE678200835556 /* CHSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B8726321FCE678200835556 /* CHSetup.plist */; };
+		5B8969FD207B3A5900D49416 /* RCDRCIMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8969FC207B3A5900D49416 /* RCDRCIMDataSource.m */; };
+		5B896A00207B3DC600D49416 /* RCDUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8969FF207B3DC600D49416 /* RCDUserInfoManager.m */; };
+		5B896A03207B412000D49416 /* RCDHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A02207B412000D49416 /* RCDHttpTool.m */; };
+		5B896A12207B457600D49416 /* RCDDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A11207B457600D49416 /* RCDDataBaseManager.m */; };
+		5B896A13207B6D2000D49416 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A06207B44A100D49416 /* FMDatabase.m */; };
+		5B896A14207B6D2000D49416 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A08207B44A100D49416 /* FMDatabaseAdditions.m */; };
+		5B896A15207B6D2000D49416 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A0A207B44A100D49416 /* FMDatabasePool.m */; };
+		5B896A16207B6D2000D49416 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A0C207B44A100D49416 /* FMDatabaseQueue.m */; };
+		5B896A17207B6D2000D49416 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A0F207B44A100D49416 /* FMResultSet.m */; };
 		5B896A79204F8C1E00E1551B /* CHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A78204F8C1E00E1551B /* CHHomeViewController.m */; };
 		5B896A7C204F947100E1551B /* CHHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A7B204F947100E1551B /* CHHomeDetailViewController.m */; };
 		5B896A7E204F972B00E1551B /* CHOrigationPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B896A7D204F972B00E1551B /* CHOrigationPlist.plist */; };
@@ -314,6 +323,25 @@
 		5B86F5F5202D844900F6D196 /* CHNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNavigationBar.h; sourceTree = "<group>"; };
 		5B86F5F6202D844900F6D196 /* CHNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNavigationBar.m; sourceTree = "<group>"; };
 		5B8726321FCE678200835556 /* CHSetup.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CHSetup.plist; sourceTree = "<group>"; };
+		5B8969FB207B3A5900D49416 /* RCDRCIMDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDRCIMDataSource.h; sourceTree = "<group>"; };
+		5B8969FC207B3A5900D49416 /* RCDRCIMDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDRCIMDataSource.m; sourceTree = "<group>"; };
+		5B8969FE207B3DC600D49416 /* RCDUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDUserInfoManager.h; sourceTree = "<group>"; };
+		5B8969FF207B3DC600D49416 /* RCDUserInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDUserInfoManager.m; sourceTree = "<group>"; };
+		5B896A01207B412000D49416 /* RCDHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDHttpTool.h; sourceTree = "<group>"; };
+		5B896A02207B412000D49416 /* RCDHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDHttpTool.m; sourceTree = "<group>"; };
+		5B896A05207B44A100D49416 /* FMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5B896A06207B44A100D49416 /* FMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5B896A07207B44A100D49416 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5B896A08207B44A100D49416 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5B896A09207B44A100D49416 /* FMDatabasePool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		5B896A0A207B44A100D49416 /* FMDatabasePool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		5B896A0B207B44A100D49416 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		5B896A0C207B44A100D49416 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		5B896A0D207B44A100D49416 /* FMDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		5B896A0E207B44A100D49416 /* FMResultSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5B896A0F207B44A100D49416 /* FMResultSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5B896A10207B457600D49416 /* RCDDataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDDataBaseManager.h; sourceTree = "<group>"; };
+		5B896A11207B457600D49416 /* RCDDataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDDataBaseManager.m; sourceTree = "<group>"; };
 		5B896A77204F8C1E00E1551B /* CHHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHHomeViewController.h; sourceTree = "<group>"; };
 		5B896A78204F8C1E00E1551B /* CHHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHHomeViewController.m; sourceTree = "<group>"; };
 		5B896A7A204F947100E1551B /* CHHomeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHHomeDetailViewController.h; sourceTree = "<group>"; };
@@ -692,6 +720,24 @@
 				5B84284F2074AF200084AD4D /* PPSingleton.h */,
 			);
 			path = PPGetAddressBook;
+			sourceTree = "<group>";
+		};
+		5B896A04207B44A100D49416 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				5B896A05207B44A100D49416 /* FMDatabase.h */,
+				5B896A06207B44A100D49416 /* FMDatabase.m */,
+				5B896A07207B44A100D49416 /* FMDatabaseAdditions.h */,
+				5B896A08207B44A100D49416 /* FMDatabaseAdditions.m */,
+				5B896A09207B44A100D49416 /* FMDatabasePool.h */,
+				5B896A0A207B44A100D49416 /* FMDatabasePool.m */,
+				5B896A0B207B44A100D49416 /* FMDatabaseQueue.h */,
+				5B896A0C207B44A100D49416 /* FMDatabaseQueue.m */,
+				5B896A0D207B44A100D49416 /* FMDB.h */,
+				5B896A0E207B44A100D49416 /* FMResultSet.h */,
+				5B896A0F207B44A100D49416 /* FMResultSet.m */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		5B896A73204F8C0200E1551B /* Home(机构) */ = {
@@ -1196,6 +1242,15 @@
 		5BAD319D207A2AC60095C78D /* IMUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				5B896A04207B44A100D49416 /* DB */,
+				5B8969FB207B3A5900D49416 /* RCDRCIMDataSource.h */,
+				5B8969FC207B3A5900D49416 /* RCDRCIMDataSource.m */,
+				5B8969FE207B3DC600D49416 /* RCDUserInfoManager.h */,
+				5B8969FF207B3DC600D49416 /* RCDUserInfoManager.m */,
+				5B896A01207B412000D49416 /* RCDHttpTool.h */,
+				5B896A02207B412000D49416 /* RCDHttpTool.m */,
+				5B896A10207B457600D49416 /* RCDDataBaseManager.h */,
+				5B896A11207B457600D49416 /* RCDDataBaseManager.m */,
 			);
 			path = IMUtilities;
 			sourceTree = "<group>";
@@ -1481,6 +1536,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B896A13207B6D2000D49416 /* FMDatabase.m in Sources */,
+				5B896A14207B6D2000D49416 /* FMDatabaseAdditions.m in Sources */,
+				5B896A15207B6D2000D49416 /* FMDatabasePool.m in Sources */,
+				5B896A16207B6D2000D49416 /* FMDatabaseQueue.m in Sources */,
+				5B896A17207B6D2000D49416 /* FMResultSet.m in Sources */,
 				5B8428502074B1A50084AD4D /* PPAddressBookHandle.m in Sources */,
 				5B8428512074B1A50084AD4D /* PPGetAddressBook.m in Sources */,
 				5B8428522074B1A50084AD4D /* PPPersonModel.m in Sources */,
@@ -1534,6 +1594,7 @@
 				5B54E6941FB58B0900BFFA54 /* CHAlertViewManager.m in Sources */,
 				5B86F5F7202D844900F6D196 /* CHNavigationBar.m in Sources */,
 				5B2C9A291FE2660400245A4C /* CHTimeShowView.m in Sources */,
+				5B8969FD207B3A5900D49416 /* RCDRCIMDataSource.m in Sources */,
 				5B953A1E1FCE716800223325 /* CHSaveCache.m in Sources */,
 				5B818B031FBD777900B2B013 /* CHTime.m in Sources */,
 				5B818AD71FBD575B00B2B013 /* CHUserView.m in Sources */,
@@ -1543,6 +1604,7 @@
 				5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */,
 				5B8E4616201886C400B1FD51 /* CHPersonalMessage.m in Sources */,
 				5B8CE1662004C37000B20427 /* CHFriendListTableViewCell.m in Sources */,
+				5B896A03207B412000D49416 /* RCDHttpTool.m in Sources */,
 				5B6BA07B1FB4392C0081FEF0 /* CHNaviButton.m in Sources */,
 				5BEBA8FB1FB049FC0099E8EF /* CHNavigationViewController.m in Sources */,
 				5BEBA9051FB04C270099E8EF /* UIView+CH.m in Sources */,
@@ -1569,6 +1631,7 @@
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
 				5B93E11C1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m in Sources */,
 				5BAD3196207A0C6B0095C78D /* KxMenu.m in Sources */,
+				5B896A12207B457600D49416 /* RCDDataBaseManager.m in Sources */,
 				5B7FF7EB1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m in Sources */,
 				5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */,
 				5BE5EE7E1FE10ED600F8410A /* SDBrowserImageView.m in Sources */,
@@ -1604,6 +1667,7 @@
 				5B818AF11FBD686300B2B013 /* CHCustomServiceViewController.m in Sources */,
 				5BEBA90B1FB04D200099E8EF /* SingletonObject.m in Sources */,
 				5B9E767A200C8E8700DF60D1 /* CHUpdataPhotoViewController.m in Sources */,
+				5B896A00207B3DC600D49416 /* RCDUserInfoManager.m in Sources */,
 				5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */,
 				5BEBA8FF1FB04BAB0099E8EF /* UILabel+CH.m in Sources */,
 			);

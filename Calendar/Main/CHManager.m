@@ -60,8 +60,13 @@
             [self GET:url parameters:params progress:nil success:^(NSURLSessionTask *task, NSDictionary * responseObject) {
                 success(responseObject);
             } failure:^(NSURLSessionTask *operation, NSError *error) {
-                failure(error);
-                [self togetherDealWithErrorCodeError:error];
+                NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.response;
+                NSInteger statusCode = response.statusCode;
+                if (statusCode == 401) { //鉴权失败
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"access_token_fail" object:nil];
+                } else {
+                    [self togetherDealWithErrorCodeError:error];
+                }
             }];
         }
             break;
@@ -71,10 +76,16 @@
             [self POST:url parameters:params progress:nil success:^(NSURLSessionTask *task, NSDictionary * responseObject) {
                 success(responseObject);
             } failure:^(NSURLSessionTask *operation, NSError *error) {
-                [self togetherDealWithErrorCodeError:error];
+                NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.response;
+                NSInteger statusCode = response.statusCode;
+                if (statusCode == 401) { //鉴权失败
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"access_token_fail" object:nil];
+                } else {
+                     [self togetherDealWithErrorCodeError:error];
+                }
+               
                 //                [ProgressHUD showError:dict[@"message"]];
-//                NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.response;
-//                NSInteger statusCode = response.statusCode;
+//
 ////                NSString *path = [[NSBundle mainBundle] pathForResource:@"ERROECODE.plist" ofType:nil];
 ////                NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
 //                NSString *status = [NSString stringWithFormat:@"%ld", (long)statusCode];

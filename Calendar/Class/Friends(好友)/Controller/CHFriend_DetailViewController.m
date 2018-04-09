@@ -201,11 +201,9 @@
 
 - (void)chatWithOtherPerple
 {
-//    NSString *targetId = [NSString stringWithFormat:@"%@", self.object.id];
-    RCConversationViewController *chat = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:self.object.nickname];
+    RCConversationViewController *chat = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:[NSString stringWithFormat:@"%@", self.object.id]];
     chat.title = self.object.nickname;
     [self.navigationController pushViewController:chat animated:NO];
-    
 }
 
 
