@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CHOrganizationListCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="206"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="206"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GfN-Yx-b8O">
+                        <rect key="frame" x="8" y="8" width="134" height="134"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厦门商会" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPT-Ga-oAC">
+                        <rect key="frame" x="8" y="148" width="134" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="dcz-pz-a84"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：厦门市xxxxxxxxxx" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKO-sZ-bJM">
+                        <rect key="frame" x="5" y="176" width="140" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="pEq-Ah-pdS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="UPT-Ga-oAC" firstAttribute="top" secondItem="GfN-Yx-b8O" secondAttribute="bottom" constant="6" id="0so-zt-mKW"/>
+                <constraint firstAttribute="trailing" secondItem="UPT-Ga-oAC" secondAttribute="trailing" constant="8" id="7Ei-QS-dZ9"/>
+                <constraint firstAttribute="trailing" secondItem="GfN-Yx-b8O" secondAttribute="trailing" constant="8" id="8F7-jA-KOy"/>
+                <constraint firstItem="UPT-Ga-oAC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="BWF-XX-ilG"/>
+                <constraint firstAttribute="bottom" secondItem="iKO-sZ-bJM" secondAttribute="bottom" constant="5" id="K9H-R1-XoT"/>
+                <constraint firstItem="iKO-sZ-bJM" firstAttribute="top" secondItem="UPT-Ga-oAC" secondAttribute="bottom" constant="3" id="VvA-a8-KGD"/>
+                <constraint firstItem="GfN-Yx-b8O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="dhg-TQ-gYX"/>
+                <constraint firstItem="GfN-Yx-b8O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="eL0-rp-ycX"/>
+                <constraint firstItem="iKO-sZ-bJM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="pK2-E3-lZa"/>
+                <constraint firstAttribute="trailing" secondItem="iKO-sZ-bJM" secondAttribute="trailing" constant="5" id="qRT-TP-M5n"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="address" destination="iKO-sZ-bJM" id="Z4X-9C-BnM"/>
+                <outlet property="cover" destination="GfN-Yx-b8O" id="jVt-yo-9ok"/>
+                <outlet property="simple_name" destination="UPT-Ga-oAC" id="cSx-OF-O0c"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

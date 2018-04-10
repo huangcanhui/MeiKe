@@ -29,7 +29,7 @@ static NSString *message = @"坚实的尽快发货数据库电话费坚实的房
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"我的机构明细";
+    self.navigationItem.title = self.simple_name;
     
     if (self.isStick == YES) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"置顶" style:UIBarButtonItemStyleDone target:self action:@selector(setOriganStick)];

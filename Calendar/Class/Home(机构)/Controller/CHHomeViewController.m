@@ -9,115 +9,144 @@
 #import "CHHomeViewController.h"
 
 #import "CHHomeDetailViewController.h"
+#import "CHOrganizationListCollectionViewCell.h"
 
-@interface CHHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "CHManager.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "CHOrganListModel.h"
+
+@interface CHHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 /**
- * UITableView
+ * UICollectionView
  */
-@property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)UICollectionView *collectionView;
+@property (nonatomic, strong)UICollectionViewFlowLayout *flowLayout;
 /**
  * 数据源
  */
-@property (nonatomic, strong)NSArray *dataSource;
+@property (nonatomic, strong)NSMutableArray *dataSource;
+/**
+ * 页数
+ */
+@property (nonatomic, assign)int page;
 @end
 
 @implementation CHHomeViewController
 
+static NSString *const cellBundleID = @"bundleID";
+static CGFloat Margin = 8.0f;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"机构列表";
+    self.navigationItem.title = @"我的机构列表";
+    
+    self.page = 1;
+    
+    self.view.backgroundColor = HexColor(0xffffff);
+    
+    self.dataSource = [NSMutableArray new];
     
     [self setOriganizationTable];
+    
+    [self requestDataWithID:1];
 }
 
 #pragma mark - 创建机构列表
 - (void)setOriganizationTable
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-    _tableView = tableView;
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.flowLayout];
+    _collectionView = collectionView;
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    collectionView.backgroundColor = HexColor(0xffffff);
+    //添加刷新控件
+    collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.page = 1;
+        [self.dataSource removeAllObjects];
+        [self requestDataWithID:self.page];
+        [collectionView.mj_header endRefreshing];
+    }];
     
-    tableView.delegate = self;
-    tableView.dataSource = self;
+    //添加加载控件
+    collectionView.mj_footer = [MJRefreshBackFooter footerWithRefreshingBlock:^{
+        self.page ++;
+        [self requestDataWithID:self.page];
+        [collectionView.mj_footer endRefreshing];
+    }];
     
-    tableView.contentInset = UIEdgeInsetsMake(16, 0, 25, 0);
+    //注册cell
+    [collectionView registerNib:[UINib nibWithNibName:@"CHOrganizationListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellBundleID];
     
-    tableView.tableFooterView = [[UIView alloc] init];
-    
-    [self.view addSubview:tableView];
+    [self.view addSubview:collectionView];
 }
 
-#pragma mark UITableView.delegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark UICollectionView.delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    if (indexPath.section == 0) { //着重展示的机构列表
-        return 98;
-    } else {
-        return 49;
-    }
+    return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 16;
+    return self.dataSource.count;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (section == 0) {
-        return @"我关注的机构";
-    } else {
-        return @"其他机构列表";
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.1;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return 1;
-    } else {
-        return 15;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Origanization"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Origanization"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
-    cell.imageView.image = [UIImage imageNamed:@"LOGO"];
-    cell.textLabel.text = @"我的机构名称";
-    
+    CHOrganizationListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellBundleID forIndexPath:indexPath];
+    CHOrganListModel *model = self.dataSource[indexPath.row];
+    cell.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [cell setModel:model];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    CHOrganListModel *model = self.dataSource[indexPath.row];
     CHHomeDetailViewController *detailVC = [CHHomeDetailViewController new];
-    if (indexPath.section == 0) { //不需要出现置顶的按钮
-        detailVC.isStick = NO;
-    } else {
-        detailVC.isStick = YES;
-    }
-    detailVC.getNewOriganization = ^{
-        [self.tableView reloadData];
-    };
-    
+    detailVC.origanizationID = model.id;
+    detailVC.simple_name = model.simple_name;
     [self.navigationController pushViewController:detailVC animated:NO];
+}
+
+#pragma mark UICollectionViewDelegateFlowLayout
+- (UICollectionViewFlowLayout *)flowLayout
+{
+    if (!_flowLayout) {
+        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        CGFloat itemWidth = (kScreenWidth - 4 * Margin) / 2;
+        //设置单元格大小
+        _flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth + 56);
+        //最小行间距
+        _flowLayout.minimumLineSpacing = 8;
+        //设置section的内边距
+        _flowLayout.sectionInset = UIEdgeInsetsMake(Margin, Margin, Margin, Margin);
+        //设置UICollectionView的滑动方向
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    }
+    return _flowLayout;
+}
+
+#pragma mark - 网络请求
+- (void)requestDataWithID:(int)page
+{
+    NSString *path = CHReadConfig(@"organization_JoinList_Url");
+    NSDictionary *params = @{
+                             @"page":[NSString stringWithFormat:@"%d", self.page],
+                             @"page_size":@"15",
+                             @"include":@"type"
+                             };
+    [[CHManager manager] requestWithMethod:GET WithPath:path WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+        for (NSDictionary *dict in responseObject[@"data"]) {
+            CHOrganListModel *model = [CHOrganListModel mj_objectWithKeyValues:dict];
+            [self.dataSource addObject:model];
+        }
+        [self.collectionView reloadData];
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

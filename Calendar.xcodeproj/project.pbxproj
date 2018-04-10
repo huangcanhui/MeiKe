@@ -33,6 +33,11 @@
 		5B6BA08F1FB464700081FEF0 /* CHPublishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */; };
 		5B6BA0951FB465140081FEF0 /* MAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA0941FB465130081FEF0 /* MAP.m */; };
 		5B7627E41FCFE52900EA4160 /* CHBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7627E31FCFE52900EA4160 /* CHBorderButton.m */; };
+		5B78F8A3207C8FFA005A9C79 /* CHOrganizationListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B78F8A2207C8FFA005A9C79 /* CHOrganizationListView.m */; };
+		5B78F8A6207C9971005A9C79 /* CHImageAndTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B78F8A5207C9971005A9C79 /* CHImageAndTitleButton.m */; };
+		5B78F8A9207C9CF7005A9C79 /* CHOrganListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B78F8A8207C9CF7005A9C79 /* CHOrganListModel.m */; };
+		5B78F8AD207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B78F8AB207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.m */; };
+		5B78F8AE207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B78F8AC207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.xib */; };
 		5B799C841FBEBABB00903A01 /* PersonalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B799C831FBEBABB00903A01 /* PersonalData.plist */; };
 		5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C861FBEBC0F00903A01 /* CHPersonalData.m */; };
 		5B799C8A1FBEBDF800903A01 /* CHPersonalDataDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B799C891FBEBDF800903A01 /* CHPersonalDataDetailViewController.m */; };
@@ -253,6 +258,15 @@
 		5B6BA0941FB465130081FEF0 /* MAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAP.m; sourceTree = "<group>"; };
 		5B7627E21FCFE52900EA4160 /* CHBorderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBorderButton.h; sourceTree = "<group>"; };
 		5B7627E31FCFE52900EA4160 /* CHBorderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHBorderButton.m; sourceTree = "<group>"; };
+		5B78F8A1207C8FFA005A9C79 /* CHOrganizationListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHOrganizationListView.h; sourceTree = "<group>"; };
+		5B78F8A2207C8FFA005A9C79 /* CHOrganizationListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHOrganizationListView.m; sourceTree = "<group>"; };
+		5B78F8A4207C9971005A9C79 /* CHImageAndTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHImageAndTitleButton.h; sourceTree = "<group>"; };
+		5B78F8A5207C9971005A9C79 /* CHImageAndTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHImageAndTitleButton.m; sourceTree = "<group>"; };
+		5B78F8A7207C9CF7005A9C79 /* CHOrganListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHOrganListModel.h; sourceTree = "<group>"; };
+		5B78F8A8207C9CF7005A9C79 /* CHOrganListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHOrganListModel.m; sourceTree = "<group>"; };
+		5B78F8AA207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHOrganizationListCollectionViewCell.h; sourceTree = "<group>"; };
+		5B78F8AB207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHOrganizationListCollectionViewCell.m; sourceTree = "<group>"; };
+		5B78F8AC207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHOrganizationListCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B799C831FBEBABB00903A01 /* PersonalData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PersonalData.plist; sourceTree = "<group>"; };
 		5B799C851FBEBC0F00903A01 /* CHPersonalData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPersonalData.h; sourceTree = "<group>"; };
 		5B799C861FBEBC0F00903A01 /* CHPersonalData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPersonalData.m; sourceTree = "<group>"; };
@@ -772,6 +786,8 @@
 				5B896A7D204F972B00E1551B /* CHOrigationPlist.plist */,
 				5B896A7F204F9D8600E1551B /* OriganizationModel.h */,
 				5B896A80204F9D8600E1551B /* OriganizationModel.m */,
+				5B78F8A7207C9CF7005A9C79 /* CHOrganListModel.h */,
+				5B78F8A8207C9CF7005A9C79 /* CHOrganListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -779,6 +795,13 @@
 		5B896A76204F8C0200E1551B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B78F8A1207C8FFA005A9C79 /* CHOrganizationListView.h */,
+				5B78F8A2207C8FFA005A9C79 /* CHOrganizationListView.m */,
+				5B78F8A4207C9971005A9C79 /* CHImageAndTitleButton.h */,
+				5B78F8A5207C9971005A9C79 /* CHImageAndTitleButton.m */,
+				5B78F8AA207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.h */,
+				5B78F8AB207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.m */,
+				5B78F8AC207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1430,6 +1453,7 @@
 				5BA0E1081FBC1BB700F2BFA9 /* CHLoginViewController.xib in Resources */,
 				5BA0E10D1FBC270100F2BFA9 /* CHMobileAuthViewController.xib in Resources */,
 				5B8DC6561FB0109900B7B1FA /* LaunchScreen.storyboard in Resources */,
+				5B78F8AE207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.xib in Resources */,
 				5B8DC6531FB0109900B7B1FA /* Images.xcassets in Resources */,
 				5B305D891FDA8808003A65F2 /* Config.strings in Resources */,
 				5B818AD91FBD577800B2B013 /* CHUserView.xib in Resources */,
@@ -1539,6 +1563,7 @@
 				5B896A13207B6D2000D49416 /* FMDatabase.m in Sources */,
 				5B896A14207B6D2000D49416 /* FMDatabaseAdditions.m in Sources */,
 				5B896A15207B6D2000D49416 /* FMDatabasePool.m in Sources */,
+				5B78F8A3207C8FFA005A9C79 /* CHOrganizationListView.m in Sources */,
 				5B896A16207B6D2000D49416 /* FMDatabaseQueue.m in Sources */,
 				5B896A17207B6D2000D49416 /* FMResultSet.m in Sources */,
 				5B8428502074B1A50084AD4D /* PPAddressBookHandle.m in Sources */,
@@ -1567,11 +1592,14 @@
 				5B93E1351FF0F63100DE00E2 /* YContactsManager.m in Sources */,
 				5B93E1361FF0F63100DE00E2 /* STConst.m in Sources */,
 				5B93E1371FF0F63100DE00E2 /* STUI.m in Sources */,
+				5B78F8AD207CB12D005A9C79 /* CHOrganizationListCollectionViewCell.m in Sources */,
 				5B896A7C204F947100E1551B /* CHHomeDetailViewController.m in Sources */,
+				5B78F8A6207C9971005A9C79 /* CHImageAndTitleButton.m in Sources */,
 				5BAE85842015DDB100B4C854 /* CHQiniuUploadHelper.m in Sources */,
 				5B93E1381FF0F63100DE00E2 /* UIImage+ST.m in Sources */,
 				5BAD319C207A0D5C0095C78D /* UIImage+CHImage.m in Sources */,
 				5B93E1391FF0F63100DE00E2 /* UIView+ST.m in Sources */,
+				5B78F8A9207C9CF7005A9C79 /* CHOrganListModel.m in Sources */,
 				5B93E13A1FF0F63100DE00E2 /* STPhotoKitController.m in Sources */,
 				5BAD0ACA200372B700D63D97 /* CHFriend_HeaderView.m in Sources */,
 				5B93E13B1FF0F63100DE00E2 /* UIImagePickerController+ST.m in Sources */,

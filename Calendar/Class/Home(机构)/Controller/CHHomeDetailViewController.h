@@ -18,6 +18,10 @@
  */
 @property (nonatomic, strong)NSNumber *origanizationID;
 /**
+ * 机构名称
+ */
+@property (nonatomic, copy)NSString *simple_name;
+/**
  * 回调刷新页面
  */
 @property (nonatomic, copy)void (^getNewOriganization)(void);

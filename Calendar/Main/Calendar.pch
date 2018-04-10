@@ -67,7 +67,7 @@
 #define WXThirdLoginKEY @"wxf9010cf6471bfd28" //微信第三方登录
 #define UMKEY @"5a2a34258f4a9d40dd00012e" //友盟key
 #define QINIUKEY @"" //七牛key
-#define JPUSHKEY @"" //极光推送
+#define JPUSHKEY @"36f6a03933f21c7f63c1eb62" //极光推送
 
 
 //客服电话

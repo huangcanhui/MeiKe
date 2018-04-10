@@ -10,13 +10,20 @@
 #import "IMChatViewController.h"
 #import "CHBarButtonItem.h"
 #import "KxMenu.h"
+#import "CHOrganizationListView.h"
 
 #import "CHFriend_SearchViewController.h"
 #import "CHScanCodeViewController.h"
 #import "CHNavigationViewController.h"
 
-@interface IMListViewController ()<RCIMUserInfoDataSource>
+#import "CHHomeViewController.h"
+#import "CHHomeDetailViewController.h"
 
+@interface IMListViewController ()<RCIMUserInfoDataSource>
+/**
+ * 机构列表
+ */
+@property (nonatomic, strong)CHOrganizationListView *organizationView;
 @end
 
 @implementation IMListViewController
@@ -38,6 +45,31 @@
     
     CHBarButtonItem *rightButton = [[CHBarButtonItem alloc] initContainImage:[UIImage imageNamed:@"add"] imageViewFrame:CGRectMake(0, 0, 25, 25) buttonTitle:nil titleColor:nil titleFrame:CGRectZero buttonFrame:CGRectMake(0, 0, 25, 25) target:self action:@selector(showMenu:)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    self.conversationListTableView.tableHeaderView = self.organizationView;
+    
+    self.conversationListTableView.tableFooterView = [[UIView alloc] init];
+}
+
+- (CHOrganizationListView *)organizationView
+{
+    if (!_organizationView) {
+        _organizationView = [[CHOrganizationListView alloc] initWithFrame:CGRectMake(0, 0, self.conversationListTableView.frame.size.width, 100)];
+        _organizationView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        weakSelf(wself);
+        _organizationView.enterOrganizationList = ^(NSNumber *tag, NSString *name) {
+            if ([tag isEqualToNumber:@0]) { //查看更多机构页面
+                CHHomeViewController *homeVC = [CHHomeViewController new];
+                [wself.navigationController pushViewController:homeVC animated:NO];
+            } else {
+                CHHomeDetailViewController *detailVC = [CHHomeDetailViewController new];
+                detailVC.origanizationID = tag;
+                detailVC.simple_name = name;
+                [wself.navigationController pushViewController:detailVC animated:NO];
+            }
+        };
+    }
+    return _organizationView;
 }
 
 #pragma mark - 右上角按钮的点击事件
@@ -96,14 +128,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
