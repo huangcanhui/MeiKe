@@ -60,11 +60,8 @@
     //选中的文字颜色
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:navigationBarColor, UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
-    //小红点显示
+//    //小红点显示
     self.viewControllers = @[homeNaVC, friendNaVC, circleNaVC, personalNaVC];
-    [self.tabBar.items[1] showBadge];
-    [self.tabBar.items[2] showBadge];
-    
 }
 
 - (void)controller:(UIViewController *)viewController title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage

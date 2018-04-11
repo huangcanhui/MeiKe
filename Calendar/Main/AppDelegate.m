@@ -58,20 +58,23 @@
 #pragma mark - 设置主屏幕
 - (void)settingRootVCAndNeedLogin:(BOOL)needLogin
 {
-    CHTabBarViewController *tab = [CHTabBarViewController new];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = tab;
-    [self.window makeKeyAndVisible];
     //开启同步线程
-    dispatch_queue_t queue = dispatch_queue_create("", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t queue = dispatch_queue_create("com.Queue", DISPATCH_QUEUE_SERIAL);
     dispatch_sync(queue, ^{
         if (needLogin && ![UserModel onLine]) {//如果需要登录且登录态为空时，调用
             [[UIApplication sharedApplication].keyWindow.rootViewController showLogin];
+        } else {
+            [self connectRongCloudSDK];
         }
     });
     dispatch_sync(queue, ^{
-         [self connectRongCloudSDK];
+        CHTabBarViewController *tab = [CHTabBarViewController new];
+        self.window.rootViewController = tab;
+        [self.window makeKeyAndVisible];
     });
+
 }
 
 #pragma mark - 设置高德key
@@ -83,29 +86,8 @@
 #pragma mark - 注册中心
 - (void)addNotification
 {
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acceptNewToken) name:@"access_token_fail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectRongCloudSDK) name:@"LoginRongCloudSDK" object:nil];
 }
-
-////重新请求用户的token
-//- (void)acceptNewToken
-//{
-//    self.user = [User readUserDefaultWithKey:@"UserModel.user"];
-//    NSDictionary *dict = @{
-//                           @"client_id":@"3",
-//                           @"client_secret":@"lynDaABD02gMPAD5jZWNTeSmG6jay3VoXzqklFOy",
-//                           @"grant_type":@"refresh_token",
-//                           @"refresh_token":self.user.refresh_token
-//                           };
-//    NSString *path = CHReadConfig(@"login_refreshToken_Url");
-//    [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:dict WithSuccessBlock:^(NSDictionary *dic) {
-//        User *user = [User mj_objectWithKeyValues:dic];
-//        //存储
-//        self.user = user;
-//        [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
-//    } WithFailurBlock:^(NSError *error) {
-//
-//    }];
-//}
 
 #pragma mark - 键盘处理
 + (void)setIQKeyBoard

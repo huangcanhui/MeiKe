@@ -11,6 +11,7 @@
 #import "CHBarButtonItem.h"
 #import "KxMenu.h"
 #import "CHOrganizationListView.h"
+#import "UITabBarItem+CHBadge.h"
 
 #import "CHFriend_SearchViewController.h"
 #import "CHScanCodeViewController.h"
@@ -19,14 +20,27 @@
 #import "CHHomeViewController.h"
 #import "CHHomeDetailViewController.h"
 
-@interface IMListViewController ()<RCIMUserInfoDataSource>
+@interface IMListViewController ()
 /**
  * 机构列表
  */
 @property (nonatomic, strong)CHOrganizationListView *organizationView;
+
+- (void)updateBadgeValueForTabBarItem;
+
 @end
 
 @implementation IMListViewController
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        //设置需要显示那些类型的会话
+        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
+    }
+    return self;
+}
 
 - (instancetype)init
 {
@@ -36,6 +50,33 @@
         [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self notifyUpdateUnreadMessageCount];
+    //设置需要显示那些类型的会话
+    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
+}
+
+- (void)notifyUpdateUnreadMessageCount
+{
+    [self updateBadgeValueForTabBarItem];
+}
+
+- (void)updateBadgeValueForTabBarItem
+{
+    weakSelf(wself);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        int count = [[RCIMClient sharedRCIMClient] getUnreadCount:self.displayConversationTypeArray];
+        if (count > 0) {
+            [wself.tabBarController.tabBar.items[0] showBadge];
+        } else {
+            [wself.tabBarController.tabBar.items[0] hidenBadge];
+        }
+    });
 }
 
 - (void)viewDidLoad {

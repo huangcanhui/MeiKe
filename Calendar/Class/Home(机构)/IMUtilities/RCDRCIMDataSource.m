@@ -44,12 +44,12 @@
     if (![userId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
         [[RCDUserInfoManager shareInstance] getUserInfo:userId completion:^(RCUserInfo *user) {
             [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:userId];
-            completion(user);
+//            completion(user);
         }];
     } else {
         [[RCDUserInfoManager shareInstance] getUserInfo:userId completion:^(RCUserInfo *user) {
             [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:userId];
-            completion(user);
+//            completion(user);
         }];
     }
     return;

@@ -15,6 +15,7 @@
 #import "ProgressHUD.h"
 #import "CHSettingModel.h"
 #import "UserModel.h"
+#import <RongIMKit/RongIMKit.h>
 
 #import "CHSetUpDetailViewController.h"
 #import "UIViewController+CH.h"
@@ -215,11 +216,11 @@ static NSString *bundle = @"SETUP";
 - (void)logOut
 {
     [[UserModel defaultInstance] logout];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
     [ProgressHUD showSuccess:@"注销成功" Interaction:YES];
-//    [self.navigationController popViewControllerAnimated:YES];
     //退出后要让其再进行登录
     [self showLogin];
+    [[RCIM sharedRCIM] logout]; //断开与融云的连接，且不再接收信息
     [self ch_navigateBackTabbarItem:0];
 }
 

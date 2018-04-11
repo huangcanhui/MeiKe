@@ -18,7 +18,6 @@
 
 #import "CHFriend_SearchView.h"
 #import "ProgressHUD.h"
-#import "CH_Publish_View.h"
 #import "MJExtension.h"
 #import "CHPersonalData.h"
 #import "CHManager.h"
@@ -28,6 +27,8 @@
 #import "CHNetString.h"
 #import "UserModel.h"
 #import "UIViewController+CH.h"
+#import "CHBarButtonItem.h"
+#import "KxMenu.h"
 
 #import <Contacts/Contacts.h>
 #import <AddressBook/AddressBookDefines.h>
@@ -48,25 +49,14 @@ static NSString *bundleID = @"FRIENDS";
  * 搜索框
  */
 @property (nonatomic, strong)CHFriend_SearchView *searchView;
-/**
- * 导航栏右上角视图
- */
-@property (nonatomic, strong)CH_Publish_View *publishView;
-/**
- * 计数器
- */
-@property (nonatomic, assign)int count;
+
 @end
 
 @implementation CHFriendsViewController
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (![UserModel onLine]) {
-        [self showLogin];
-    } else {
-        [self.tableView reloadData];
-    }
+//     [self initAttribute];
 }
 
 - (void)viewDidLoad {
@@ -76,52 +66,57 @@ static NSString *bundleID = @"FRIENDS";
     
     self.navigationItem.title = @"好友";
     
-    [self initAttribute];
+     [self initAttribute];
     
     [self.view addSubview:self.tableView];
     
-    _count = 0;
+    CHBarButtonItem *rightButton = [[CHBarButtonItem alloc] initContainImage:[UIImage imageNamed:@"add"] imageViewFrame:CGRectMake(0, 0, 25, 25) buttonTitle:nil titleColor:nil titleFrame:CGRectZero buttonFrame:CGRectMake(0, 0, 25, 25) target:self action:@selector(showMenu:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNavigationView)];
 }
 
-#pragma mark - 导航栏的添加事件
-- (void)addNavigationView
+#pragma mark - 右上角按钮的点击事件
+- (void)showMenu:(UIButton *)sender
 {
-    CGFloat width = kScreenWidth / 3;
-    NSArray *array = @[@"添加朋友", @"扫一扫", @"我的二维码"];
-     weakSelf(wself);
-    if (_count % 2 == 0) {
-        _publishView = [CH_Publish_View setPublishViewFrame:CGRectMake(kScreenWidth - width - 8, 8, width, array.count * 55) andBackground:HexColor(0xffffff) andTitleArray:array andImageArray:nil andTitleColor:HexColor(0xffffff) andTitleFont:13 andTitleBackground:HexColor(0x000000)];
-        _publishView.whenButtonClick = ^(NSInteger tag) {
-            switch (tag) {
-                case 0:
-                {
-                    CHAdd_FriendViewController *friendVC = [CHAdd_FriendViewController new];
-                    [wself.navigationController pushViewController:friendVC animated:NO];
-                }
-                    break;
-                case 1:
-                {
-                    CHScanCodeViewController *scan = [CHScanCodeViewController new];
-                    //        CHNavigationViewController *navc = [[CHNavigationViewController alloc] initWithRootViewController:scan];
-                    //        [wself presentViewController:navc animated:YES completion:nil];
-                     [wself.navigationController pushViewController:scan animated:NO];
-                }
-                    break;
-                case 2:
-                    NSLog(@"我的二维码");
-                    break;
-                    
-                default:
-                    break;
-            }
-        };
-        [self.view addSubview:_publishView];
-    } else {
-        [_publishView removeFromSuperview];
+    NSArray *memuItems = @[
+                           [KxMenuItem menuItem:@"添加好友" image:[UIImage imageNamed:@"Home_AddFriend"] target:self action:@selector(pushAddFriend:)],
+                           [KxMenuItem menuItem:@"扫一扫" image:[UIImage imageNamed:@"Home_ScanCode"] target:self action:@selector(pushScanCode:)],
+                           [KxMenuItem menuItem:@"我的二维码" image:[UIImage imageNamed:@"Home_MyselfCode"] target:self action:@selector(pushMyselfCode:)]
+                           ];
+    
+    //    UIBarButtonItem *rightbarButton = self.tabBarController.navigationItem.rightBarButtonItems[0];
+    UIBarButtonItem *rightbarButton = self.navigationItem.rightBarButtonItem;
+    
+    CGRect targetFrame = rightbarButton.customView.frame;
+    CGFloat offset = [UIApplication sharedApplication].statusBarFrame.size.height > 20 ? 54 : 15;
+    targetFrame.origin.y = targetFrame.origin.y + offset;
+    if (IOS_FSystenVersion >= 11.0) {
+        targetFrame.origin.x = self.view.bounds.size.width - targetFrame.size.width - 17;
     }
-    _count ++;
+    [KxMenu setTintColor:HexColor(0x000000)];
+    [KxMenu setTitleFont:[UIFont systemFontOfSize:17]];
+    [KxMenu showMenuInView:self.navigationController.navigationBar.superview fromRect:targetFrame menuItems:memuItems];
+}
+
+#pragma mark 右上角弹出层的点击事件
+- (void)pushAddFriend:(id)sender
+{
+    CHFriend_SearchViewController *searchVC = [CHFriend_SearchViewController new];
+    CHNavigationViewController *naVC = [[CHNavigationViewController alloc] initWithRootViewController:searchVC];
+    [self presentViewController:naVC animated:NO completion:^{
+        
+    }];
+}
+
+- (void)pushScanCode:(id)sender
+{
+    CHScanCodeViewController *scanVC = [CHScanCodeViewController new];
+    [self.navigationController pushViewController:scanVC animated:NO];
+}
+
+- (void)pushMyselfCode:(id)sender
+{
+    NSLog(@"我的二维码");
 }
 
 #pragma mark - 用户授权
@@ -356,18 +351,6 @@ static NSString *bundleID = @"FRIENDS";
         };
         [self.navigationController pushViewController:detailVC animated:NO];
     }
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    _count = 0;
-    [_publishView removeFromSuperview];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    _count = 0;
-    [_publishView removeFromSuperview];
 }
 
 @end

@@ -15,10 +15,18 @@
 
 @implementation IMChatViewController
 
-- (void)loadView
+- (void)viewWillAppear:(BOOL)animated
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.view = scrollView;
+    [super viewWillAppear:animated];
+    //不开启键盘监听
+    [IQKeyboardManager sharedManager].enable = NO;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [IQKeyboardManager sharedManager].enable = YES;
 }
 
 - (void)viewDidLoad {

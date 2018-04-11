@@ -39,12 +39,11 @@
                 }
 //                //将数据插入表中
 //                [[RCDDataBaseManager shareInstance] insertUserToDB:user];
-//                if (completion) {
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        completion(user);
-//                    });
-//                }
-//            }
+                if (completion) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(user);
+                    });
+                }
         } WithFailurBlock:^(NSError *error) {
             
         }];

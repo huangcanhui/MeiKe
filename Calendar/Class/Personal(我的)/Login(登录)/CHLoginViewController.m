@@ -15,6 +15,7 @@
 #import "mobile.h"
 #import "CHTime.h"
 #import "MJExtension.h"
+#import "CHTabBarViewController.h"
 
 @interface CHLoginViewController ()
 {
@@ -237,7 +238,10 @@
         [user writeUserDefaultWithKey:@"UserModel.user"];
         [[CHTime getNowTimeTimestamp2] writeUserDefaultWithKey:@"currentTime"];
         [self dismissViewControllerAnimated:YES completion:^{
-             [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
+//             [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigationMessage" object:nil userInfo:nil]; // 注册一个通知
+            CHTabBarViewController *tabVC = [CHTabBarViewController new];
+            [UIApplication sharedApplication].keyWindow.rootViewController = tabVC;
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginRongCloudSDK" object:nil];//登录成功后需要注册融云
         }];
     } WithFailurBlock:^(NSError *error) {
         
