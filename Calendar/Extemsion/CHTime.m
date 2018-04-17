@@ -28,6 +28,14 @@
     return currentTimeString;
 }
 
++ (NSString *)getTimeWithDateFormat
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    return dateString;
+}
+
 + (NSString *)getNowTimeTimestamp2{
     
     

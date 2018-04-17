@@ -54,13 +54,6 @@ static NSString *bundleID = @"friendCircle";
 
 @implementation CHCircleViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    if (![UserModel onLine]) {
-        [self showLogin];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -135,6 +128,7 @@ static NSString *bundleID = @"friendCircle";
 #pragma mark - 网络数据请求
 - (void)requestData
 {
+    NSLog(@"%@", CHReadConfig(@"community_List_Url"));
     [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_List_Url") WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
         NSMutableArray *arrayM = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"data"]) {
@@ -204,10 +198,9 @@ static NSString *bundleID = @"friendCircle";
     NSDictionary *params = @{
                              @"page":[NSString stringWithFormat:@"%d", page],
                              @"page_size":@"15",
-                             @"community":communityID,
-                             @"include":@"publisher"
+                             @"include":@"newComments,owner"
                              };
-    [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_notes_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+    [[CHManager manager] requestWithMethod:GET WithPath:[NSString stringWithFormat:@"%@/%@/notes", CHReadConfig(@"community_notes_Url"), communityID] WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
         for (NSDictionary *dict in responseObject[@"data"]) {
             FriendCircleObject *obj = [FriendCircleObject mj_objectWithKeyValues:dict];
             [_arrayM addObject:obj];
@@ -292,6 +285,11 @@ static NSString *bundleID = @"friendCircle";
     }
     cell.object = self.tableArray[indexPath.row];
     return cell;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RefreshCircleNotes" object:nil];
 }
 
 @end

@@ -21,7 +21,10 @@
  * 获取时间戳(以毫秒为单位)
  */
 + (NSString *)getNowTimeTimestamp3;
-
+/**
+ * 获取当前的时间（yyyy-MM-dd HH:mm:ss）
+ */
++ (NSString *)getTimeWithDateFormat;
 /**
  * 将秒换成日期（以秒为单位）
  */

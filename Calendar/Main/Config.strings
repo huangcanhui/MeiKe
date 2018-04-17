@@ -29,13 +29,13 @@
 
 /**************************************** 朋友圈/好友  **************************************************/
 //获取我的圈子列表
-"community_List_Url" = "/communities";
+"community_List_Url" = "/v1/social/current-user/communities";
 
 //发布圈子内容
-"community_publish_Url" = "/notes";
+"community_publish_Url" = "/v1/social/communities";
 
 //获取某个圈子的内容列表
-"community_notes_Url" = "/my_receive_notes";
+"community_notes_Url" = "/v1/social/communities";
 
 //获取我的好友列表
 "friend_List_Url" = "/v1/social/friends/list";
@@ -63,4 +63,4 @@
 
 /********************************************** 工具类 *********************************************/
 //获取七牛上传token
-"qn_uploadToken_Url" = "/tool/qiniu_token";
+"qn_uploadToken_Url" = "/v1/tool/qiniu-token";

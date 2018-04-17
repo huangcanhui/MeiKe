@@ -576,10 +576,14 @@ static NSString *const bundleID = @"CollectionView";
 
 - (void)getDataToServerNet
 {
-    NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:_imageArray isPrivate:self.is_private andAddress:self.address andCommunity:self.list];
-    [[CHManager manager] requestWithMethod:POST WithPath:CHReadConfig(@"community_publish_Url") WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+    NSDictionary *params = [self checkType:self.type andContent:self.textView.text andImageArray:_imageArray isPrivate:self.is_private andAddress:self.address];
+    FriendListModel *model = self.list;
+    [[CHManager manager] requestWithMethod:POST WithPath:[NSString stringWithFormat:@"%@/%@/notes", CHReadConfig(@"community_publish_Url"), model.id] WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
         [ProgressHUD showSuccess:@"分享记录发布成功"];
-        [self dismissViewControllerAnimated:NO completion:nil];
+        [self dismissViewControllerAnimated:NO completion:^{
+            //注册通知，让页面进行刷新
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCircleNotes" object:nil];
+        }];
     } WithFailurBlock:^(NSError *error) {
         
     }];
@@ -601,7 +605,7 @@ static NSString *const bundleID = @"CollectionView";
 }
 
 #pragma mark - 判断是否符合上传条件
-- (NSDictionary *)checkType:(publishType)type andContent:(NSString *)content andImageArray:(NSArray *)imageArray isPrivate:(BOOL)isprivate andAddress:(Address *)address andCommunity:(FriendListModel *)model
+- (NSDictionary *)checkType:(publishType)type andContent:(NSString *)content andImageArray:(NSArray *)imageArray isPrivate:(BOOL)isprivate andAddress:(Address *)address
 {
     NSDictionary *params;
     if ([content isEqualToString:self.placeString]) {
@@ -617,14 +621,12 @@ static NSString *const bundleID = @"CollectionView";
             } else {
                 if (address == nil) {
                     params = @{
-                               @"community_id":model.id,
                                @"type_code":@10,
                                @"content":content,
                                @"is_private":[NSNumber numberWithBool:isprivate],
                                };
                 } else {
                     params = @{
-                               @"community_id":model.id,
                                @"type_code":@10,
                                @"content":content,
                                @"is_private":[NSNumber numberWithBool:isprivate],
@@ -644,7 +646,6 @@ static NSString *const bundleID = @"CollectionView";
             } else {
                 if (address == nil) {
                     params = @{
-                               @"community_id":model.id,
                                @"type_code":@20,
                                @"content":content,
                                @"is_private":[NSNumber numberWithBool:isprivate],
@@ -652,7 +653,6 @@ static NSString *const bundleID = @"CollectionView";
                                };
                 } else {
                     params = @{
-                               @"community_id":model.id,
                                @"type_code":@20,
                                @"content":content,
                                @"is_private":[NSNumber numberWithBool:isprivate],

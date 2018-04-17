@@ -23,7 +23,7 @@
     CGFloat height = imageSize.height;
     
     //1.宽度大于1280（宽高比不按照2来算，按照1来算）
-    if (width > 1280 || height > 1280) {
+    if (width > 1280 && height > 1280) {
         if (width > height) {
             CGFloat scale = height / width;
             width = 1280;
@@ -33,11 +33,11 @@
             height = 1280;
             width = height * scale;
         }
-    } else if (width > 1280 || height < 1280){ //2.宽大于1280高小于1280
+    } else if (width > 1280 && height < 1280){ //2.宽大于1280高小于1280
         CGFloat scale = height / width;
         width = 1280;
         height = height * scale;
-    } else if (width < 1280 || height > 1280) { //3.宽小于1280高大于1280
+    } else if (width < 1280 && height > 1280) { //3.宽小于1280高大于1280
         CGFloat scale = width / height;
         height = 1280;
         width = height * scale;

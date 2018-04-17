@@ -26,7 +26,7 @@
 #import "RCDRCIMDataSource.h"
 
 
-@interface AppDelegate ()<RCIMReceiveMessageDelegate>
+@interface AppDelegate ()
 @property(nonatomic, strong)User *user;
 @end
 

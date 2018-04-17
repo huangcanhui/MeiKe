@@ -36,7 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 发布者对象
  */
-@property (nonatomic, strong)PublisherObject *publisher;
+@property (nonatomic, strong)PublisherObject *owner;
+/**
+ * 发表说说时间
+ */
+@property (nonatomic, copy)NSString *created_at;
 /**
  * 点赞对象
  */

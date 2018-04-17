@@ -14,6 +14,9 @@
 #import "CHNetString.h"
 #import "UIImageView+WebCache.h"
 
+#import "CHTime.h"
+#import "CHSepreatorString.h"
+
 const CGFloat contentLabelFontSize = 15;
 CGFloat maxContentLabelHeight = 0; //根据具体的font而定
 
@@ -136,8 +139,8 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     
     _shouldOpenContentLabel = NO;
     
-    [_iconView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:object.publisher.avatar]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
-    _nameLabel.text = object.publisher.nickname;
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:[CHNetString isValueInNetAddress:object.owner.avatar]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
+    _nameLabel.text = object.owner.nickname;
     //防止单行文本label在重用时宽度计算不准的问题
     [_nameLabel sizeToFit];
     _contentLabel.text = object.content;
@@ -180,7 +183,16 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     }
     [self setupAutoHeightWithBottomView:bottomView bottomMargin:15];
     
-    _timeLabel.text = @"1分钟前";
+    //判断时间
+    NSArray *currentArray = [CHSepreatorString stringToSepreator:[CHTime getTimeWithDateFormat] withChactor:@" "]; //获取系统的当前时间
+    NSArray *oldArray = [CHSepreatorString stringToSepreator:object.created_at withChactor:@" "]; //获取说说发布的时间
+    if ([currentArray[0] isEqualToString:oldArray[0]]) { //当天的说说
+        NSArray *array = [CHSepreatorString stringToSepreator:oldArray[1] withChactor:@":"];
+        _timeLabel.text = [NSString stringWithFormat:@"%@:%@", array[0], array[1]];
+    } else { //隔天的说说
+        NSArray *array = [CHSepreatorString stringToSepreator:oldArray[1] withChactor:@":"];
+        _timeLabel.text = [NSString stringWithFormat:@"%@ %@:%@", oldArray[0], array[0], array[1]];
+    }
 }
 
 

@@ -86,6 +86,7 @@
 		5B896A7C204F947100E1551B /* CHHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A7B204F947100E1551B /* CHHomeDetailViewController.m */; };
 		5B896A7E204F972B00E1551B /* CHOrigationPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B896A7D204F972B00E1551B /* CHOrigationPlist.plist */; };
 		5B896A81204F9D8600E1551B /* OriganizationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B896A80204F9D8600E1551B /* OriganizationModel.m */; };
+		5B8AEB7420860C4F0016AA4E /* CHSepreatorString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8AEB7320860C4F0016AA4E /* CHSepreatorString.m */; };
 		5B8CE1622004BD1F00B20427 /* CHFriend_AddMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CE1612004BD1F00B20427 /* CHFriend_AddMemoViewController.m */; };
 		5B8CE1662004C37000B20427 /* CHFriendListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CE1642004C37000B20427 /* CHFriendListTableViewCell.m */; };
 		5B8CE1672004C37000B20427 /* CHFriendListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8CE1652004C37000B20427 /* CHFriendListTableViewCell.xib */; };
@@ -363,6 +364,8 @@
 		5B896A7D204F972B00E1551B /* CHOrigationPlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CHOrigationPlist.plist; sourceTree = "<group>"; };
 		5B896A7F204F9D8600E1551B /* OriganizationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OriganizationModel.h; sourceTree = "<group>"; };
 		5B896A80204F9D8600E1551B /* OriganizationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriganizationModel.m; sourceTree = "<group>"; };
+		5B8AEB7220860C4F0016AA4E /* CHSepreatorString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSepreatorString.h; sourceTree = "<group>"; };
+		5B8AEB7320860C4F0016AA4E /* CHSepreatorString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSepreatorString.m; sourceTree = "<group>"; };
 		5B8CE1602004BD1F00B20427 /* CHFriend_AddMemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_AddMemoViewController.h; sourceTree = "<group>"; };
 		5B8CE1612004BD1F00B20427 /* CHFriend_AddMemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_AddMemoViewController.m; sourceTree = "<group>"; };
 		5B8CE1632004C37000B20427 /* CHFriendListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendListTableViewCell.h; sourceTree = "<group>"; };
@@ -1118,6 +1121,8 @@
 				5BAE85832015DDB100B4C854 /* CHQiniuUploadHelper.m */,
 				5BAE85852015DF0500B4C854 /* CHQiniuUploadTool.h */,
 				5BAE85862015DF0500B4C854 /* CHQiniuUploadTool.m */,
+				5B8AEB7220860C4F0016AA4E /* CHSepreatorString.h */,
+				5B8AEB7320860C4F0016AA4E /* CHSepreatorString.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1562,6 +1567,7 @@
 			files = (
 				5B896A13207B6D2000D49416 /* FMDatabase.m in Sources */,
 				5B896A14207B6D2000D49416 /* FMDatabaseAdditions.m in Sources */,
+				5B8AEB7420860C4F0016AA4E /* CHSepreatorString.m in Sources */,
 				5B896A15207B6D2000D49416 /* FMDatabasePool.m in Sources */,
 				5B78F8A3207C8FFA005A9C79 /* CHOrganizationListView.m in Sources */,
 				5B896A16207B6D2000D49416 /* FMDatabaseQueue.m in Sources */,
