@@ -27,7 +27,7 @@
 #import "CHPublish_Photo_ContentViewController.h"
 
 static NSString *bundleID = @"friendCircle";
-@interface CHCircleViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface CHCircleViewController ()<UITableViewDelegate, UITableViewDataSource, CHFriendCircleTableViewCellDelegate, UITextFieldDelegate>
 /**
  * 导航目录
  */
@@ -50,6 +50,23 @@ static NSString *bundleID = @"friendCircle";
  * 记录选中的圈子ID
  */
 @property (nonatomic, strong)NSNumber *communityID;
+/**
+ * 评论输入框
+ */
+@property (nonatomic, strong)UITextField *textField;
+/**
+ * 记录当前评论的是哪条数据
+ */
+@property (nonatomic, strong)NSIndexPath *currentEditingIndexpath;
+/**
+ * 评论哪个用户
+ */
+@property (nonatomic, copy)NSString *commentToUser;
+@property (nonatomic, assign)BOOL isReplayingComment;
+/**
+ * 获取键盘的高度
+ */
+@property (nonatomic, assign)CGFloat totalKeybordHeight;
 @end
 
 @implementation CHCircleViewController
@@ -68,6 +85,10 @@ static NSString *bundleID = @"friendCircle";
     [self initNaviView];
     
     [self requestData];
+    
+    [self setupTextField];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 #pragma mark - 导航栏视图
@@ -128,7 +149,6 @@ static NSString *bundleID = @"friendCircle";
 #pragma mark - 网络数据请求
 - (void)requestData
 {
-    NSLog(@"%@", CHReadConfig(@"community_List_Url"));
     [[CHManager manager] requestWithMethod:GET WithPath:CHReadConfig(@"community_List_Url") WithParams:nil WithSuccessBlock:^(NSDictionary *responseObject) {
         NSMutableArray *arrayM = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"data"]) {
@@ -282,14 +302,153 @@ static NSString *bundleID = @"friendCircle";
             model.isOpening = !model.isOpening;
             [wself.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
+        [cell setDidClickCommentLabelBlock:^(NSString *commentId, CGRect rectInWindow, NSIndexPath *indexPath) {
+            wself.textField.placeholder = [NSString stringWithFormat:@"回复%@", commentId];
+            wself.currentEditingIndexpath = indexPath;
+            [wself.textField becomeFirstResponder];
+            wself.isReplayingComment = YES;
+            wself.commentToUser = commentId;
+        }];
+        cell.delegate = self;
     }
+    
     cell.object = self.tableArray[indexPath.row];
     return cell;
+}
+
+#pragma mark - CHFriendCircleTableViewCell.delegate
+- (void)didClickLikeButtonInCell:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.tableView indexPathForCell:cell];
+    FriendCircleObject *obj = self.tableArray[index.row];
+    NSMutableArray *temp = [NSMutableArray arrayWithArray:obj.liker];
+    if (!obj.isLiked) {
+        LikerObject *likeObj = [LikerObject new];
+        likeObj.liker = @"黄灿辉";
+        likeObj.id = @2;
+        [temp addObject:likeObj];
+        obj.liked = YES;
+    } else {
+        LikerObject *tempLikeObj = nil;
+        for (LikerObject *likeObj in obj.liker) {
+            if ([likeObj.id isEqualToNumber:@2]) {
+                tempLikeObj = likeObj;
+                break;
+            }
+        }
+        [temp removeObject:tempLikeObj];
+        obj.liked = NO;
+    }
+    obj.liker = [temp copy];
+    [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)didClickCommentButtonInCell:(UITableViewCell *)cell
+{
+    [_textField becomeFirstResponder];
+    _currentEditingIndexpath = [self.tableView indexPathForCell:cell];
+    [self adjustTableViewToFitKeyboard];
+}
+
+- (void)adjustTableViewToFitKeyboard
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_currentEditingIndexpath];
+    CGRect rect = [cell.superview convertRect:cell.frame toView:window];
+    [self adjustTableViewToFitKeyboardWithRect:rect];
+}
+
+- (void)adjustTableViewToFitKeyboardWithRect:(CGRect)rect
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    CGFloat delta = CGRectGetMaxY(rect) - (window.bounds.size.height - _totalKeybordHeight);
+    
+    CGPoint offset = self.tableView.contentOffset;
+    offset.y += delta;
+    if (offset.y < 0) {
+        offset.y = 0;
+    }
+    
+    [self.tableView setContentOffset:offset animated:YES];
+}
+
+- (void)keyboardNotification:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.userInfo;
+    CGRect rect = [dict[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    
+    
+    
+    CGRect textFieldRect = CGRectMake(0, rect.origin.y - 40, rect.size.width, 40);
+    if (rect.origin.y == [UIScreen mainScreen].bounds.size.height) {
+        textFieldRect = rect;
+    }
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        _textField.frame = textFieldRect;
+    }];
+    
+    CGFloat h = rect.size.height + 40;
+    if (_totalKeybordHeight != h) {
+        _totalKeybordHeight = h;
+        [self adjustTableViewToFitKeyboard];
+    }
+}
+
+
+#pragma mark 加载评论框
+- (void)setupTextField
+{
+    _textField = [UITextField new];
+    _textField.returnKeyType = UIReturnKeyDone;
+    _textField.delegate = self;
+    _textField.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8].CGColor;
+    _textField.layer.borderWidth = 1;
+    _textField.backgroundColor = [UIColor whiteColor];
+    _textField.frame = CGRectMake(0, kScreenHeight, kScreenHeight, 40);
+    [[UIApplication sharedApplication].keyWindow addSubview:self.textField];
+    [_textField becomeFirstResponder];
+    [_textField resignFirstResponder];
+}
+
+
+#pragma mark - UITextField.delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.text.length) {
+        [_textField resignFirstResponder];
+        FriendCircleObject *obj = self.tableArray[_currentEditingIndexpath.row];
+        NSMutableArray *temp = [NSMutableArray new];
+        [temp addObjectsFromArray:obj.comment];
+        commentObject *commentObj = [commentObject new];
+        if (self.isReplayingComment) {
+            commentObj.firstUserName = @"牛麦麦";
+            commentObj.firstUserID = @1;
+            commentObj.secondUserName = self.commentToUser;
+            commentObj.secondUserID = @2;
+            commentObj.comment = textField.text;
+            
+            self.isReplayingComment = NO;
+        } else {
+            commentObj.firstUserName = @"牛麦麦";
+            commentObj.firstUserID = @1;
+            commentObj.comment = textField.text;
+        }
+        
+        [temp addObject:commentObj];
+        obj.comment = [temp copy];
+        [self.tableView reloadRowsAtIndexPaths:@[_currentEditingIndexpath] withRowAnimation:UITableViewRowAnimationNone];
+        
+        _textField.text = @"";
+        return YES;
+    }
+    return NO;
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RefreshCircleNotes" object:nil];
+    [_textField removeFromSuperview];
 }
 
 @end

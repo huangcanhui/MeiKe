@@ -9,12 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "FriendCircleObject.h"
 
+@protocol CHFriendCircleTableViewCellDelegate <NSObject>
+
+- (void)didClickLikeButtonInCell:(UITableViewCell *)cell;
+- (void)didClickCommentButtonInCell:(UITableViewCell *)cell;
+
+@end
+
 @interface CHFriendCircleTableViewCell : UITableViewCell
 
 @property (nonatomic, strong)FriendCircleObject *object;
 
+@property (nonatomic, weak)id<CHFriendCircleTableViewCellDelegate> delegate;
+
 @property (nonatomic, strong)NSIndexPath *indexPath;
 
 @property (nonatomic, copy)void (^moreButtonClickBlock)(NSIndexPath *indexPath);
+
+@property (nonatomic, copy)void (^didClickCommentLabelBlock)(NSString *commentId, CGRect rectInWindow, NSIndexPath *indexPath);
 
 @end

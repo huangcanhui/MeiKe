@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
  * 是否展示更多
  */
 @property (nonatomic, assign)BOOL shouldShowMoreButton;
+
+@property (nonatomic, assign, getter=isLiked)BOOL liked;
 /**
  * 发布的内容
  */

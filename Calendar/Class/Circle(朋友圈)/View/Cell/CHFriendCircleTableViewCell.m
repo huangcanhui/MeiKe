@@ -13,6 +13,7 @@
 #import "UIView+SDAutoLayout.h"
 #import "CHNetString.h"
 #import "UIImageView+WebCache.h"
+#import "CHFriendOperationMenu.h"
 
 #import "CHTime.h"
 #import "CHSepreatorString.h"
@@ -57,6 +58,10 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
  * 时间
  */
 @property (nonatomic, strong)UILabel *timeLabel;
+/**
+ * 评论和点赞的按钮视图
+ */
+@property (nonatomic, strong)CHFriendOperationMenu *operationMenu;
 
 @end
 
@@ -71,8 +76,19 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     return self;
 }
 
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    if (_operationMenu.isShowing) {
+        _operationMenu.show = NO;
+    }
+}
+
 - (void)setup
 {
+    weakSelf(wself);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveOperationButtonClickedNotification:) name:@"CHFriendOperationMenu" object:nil];
+    
     self.shouldOpenContentLabel = NO; //默认不全部展开
     
     self.iconView = [UIImageView new];
@@ -105,7 +121,20 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     self.timeLabel.font = [UIFont systemFontOfSize:13];
     self.timeLabel.textColor = [UIColor lightGrayColor];
     
-    NSArray *views = @[self.iconView, self.nameLabel, self.contentLabel, self.moreButton, self.friendContainerView, self.timeLabel, self.operationButton, self.commentView];
+    _operationMenu = [CHFriendOperationMenu new];
+    [_operationMenu setLikeButtonClickedOPeration:^{
+        if ([wself.delegate respondsToSelector:@selector(didClickLikeButtonInCell:)]) {
+            [wself.delegate didClickLikeButtonInCell:wself];
+        }
+    }];
+    
+    [_operationMenu setCommentButtonClickOperation:^{
+        if ([wself.delegate respondsToSelector:@selector(didClickCommentButtonInCell:)]) {
+            [wself.delegate didClickCommentButtonInCell:wself];
+        }
+    }];
+    
+    NSArray *views = @[self.iconView, self.nameLabel, self.contentLabel, self.moreButton, self.friendContainerView, self.timeLabel, self.operationButton, self.operationMenu, self.commentView];
     
     [self.contentView sd_addSubviews:views];
     
@@ -128,6 +157,8 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     self.operationButton.sd_layout.rightSpaceToView(contentView, margin).centerYEqualToView(self.timeLabel).heightIs(25).widthIs(25);
     
     self.commentView.sd_layout.leftEqualToView(self.contentLabel).rightSpaceToView(self.contentView, margin).topSpaceToView(self.timeLabel, margin); //已经在内部实现高度自适应所以不需要在设置高度
+    
+    self.operationMenu.sd_layout.rightSpaceToView(_operationButton, 0).heightIs(36).centerYEqualToView(_operationButton).widthIs(0);
 }
 
 #pragma mark - 传值
@@ -172,12 +203,12 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     UIView *bottomView;
     
     if (!object.comment.count && !object.liker.count) {
-        _commentView.fixedWith = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedWidth的控件将不再在自动布局过程中调整宽度）
+        _commentView.fixedWidth = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedWidth的控件将不再在自动布局过程中调整宽度）
         _commentView.fixedHeight = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedHeight的控件将不再在自动布局过程中调整宽度
         bottomView = _timeLabel;
     } else {
         _commentView.fixedHeight = nil; //取消固定宽度约束
-        _commentView.fixedWith = nil; //取消固定高度的约束
+        _commentView.fixedWidth = nil; //取消固定高度的约束
         _commentView.sd_layout.topSpaceToView(_timeLabel, 10);
         bottomView = _commentView;
     }
@@ -190,8 +221,9 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
         NSArray *array = [CHSepreatorString stringToSepreator:oldArray[1] withChactor:@":"];
         _timeLabel.text = [NSString stringWithFormat:@"%@:%@", array[0], array[1]];
     } else { //隔天的说说
+        NSArray *dateArray = [CHSepreatorString stringToSepreator:oldArray[0] withChactor:@"-"];
         NSArray *array = [CHSepreatorString stringToSepreator:oldArray[1] withChactor:@":"];
-        _timeLabel.text = [NSString stringWithFormat:@"%@ %@:%@", oldArray[0], array[0], array[1]];
+        _timeLabel.text = [NSString stringWithFormat:@"%@-%@ %@:%@", dateArray[1], dateArray[2], array[0], array[1]];
     }
 }
 
@@ -207,19 +239,35 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
 #pragma mark - 评论的点击事件
 - (void)operationButtonClicked
 {
-    
+    [self postOperationButtonClickNotification];
+    _operationMenu.show = !_operationMenu.isShowing;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)postOperationButtonClickNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CHFriendOperationMenu" object:_operationButton];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)receiveOperationButtonClickedNotification:(NSNotification *)notification
+{
+    UIButton *btn = [notification object];
+    if (btn != _operationButton && _operationMenu.isShowing) {
+        _operationMenu.show = NO;
+    }
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    [self postOperationButtonClickNotification];
+    if (_operationMenu.isShowing) {
+        _operationMenu.show = NO;
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

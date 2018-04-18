@@ -51,7 +51,7 @@
 - (void)setupViews
 {
     self.bgImageView = [UIImageView new];
-    UIImage *bgImage = [[UIImage imageNamed:@""] stretchableImageWithLeftCapWidth:40 topCapHeight:30];
+    UIImage *bgImage = [[UIImage imageNamed:@"LikeCmtBg"] stretchableImageWithLeftCapWidth:40 topCapHeight:30];
     self.bgImageView.image = bgImage;
     [self addSubview:self.bgImageView];
     
@@ -59,7 +59,7 @@
     [self addSubview:self.likeLabel];
     
     self.likeLabelBottomLine = [UIView new];
-    self.likeLabelBottomLine.backgroundColor = [UIColor lightGrayColor];
+    self.likeLabelBottomLine.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2];
     [self addSubview:self.likeLabelBottomLine];
     
     self.bgImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));

@@ -109,8 +109,6 @@
 		5B912A6D1FDE837600404933 /* FriendCircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B912A6C1FDE837600404933 /* FriendCircleObject.m */; };
 		5B93E11C1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B93E11A1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m */; };
 		5B93E11D1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B93E11B1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.xib */; };
-		5B93E1311FF0F63100DE00E2 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5EE541FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.m */; };
-		5B93E1321FF0F63100DE00E2 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5EE561FE10A2E00F8410A /* UIView+SDAutoLayout.m */; };
 		5B93E1331FF0F63100DE00E2 /* YContactObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B305D831FDA7E87003A65F2 /* YContactObject.m */; };
 		5B93E1341FF0F63100DE00E2 /* YContactObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B305D851FDA7E87003A65F2 /* YContactObjectManager.m */; };
 		5B93E1351FF0F63100DE00E2 /* YContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B305D871FDA7E87003A65F2 /* YContactsManager.m */; };
@@ -140,6 +138,9 @@
 		5BA0E10C1FBC270100F2BFA9 /* CHMobileAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0E10A1FBC270100F2BFA9 /* CHMobileAuthViewController.m */; };
 		5BA0E10D1FBC270100F2BFA9 /* CHMobileAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */; };
 		5BA2256F1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2256E1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m */; };
+		5BA35C3C2087326C001029E4 /* CHFriendOperationMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA35C3B2087326C001029E4 /* CHFriendOperationMenu.m */; };
+		5BA35C4220873A9B001029E4 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA35C3F20873A62001029E4 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		5BA35C4320873A9B001029E4 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA35C4120873A62001029E4 /* UIView+SDAutoLayout.m */; };
 		5BA5DEFD1FB160F8003FEE02 /* CHCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */; };
 		5BA5DF001FB1610B003FEE02 /* CHFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DEFF1FB1610B003FEE02 /* CHFriendsViewController.m */; };
 		5BA5DF031FB1611D003FEE02 /* CHPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5DF021FB1611D003FEE02 /* CHPersonalViewController.m */; };
@@ -445,6 +446,12 @@
 		5BA0E10B1FBC270100F2BFA9 /* CHMobileAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHMobileAuthViewController.xib; sourceTree = "<group>"; };
 		5BA2256D1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CH_ImageAndContent_SectionHeader.h; sourceTree = "<group>"; };
 		5BA2256E1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CH_ImageAndContent_SectionHeader.m; sourceTree = "<group>"; };
+		5BA35C3A2087326C001029E4 /* CHFriendOperationMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendOperationMenu.h; sourceTree = "<group>"; };
+		5BA35C3B2087326C001029E4 /* CHFriendOperationMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriendOperationMenu.m; sourceTree = "<group>"; };
+		5BA35C3E20873A62001029E4 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		5BA35C3F20873A62001029E4 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		5BA35C4020873A62001029E4 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		5BA35C4120873A62001029E4 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		5BA5DEFB1FB160F8003FEE02 /* CHCircleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHCircleViewController.h; sourceTree = "<group>"; };
 		5BA5DEFC1FB160F8003FEE02 /* CHCircleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHCircleViewController.m; sourceTree = "<group>"; };
 		5BA5DEFE1FB1610B003FEE02 /* CHFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriendsViewController.h; sourceTree = "<group>"; };
@@ -478,10 +485,6 @@
 		5BB554201FD154E000A047D9 /* CHFriend_SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchViewController.m; sourceTree = "<group>"; };
 		5BB554221FD155FC00A047D9 /* CHFriend_SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFriend_SearchView.h; sourceTree = "<group>"; };
 		5BB554231FD155FC00A047D9 /* CHFriend_SearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHFriend_SearchView.m; sourceTree = "<group>"; };
-		5BE5EE531FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
-		5BE5EE541FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
-		5BE5EE551FE10A2E00F8410A /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		5BE5EE561FE10A2E00F8410A /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		5BE5EE771FE10C6100F8410A /* SDBrowserImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		5BE5EE781FE10C6100F8410A /* SDBrowserImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
 		5BE5EE791FE10C6100F8410A /* SDPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
@@ -563,6 +566,8 @@
 				5B49FE061FDFC21D001EEC29 /* CHFriendCellCommentView.m */,
 				5B49FE081FDFC28A001EEC29 /* CHFriendPhotoContainerView.h */,
 				5B49FE091FDFC28A001EEC29 /* CHFriendPhotoContainerView.m */,
+				5BA35C3A2087326C001029E4 /* CHFriendOperationMenu.h */,
+				5BA35C3B2087326C001029E4 /* CHFriendOperationMenu.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -959,9 +964,9 @@
 		5B8DC67E1FB047CC00B7B1FA /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				5BA35C3D20873A62001029E4 /* SDAutoLayout */,
 				5B93E13C1FF0F68D00DE00E2 /* SDProgressView */,
 				5BE5EE761FE10C6100F8410A /* SDPhotoBrowser */,
-				5BE5EE521FE10A2E00F8410A /* SDAutoLayout */,
 				5B305D811FDA7E87003A65F2 /* YAddressBookFile */,
 				5B54E6981FB5B9BF00BFFA54 /* STPhotoKit */,
 			);
@@ -1080,6 +1085,18 @@
 			children = (
 			);
 			path = "Register(注册)";
+			sourceTree = "<group>";
+		};
+		5BA35C3D20873A62001029E4 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5BA35C3E20873A62001029E4 /* UITableView+SDAutoTableViewCellHeight.h */,
+				5BA35C3F20873A62001029E4 /* UITableView+SDAutoTableViewCellHeight.m */,
+				5BA35C4020873A62001029E4 /* UIView+SDAutoLayout.h */,
+				5BA35C4120873A62001029E4 /* UIView+SDAutoLayout.m */,
+			);
+			name = SDAutoLayout;
+			path = "../../../../Downloads/GSD_WeiXin-master-3/GSD_WeiXin(wechat)/Classes/Vender/SDAutoLayout";
 			sourceTree = "<group>";
 		};
 		5BA5DEEF1FB16089003FEE02 /* Circle(朋友圈) */ = {
@@ -1281,17 +1298,6 @@
 				5B896A11207B457600D49416 /* RCDDataBaseManager.m */,
 			);
 			path = IMUtilities;
-			sourceTree = "<group>";
-		};
-		5BE5EE521FE10A2E00F8410A /* SDAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				5BE5EE531FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.h */,
-				5BE5EE541FE10A2E00F8410A /* UITableView+SDAutoTableViewCellHeight.m */,
-				5BE5EE551FE10A2E00F8410A /* UIView+SDAutoLayout.h */,
-				5BE5EE561FE10A2E00F8410A /* UIView+SDAutoLayout.m */,
-			);
-			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
 		5BE5EE761FE10C6100F8410A /* SDPhotoBrowser */ = {
@@ -1565,6 +1571,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA35C4220873A9B001029E4 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				5BA35C4320873A9B001029E4 /* UIView+SDAutoLayout.m in Sources */,
 				5B896A13207B6D2000D49416 /* FMDatabase.m in Sources */,
 				5B896A14207B6D2000D49416 /* FMDatabaseAdditions.m in Sources */,
 				5B8AEB7420860C4F0016AA4E /* CHSepreatorString.m in Sources */,
@@ -1589,8 +1597,6 @@
 				5BA2256F1FF6285E00893024 /* CH_ImageAndContent_SectionHeader.m in Sources */,
 				5B90176A1FFCD1BA006440AB /* CH_Publish_View.m in Sources */,
 				5B896A79204F8C1E00E1551B /* CHHomeViewController.m in Sources */,
-				5B93E1311FF0F63100DE00E2 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
-				5B93E1321FF0F63100DE00E2 /* UIView+SDAutoLayout.m in Sources */,
 				5BAE85872015DF0500B4C854 /* CHQiniuUploadTool.m in Sources */,
 				5B999B341FFE177100E56087 /* CHAddFriendTableViewCell.m in Sources */,
 				5B93E1331FF0F63100DE00E2 /* YContactObject.m in Sources */,
@@ -1676,6 +1682,7 @@
 				5B8E46132018833600B1FD51 /* CHIndexViewController.m in Sources */,
 				5B9017701FFCD6B2006440AB /* CHScanCodeViewController.m in Sources */,
 				5B818AED1FBD680700B2B013 /* CHGameViewController.m in Sources */,
+				5BA35C3C2087326C001029E4 /* CHFriendOperationMenu.m in Sources */,
 				5B818AE91FBD67A500B2B013 /* CHPhotoViewController.m in Sources */,
 				5B818B001FBD768100B2B013 /* CHPersonalDataViewController.m in Sources */,
 				5BE5EE7F1FE10ED900F8410A /* SDPhotoBrowser.m in Sources */,
