@@ -50,7 +50,7 @@
  */
 @property (nonatomic, copy)NSString *sex;
 /**
- *
+ * 昵称
  */
 @property (nonatomic, copy)NSString *remark;
 /**

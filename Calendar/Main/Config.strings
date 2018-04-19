@@ -37,6 +37,21 @@
 //获取某个圈子的内容列表
 "community_notes_Url" = "/v1/social/communities";
 
+//删除圈子内容
+"community_dely_notes_Url" = "/v1/social/notes";
+
+//获取某个用户发布的分享
+"community_getUser_notes_Url" = "/v1/social/users";
+
+//发布评论
+"community_publish_Comments_Url" = "/v1/social/notes";
+
+//获取的回复
+"community_reply_comments_Url" = "/v1/social/notes";
+
+//删除回复
+"community_refuse_comments_Url" = "/v1/social/comments";
+
 //获取我的好友列表
 "friend_List_Url" = "/v1/social/friends/list";
 
@@ -47,15 +62,16 @@
 "friend_acceptRequest_Url" = "/v1/social/friend-applies";
 
 //拒绝好友请求
-"friend_refuseReqquest_Url" = "v1/social/friend-applies";
+"friend_refuseReqquest_Url" = "/v1/social/friend-applies";
 
 //查找好友
+"friends_searchRequest_Url" = "/v1/social/users";
 
 //发送好友请求
-"friend_sendRequest_Url" = "/friend/send";
+"friend_sendRequest_Url" = "/v1/social/friends";
 
 //拉黑好友
-"friend_blackFriend_Url" = "/friend/in_black";
+"friend_blackFriend_Url" = "/v1/social/users";
 
 //删除好友
 "friend_delete_Url" = "/friend/delete";
