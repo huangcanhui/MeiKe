@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/Main/CHManager.m"
-            timestampString = "545560952.092514"
+            timestampString = "545821819.5678329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -128,38 +128,6 @@
             startingLineNumber = "123"
             endingLineNumber = "123"
             landmarkName = "-info"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/View/Cell/CHFriendCellCommentView.m"
-            timestampString = "545740901.401812"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-setupWithLikeItemsArray:commentItemsArray:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/Class/Circle(&#x670b;&#x53cb;&#x5708;)/View/Cell/CHFriendCellCommentView.m"
-            timestampString = "545741418.521487"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-setCommentItemArray:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

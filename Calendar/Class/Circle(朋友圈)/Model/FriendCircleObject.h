@@ -51,6 +51,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 评论对象
  */
 @property (nonatomic, strong)NSArray <commentObject *> *comment;
+/**
+ * 通知某人查看
+ */
+@property (nonatomic, strong)NSArray *notify_users;
 
 @end
 

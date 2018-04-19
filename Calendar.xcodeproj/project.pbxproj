@@ -13,6 +13,7 @@
 		5B2EA68D20886A8600B4F2FF /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EA68A20886A6400B4F2FF /* UITableView+SDAutoTableViewCellHeight.m */; };
 		5B2EA68E20886A8600B4F2FF /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EA68C20886A6400B4F2FF /* UIView+SDAutoLayout.m */; };
 		5B2EA69120887DC900B4F2FF /* CHSearch_ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EA69020887DC900B4F2FF /* CHSearch_ResultViewController.m */; };
+		5B2EA6972088954800B4F2FF /* CHPrivate_notesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EA6962088954800B4F2FF /* CHPrivate_notesViewController.m */; };
 		5B305D891FDA8808003A65F2 /* Config.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B305D881FDA8808003A65F2 /* Config.strings */; };
 		5B305D8C1FDA9383003A65F2 /* CHNetString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B305D8B1FDA9383003A65F2 /* CHNetString.m */; };
 		5B49FE031FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49FE021FDFB34B001EEC29 /* CHFriendCircleTableViewCell.m */; };
@@ -204,6 +205,8 @@
 		5B2EA68C20886A6400B4F2FF /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		5B2EA68F20887DC900B4F2FF /* CHSearch_ResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSearch_ResultViewController.h; sourceTree = "<group>"; };
 		5B2EA69020887DC900B4F2FF /* CHSearch_ResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSearch_ResultViewController.m; sourceTree = "<group>"; };
+		5B2EA6952088954800B4F2FF /* CHPrivate_notesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPrivate_notesViewController.h; sourceTree = "<group>"; };
+		5B2EA6962088954800B4F2FF /* CHPrivate_notesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPrivate_notesViewController.m; sourceTree = "<group>"; };
 		5B305D821FDA7E87003A65F2 /* YContactObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YContactObject.h; sourceTree = "<group>"; };
 		5B305D831FDA7E87003A65F2 /* YContactObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YContactObject.m; sourceTree = "<group>"; };
 		5B305D841FDA7E87003A65F2 /* YContactObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YContactObjectManager.h; sourceTree = "<group>"; };
@@ -1121,6 +1124,8 @@
 				5B6BA08E1FB464700081FEF0 /* CHPublishDetailViewController.m */,
 				5B7FF7E91FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.h */,
 				5B7FF7EA1FF4CF0A005F592E /* CHPublish_Photo_ContentViewController.m */,
+				5B2EA6952088954800B4F2FF /* CHPrivate_notesViewController.h */,
+				5B2EA6962088954800B4F2FF /* CHPrivate_notesViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1675,6 +1680,7 @@
 				5B6BA0951FB465140081FEF0 /* MAP.m in Sources */,
 				5B799C871FBEBC0F00903A01 /* CHPersonalData.m in Sources */,
 				5BEBA9081FB04CCE0099E8EF /* NSObject+CH.m in Sources */,
+				5B2EA6972088954800B4F2FF /* CHPrivate_notesViewController.m in Sources */,
 				5B93E11C1FF0E3FD00DE00E2 /* CHImageManagerCollectionViewCell.m in Sources */,
 				5BAD3196207A0C6B0095C78D /* KxMenu.m in Sources */,
 				5B896A12207B457600D49416 /* RCDDataBaseManager.m in Sources */,
@@ -1920,7 +1926,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/** ${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -1969,7 +1975,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/** ${SRCROOT}/**";
 			};
 			name = Release;
 		};

@@ -29,7 +29,7 @@
  */
 @property (nonatomic, strong)UILabel *likeLabel;
 /**
- * 点赞下放的下划线
+ * 点赞下的下划线
  */
 @property (nonatomic, strong)UIView *likeLabelBottomLine;
 /**
@@ -56,6 +56,7 @@
     [self addSubview:self.bgImageView];
     
     self.likeLabel = [UILabel new];
+    self.likeLabel.font = [UIFont systemFontOfSize:14];
     [self addSubview:self.likeLabel];
     
     self.likeLabelBottomLine = [UIView new];
@@ -63,6 +64,25 @@
     [self addSubview:self.likeLabelBottomLine];
     
     self.bgImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+}
+
+- (void)setLikeItemsArray:(NSArray *)likeItemsArray
+{
+    _likeItemsArray = likeItemsArray;
+    
+    NSTextAttachment *attach = [NSTextAttachment new];
+    attach.image = [UIImage imageNamed:@"circle_like"];
+    attach.bounds = CGRectMake(0, -3, 16, 16);
+    NSAttributedString *likeIcon = [NSAttributedString attributedStringWithAttachment:attach];
+    NSMutableAttributedString *attributeText = [[NSMutableAttributedString alloc] initWithAttributedString:likeIcon];
+    for (int i = 0; i < likeItemsArray.count; i++) {
+        LikerObject *obj = likeItemsArray[i];
+        if (i > 0) {
+            [attributeText appendAttributedString:[[NSAttributedString alloc] initWithString:@","]];
+        }
+        [attributeText appendAttributedString:[self generateAttributedStringWithLikeItemModel:obj]];
+    }
+    _likeLabel.attributedText = [attributeText copy];
 }
 
 - (void)setCommentItemArray:(NSArray *)commentItemArray
@@ -113,6 +133,15 @@
     return attString;
 }
 
+- (NSMutableAttributedString *)generateAttributedStringWithLikeItemModel:(LikerObject *)model
+{
+    NSString *text = model.liker;
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:text];
+    UIColor *highLightColor = [UIColor blueColor];
+    [attString setAttributes:@{NSForegroundColorAttributeName:highLightColor, NSLinkAttributeName:model.liker} range:[text rangeOfString:model.liker]];
+    return attString;
+}
+
 - (void)setupWithLikeItemsArray:(NSArray *)likeItemsArray commentItemsArray:(NSArray *)commentItemsArray
 {
     self.likeItemsArray = likeItemsArray;
@@ -130,7 +159,7 @@
     
     CGFloat margin = 5;
     if (likeItemsArray.count) {
-        self.likeLabel.sd_layout.leftSpaceToView(self, 0).rightSpaceToView(self, 0).topSpaceToView(self, margin).autoHeightRatio(0);
+        self.likeLabel.sd_layout.leftSpaceToView(self, margin).rightSpaceToView(self, 0).topSpaceToView(self, 2 * margin).autoHeightRatio(0);
         self.likeLabel.isAttributedContent = YES;
     }
     
@@ -150,7 +179,4 @@
 //{
 //    NSLog(@"%@", link.linkValue);
 //}
-
-
-
 @end

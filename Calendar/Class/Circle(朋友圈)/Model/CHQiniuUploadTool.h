@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Qiniu/QiniuSDK.h>
+#import "QiniuSDK.h"
 #import <UIKit/UIKit.h>
 
 @interface CHQiniuUploadTool : NSObject

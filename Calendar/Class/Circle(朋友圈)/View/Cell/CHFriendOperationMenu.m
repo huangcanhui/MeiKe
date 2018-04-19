@@ -29,8 +29,8 @@
     self.layer.cornerRadius = 5;
     self.backgroundColor = HexColor(0x433f3f);
     
-    _likeButton = [self createButtonWithTitle:@"赞" image:[UIImage imageNamed:@"friend_like"] selectImage:[UIImage imageNamed:@""] target:self select:@selector(likeButtonClicked)];
-    _commentButton = [self createButtonWithTitle:@"评论" image:[UIImage imageNamed:@"friend_comment"] selectImage:[UIImage imageNamed:@""] target:self select:@selector(commentButtonClicked)];
+    _likeButton = [self createButtonWithTitle:@"赞" image:[UIImage imageNamed:@"circle_like"] selectImage:[UIImage imageNamed:@""] target:self select:@selector(likeButtonClicked)];
+    _commentButton = [self createButtonWithTitle:@"评论" image:[UIImage imageNamed:@"AlbumComment"] selectImage:[UIImage imageNamed:@""] target:self select:@selector(commentButtonClicked)];
     
     UIView *centerLine = [UIView new];
     centerLine.backgroundColor = [UIColor grayColor];

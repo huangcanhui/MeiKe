@@ -110,7 +110,7 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     self.moreButton.titleLabel.font = [UIFont systemFontOfSize:14];
     
     self.operationButton = [UIButton new];
-    [self.operationButton setImage:[UIImage imageNamed:@"Circle_Comment"] forState:UIControlStateNormal];
+    [self.operationButton setImage:[UIImage imageNamed:@"AlbumOperateMore"] forState:UIControlStateNormal];
     [self.operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
     self.commentView = [CHFriendCellCommentView new];
@@ -152,7 +152,7 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     
     self.friendContainerView.sd_layout.leftEqualToView(self.contentLabel); //已经在内部实现宽度和高度自适应，所以不需要在设置宽高，top值具体有无在setmodel方法中设置
     
-    self.timeLabel.sd_layout.leftEqualToView(self.contentLabel).topSpaceToView(self.friendContainerView, margin).heightIs(15).autoHeightRatio(0);
+    self.timeLabel.sd_layout.leftEqualToView(self.contentLabel).topSpaceToView(self.friendContainerView, margin).heightIs(15).widthIs(100);
     
     self.operationButton.sd_layout.rightSpaceToView(contentView, margin).centerYEqualToView(self.timeLabel).heightIs(25).widthIs(25);
     

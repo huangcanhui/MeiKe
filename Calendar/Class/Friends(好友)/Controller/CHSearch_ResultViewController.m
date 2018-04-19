@@ -13,6 +13,8 @@
 #import "CHManager.h"
 #import "ProgressHUD.h"
 
+#import "CHPrivate_notesViewController.h"
+
 @interface CHSearch_ResultViewController ()<UITableViewDelegate, UITableViewDataSource>
 /**
  * UITableView
@@ -147,6 +149,15 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) { //个人圈子页面
+        CHPrivate_notesViewController *privateVC = [CHPrivate_notesViewController new];
+        privateVC.numId = self.object.id;
+        [self.navigationController pushViewController:privateVC animated:YES];
+    }
 }
 
 #pragma mark - 发送好友添加请求
