@@ -114,6 +114,12 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     [self.operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
     self.commentView = [CHFriendCellCommentView new];
+    [self.commentView setDidClickCommentLabelBlock:^(NSNumber *commrntId, CGRect rectWindow, NSString *commentName) {
+        if (wself.didClickCommentLabelBlock) {
+            wself.didClickCommentLabelBlock(commrntId, rectWindow, wself.indexPath, commentName);
+        }
+    }];
+    
     
     self.friendContainerView = [CHFriendPhotoContainerView new];
     
@@ -166,7 +172,7 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
 {
     _object = object;
     _commentView.frame = CGRectZero;
-    [_commentView setupWithLikeItemsArray:object.liker commentItemsArray:object.comment];
+    [_commentView setupWithLikeItemsArray:object.liker commentItemsArray:object.latestComments];
     
     _shouldOpenContentLabel = NO;
     
@@ -202,7 +208,7 @@ CGFloat maxContentLabelHeight = 0; //根据具体的font而定
     _friendContainerView.sd_layout.topSpaceToView(_moreButton, picContainerTopMargin);
     UIView *bottomView;
     
-    if (!object.comment.count && !object.liker.count) {
+    if (!object.latestComments.count && !object.liker.count) {
         _commentView.fixedWidth = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedWidth的控件将不再在自动布局过程中调整宽度）
         _commentView.fixedHeight = @0; //如果没有评论或者点赞，设置commentView的固定宽度为0（设置了fixedHeight的控件将不再在自动布局过程中调整宽度
         bottomView = _timeLabel;

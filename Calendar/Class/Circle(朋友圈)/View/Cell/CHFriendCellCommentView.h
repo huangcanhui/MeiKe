@@ -12,4 +12,9 @@
 
 - (void)setupWithLikeItemsArray:(NSArray *)likeItemsArray commentItemsArray:(NSArray *)commentItemsArray;
 
+/**
+ * 评论的点击回调
+ */
+@property (nonatomic, copy)void (^didClickCommentLabelBlock)(NSNumber *commrntId, CGRect rectWindow, NSString *commentName);
+
 @end

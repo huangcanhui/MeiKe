@@ -21,6 +21,7 @@
 #import "CHManager.h"
 #import "FriendListModel.h"
 #import "MJExtension.h"
+#import "mobile.h"
 
 //视图
 #import "CHFriendCircleTableViewCell.h"
@@ -61,7 +62,8 @@ static NSString *bundleID = @"friendCircle";
 /**
  * 评论哪个用户
  */
-@property (nonatomic, copy)NSString *commentToUser;
+@property (nonatomic, copy)NSString *commentToUserName;
+@property (nonatomic, strong)NSNumber *commentUserId;
 @property (nonatomic, assign)BOOL isReplayingComment;
 /**
  * 获取键盘的高度
@@ -218,7 +220,7 @@ static NSString *bundleID = @"friendCircle";
     NSDictionary *params = @{
                              @"page":[NSString stringWithFormat:@"%d", page],
                              @"page_size":@"15",
-                             @"include":@"newComments,owner"
+                             @"include":@"owner,latestComments"
                              };
     [[CHManager manager] requestWithMethod:GET WithPath:[NSString stringWithFormat:@"%@/%@/notes", CHReadConfig(@"community_notes_Url"), communityID] WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
         for (NSDictionary *dict in responseObject[@"data"]) {
@@ -302,12 +304,14 @@ static NSString *bundleID = @"friendCircle";
             model.isOpening = !model.isOpening;
             [wself.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
-        [cell setDidClickCommentLabelBlock:^(NSString *commentId, CGRect rectInWindow, NSIndexPath *indexPath) {
-            wself.textField.placeholder = [NSString stringWithFormat:@"回复%@", commentId];
+
+        [cell setDidClickCommentLabelBlock:^(NSNumber *commentId, CGRect rectInWindow, NSIndexPath *indexPath, NSString *commentName) {
+            wself.textField.placeholder = [NSString stringWithFormat:@"回复%@", commentName];
             wself.currentEditingIndexpath = indexPath;
             [wself.textField becomeFirstResponder];
             wself.isReplayingComment = YES;
-            wself.commentToUser = commentId;
+            wself.commentToUserName = commentName;
+            wself.commentUserId = commentId;
         }];
         cell.delegate = self;
     }
@@ -377,8 +381,6 @@ static NSString *bundleID = @"friendCircle";
     NSDictionary *dict = notification.userInfo;
     CGRect rect = [dict[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
     
-    
-    
     CGRect textFieldRect = CGRectMake(0, rect.origin.y - 40, rect.size.width, 40);
     if (rect.origin.y == [UIScreen mainScreen].bounds.size.height) {
         textFieldRect = rect;
@@ -419,30 +421,52 @@ static NSString *bundleID = @"friendCircle";
         [_textField resignFirstResponder];
         FriendCircleObject *obj = self.tableArray[_currentEditingIndexpath.row];
         NSMutableArray *temp = [NSMutableArray new];
-        [temp addObjectsFromArray:obj.comment];
+        [temp addObjectsFromArray:obj.latestComments];
         commentObject *commentObj = [commentObject new];
+        UserInfo *user = [UserInfo readUserDefaultWithKey:@"UserModel.info"];
         if (self.isReplayingComment) {
-            commentObj.firstUserName = @"牛麦麦";
-            commentObj.firstUserID = @1;
-            commentObj.secondUserName = self.commentToUser;
-            commentObj.secondUserID = @2;
+            commentObj.firstUserName = user.nickname;
+            commentObj.firstUserID = user.id;
+            commentObj.secondUserName = self.commentToUserName;
+            commentObj.secondUserID = self.commentUserId;
             commentObj.comment = textField.text;
             
             self.isReplayingComment = NO;
         } else {
-            commentObj.firstUserName = @"牛麦麦";
-            commentObj.firstUserID = @1;
+            commentObj.firstUserName = user.nickname;
+            commentObj.firstUserID = user.id;
             commentObj.comment = textField.text;
         }
         
         [temp addObject:commentObj];
-        obj.comment = [temp copy];
+        obj.latestComments = [temp copy];
+        if (self.commentUserId != nil) { //评论说说发布者本人
+            [self uploadDataWithNotesId:obj.id andCommentsID:user.id andRef_id:self.commentUserId andComments:textField.text];
+        } else {
+            [self uploadDataWithNotesId:obj.id andCommentsID:user.id andRef_id:obj.owner.id andComments:textField.text];
+        }
+        
+        
         [self.tableView reloadRowsAtIndexPaths:@[_currentEditingIndexpath] withRowAnimation:UITableViewRowAnimationNone];
         
         _textField.text = @"";
         return YES;
     }
     return NO;
+}
+
+- (void)uploadDataWithNotesId:(NSNumber *)notesId andCommentsID:(NSNumber *)userId andRef_id:(NSNumber *)ref_Id andComments:(NSString *)comments
+{
+    NSString *path = [NSString stringWithFormat:@"%@/%@/comments", CHReadConfig(@"community_publish_Comments_Url"), notesId];
+    NSDictionary *params = @{
+                             @"ref_id":ref_Id,
+                             @"content":comments
+                             };
+    [[CHManager manager] requestWithMethod:POST WithPath:path WithParams:params WithSuccessBlock:^(NSDictionary *responseObject) {
+        NSLog(@"说说评论成功");
+    } WithFailurBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)dealloc

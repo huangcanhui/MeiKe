@@ -28,9 +28,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, getter=isLiked)BOOL liked;
 /**
+ * 说说的ID
+ */
+@property (nonatomic, strong)NSNumber *id;
+/**
  * 发布的内容
  */
 @property (nonatomic, copy)NSString *content;
+/**
+ * 是否是自己发布
+ */
+@property (nonatomic, assign)BOOL is_mine;
+/**
+ * 是否仅自己可看
+ */
+@property (nonatomic, assign)BOOL is_private;
 /**
  * 发布的图片数量
  */
@@ -50,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 评论对象
  */
-@property (nonatomic, strong)NSArray <commentObject *> *comment;
+@property (nonatomic, strong)NSArray <commentObject *> *latestComments;
 /**
  * 通知某人查看
  */

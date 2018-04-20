@@ -26,6 +26,6 @@
 
 @property (nonatomic, copy)void (^moreButtonClickBlock)(NSIndexPath *indexPath);
 
-@property (nonatomic, copy)void (^didClickCommentLabelBlock)(NSString *commentId, CGRect rectInWindow, NSIndexPath *indexPath);
+@property (nonatomic, copy)void (^didClickCommentLabelBlock)(NSNumber *commentId, CGRect rectInWindow, NSIndexPath *indexPath, NSString *commentName);
 
 @end
